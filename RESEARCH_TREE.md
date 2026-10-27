@@ -74,10 +74,13 @@ covariate availability), then DESIGN.md and up to three review rounds.
   - [~] model engine (assoc/covariates/gates/attribution/SIM), baselines
   - [x] independent review of harness (no blockers) + engine (1 blocker fixed, D5)
   - [x] freeze hashes + seal TEST (2026-10-27; ~/DepMapTR_sealed, results/FROZEN.sha256)
-- [~] M4 Baseline models (HCT116 TRAIN, results/m4/)
+- [x] M4 Baseline models (HCT116 TRAIN, results/m4/)
   - [!] M1 pooled OR@0.1% = 1.59 (permutation p 0.25; CMH 1.10). Hub baselines dominate: B5 (reg cis×CN SD × target HCT116 expression) 19.7, B4e (target HCT116 expression) 7.1, B2 (co-expression) 5.8. Controls OK: B0 0.98, NC1 0.75, B6 (arm-only) 0.97.
   - [!] M1 has direction information: concordance 0.581 vs independence c0 0.476.
   - [x] B4e CMH = 3.8: the expression-decile strata do not fully remove target detectability, so CMH is not a pure pair-specific measure.
-- [ ] M5 Method development (tuning on train regulators only)
+- [~] M5 Method development (tuning on train regulators only; greedy tiers, DESIGN §5.5, results/tuning/)
+  - [-] Tier 1 arm handling (focal, loao, cnpcs20): none adopted. Focal Δlog-OR +0.68, but fold1 −0.09 / fold2 +1.52, jk lb90 −0.62, so the gain is unstable. LOCO retained.
+  - [!] Tier 2 G1 instrument gate: all adopted under §8.2. τ=100 is best: Δlog-OR +0.79 (folds 0.65/1.12, jk lb90 +0.61), ΔCMH −0.05. Adopted g1_t100_w0 (w=0.5 identical to 2 d.p.). The gain is monotone in τ up to the grid maximum.
+  - [~] Tier 3 G2 context gate
 - [ ] M6 Final held-out evaluation
 - [ ] M7 REPORT.md

@@ -851,3 +851,22 @@
   chr22: 241 regulators (241 rows), 0.4s, lambda_GC=1.059
   chrX: 716 regulators (716 rows), 0.9s, lambda_GC=1.075
 [run_model] call set: t* = 19.595, 10 trans pairs
+[run_model] done focal in 38.7s, peak RSS 12.85 GB -> data/results/scores/focal
+       67.83 real        66.71 user         9.27 sys
+         12850905088  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             1091764  page reclaims
+                  14  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                 902  voluntary context switches
+               39164  involuntary context switches
+        929015017202  instructions retired
+        297277742232  cycles elapsed
+          6342781128  peak memory footprint

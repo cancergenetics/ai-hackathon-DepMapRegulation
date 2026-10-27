@@ -1,0 +1,854 @@
+[run_model] g1_t100_w0: n=1436 R=12141 T=18276; est. peak 5.3 GB
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: divide by zero encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: overflow encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:55: RuntimeWarning: invalid value encountered in matmul
+  return M - self.Q @ (self.Q.T @ M)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: divide by zero encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: overflow encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:93: RuntimeWarning: invalid value encountered in matmul
+  return b.T @ a              # (R, T): all mixed blocks are oriented regulator x target
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: divide by zero encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: overflow encountered in matmul
+  return a.T @ b          # (R, T)
+/Users/colmclaude/ClaudeExperiments/DepMapTR/src/depmaptr/assoc.py:92: RuntimeWarning: invalid value encountered in matmul
+  return a.T @ b          # (R, T)
+  chr1: 1568 regulators (1568 rows), 2.1s, lambda_GC=2.581
+  chr2: 85 regulators (85 rows), 0.5s, lambda_GC=1.779
+  chr3: 602 regulators (602 rows), 1.1s, lambda_GC=2.351
+  chr4: 303 regulators (303 rows), 0.7s, lambda_GC=1.338
+  chr5: 230 regulators (230 rows), 0.7s, lambda_GC=2.058
+  chr6: 816 regulators (816 rows), 1.3s, lambda_GC=1.957
+  chr7: 861 regulators (861 rows), 1.3s, lambda_GC=2.442
+  chr8: 640 regulators (640 rows), 1.1s, lambda_GC=2.033
+  chr9: 295 regulators (295 rows), 0.7s, lambda_GC=1.886
+  chr10: 504 regulators (504 rows), 0.9s, lambda_GC=2.643
+  chr11: 881 regulators (881 rows), 1.4s, lambda_GC=1.657
+  chr12: 396 regulators (396 rows), 0.8s, lambda_GC=2.844
+  chr13: 313 regulators (313 rows), 0.7s, lambda_GC=2.841
+  chr14: 552 regulators (552 rows), 1.1s, lambda_GC=2.891
+  chr15: 103 regulators (103 rows), 0.5s, lambda_GC=1.870
+  chr16: 296 regulators (296 rows), 0.7s, lambda_GC=1.927
+  chr17: 983 regulators (983 rows), 1.4s, lambda_GC=1.784
+  chr18: 255 regulators (255 rows), 0.7s, lambda_GC=2.206
+  chr19: 902 regulators (902 rows), 1.4s, lambda_GC=1.897
+  chr20: 543 regulators (543 rows), 1.1s, lambda_GC=2.071
+  chr21: 56 regulators (56 rows), 0.5s, lambda_GC=1.898
+  chr22: 241 regulators (241 rows), 0.7s, lambda_GC=1.662
+  chrX: 716 regulators (716 rows), 1.2s, lambda_GC=1.662
+[run_model] call set: t* = 3.016, 10673076 trans pairs
+[run_model] done g1_t100_w0 in 52.3s, peak RSS 13.31 GB -> data/results/scores/g1_t100_w0
