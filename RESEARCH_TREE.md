@@ -65,6 +65,7 @@ Next: parallel literature review (LITERATURE.md) and data profiling (DATA.md, re
 covariate availability), then DESIGN.md and up to three review rounds.
 
 ## Decision notes
+- D8a (2026-10-27): pre-final review (reviews/code/prefinal_review.md) gave GO conditional on three fixes. (M1) Verify sealed files exist and match their hashes before the LOCK commit. (M2) Fix the NaN CMH bootstrap bound (a bug, not a metric change). (M3) Add context-layer comparisons vs B5, C2 and selected. Also added: class_iii subset and NC2 on ungated M1.
 - D8 (2026-10-27): implement the remaining pre-listed sensitivity analyses (DESIGN §5.5, §13). These are not tuned; each is run once on TRAIN for reporting and once in the final run.
   - Model side: regulator-conditional hidden factors, CN-outlier exclusion, TP53 dropped for chr17 regulators.
   - Evaluation side: paralog-pair exclusion, regulator-class stratification (HGNC gene groups), runtime table.
