@@ -4,6 +4,17 @@ Legend: [ ] planned · [~] in progress · [x] done · [-] abandoned/negative · 
 
 ## Status summary (latest first)
 
+### 2026-10-27 — M5a: pre-registered tiers complete (23 of 30 configurations used)
+Greedy tuning on HCT116 TRAIN adopted G1 (cis instrument gate, F ≥ 100) and A3 (SuSiE L=1 co-segment attribution, ρ=0.95, s=2, no co-expression). The incumbent `g1_t100_w0__a3_r095_s2_w0`:
+- HCT116 TRAIN: OR@0.1% = 5.0 (M1 1.59), regulator-label permutation p = 0.005, degree-stratified permutation p = 0.055, CMH 1.09.
+- Sign concordance 0.561 vs c0 0.483 (within-regulator permutation p = 0.005); sign-concordant OR 6.2.
+- HEK293T TRAIN: OR 2.5.
+
+Rejected: arm-handling alternatives (unstable), G2 (redundant after G1), target standardisation, hinge, CN floor, RINT.
+
+The method is still far below the DepMap-only hub baseline B5 (regulator cis×CN-SD × target HCT116 expression: OR 19.7). It also falls short on CMH (Δlog −0.93). Most pooled enrichment in this benchmark comes from regulator hubness and target detectability. The CN pair evidence adds little within-regulator target discrimination (CMH ≈ 1).
+Next (D6): a small post-hoc tier that fuses pair evidence with DepMap-only target-context priors, testing whether CN pair evidence adds anything beyond B5. Also extend G1 τ past the grid maximum. A fresh agent runs the retrospective and a fresh scientist proposes ideas.
+
 ### 2026-10-27 — M2 design frozen (v3.1); M3 implementation started
 The design went through three review rounds: 7 reviewers, then 5 (continued), then 1 fresh external PI. Every proposal has a disposition in DESIGN §13.
 Key changes from v1:
@@ -84,6 +95,9 @@ covariate availability), then DESIGN.md and up to three review rounds.
   - [-] Tier 3 G2 context gate on top of G1: not adopted (Δlog-OR +0.05, lb90 ≈ 0). Regulators that pass a strong cis gate are already expressed. Incumbent g1_t100_w0: OR 3.50 (jk CI 2.5–4.8), perm p 0.03, CMH 1.04, concordance 0.578 vs c0 0.487.
   - [!] The G1 gain is regulator selection, not within-regulator target ranking (CMH ≈ 1).
   - [x] Tier 4 A3 attribution: a3_r095_s2_w0 adopted (Δlog-OR +0.36, folds 0.43/0.28, lb90 +0.04). w_co=0.25 also passes with a smaller Δ; ρ=0.98 and s=5 do not.
-  - [~] Tier 5 target standardisation
+  - [-] Tier 5 target standardisation: Δ −0.03, not adopted
+  - [-] Tier 6 hinge (loss slope): Δ −0.11, not adopted
+  - [-] Tier 7 floor 2^-5 (Δ −0.01), RINT (Δ −0.16): not adopted
+  - [!] Incumbent after pre-registered tiers: g1_t100_w0__a3_r095_s2_w0, HCT116 TRAIN OR 5.0 (perm p 0.005), sign concordance significant; still well below B5 (19.7)
 - [ ] M6 Final held-out evaluation
 - [ ] M7 REPORT.md
