@@ -1,0 +1,8 @@
+{
+ "status": "STARTED",
+ "started": "2026-10-27T23:08:15",
+ "mock": false,
+ "git_hash": "62e67b9551a3f8aa9edfb4a0f7cb73892bbf4b20",
+ "selected_yaml_sha256": "871382e599fcc834751f2b2f8e348fa13d79b352d8fea7496bcd9580fc54f956",
+ "selected_yaml": "/Users/colmclaude/ClaudeExperiments/DepMapTR/results/final/selected.yaml"
+}
