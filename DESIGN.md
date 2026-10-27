@@ -1,7 +1,8 @@
 # DESIGN — DepMap CN → trans-expression effects (DepMapTR)
 
-Version: **v2** (2026-10-27). v1 was reviewed by 7 agents (reviews/round1/). Every proposal and its
-disposition is in §13. Inputs: PROMPT.md (fixed goal), LITERATURE.md, DATA.md, docs/DATA_PROFILE.md.
+Version: **v3** (2026-10-27). v1 was reviewed by 7 agents (reviews/round1/) and v2 by 5 (reviews/round2/).
+Every proposal and its disposition is in §13. Inputs: PROMPT.md (fixed goal), LITERATURE.md, DATA.md,
+docs/DATA_PROFILE.md.
 
 ## 1. Goal and estimand
 
@@ -16,8 +17,9 @@ Two caveats are stated explicitly:
   that signature to the gene actually responsible is a separate step (§5.4), and a focal-only variant
   exists (§5.5).
 - The CRISPRi benchmark lowers A. The predicted knockdown direction is therefore
-  **sign_kd(A→B) = −sign(β_AB · β_cis,A)**, where β_cis,A is A's own CN→mRNA slope. Most regulators have
-  β_cis > 0, in which case this reduces to −sign(β_AB).
+  **sign_kd(A→B) = −sign(β_AB) · s_A**. Here s_A = −1 only if A's own cis CN→mRNA t ≤ −3, and +1
+  otherwise. About 95% of genes scale positively, so a weak cis estimate must not flip the sign at random
+  (round-2 domain #1, statistics #6).
 
 ## 2. Data (see DATA.md, docs/DATA_PROFILE.md)
 
@@ -42,7 +44,7 @@ Two caveats are stated explicitly:
   - EngineeredModel lines (drug-adapted, knockouts, clones);
   - all but one model per PatientID (prefer a model with PureCN, then the default).
 
-  This gives n ≈ 1,450; the exact n is logged in the manifest.
+  This gives n = 1,436 (round-2 data check); the exact n is logged in the manifest.
   Rationale: S1 (PureCN-complete, n ≈ 1,037) loses 31% of samples, drops HCT116 itself, and drops 45% of
   MSI-H lines (data review E2). **S1 is a sensitivity analysis only.**
 - **CN transform:** x = log2(clip(relCN, 2^-2, 2^3)). The floor caps the leverage of homozygous deletions
@@ -51,7 +53,9 @@ Two caveats are stated explicitly:
 - **Expression:** log2(TPM+1) as provided. Variant: RINT.
 - **Frozen universe flags** (computed once on the fixed panel P = S2, before tuning, committed and
   hash-locked; no tunable may change them):
-  - regulator **variable CN**: ≥ 20 lines in P with |log2 relCN| ≥ 1;
+  - regulator **variable CN**: ≥ 20 lines in P with |log2 relCN| ≥ 1. For X genes the test is applied to
+    **sex-centred** CN (log2 relCN minus that gene's median within the line's sex), because male X sits at
+    log2 ≈ −1 (round-2 statistics #2, data #2, external PI);
   - DepMap target **measured**: present in both the CN and expression matrices, finite, SD > 0 in P.
     Targets without CN are dropped, because the brief requires each gene's cis CN.
 - Chromosomes:
@@ -68,9 +72,9 @@ Shared covariates Z, present in every model:
 |---|---|---|
 | lineage | OncotreeLineage; heterogeneous lineages (Lymphoid, Myeloid, CNS/Brain, Esophagus/Stomach, Soft Tissue, Bone) split by OncotreePrimaryDisease when the level has ≥ 15 lines; levels < 15 merged into the parent lineage or "other" | the strongest expression confounder; lineage-specific arm events (CRC 18q−/20q+) create cross-chromosome CN–expression correlation |
 | ploidy, WGD | PureCN values; missing → lineage-median imputation + missingness indicator | ploidy-normalised CN hides absolute dosage; WGD changes global transcription and cell size |
-| genome burden **LOCO** | fraction of arms altered (|arm log2| > 0.3) and mean |arm log2|, computed **excluding A's chromosome**, inside the per-chromosome step | the generic aneuploidy-stress axis. The PureCN CIN/LoH values include A's own chromosome and would partly adjust away x_A (domain review #3), so they are not used |
+| genome burden **LOCO** | fraction of **autosomal** arms altered (|arm log2| > 0.3) and mean |arm log2|, computed **excluding A's chromosome**, inside the per-chromosome step | the generic aneuploidy-stress axis. The PureCN CIN/LoH values include A's own chromosome and would partly adjust away x_A (domain review #3), so they are not used |
 | MSI | MSIScore > 20 flag + missingness indicator | MSI lines are near-diploid with a distinct programme; HCT116 is MSI-H |
-| TP53 status | damaging/hotspot mutation flag + missingness indicator | drives CN burden and p53-target expression, a major generic responder set in TP53-WT HCT116. A mutation call is upstream of expression, unlike an expression-derived p53 score (not used) |
+| TP53 status | DepMap 24Q4 figshare mutation matrices: TP53 altered iff Damaging > 0 or Hotspot > 0; missingness indicator (covers 1,255/1,436 lines) | drives CN burden and p53-target expression, a major generic responder set in TP53-WT HCT116. A mutation call is upstream of expression, unlike an expression-derived p53 score (not used) |
 | sex | from Model.csv; missing → indicator | X-target dosage; X regulators |
 | media | base medium (RPMI/DMEM/F12/…, levels ≥ 15) + serum-free flag | culture-driven programmes |
 | growth pattern | adherent/suspension/mixed/spheroid | suspension vs adherent programmes |
@@ -79,9 +83,10 @@ Shared covariates Z, present in every model:
 
 Pair-specific covariates:
 - **Cis basis for B:** W_B = [x_B, 1(relCN_B < 0.25)]. This covers both the linear cis dosage and
-  homozygous deletion of B, as the brief requires (statistics review #2).
+  homozygous deletion of B, as the brief requires (statistics review #2). The deletion indicator is
+  included only when ≥ 3 lines carry it. k_B and df are therefore per target (round-2 statistics #1).
 - **LOCO arm CN:** the arm-level CN of every arm *not* on A's chromosome. These absorb correlated arm events
-  across chromosomes; B's own arm is included.
+  across chromosomes; B's own arm is included. Xp and Xq arm CN are sex-centred.
 
 Deliberately **not** used:
 - **Expression PCs or PEER factors.** They absorb genuine CN-driven trans hubs. An ablation with
@@ -132,37 +137,57 @@ The fit uses Frisch–Waugh–Lovell. For each regulator chromosome c (23 groups
     w_G2 ∈ {0, 0.5}.
   - This uses no benchmark labels. It is a tool input ("context cell line"). G2 is reported as its own
     variant, because it makes predictions context-specific.
+  - The context model IDs are asserted against Model.csv (CellLineName HCT 116 / HEK 293).
+  - Own-gene benchmark status correlates with G2. Its gain is therefore also reported *within* regulator
+    class (i) and in a CMH analysis that includes own-gene status as a stratum (round-2 AI #N4). A true
+    non-expressed regulator cannot be knocked down, so G2 is legitimate DepMap-derived prior knowledge.
+    It is still kept separately visible.
 
 ### 5.4 Co-segment attribution (A3)
 1. Greedy sequential segmentation along each chromosome. A gene joins the current segment if
    r(CN, segment mean) ≥ ρ, with ρ ∈ {0.95, 0.98} pre-listed.
-2. Within a segment of m genes, for each target B, compute a single-effect (SuSiE L = 1) posterior over
-   the genes. It uses Wakefield ABFs of the pair statistics. Because the CN statistics are near-identical
-   across a segment, the prior carries most of the weight. The prior is π_A ∝ softmax(cis t_A / s)
-   (s pre-listed), optionally multiplied by a residual co-expression likelihood ratio.
-3. **Residual co-expression** is used **only** for within-segment redistribution, never as an additive main
-   effect. It is defined as corr(ỹ_B, residual of y_A on x_A and D_c | W_B) and is co-expression, not
-   mediation. It is combined by weighted Stouffer with a pre-listed weight ∈ {0, 0.25, 0.5}. It never
-   conditions on y_A as a covariate for B, which would make y_A a collider.
-4. The pair score is |t_AB| × posterior(A | segment, B), or the z-scale equivalent.
+2. Within a segment of m genes (**all** DepMap genes in the segment, not only perturbed ones, so the
+   benchmark design cannot leak in; round-2 external PI #3), compute a single-effect (SuSiE L = 1)
+   posterior for each target B:
+   α_{g|B} ∝ π_g · ABF(z_gB) · ABF(z_co,gB)^w, where:
+   - ABF(z) = √(1−ρ)·exp(ρz²/2), with ρ = σ₀²/(σ₀² + 1/df) and **σ₀ = 0.05 fixed a priori**;
+   - w ∈ {0, 0.25, 0.5};
+   - π_g ∝ exp(t_cis,g / s) · w_G2(g), with s ∈ {2, 5} and w_G2 the context weight of §5.3.
 
-### 5.5 Pre-registered variants (cap: 30 configurations; `results/variants.yaml`, hash-locked)
-Ranked by prior expected value:
-1. G1 instrument gate (τ, w) — prior work strongly supports it.
-2. G2 context gate (threshold, w).
-3. A3 attribution (ρ, s, co-expression weight).
-4. Arm handling:
+   Singleton segments get α = 1. L = 1 does not remove arm-wide signal shared across segments; the focal
+   variant does that.
+3. **Residual co-expression** z_co,gB = Fisher-z of corr(ỹ_B, residual of y_g on x_g and D_c | W_B). It
+   is co-expression, not mediation, and is used **only** inside the formula above for within-segment
+   redistribution, never as an additive main effect. It never conditions on y_A as a covariate for B,
+   which would make y_A a collider.
+4. The signed pair score is t_AB · α_{A|B}.
+
+### 5.5 Pre-registered variants (`results/variants.yaml`, hash-locked)
+**Cap: at most 30 configurations evaluated on TRAIN in total.** Tuning is **greedy, one tier at a time, in
+the order below**. Each tier starts from the current best configuration, tries that tier's options, and
+adopts one only under the rule in §8.2 (round-2 external PI #2, AI #N1).
+1. Arm handling:
    - LOCO (default);
    - focal = residualise on all arms including A's own;
    - leave-one-arm-out;
-   - LOCO CN-PCs (k ∈ {10, 20}) instead of arms.
+   - LOCO CN-PCs (k = 20) instead of arms.
+2. G1 instrument gate: τ ∈ {10, 30, 100} × w ∈ {0, 0.5}.
+3. G2 context gate: threshold ∈ {1, 2} × w ∈ {0, 0.5}.
+4. A3 attribution: ρ ∈ {0.95, 0.98}; s ∈ {2, 5}; co-expression weight w ∈ {0, 0.25, 0.5}. Searched as a
+   one-at-a-time sweep from (0.95, 2, 0), not a full grid.
 5. Target standardisation: z-score each target's t across regulators before pooled ranking.
-6. Dosage shape: a loss-weighted hinge (separate slopes below/above the median) and a loss-only slope.
-   This is motivated by CRISPRi mimicking loss.
+6. Dosage shape: hinge at copy-neutral (log2 relCN = 0), with separate loss and gain slopes; the loss slope
+   is used for ranking. This is motivated by CRISPRi mimicking loss.
 7. Transforms: CN floor 2^-5; RINT of X and Y.
-8. Sample set S1 (sensitivity).
-9. Regulator-conditional hidden-factor ablation.
-10. GLS with a LOCO CN-kinship matrix and a single variance ratio — only if time allows.
+
+Sensitivity analyses (not tuned; reported on TRAIN and in the final run):
+- sample set S1;
+- leave-HCT116-out;
+- regulator-conditional hidden factors;
+- paralog-pair exclusion;
+- CN-outlier exclusion.
+
+GLS with a LOCO CN-kinship matrix is deferred (only if time allows).
 
 Dropped:
 - the lineage-stratified meta-analysis (underdetermined, n = 20–180 per lineage vs p ≈ 45);
@@ -203,24 +228,44 @@ Dropped:
   - `results/split/regulator_split.tsv` (gene → arm → split) is committed with its sha256 in
     `results/FROZEN.sha256` before any model is evaluated.
   - At freeze, the benchmark labels are physically split into `data/processed/bench_train.parquet` and
-    `bench_test.parquet`. Tuning code can read only the train file. The test file is read only by
-    `scripts/final_eval.py`, which runs once and writes `results/final/LOCK`; any rerun refuses unless the
-    LOCK is removed with a logged reason.
+    `bench_test.parquet`.
+  - The test file is then **sealed**, together with the raw `de/*.parquet` and any cache holding TEST
+    rows. Sealing means:
+    - moving them out of the project tree to `~/DepMapTR_sealed/`;
+    - removing their read permissions;
+    - recording their sha256 in `results/FROZEN.sha256`.
+  - Tuning code reads only `bench_train.parquet` (round-2 AI #R1).
+  - `scripts/final_eval.py` refuses to run unless `results/final/selected.yaml` (the selected method and
+    the ≤ 3 ablations) is committed. It restores read access, runs once, and writes and commits
+    `results/final/LOCK`. Any rerun refuses while the LOCK is committed (round-2 AI #R2).
+  - A dry run of `final_eval.py` on a **mock** test file (TRAIN arms relabelled) is done before the real
+    run.
 - **Metrics.** Each is computed per cell line and per split.
   - **Primary:** pooled Fisher OR among the top K = 0.1% of universe pairs, ranked by the method's score
     (HCT116 TEST).
-  - **Primary significance:** a regulator-label permutation p (1,000 permutations). Benchmark label rows
-    are reassigned among universe regulators within strata (own-gene status × CN-variability tercile), and
-    the top-K OR is recomputed. This preserves score structure and target hubness. Pairs that become
-    cis or out of universe under the permutation are counted as negatives (documented). The OR divided by
-    the median null OR is reported.
-  - **CIs:** a two-way bootstrap (regulator arms × target 5 Mb bins; 1,000 replicates). Methods are
-    compared by a paired bootstrap of log-OR differences.
+  - **Primary significance:** a regulator-label permutation p (1,000 permutations).
+    - Benchmark label rows are reassigned among universe regulators within strata (own-gene status ×
+      CN-variability tercile).
+    - Each permuted OR is computed on the pairs that are trans for both A and π(A). The observed OR in
+      each permutation uses that same pair set, so pairs are never recoded as negatives, and
+      p = (1 + #{OR_null ≥ OR_obs})/1001.
+    - This preserves the score structure and target hubness. It does **not** preserve regulator benchmark
+      degree, so it credits both regulator selection and pair-specific knowledge (wording corrected,
+      round-2 statistics #3).
+    - A secondary, evaluation-only permutation within strata of benchmark-degree decile × own-gene status
+      isolates pair-specific signal.
+    - The permutation tests are calibrated on B0 and NC1 (≥ 200 seeds: the p-values must be ≈ uniform).
+    - The ratio OR / median null OR is reported.
+  - **CIs:** a delete-one-arm jackknife on log-OR with t_{G−1} critical values (G = number of TEST arms,
+    ≈ 14), with target 5 Mb bins resampled within each replicate. Methods are compared with the same paired
+    jackknife. The two-way bootstrap (regulator arms × target bins) is a sensitivity analysis (round-2
+    statistics #4). REPORT.md must state that TEST precision is limited by G.
   - **Fisher p:** reported, labelled "assumes independence".
   - **Secondary:**
     - OR at K ∈ {0.01%, 1%} and at the tool's call set (BH(z′) ≤ 0.05);
     - Cochran–Mantel–Haenszel OR stratified by regulator × target-expression decile, which reports
-      pair-specific knowledge net of regulator selection and target detectability;
+      pair-specific knowledge net of regulator selection and target detectability. A second CMH analysis
+      uses own-gene status × target-expression decile strata;
     - per-regulator AUROC (mean over regulators with ≥ 10 positives);
     - share of top-K pairs from the top 10 regulators;
     - hub-excluded sensitivity: drop the top 1% of regulators and of targets by benchmark degree. This is
@@ -246,7 +291,7 @@ Dropped:
 | B5 | rank(B3) × rank(B4e) | combined degree baseline; the method must beat it on pooled **and** CMH OR |
 | B6 | arm-only: r(arm CN of A's arm, y_B) adjusted as M1 | is gene-level CN beyond the arm informative? |
 | NC1 | residual-permutation null (§5.2) | negative control, OR ≈ 1 |
-| NC2 | secondary-universe regulators of class (iii), not expressed | biological null |
+| NC2 | class (iii) regulators (not expressed in the benchmark) that are also not expressed in DepMap HCT116 (log2 TPM+1 < 1); evaluated **without** G2 | biological null |
 | PC1 | cis pairs (own CN → own mRNA) | positive control for the CN pipeline (outside the metrics) |
 | PC2 | HEK293T hits predicting HCT116 hits for shared TRAIN regulators | empirical reference OR |
 | SIM | toy simulation: planted trans effects, arm co-selection across chromosomes, lineage confounders, co-segment neighbours, a negative-cis regulator, and homozygous deletions | recovery, calibration, sign convention, confounder removal |
@@ -257,10 +302,13 @@ Dropped:
    They are never used as features, never for target- or regulator-level decisions (no dropping of
    "noisy" targets, no target-hub priors), and never for calibration. DepMap CRISPR essentiality, LINCS,
    other Perturb-seq data and perturbation-trained embeddings are excluded from the primary method.
-2. **Tuning objective:** the pooled top-K OR on HCT116 TRAIN, averaged over a 2-fold arm-block split of
-   TRAIN. CMH OR is a non-inferiority check: the selected method must not have a lower CMH OR than M1.
-   A more complex variant replaces a simpler one only if its gain exceeds the TRAIN bootstrap 95% CI
-   half-width.
+2. **Tuning objective:** the pooled top-K OR on HCT116 TRAIN.
+   - **Adoption rule** (round-2 external PI #1): a variant replaces the current best only if
+     - its log-OR gain is > 0 in **both** folds of a fixed 2-fold arm-block split of TRAIN, **and**
+     - the 90% lower bound of a paired two-way bootstrap (TRAIN regulator arms × target bins, 1,000
+       replicates) of the log-OR difference is > 0.
+   - **CMH guard:** the candidate must not be significantly worse than M1 on regulator-stratified CMH OR
+     (90% upper bound of the paired difference > 0).
 3. `evaluate()` appends automatically to `results/tuning_log.tsv`: variant id, params hash, git hash,
    data checksums, seed, TRAIN metrics, wall time. REPORT.md reports the number of variants tried.
 4. **One final TEST run** (`scripts/final_eval.py`). It evaluates the selected method, all §7 baselines and
@@ -326,6 +374,20 @@ errors.
 M3: harness + frozen split + benchmark tests + SIM → M4: baselines + M1 + NC1 → M5: variants on TRAIN →
 M6: one final TEST run → M7: REPORT.md.
 
+**Minimum viable pipeline** (built first and run end-to-end before any extras; round-2 external PI #4):
+- M1 + G1 + G2;
+- baselines B0–B6 and NC1;
+- SIM;
+- the permutation test and jackknife;
+- a mock `final_eval.py` dry run.
+
+**Deferrable** (only after the minimum viable pipeline works):
+- Efron empirical null (the call set uses NC1-calibrated t until then);
+- AR/Fieller intervals;
+- GLS;
+- the S1, hidden-factor and paralog sensitivity analyses;
+- the regulator-class stratification.
+
 ## 13. Review log
 
 ### Round 1 (7 reviewers; reviews/round1/*.md). Dispositions:
@@ -371,4 +433,28 @@ M6: one final TEST run → M7: REPORT.md.
 | Per-regulator score histograms (alg #5) | **accepted** §10 |
 | Heteroskedasticity-robust t (stats #13) | **accepted** as a check on the final method only |
 | TPM compositional artefact (domain #13) | **noted** in limitations; checked by excluding the top 1% of CN outliers in a sensitivity analysis |
-| LITERATURE fixes (prior work) | **accepted** T5 |
+| LITERATURE fixes (prior work) | **accepted** T5 (done) |
+
+### Round 2 (5 reviewers; reviews/round2/*.md). Dispositions:
+| proposal (reviewer) | decision |
+|---|---|
+| Sign rule with shrunk cis sign (domain #1, stats #6) | **accepted**: s_A = −1 only if t_cis ≤ −3 (§1) |
+| LOCO burden on autosomes only (domain #2) | **accepted** §4 |
+| X variable-CN on sex-centred CN; sex-centre Xp/Xq in LOCO (stats #2, data #2, ext-PI) | **accepted** §3, §4 |
+| Conditional homozygous-deletion indicator; per-target k_B and df (stats #1) | **accepted** §4 |
+| Permutation on pairs trans for both A and π(A); corrected interpretation; degree-stratified secondary; calibrate on B0/NC1 (stats #3, AI #N2) | **accepted** §6 |
+| Jackknife over TEST arms with t_{G−1} (stats #4) | **accepted** §6 |
+| SuSiE L = 1 formula with fixed σ₀ (stats #5) | **accepted** §5.4 |
+| Attribution normalised over all segment genes (ext-PI #3) | **accepted** §5.4 |
+| G2 weight applied in the attribution prior (domain should) | **accepted** §5.4 |
+| Adoption rule: both folds + paired bootstrap 90% LB > 0 (ext-PI #1, AI #N1) | **accepted** §8.2 |
+| Greedy tiered tuning, arm handling first; cap = configurations evaluated (ext-PI #2, AI #N1) | **accepted** §5.5 |
+| Minimum viable pipeline first; deferrable list (ext-PI #4) | **accepted** §12 |
+| Seal TEST labels and raw DE outside the tree; commit LOCK; selected.yaml before final (AI #R1, #R2) | **accepted** §6 |
+| G2 within-class and own-gene-stratified CMH reporting (AI #N4) | **accepted** for reporting. Tuning G2 on class (i) only is **rejected**: a regulator that is not expressed cannot be knocked down, so the pooled gain from G2 is real DepMap-derived knowledge, not an artefact. It is kept visible |
+| ACH IDs asserted against Model.csv (AI #N4) | **accepted** §5.3 |
+| NC2 restricted to DepMap-non-expressed regulators, evaluated without G2 (domain should) | **accepted** §7 |
+| Hinge at copy-neutral (domain should) | **accepted** §5.5 |
+| TP53 from 24Q4, rule Damaging > 0 or Hotspot > 0 (data #1) | **accepted** §4 |
+| TP53-WT-only variant (domain should) | **rejected**: variant cap; TP53 is already a covariate |
+| Regulator homozygous-deletion term; better ploidy imputation (domain could) | **deferred** |
