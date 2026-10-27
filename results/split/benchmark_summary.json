@@ -40,6 +40,7 @@
       "ii": 171
      },
      "regulators_with_ge1_positive": 1806,
+     "median_on_target_lfc": -27.553119659423828,
      "fold1": {
       "arms": 14,
       "regulators": 1989,
@@ -57,14 +58,7 @@
      "pairs": 17692753,
      "n_pos_primary": 34343,
      "n_pos_ueffect": 14748,
-     "n_pos_p01": 18391,
-     "frac_lfc_down": 0.6534082636927467,
-     "own_class": {
-      "iii": 1030,
-      "i": 723,
-      "ii": 64
-     },
-     "regulators_with_ge1_positive": 892
+     "n_pos_p01": 18391
     }
    },
    "target_bins": 572,
@@ -86,7 +80,6 @@
      "universe_targets": 10209
     }
    },
-   "median_on_target_lfc": -27.515132904052734,
    "n_cn_only_regulators": 3
   },
   "hek293t": {
@@ -108,6 +101,7 @@
       "ii": 38
      },
      "regulators_with_ge1_positive": 763,
+     "median_on_target_lfc": -26.747587203979492,
      "fold1": {
       "arms": 14,
       "regulators": 1006,
@@ -125,14 +119,7 @@
      "pairs": 8373505,
      "n_pos_primary": 12167,
      "n_pos_ueffect": 3586,
-     "n_pos_p01": 3460,
-     "frac_lfc_down": 0.5058765513273609,
-     "own_class": {
-      "iii": 717,
-      "i": 72,
-      "ii": 9
-     },
-     "regulators_with_ge1_positive": 329
+     "n_pos_p01": 3460
     }
    },
    "target_bins": 584,
@@ -154,7 +141,6 @@
      "universe_targets": 11000
     }
    },
-   "median_on_target_lfc": -26.742977142333984,
    "n_cn_only_regulators": 3
   }
  },

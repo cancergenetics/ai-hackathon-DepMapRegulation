@@ -1,0 +1,15 @@
+test_arm	sibling	sibling_split	abs_r_sibling	max_abs_r_train_arm	nearest_train_arm
+17q	17p	TRAIN	0.0706	0.2008	1p
+7q	7p	TEST	0.3593	0.1728	10q
+14q	14p	absent		0.1229	2q
+6q	6p	TRAIN	0.1779	0.1779	6p
+3p	3q	TRAIN	0.0967	0.1897	8p
+Xp	Xq	TRAIN	0.5549	0.5549	Xq
+7p	7q	TEST	0.3593	0.1399	20q
+22q	22p	absent		0.1386	8p
+19p	19q	TRAIN	0.0898	0.2246	18q
+4q	4p	TRAIN	0.2935	0.2935	4p
+5p	5q	TRAIN	0.0759	0.2104	20q
+12q	12p	TRAIN	0.2627	0.2627	12p
+18p	18q	TRAIN	0.2180	0.2180	18q
+21q	21p	TRAIN	0.2022	0.2022	21p

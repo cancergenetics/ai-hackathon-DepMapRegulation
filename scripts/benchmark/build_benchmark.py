@@ -93,7 +93,10 @@ def main() -> int:
     inputs = [PROC / "pie_gene_map.tsv", PROC / "gene_annotation.tsv", PROC / "frozen_flags.tsv",
               PROC / "panel_s2.tsv", PROC / "depmap_expr_matched.parquet"]
     for line in bm.LINES:
-        inputs += [PIE / f"targets_{line}.tsv", PIE / f"features_{line}.tsv", PIE / f"loose_{line}.parquet"]
+        inputs += [PIE / f"targets_{line}.tsv", PIE / f"features_{line}.tsv", PIE / f"loose_{line}.parquet",
+                   PIE / f"tested_{line}.parquet"]
+    inputs += [PIE / "vocab_targets.tsv", PIE / "vocab_features.tsv",
+               ROOT / "data" / "external" / "annotation" / "cytoBand.hg38.txt.gz"]
     manifest = {"inputs": {str(p.relative_to(ROOT)): bm.sha256_file(p) for p in inputs},
                 "seed": bm.SEED, "lines": {}}
 
@@ -139,6 +142,7 @@ def main() -> int:
         if not med_lfc < 0:
             raise SystemExit(f"invariant: median on-target LFC in {line} is {med_lfc} (expected < 0)")
         regs["own_class"] = regs["pie_id"].map(own["own_class"])
+        regs["own_lfc"] = regs["pie_id"].map(own["lfc"])           # build-time only; not written out
         regs["cn_stat"] = regs["regulator"].map(flags["n_lines_abs_log2cn_ge1"])
         if regs["cn_stat"].isna().any():
             raise SystemExit("universe regulator without a CN-variability statistic")
@@ -158,8 +162,6 @@ def main() -> int:
         regs_all[line], tgts_all[line], pos_all[line] = regs, tgts, pos
         n_pairs = int(sum(len(tgts) - (tgts["chrom"] == c).sum() for c in regs["chrom"]))
         manifest["lines"][line] = {"regulator_counts": rc, "target_counts": tc, "n_pairs": n_pairs,
-                                   "median_on_target_lfc": med_lfc,
-                                   "own_class": regs["own_class"].value_counts().to_dict(),
                                    "n_cn_only_regulators": int(regs["expr_context"].isna().sum())}
         print(f"{line}: {len(regs)} regulators, {len(tgts)} targets, {n_pairs} pairs, "
               f"{int(pos['pos_primary'].sum())} positives", file=sys.stderr)
@@ -215,11 +217,13 @@ def main() -> int:
             p = pos_tr if sp == "TRAIN" else pos_te
             ls[sp] = {"arms": int(r["arm"].nunique()), "regulators": len(r),
                       "pairs": int(sum(len(tgts) - (tgts["chrom"] == c).sum() for c in r["chrom"])),
-                      **{f"n_{f}": int(p[f].sum()) for f in bm.POS_FLAGS},
-                      "frac_lfc_down": float((p.loc[p["pos_primary"], "lfc_sign"] < 0).mean()),
-                      "own_class": r["own_class"].value_counts().to_dict(),
-                      "regulators_with_ge1_positive": int(p["regulator"].nunique())}
-            if sp == "TRAIN":
+                      **{f"n_{f}": int(p[f].sum()) for f in bm.POS_FLAGS}}
+            if sp == "TRAIN":      # label-derived summaries are reported for TRAIN only (TEST stays sealed)
+                ls[sp].update(frac_lfc_down=float((p.loc[p["pos_primary"], "lfc_sign"] < 0).mean()),
+                              own_class=r["own_class"].value_counts().to_dict(),
+                              regulators_with_ge1_positive=int(p["regulator"].nunique()),
+                              median_on_target_lfc=float(r["own_lfc"].median()))
+                manifest["lines"][line]["median_on_target_lfc_train"] = ls[sp]["median_on_target_lfc"]
                 for f in (1, 2):
                     rf = r[r["fold"] == f]
                     ls[sp][f"fold{f}"] = {"arms": int(rf["arm"].nunique()), "regulators": len(rf),
@@ -230,7 +234,6 @@ def main() -> int:
                                   "target_bins": int(tgts["bin"].nunique()),
                                   "excluded": {"regulators": manifest["lines"][line]["regulator_counts"],
                                                "targets": manifest["lines"][line]["target_counts"]},
-                                  "median_on_target_lfc": manifest["lines"][line]["median_on_target_lfc"],
                                   "n_cn_only_regulators": manifest["lines"][line]["n_cn_only_regulators"]}
     shared = set(regs_all["hct116"]["regulator"]) & set(regs_all["hek293t"]["regulator"])
     summary["shared_regulators"] = len(shared)

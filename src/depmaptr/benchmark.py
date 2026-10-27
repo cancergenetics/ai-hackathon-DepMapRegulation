@@ -440,44 +440,124 @@ class Bench:
     files: dict = field(default_factory=dict)   # path -> sha256 (for the log)
 
 
-def load_bench(line: str, split: str = "TRAIN", root: Path = ROOT, token=None, mock: bool = False) -> Bench:
-    """Load one line x split. TRAIN is open; TEST needs the final-eval token.
-    mock=True (final_eval --mock): TRAIN fold-2 arms relabelled as a pseudo-TEST split."""
+def load_bench(line: str, split: str = "TRAIN", root: Path = ROOT, token=None) -> Bench:
+    """Load one line x split. TRAIN is open; TEST needs the final-eval token and reads its labels from the
+    token's (sealed) label directory. A mock token (final_eval --mock) takes the same TEST code path, but its
+    pseudo-TEST regulators are the TRAIN fold-2 regulators and its label directory is a mock sealed directory
+    built from TRAIN labels by `build_mock_sealed`."""
     if line not in LINES:
         raise ValueError(line)
-    if mock:
-        split = "TRAIN"
     _check_token(split, token)
     bd = bench_dir(root)
     rp = bd / f"universe_regulators_{line}.tsv"
     tp = bd / f"universe_targets_{line}.tsv"
-    regs = pd.read_csv(rp, sep="\t", dtype={"chrom": str})
+    allregs = pd.read_csv(rp, sep="\t", dtype={"chrom": str})
     tgts = pd.read_csv(tp, sep="\t", dtype={"chrom": str})
-    regs = regs[regs["split"] == split].reset_index(drop=True)
     files = {str(rp.relative_to(root)): sha256_file(rp), str(tp.relative_to(root)): sha256_file(tp)}
     if split == "TRAIN":
+        regs = allregs[allregs["split"] == "TRAIN"].reset_index(drop=True)
         pp = bd / f"positives_{line}_TRAIN.parquet"
         pos = read_positives(pp)
         files[str(pp.relative_to(root))] = sha256_file(pp)
+        return Bench(line=line, split="TRAIN", regs=regs, tgts=tgts, pos=pos, files=files)
+    if token.mock:
+        regs = allregs[(allregs["split"] == "TRAIN") & (allregs["fold"] == 2)].copy()
+        regs["split"] = "TEST"
     else:
-        ld = token.label_dir
-        pp = ld / f"positives_{line}_TEST.parquet"
-        lp = ld / f"regulator_labels_{line}_TEST.tsv"
-        pos = read_positives(pp, token)
-        lab = pd.read_csv(lp, sep="\t")
-        regs = regs.drop(columns=[c for c in ("own_class", "degree_decile") if c in regs.columns])
-        regs = regs.merge(lab, on="regulator", how="left", validate="1:1")
-        if regs[["own_class", "degree_decile"]].isna().any().any():
-            raise ValueError("TEST regulator labels incomplete")
-        files[str(pp)] = sha256_file(pp)
-        files[str(lp)] = sha256_file(lp)
-    if mock:
-        regs = regs[regs["fold"] == 2].reset_index(drop=True)
-        regs["split"] = "PSEUDO_TEST"
-        pos = pos[pos["regulator"].isin(regs["regulator"])].reset_index(drop=True)
+        regs = allregs[allregs["split"] == "TEST"].copy()
+    regs = regs.reset_index(drop=True)
+    ld = token.label_dir
+    pp = ld / f"positives_{line}_TEST.parquet"
+    lp = ld / f"regulator_labels_{line}_TEST.tsv"
+    pos = read_positives(pp, token)
+    lab = pd.read_csv(lp, sep="\t")
+    regs = regs.drop(columns=[c for c in ("own_class", "degree_decile") if c in regs.columns])
+    regs = regs.merge(lab, on="regulator", how="left", validate="1:1")
+    if regs[["own_class", "degree_decile"]].isna().any().any() or len(lab) != len(regs):
+        raise ValueError("TEST regulator labels do not match the TEST regulators")
+    if not pos["regulator"].isin(regs["regulator"]).all():
+        raise ValueError("TEST positives contain non-TEST regulators")
+    files[str(pp)] = sha256_file(pp)
+    files[str(lp)] = sha256_file(lp)
+    return Bench(line=line, split="PSEUDO_TEST" if token.mock else "TEST", regs=regs, tgts=tgts, pos=pos,
+                 files=files)
+
+
+def build_mock_sealed(out_dir, lines=LINES, root: Path = ROOT) -> list:
+    """Mock sealed directory for final_eval --mock: TRAIN fold-2 regulators relabelled as pseudo-TEST, written
+    under the real TEST file names (positives_<line>_TEST.parquet, regulator_labels_<line>_TEST.tsv) and then
+    made unreadable (chmod a-rw), like seal_test.sh. Only TRAIN labels are read. Returns the written paths and
+    writes <out_dir>/FROZEN.sha256 in the seal format."""
+    out_dir = Path(out_dir)
+    bd = out_dir / "data" / "processed" / "bench"
+    bd.mkdir(parents=True, exist_ok=True)
+    paths = []
+    for line in lines:
+        b = load_bench(line, "TRAIN", root)
+        regs = b.regs[b.regs["fold"] == 2].copy()
+        regs["split"] = "TEST"
+        pos = b.pos[b.pos["regulator"].isin(regs["regulator"])]
         regs["degree_decile"] = degree_deciles(regs, pos).values
-        split = "PSEUDO_TEST"
-    return Bench(line=line, split=split, regs=regs, tgts=tgts, pos=pos, files=files)
+        pp = bd / f"positives_{line}_TEST.parquet"
+        lp = bd / f"regulator_labels_{line}_TEST.tsv"
+        for q in (pp, lp):
+            if q.exists():
+                q.chmod(0o600)
+        pos.to_parquet(pp, index=False)
+        regs[["regulator", "own_class", "degree_decile"]].to_csv(lp, sep="\t", index=False)
+        paths += [pp, lp]
+    lines_out = ["# MOCK seal (final_eval --mock; TRAIN fold-2 labels only)", "# sealed mock"]
+    lines_out += [f"{sha256_file(q)}  {q.relative_to(out_dir)}" for q in paths]
+    (out_dir / "FROZEN.sha256").write_text("\n".join(lines_out) + "\n")
+    for q in paths:
+        q.chmod(0o000)
+    return paths
+
+
+def read_frozen(path) -> tuple[list, list]:
+    """Parse FROZEN.sha256 into ([(sha, in-tree path)], [(sha, sealed relative path)])."""
+    frozen, sealed, section = [], [], "frozen"
+    for ln in Path(path).read_text().splitlines():
+        if ln.startswith("# sealed"):
+            section = "sealed"
+        elif ln.startswith("# FROZEN") or ln.startswith("# frozen"):
+            section = "frozen"
+        if not ln.strip() or ln.startswith("#"):
+            continue
+        h, q = ln.split(None, 1)
+        (sealed if section == "sealed" else frozen).append((h, q.strip()))
+    return frozen, sealed
+
+
+def frozen_drift(path, root: Path = ROOT) -> list:
+    """In-tree frozen files whose sha256 differs from FROZEN.sha256 (or that are missing)."""
+    frozen, _ = read_frozen(path)
+    return [q for h, q in frozen if not (Path(root) / q).exists() or sha256_file(Path(root) / q) != h]
+
+
+# ---------- regulator subsets (secondary universes and controls; evaluation-only) ----------
+SUBSETS = ("class_i", "class_ii", "class_iii", "nc2", "no_split_sibling")
+NC2_EXPR_MAX = 1.0      # log2(TPM+1) < 1 in the DepMap context model (DESIGN §7 NC2)
+
+
+def subset_mask(regs: pd.DataFrame, name: str, root: Path = ROOT) -> np.ndarray:
+    """Boolean mask over `regs` (a Bench.regs table) for a named regulator subset.
+    class_*: own-gene class. nc2: class (iii) and DepMap context expression < 1 (CN-only regulators count as
+    not expressed, as in DESIGN §4). no_split_sibling: regulators whose arm's sibling arm (other arm of the
+    same chromosome) is not in the other split (split-arm leakage sensitivity; docs/BENCHMARK.md)."""
+    if name.startswith("class_"):
+        return (regs["own_class"].astype(str) == name.split("_", 1)[1]).values
+    if name == "nc2":
+        return ((regs["own_class"].astype(str) == "iii")
+                & (regs["expr_context"].fillna(0.0) < NC2_EXPR_MAX)).values
+    if name == "no_split_sibling":
+        units = pd.read_csv(Path(root) / "results" / "split" / "arm_units.tsv", sep="\t")
+        sp = dict(zip(units["arm"], units["split"]))
+        sib = regs["arm"].map(lambda a: a[:-1] + ("q" if a[-1] == "p" else "p"))
+        own = regs["arm"].map(sp)
+        other = sib.map(sp)
+        return (other.isna() | (other == own)).values
+    raise ValueError(f"unknown subset {name!r}; one of {SUBSETS}")
 
 
 def resolve_run_dir(run, root: Path = ROOT) -> Path:
@@ -927,8 +1007,9 @@ LOG_COLUMNS = ["timestamp", "run_id", "variant", "kind", "line", "split", "param
                "data_checksums", "seed", "spawn", "n_perm", "n_boot", "metrics", "wall_s"]
 
 
-def _append_log(row: dict, root: Path) -> None:
-    lp = Path(root) / "results" / "tuning_log.tsv"
+def _append_log(row: dict, root: Path, debug: bool = False) -> None:
+    """Append to results/tuning_log.tsv (or results/tuning_log_debug.tsv for debug runs; both are committed)."""
+    lp = Path(root) / "results" / ("tuning_log_debug.tsv" if debug else "tuning_log.tsv")
     lp.parent.mkdir(parents=True, exist_ok=True)
     new = not lp.exists()
     with open(lp, "a") as fh:
@@ -980,6 +1061,8 @@ def compute_metrics(ev: Evaluation, *, n_perm: int = N_PERM, n_boot: int = N_BOO
     m["jackknife_log_or"] = ev.jackknife([sel], [pl])
     if call_block is not None:
         m["callset"] = ev.callset(call_block)
+    else:
+        m["callset"] = {"skipped": "no boolean `call` array in scores.npz (optional key; DESIGN §6 call-set OR)"}
     if not full:
         return m
     strata = ev.regs["own_class"].astype(str) + "|" + ev.regs["cn_tercile"].astype(str)
@@ -1008,19 +1091,39 @@ def compute_metrics(ev: Evaluation, *, n_perm: int = N_PERM, n_boot: int = N_BOO
     return m
 
 
+def _resolve_scores(run, root: Path):
+    """A run id / directory with scores.npz, or an in-memory score dict (e.g. PC2). Returns (sc, checksum)."""
+    if isinstance(run, dict):
+        sc = dict(run)
+        sc.setdefault("meta", {})
+        h = hashlib.sha256()
+        for k in ("regulators", "targets", "score", "s_cis"):
+            h.update(np.ascontiguousarray(sc[k]).tobytes())
+        return sc, {f"<in-memory:{sc['meta'].get('run_id', 'scores')}>": h.hexdigest()}
+    run_dir = resolve_run_dir(run, root)
+    sc = load_scores(run_dir)
+    sc["meta"].setdefault("run_id", run_dir.name)
+    return sc, {str(run_dir / "scores.npz"): sha256_file(run_dir / "scores.npz")}
+
+
+def _out_dir(root: Path, split: str) -> Path:
+    return Path(root) / "results" / {"TEST": "final", "PSEUDO_TEST": "final_mock"}.get(split, "eval")
+
+
 def evaluate(run, line: str = PRIMARY_LINE, split: str = "TRAIN", *, variant: Optional[str] = None,
              n_perm: int = N_PERM, n_boot: int = N_BOOT, full: bool = True, reg_subset=None,
              subset_name: Optional[str] = None, call_mask: Optional[np.ndarray] = None, root: Path = ROOT,
-             log: bool = True, write_json: bool = True, _token=None, _mock: bool = False) -> dict:
-    """Evaluate one score file on one line x split; append to results/tuning_log.tsv.
+             debug: bool = False, write_json: bool = True, _token=None) -> dict:
+    """Evaluate one score file (run id, directory, or in-memory score dict) on one line x split.
 
+    Every call is logged (DESIGN §8.3): results/tuning_log.tsv, or results/tuning_log_debug.tsv when
+    debug=True (smoke tests, harness checks; also committed). There is no way to switch logging off.
     TEST is refused unless `_token` comes from scripts/final_eval.py (final_eval_token)."""
     t0 = time.time()
     root = Path(root)
-    _check_token("TRAIN" if _mock else split, _token)
-    run_dir = resolve_run_dir(run, root)
-    bench = load_bench(line, split, root, token=_token, mock=_mock)
-    sc = load_scores(run_dir)
+    _check_token(split, _token)
+    bench = load_bench(line, split, root, token=_token)
+    sc, score_check = _resolve_scores(run, root)
     if call_mask is not None:
         sc["call"] = np.asarray(call_mask, bool)
     ev, miss = build_evaluation(sc, bench, reg_subset)
@@ -1029,61 +1132,58 @@ def evaluate(run, line: str = PRIMARY_LINE, split: str = "TRAIN", *, variant: Op
     m.update(miss)
     wall = time.time() - t0
     meta = sc["meta"]
-    run_id = meta.get("run_id", run_dir.name)
+    run_id = meta.get("run_id", "scores")
     variant = variant or meta.get("variant", meta.get("variant_id", ""))
     evp = {"k_fracs": K_FRACS, "n_perm": n_perm, "n_boot": n_boot, "full": full, "subset": subset_name}
     checks = dict(bench.files)
-    checks[str(run_dir / "scores.npz")] = sha256_file(run_dir / "scores.npz")
+    checks.update(score_check)
     out = {"run_id": run_id, "variant": variant, "line": line, "split": bench.split, "metrics": _jsonable(m),
-           "wall_s": wall, "score_wall_s": meta.get("wall_time"), "threads": meta.get("threads"),
-           "seed": SEED, "spawn": SPAWN, "params_hash": _params_hash(meta, evp), "git_hash": git_hash(root),
-           "data_checksums": checks, "subset": subset_name}
+           "wall_s": wall, "score_wall_s": meta.get("wall_time_s", meta.get("wall_time")),
+           "threads": meta.get("threads"), "seed": SEED, "spawn": SPAWN, "params_hash": _params_hash(meta, evp),
+           "git_hash": git_hash(root), "data_checksums": checks, "subset": subset_name, "debug": debug}
     if write_json:
-        od = root / "results" / ("final" if bench.split == "TEST" else "eval") / str(run_id)
-        if _mock:
-            od = root / "results" / "final_mock" / str(run_id)
+        od = _out_dir(root, bench.split) / (f"debug_{run_id}" if debug else str(run_id))
         od.mkdir(parents=True, exist_ok=True)
         name = f"{line}_{bench.split}" + (f"_{subset_name}" if subset_name else "") + ".json"
         (od / name).write_text(json.dumps(_jsonable(out), indent=1))
-    if log:
-        key = ["n_pairs", "primary_or"]
-        summ = {k: m[k] for k in key}
-        summ.update({f"top{k:g}_or": m[f"top{k:g}"]["or"] for k in K_FRACS})
-        summ["fisher_p"] = m[f"top{PRIMARY_K:g}"]["fisher_p_greater"]
-        summ.update(m.get("folds_log_or", {}))
-        if full:
-            summ.update(perm_p=m["perm_regulator"]["perm_p"], perm_degree_p=m["perm_degree"]["perm_p"],
-                        cmh_or=m["cmh_regulator_x_exprdecile"]["cmh_or"],
-                        sign_concordant_or=m["sign"]["sign_concordant_or"],
-                        concordance=m["sign"].get("concordance"), c0=m["sign"].get("c0"),
-                        jk_ci95=m["jackknife_log_or"].get("ci95"))
-        _append_log({"timestamp": _dt.datetime.now().isoformat(timespec="seconds"), "run_id": run_id,
-                     "variant": variant, "kind": "evaluate" + (f":{subset_name}" if subset_name else ""),
-                     "line": line, "split": bench.split, "params_hash": out["params_hash"],
-                     "git_hash": out["git_hash"],
-                     "data_checksums": json.dumps({Path(k).name: v[:16] for k, v in checks.items()}),
-                     "seed": SEED, "spawn": json.dumps(SPAWN), "n_perm": n_perm, "n_boot": n_boot,
-                     "metrics": json.dumps(_jsonable(summ)), "wall_s": f"{wall:.2f}"}, root)
+    summ = {k: m[k] for k in ("n_pairs", "primary_or")}
+    summ.update({f"top{k:g}_or": m[f"top{k:g}"]["or"] for k in K_FRACS})
+    summ["fisher_p"] = m[f"top{PRIMARY_K:g}"]["fisher_p_greater"]
+    summ.update(m.get("folds_log_or", {}))
+    if full:
+        summ.update(perm_p=m["perm_regulator"]["perm_p"], perm_degree_p=m["perm_degree"]["perm_p"],
+                    cmh_or=m["cmh_regulator_x_exprdecile"]["cmh_or"],
+                    sign_concordant_or=m["sign"]["sign_concordant_or"],
+                    concordance=m["sign"].get("concordance"), c0=m["sign"].get("c0"),
+                    jk_ci95=m["jackknife_log_or"].get("ci95"))
+    _append_log({"timestamp": _dt.datetime.now().isoformat(timespec="seconds"), "run_id": run_id,
+                 "variant": variant, "kind": "evaluate" + (f":{subset_name}" if subset_name else ""),
+                 "line": line, "split": bench.split, "params_hash": out["params_hash"],
+                 "git_hash": out["git_hash"],
+                 "data_checksums": json.dumps({Path(k).name: v[:16] for k, v in checks.items()}),
+                 "seed": SEED, "spawn": json.dumps(SPAWN), "n_perm": n_perm, "n_boot": n_boot,
+                 "metrics": json.dumps(_jsonable(summ)), "wall_s": f"{wall:.2f}"}, root, debug)
     return out
 
 
 def compare(run_candidate, run_incumbent, line: str = PRIMARY_LINE, split: str = "TRAIN", *,
-            n_boot: int = N_BOOT, root: Path = ROOT, log: bool = True, _token=None, _mock: bool = False) -> dict:
+            n_boot: int = N_BOOT, root: Path = ROOT, debug: bool = False, _token=None) -> dict:
     """Paired comparison of two score files on the same universe (DESIGN §6 CIs, §8.2 adoption rule):
     Δlog OR per TRAIN fold, paired arm jackknife (t_{G-1}), paired two-way bootstrap of Δlog OR (90 % lower
-    bound) and of Δlog CMH OR (regulator x expression decile; 90 % upper bound)."""
+    bound) and of Δlog CMH OR (regulator x expression decile; 90 % upper bound). Always logged."""
     t0 = time.time()
     root = Path(root)
-    _check_token("TRAIN" if _mock else split, _token)
-    bench = load_bench(line, split, root, token=_token, mock=_mock)
+    _check_token(split, _token)
+    bench = load_bench(line, split, root, token=_token)
     split = bench.split
-    evs, ids = [], []
+    evs, ids, variants, phash = [], [], [], []
     for run in (run_candidate, run_incumbent):
-        rd = resolve_run_dir(run, root)
-        sc = load_scores(rd)
+        sc, _ = _resolve_scores(run, root)
         ev, _ = build_evaluation(sc, bench)
         evs.append(ev)
-        ids.append(sc["meta"].get("run_id", rd.name))
+        ids.append(sc["meta"].get("run_id", "scores"))
+        variants.append(str(sc["meta"].get("variant", "")))
+        phash.append(_params_hash(sc["meta"], {"compare": True, "n_boot": n_boot}))
     sels = [e.topk(PRIMARY_K) for e in evs]
     pl = evs[0].pos_lin("pos_primary")
     lo = [e.pooled(s, pl)["log_or"] for e, s in zip(evs, sels)]
@@ -1104,12 +1204,47 @@ def compare(run_candidate, run_incumbent, line: str = PRIMARY_LINE, split: str =
     res["adopt_rule_8_2"] = bool(len(dfold) == 2 and all(v > 0 for v in dfold.values())
                                  and res["boot_delta_log_or_lb90"] > 0 and res["boot_delta_log_cmh_ub90"] > 0)
     res["wall_s"] = time.time() - t0
-    if log:
-        _append_log({"timestamp": _dt.datetime.now().isoformat(timespec="seconds"),
-                     "run_id": f"{ids[0]}|{ids[1]}", "variant": "", "kind": "compare", "line": line,
-                     "split": split, "params_hash": "", "git_hash": git_hash(root),
-                     "data_checksums": json.dumps({Path(k).name: v[:16] for k, v in bench.files.items()}),
-                     "seed": SEED, "spawn": json.dumps(SPAWN), "n_perm": 0, "n_boot": n_boot,
-                     "metrics": json.dumps(_jsonable({k: v for k, v in res.items() if k != "paired_jackknife"})),
-                     "wall_s": f"{res['wall_s']:.2f}"}, root)
+    _append_log({"timestamp": _dt.datetime.now().isoformat(timespec="seconds"),
+                 "run_id": f"{ids[0]}|{ids[1]}", "variant": f"{variants[0]}|{variants[1]}", "kind": "compare",
+                 "line": line, "split": split, "params_hash": f"{phash[0]}|{phash[1]}", "git_hash": git_hash(root),
+                 "data_checksums": json.dumps({Path(k).name: v[:16] for k, v in bench.files.items()}),
+                 "seed": SEED, "spawn": json.dumps(SPAWN), "n_perm": 0, "n_boot": n_boot,
+                 "metrics": json.dumps(_jsonable({k: v for k, v in res.items() if k != "paired_jackknife"})),
+                 "wall_s": f"{res['wall_s']:.2f}"}, root, debug)
     return _jsonable(res)
+
+
+# ---------- PC2: HEK293T hits predicting HCT116 hits (DESIGN §7; evaluation-only empirical reference) ----------
+def pc2_scores(split: str = "TRAIN", root: Path = ROOT, token=None):
+    """In-memory score dict for PC2 and the HCT116 regulator mask (regulators shared with the HEK293T
+    universe of the same split). Score of (A, B) = sign_kd x -log10(p_adj) of the HEK293T primary positive,
+    with sign_kd = HEK293T LFC sign (s_cis = +1, so the predicted knockdown sign is the HEK293T LFC sign);
+    0 for pairs that are not HEK293T positives. `call` = HEK293T positive (the call-set OR is the plain
+    overlap OR of the two hit sets)."""
+    hct = load_bench("hct116", split, root, token)
+    hek = load_bench("hek293t", split, root, token)
+    shared = sorted(set(hct.regs["regulator"]) & set(hek.regs["regulator"]))
+    T = hct.tgts["target"].values.astype(str)
+    R = np.array(shared, dtype=str)
+    ri, ti = pd.Index(R), pd.Index(T)
+    p = hek.pos[hek.pos["pos_primary"]]
+    r = ri.get_indexer(p["regulator"])
+    t = ti.get_indexer(p["target"])
+    ok = (r >= 0) & (t >= 0)
+    S = np.zeros((len(R), len(T)), np.float32)
+    mag = -np.log10(np.clip(p["p_adj"].values[ok], 1e-300, 1.0))
+    S[r[ok], t[ok]] = (-p["lfc_sign"].values[ok] * mag).astype(np.float32)
+    call = np.zeros(S.shape, bool)
+    call[r[ok], t[ok]] = True
+    sc = {"regulators": R, "targets": T, "score": S, "s_cis": np.ones(len(R), np.int8), "call": call,
+          "meta": {"run_id": "PC2", "variant": "PC2",
+                   "params": {"source": "hek293t positives", "split": hct.split}}}
+    mask = hct.regs["regulator"].isin(set(shared)).values
+    return sc, mask
+
+
+def evaluate_pc2(split: str = "TRAIN", root: Path = ROOT, n_perm: int = N_PERM, debug: bool = False,
+                 _token=None) -> dict:
+    sc, mask = pc2_scores(split, root, _token)
+    return evaluate(sc, "hct116", split, n_perm=n_perm, reg_subset=mask, subset_name="shared_hek293t",
+                    root=root, debug=debug, _token=_token)

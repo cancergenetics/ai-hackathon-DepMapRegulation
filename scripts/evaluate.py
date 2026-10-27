@@ -8,6 +8,9 @@ Examples
   .venv/bin/python scripts/evaluate.py M1 B3 --line both
   .venv/bin/python scripts/evaluate.py M1_g1 --compare M1      # paired comparison + §8.2 adoption rule
   .venv/bin/python scripts/evaluate.py M1 --subset class_i      # secondary universe: own-gene class (i)
+  .venv/bin/python scripts/evaluate.py M1_noG2 --subset nc2      # NC2 biological null (evaluate without G2)
+  .venv/bin/python scripts/evaluate.py --pc2                     # PC2 empirical reference (HEK293T -> HCT116)
+  --debug sends the log row to results/tuning_log_debug.tsv (smoke tests); logging cannot be switched off.
 RUN is a run id under data/results/scores/ or a directory holding scores.npz.
 """
 from __future__ import annotations
@@ -20,7 +23,6 @@ import numpy as np
 
 from depmaptr import benchmark as bm
 
-SUBSETS = {"class_i": ("own_class", "i"), "class_ii": ("own_class", "ii"), "class_iii": ("own_class", "iii")}
 
 
 def headline(out: dict) -> dict:
@@ -43,31 +45,34 @@ def headline(out: dict) -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("runs", nargs="+")
+    ap.add_argument("runs", nargs="*")
     ap.add_argument("--line", default=bm.PRIMARY_LINE, choices=list(bm.LINES) + ["both"])
     ap.add_argument("--split", default="TRAIN", help="only TRAIN is accepted here")
     ap.add_argument("--n-perm", type=int, default=bm.N_PERM)
     ap.add_argument("--n-boot", type=int, default=bm.N_BOOT)
     ap.add_argument("--quick", action="store_true", help="ORs, folds and jackknife only (no permutations)")
     ap.add_argument("--compare", metavar="INCUMBENT", help="paired comparison of each RUN against INCUMBENT")
-    ap.add_argument("--subset", choices=sorted(SUBSETS))
+    ap.add_argument("--subset", choices=bm.SUBSETS)
+    ap.add_argument("--pc2", action="store_true", help="evaluate PC2 (HCT116, regulators shared with HEK293T)")
+    ap.add_argument("--debug", action="store_true", help="log to results/tuning_log_debug.tsv")
     ap.add_argument("--variant", help="variant id for the log (default: from meta.json)")
     a = ap.parse_args()
     if a.split != "TRAIN":
         raise SystemExit("evaluate.py evaluates TRAIN only; TEST is evaluated once by scripts/final_eval.py")
+    if a.pc2:
+        print(json.dumps(headline(bm.evaluate_pc2("TRAIN", n_perm=a.n_perm, debug=a.debug)), default=str))
+    if not a.runs:
+        return 0
     lines = list(bm.LINES) if a.line == "both" else [a.line]
     for line in lines:
         for run in a.runs:
             if a.compare:
-                print(json.dumps(bm.compare(run, a.compare, line, "TRAIN", n_boot=a.n_boot), indent=1))
+                print(json.dumps(bm.compare(run, a.compare, line, "TRAIN", n_boot=a.n_boot, debug=a.debug),
+                                 indent=1))
                 continue
-            mask = None
-            if a.subset:
-                col, val = SUBSETS[a.subset]
-                regs = bm.load_bench(line, "TRAIN").regs
-                mask = (regs[col].astype(str) == val).values
+            mask = bm.subset_mask(bm.load_bench(line, "TRAIN").regs, a.subset) if a.subset else None
             out = bm.evaluate(run, line, "TRAIN", variant=a.variant, n_perm=a.n_perm, n_boot=a.n_boot,
-                              full=not a.quick, reg_subset=mask, subset_name=a.subset)
+                              full=not a.quick, reg_subset=mask, subset_name=a.subset, debug=a.debug)
             print(json.dumps(headline(out), default=str))
     return 0
 

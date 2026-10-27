@@ -10,24 +10,14 @@ FROZEN = bm.ROOT / "results" / "FROZEN.sha256"
 
 
 def entries():
-    frozen, sealed, section = [], [], "frozen"
-    for ln in FROZEN.read_text().splitlines():
-        if ln.startswith("# sealed"):
-            section = "sealed"
-        elif ln.startswith("# FROZEN") or ln.startswith("# frozen"):
-            section = "frozen"
-        if not ln.strip() or ln.startswith("#"):
-            continue
-        h, p = ln.split(None, 1)
-        (sealed if section == "sealed" else frozen).append((h, p.strip()))
-    return frozen, sealed
+    return bm.read_frozen(FROZEN)
 
 
 @pytest.mark.skipif(not FROZEN.exists(), reason="not frozen yet")
 def test_no_drift_in_frozen_files():
     frozen, _ = entries()
     assert frozen
-    drift = [p for h, p in frozen if not (bm.ROOT / p).exists() or bm.sha256_file(bm.ROOT / p) != h]
+    drift = bm.frozen_drift(FROZEN)
     assert not drift, f"frozen files changed (needs a decision note, DESIGN §8.5): {drift}"
 
 

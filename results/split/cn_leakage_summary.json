@@ -1,0 +1,99 @@
+{
+ "definition": "Uses only the split (results/split/), the universe regulator lists and DepMap CN. No benchmark label is read.\nx = log2(clip(relCN, 2^-2, 2^3)) (DESIGN \u00a73); X genes and Xp/Xq arms are sex-centred (median within\nModel sex; Unknown/missing pooled), as for the frozen variable-CN flag.",
+ "lines": {
+  "hct116": {
+   "test_vs_train": {
+    "n": 1817,
+    "median": 0.18750800598370326,
+    "q90": 0.33527509838455904,
+    "frac_gt_0.5": 0.07429829389102917,
+    "frac_gt_0.8": 0.0,
+    "frac_gt_0.9": 0.0,
+    "frac_gt_0.95": 0.0
+   },
+   "test_vs_train_sibling_in_train": {
+    "n": 1096,
+    "median": 0.2046016828353911,
+    "q90": 0.5839304884544876,
+    "frac_gt_0.5": 0.12317518248175183,
+    "frac_gt_0.8": 0.0,
+    "frac_gt_0.9": 0.0,
+    "frac_gt_0.95": 0.0
+   },
+   "test_vs_train_sibling_not_in_train": {
+    "n": 721,
+    "median": 0.16472482934718766,
+    "q90": 0.2135475064915635,
+    "frac_gt_0.5": 0.0,
+    "frac_gt_0.8": 0.0,
+    "frac_gt_0.9": 0.0,
+    "frac_gt_0.95": 0.0
+   },
+   "frac_nearest_is_sibling": 0.263621353880022,
+   "reference_fold2_vs_fold1": {
+    "n": 1817,
+    "median": 0.14356563377915565,
+    "q90": 0.26908946552744195,
+    "frac_gt_0.5": 0.0,
+    "frac_gt_0.8": 0.0,
+    "frac_gt_0.9": 0.0,
+    "frac_gt_0.95": 0.0
+   }
+  },
+  "hek293t": {
+   "test_vs_train": {
+    "n": 798,
+    "median": 0.18234600444018995,
+    "q90": 0.318883324780643,
+    "frac_gt_0.5": 0.08270676691729323,
+    "frac_gt_0.8": 0.0,
+    "frac_gt_0.9": 0.0,
+    "frac_gt_0.95": 0.0
+   },
+   "test_vs_train_sibling_in_train": {
+    "n": 479,
+    "median": 0.19981388298057443,
+    "q90": 0.5987022169895728,
+    "frac_gt_0.5": 0.13778705636743216,
+    "frac_gt_0.8": 0.0,
+    "frac_gt_0.9": 0.0,
+    "frac_gt_0.95": 0.0
+   },
+   "test_vs_train_sibling_not_in_train": {
+    "n": 319,
+    "median": 0.16246266994452294,
+    "q90": 0.21350380605126673,
+    "frac_gt_0.5": 0.0,
+    "frac_gt_0.8": 0.0,
+    "frac_gt_0.9": 0.0,
+    "frac_gt_0.95": 0.0
+   },
+   "frac_nearest_is_sibling": 0.24812030075187969,
+   "reference_fold2_vs_fold1": {
+    "n": 884,
+    "median": 0.13647536557247414,
+    "q90": 0.28501958478322753,
+    "frac_gt_0.5": 0.0,
+    "frac_gt_0.8": 0.0,
+    "frac_gt_0.9": 0.0,
+    "frac_gt_0.95": 0.0
+   }
+  }
+ },
+ "arms": {
+  "n_test_arms_with_train_sibling": 10,
+  "chromosomes_split_across": [
+   "3",
+   "4",
+   "5",
+   "6",
+   "12",
+   "17",
+   "18",
+   "19",
+   "21",
+   "X"
+  ],
+  "median_abs_r_with_train_sibling": 0.19004810692245372
+ }
+}

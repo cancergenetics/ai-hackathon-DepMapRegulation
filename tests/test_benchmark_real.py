@@ -82,7 +82,7 @@ def test_positives_trans_and_in_universe(line_tables):
 def test_manifest_invariants():
     man = json.loads((BD / "manifest.json").read_text())
     for line in bm.LINES:
-        assert man["lines"][line]["median_on_target_lfc"] < 0               # CRISPRi knocks down its target
+        assert man["lines"][line]["median_on_target_lfc_train"] < 0               # CRISPRi knocks down its target
 
 
 def test_split_reproducible_and_triplets():
@@ -119,8 +119,10 @@ def test_random_scores_on_real_train(tmp_path):
     np.savez(tmp_path / "scores.npz", regulators=b.regs["regulator"].values.astype(str),
              targets=b.tgts["target"].values.astype(str), t=S, score=S,
              s_cis=np.ones(len(b.regs), np.int8), cis_t=np.zeros(len(b.regs), np.float32))
-    out = bm.evaluate(tmp_path, "hct116", "TRAIN", full=False, log=False, write_json=False)
-    m = out["metrics"]
+    # computed directly (not via evaluate(), which always logs) so that pytest runs leave no log rows
+    ev, miss = bm.build_evaluation(bm.load_scores(tmp_path), b)
+    m = bm.compute_metrics(ev, full=False)
+    m.update(miss)
     expect = sum(len(b.tgts) - (b.tgts["chrom"] == c).sum() for c in b.regs["chrom"])
     assert m["n_pairs"] == expect
     assert 0.6 < m["primary_or"] < 1.5 and 0.85 < m["top0.01"]["or"] < 1.15

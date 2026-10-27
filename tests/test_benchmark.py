@@ -470,8 +470,10 @@ def test_universe_builders():
 
 # ----------------------------------------------------------------------------- end-to-end + TEST guard
 def write_toy_bench(root, seed=0):
-    """Toy project tree: bench tables (TRAIN + TEST), sealed-style TEST labels, and two score files."""
+    """Toy project tree: bench tables for both lines (identical labels, so PC2 is a perfect predictor),
+    TRAIN + TEST positives, TEST regulator labels, results/split/arm_units.tsv, and two score files."""
     regs, tgts, L = toy_tables(nr=48, nt=120, n_chrom=4, arms_per_chrom=2, seed=seed)
+    regs["expr_context"] = np.random.default_rng(seed).choice([0.0, 0.5, 3.0, np.nan], len(regs))
     bd = root / "data" / "processed" / "bench"
     bd.mkdir(parents=True)
     arm_test = sorted(regs.arm.unique())[:2]
@@ -480,14 +482,19 @@ def write_toy_bench(root, seed=0):
     lfc = np.random.default_rng(seed).choice([-1, 1], L.sum()).astype(np.int8)
     pos = pos_from_dense(regs, tgts, L, lfc=lfc)
     test_regs = set(regs.regulator[regs.split == "TEST"])
-    pos[~pos.regulator.isin(test_regs)].to_parquet(bd / "positives_hct116_TRAIN.parquet")
-    pos[pos.regulator.isin(test_regs)].to_parquet(bd / "positives_hct116_TEST.parquet")
-    lab = regs.loc[regs.split == "TEST", ["regulator", "own_class", "degree_decile"]]
-    lab.to_csv(bd / "regulator_labels_hct116_TEST.tsv", sep="\t", index=False)
-    r2 = regs.copy()
-    r2.loc[r2.split == "TEST", ["own_class", "degree_decile"]] = np.nan
-    r2.to_csv(bd / "universe_regulators_hct116.tsv", sep="\t", index=False)
-    tgts.to_csv(bd / "universe_targets_hct116.tsv", sep="\t", index=False)
+    for line in bm.LINES:
+        pos[~pos.regulator.isin(test_regs)].to_parquet(bd / f"positives_{line}_TRAIN.parquet")
+        pos[pos.regulator.isin(test_regs)].to_parquet(bd / f"positives_{line}_TEST.parquet")
+        lab = regs.loc[regs.split == "TEST", ["regulator", "own_class", "degree_decile"]]
+        lab.to_csv(bd / f"regulator_labels_{line}_TEST.tsv", sep="\t", index=False)
+        r2 = regs.copy()
+        r2.loc[r2.split == "TEST", ["own_class", "degree_decile"]] = np.nan
+        r2.to_csv(bd / f"universe_regulators_{line}.tsv", sep="\t", index=False)
+        tgts.to_csv(bd / f"universe_targets_{line}.tsv", sep="\t", index=False)
+    sd = root / "results" / "split"
+    sd.mkdir(parents=True, exist_ok=True)
+    units = regs.groupby("arm", as_index=False).agg(split=("split", "first"))
+    units.to_csv(sd / "arm_units.tsv", sep="\t", index=False)
     runs = {}
     for name, strength in (("good", 2.0), ("random", 0.0)):
         rd = root / "data" / "results" / "scores" / name
@@ -506,6 +513,10 @@ def write_toy_bench(root, seed=0):
     return regs, tgts, L, runs
 
 
+def read_log(root, debug=False):
+    return pd.read_csv(root / "results" / ("tuning_log_debug.tsv" if debug else "tuning_log.tsv"), sep="\t")
+
+
 def test_evaluate_end_to_end_and_log(tmp_path):
     regs, tgts, L, runs = write_toy_bench(tmp_path)
     out = bm.evaluate(runs["good"], "hct116", "TRAIN", n_perm=49, n_boot=50, root=tmp_path)
@@ -515,23 +526,71 @@ def test_evaluate_end_to_end_and_log(tmp_path):
     assert m["n_pairs"] == dense_valid(regs[tr], tgts).sum()
     assert m["primary_or"] > 3 and m["perm_regulator"]["perm_p"] < 0.1
     assert m["n_regulators_missing_in_scores"] == 0
+    assert "skipped" in m["callset"]                      # no `call` array in the score file -> noted
     # same metrics as a direct Evaluation on the aligned dense block
     ev = bm.Evaluation(regs[tr], tgts, pos_from_dense(regs[tr], tgts, L[tr]),
                        (np.random.default_rng(1).normal(size=L.shape) + 2 * L).astype(np.float32)[tr],
                        np.ones(tr.sum(), np.int8))
     assert ev.pooled(ev.topk(bm.PRIMARY_K), ev.pos_lin())["or"] == pytest.approx(m["primary_or"])
-    log = pd.read_csv(tmp_path / "results" / "tuning_log.tsv", sep="\t")
+    log = read_log(tmp_path)
     assert len(log) == 1 and log.run_id[0] == "good" and log.split[0] == "TRAIN"
     for c in ("params_hash", "git_hash", "data_checksums", "seed", "metrics", "wall_s"):
         assert c in log.columns and pd.notna(log[c][0])
     assert json.loads(log.metrics[0])["primary_or"] == pytest.approx(m["primary_or"])
     assert (tmp_path / "results" / "eval" / "good" / "hct116_TRAIN.json").exists()
     bm.evaluate(runs["random"], "hct116", "TRAIN", n_perm=19, n_boot=20, root=tmp_path, full=False)
-    assert len(pd.read_csv(tmp_path / "results" / "tuning_log.tsv", sep="\t")) == 2
+    assert len(read_log(tmp_path)) == 2
+    # logging cannot be switched off: debug runs go to the (committed) debug log
+    with pytest.raises(TypeError):
+        bm.evaluate(runs["random"], "hct116", "TRAIN", root=tmp_path, log=False)
+    bm.evaluate(runs["random"], "hct116", "TRAIN", root=tmp_path, full=False, debug=True)
+    assert len(read_log(tmp_path)) == 2 and len(read_log(tmp_path, debug=True)) == 1
     c = bm.compare(runs["good"], runs["random"], "hct116", "TRAIN", n_boot=50, root=tmp_path)
     assert c["delta_log_or"] > 0 and c["boot_delta_log_or_lb90"] > 0
+    row = read_log(tmp_path).iloc[-1]
+    assert row["kind"] == "compare" and row["variant"] == "good|random" and "|" in row["params_hash"]
     c0 = bm.compare(runs["good"], runs["good"], "hct116", "TRAIN", n_boot=20, root=tmp_path)
     assert c0["delta_log_or"] == 0 and c0["boot_delta_log_or_lb90"] == 0 and not c0["adopt_rule_8_2"]
+
+
+def test_callset_from_score_file(tmp_path):
+    regs, tgts, L, runs = write_toy_bench(tmp_path)
+    z = dict(np.load(runs["good"] / "scores.npz"))
+    z["call"] = np.abs(z["score"]) > 1.5
+    np.savez(runs["good"] / "scores.npz", **z)
+    m = bm.evaluate(runs["good"], "hct116", "TRAIN", full=False, root=tmp_path)["metrics"]
+    tr = (regs.split == "TRAIN").values
+    S = (np.random.default_rng(1).normal(size=L.shape) + 2 * L).astype(np.float32)[tr]
+    V = dense_valid(regs[tr], tgts)
+    assert tuple(m["callset"]["table"]) == tuple(int(x) for x in dense_or((np.abs(S) > 1.5) & V, L[tr], V))
+
+
+def test_pc2_reference(tmp_path):
+    regs, tgts, L, runs = write_toy_bench(tmp_path)        # HEK293T labels identical to HCT116 in the toy
+    out = bm.evaluate_pc2("TRAIN", tmp_path, n_perm=19)
+    m = out["metrics"]
+    assert out["run_id"] == "PC2" and out["subset"] == "shared_hek293t"
+    tr = (regs.split == "TRAIN").values
+    assert m["n_regulators"] == tr.sum()
+    a, b, c, d = m["callset"]["table"]
+    assert b == 0 and c == 0 and a == (L[tr] & dense_valid(regs[tr], tgts)).sum()
+    assert m["sign"]["concordance"] == 1.0                 # predicted kd sign = HEK293T LFC sign
+    assert read_log(tmp_path).run_id.iloc[-1] == "PC2"
+
+
+def test_subset_masks(tmp_path):
+    regs, tgts, L, runs = write_toy_bench(tmp_path)
+    b = bm.load_bench("hct116", "TRAIN", tmp_path)
+    nc2 = bm.subset_mask(b.regs, "nc2", tmp_path)
+    exp = (b.regs.own_class == "iii") & (b.regs.expr_context.fillna(0) < 1)   # CN-only counts as not expressed
+    assert (nc2 == exp.values).all() and nc2.any()
+    sib = bm.subset_mask(b.regs, "no_split_sibling", tmp_path)
+    sp = dict(zip(regs.arm, regs.split))
+    for arm, keep in zip(b.regs.arm, sib):
+        other = sp.get(arm[:-1] + ("q" if arm[-1] == "p" else "p"))
+        assert keep == (other is None or other == "TRAIN")
+    with pytest.raises(ValueError):
+        bm.subset_mask(b.regs, "nope")
 
 
 def test_test_split_is_refused(tmp_path):
@@ -548,16 +607,28 @@ def test_test_split_is_refused(tmp_path):
         bm.final_eval_token(tmp_path)
     with pytest.raises(bm.SealedSplitError):                # a forged object is not a token
         bm.evaluate(runs["good"], "hct116", "TEST", root=tmp_path, _token=object())
+    with pytest.raises(bm.SealedSplitError):
+        bm.evaluate_pc2("TEST", tmp_path)
     assert not (tmp_path / "results" / "tuning_log.tsv").exists()
 
 
-def test_final_eval_token_path_allows_test(tmp_path, monkeypatch):
+def test_final_eval_token_and_mock_sealed_path(tmp_path, monkeypatch):
     regs, tgts, L, runs = write_toy_bench(tmp_path)
     monkeypatch.setattr("sys.argv", [str(tmp_path / "scripts" / "final_eval.py")])
     tok = bm.final_eval_token(tmp_path / "data" / "processed" / "bench")
     out = bm.evaluate(runs["good"], "hct116", "TEST", n_perm=19, n_boot=20, root=tmp_path, _token=tok)
     assert out["split"] == "TEST" and out["metrics"]["n_regulators"] == (regs.split == "TEST").sum()
-    mock = bm.evaluate(runs["good"], "hct116", "TEST", n_perm=19, n_boot=20, root=tmp_path, _token=tok,
-                       _mock=True)
+    # mock: TRAIN fold-2 labels under TEST names in a mock sealed dir, unreadable until restored
+    ms = tmp_path / "mock_sealed"
+    paths = bm.build_mock_sealed(ms, ["hct116"], tmp_path)
+    for q in paths:
+        with pytest.raises(PermissionError):
+            open(q, "rb")
+        q.chmod(0o600)
+    _, sealed = bm.read_frozen(ms / "FROZEN.sha256")
+    assert {q for _, q in sealed} == {str(q.relative_to(ms)) for q in paths}
+    mtok = bm.final_eval_token(ms / "data" / "processed" / "bench", mock=True)
+    mock = bm.evaluate(runs["good"], "hct116", "TEST", n_perm=19, n_boot=20, root=tmp_path, _token=mtok)
     assert mock["split"] == "PSEUDO_TEST"
     assert mock["metrics"]["n_regulators"] == ((regs.split == "TRAIN") & (regs.fold == 2)).sum()
+    assert (tmp_path / "results" / "final_mock" / "good" / "hct116_PSEUDO_TEST.json").exists()
