@@ -1,0 +1,260 @@
+{
+ "run_id": "g1_t100_w0__a3_r095_s2_w0",
+ "variant": "g1_t100_w0+a3_r095_s2_w0",
+ "line": "hek293t",
+ "split": "TEST",
+ "metrics": {
+  "n_regulators": 717,
+  "n_targets": 11000,
+  "n_pairs": 7524519,
+  "n_arms": 14,
+  "n_target_bins": 584,
+  "n_positives": {
+   "pos_primary": 8111,
+   "pos_ueffect": 1727,
+   "pos_p01": 1994
+  },
+  "top0.001": {
+   "a": 0,
+   "b": 7525,
+   "c": 8111,
+   "d": 7508883,
+   "or": 0.06150477556279473,
+   "log_or": -2.7886404557568243,
+   "fisher_p_greater": 1.0,
+   "fisher_p_two_sided": 0.0005931532248768,
+   "K": 7525
+  },
+  "top0.0001": {
+   "a": 0,
+   "b": 752,
+   "c": 8111,
+   "d": 7515656,
+   "or": 0.6156434314679355,
+   "log_or": -0.48508732806365845,
+   "fisher_p_greater": 1.0,
+   "fisher_p_two_sided": 1.0,
+   "K": 752
+  },
+  "top0.01": {
+   "a": 3,
+   "b": 75242,
+   "c": 8108,
+   "d": 7441166,
+   "or": 0.03659217099813584,
+   "log_or": -3.3079209686109734,
+   "fisher_p_greater": 1.0,
+   "fisher_p_two_sided": 6.466267675333408e-31,
+   "K": 75245
+  },
+  "primary_or": 0.06150477556279473,
+  "sensitivity_positives": {
+   "pos_ueffect": {
+    "a": 0,
+    "b": 7525,
+    "c": 1727,
+    "d": 7515267,
+    "or": 0.28904205200629485,
+    "log_or": -1.2411830927827645
+   },
+   "pos_p01": {
+    "a": 0,
+    "b": 7525,
+    "c": 1994,
+    "d": 7515000,
+    "or": 0.2503396365784927,
+    "log_or": -1.3849367367950147
+   }
+  },
+  "folds_log_or": {},
+  "jackknife_log_or": {
+   "G": 14,
+   "estimate": -2.7886404557568243,
+   "se": 0.9033507306431814,
+   "ci95": [
+    -4.740211060029508,
+    -0.8370698514841404
+   ],
+   "lb90_one_sided": -4.388414432941909,
+   "t_crit": 2.1603686564610127
+  },
+  "callset": {
+   "n_calls": 451020,
+   "or": 1.2871114458389086,
+   "table": [
+    615,
+    450405,
+    7496,
+    7066003
+   ],
+   "fisher_p_greater": 3.5293918751503005e-09,
+   "fisher_p_two_sided": 6.223929020256932e-09
+  },
+  "perm_regulator": {
+   "perm_p": 0.7632367632367633,
+   "n_perm": 1000,
+   "or": 0.06150477556279473,
+   "median_null_or": 0.1273333270382648,
+   "or_over_median_null": 0.4830218214930644,
+   "null_or_q05_q95": [
+    0.06374242957594035,
+    4.887460851675348
+   ]
+  },
+  "perm_degree": {
+   "perm_p": 0.5604395604395604,
+   "n_perm": 1000,
+   "or": 0.06150477556279473,
+   "median_null_or": 0.06488959515931383,
+   "or_over_median_null": 0.9478372520554512,
+   "null_or_q05_q95": [
+    0.06319517130327669,
+    0.12982812947838865
+   ]
+  },
+  "bootstrap_log_or": {
+   "ci95": [
+    -3.842208138550787,
+    1.5357680800508682
+   ],
+   "n_boot": 1000
+  },
+  "cmh_regulator_x_exprdecile": {
+   "cmh_or": 0.0,
+   "n_strata": 7170,
+   "cmh_chi2": 0.22971552696589717,
+   "cmh_p": 0.6317348412066532
+  },
+  "cmh_ownclass_x_exprdecile": {
+   "cmh_or": 0.0,
+   "n_strata": 10,
+   "cmh_chi2": 8.293055873074819,
+   "cmh_p": 0.003979696235331961
+  },
+  "cmh_regulator_x_context_exprdecile_D6": {
+   "cmh_or": 0.0,
+   "n_strata": 7170,
+   "cmh_chi2": 0.2325957408779254,
+   "cmh_p": 0.6296057697906321,
+   "label": "CMH_OR(reg x HEK293 expr) [D6 diagnostic]"
+  },
+  "auroc": {
+   "mean_auroc": 0.5001488953211017,
+   "n_regulators": 68
+  },
+  "top10_regulator_share": 1.0,
+  "hub_excluded": {
+   "a": 0,
+   "b": 7367,
+   "c": 2980,
+   "d": 7356613,
+   "or": 0.1675092034430107,
+   "log_or": -1.786716983298066,
+   "fisher_p_greater": 1.0,
+   "fisher_p_two_sided": 0.13246120524752045,
+   "n_reg_dropped": 8,
+   "n_tgt_dropped": 110
+  },
+  "sign": {
+   "sign_concordant_or": 4.872469376477699,
+   "sign_concordant_table": [
+    0,
+    7525,
+    102,
+    7516892
+   ],
+   "sign_concordant_fisher_p_greater": 1.0,
+   "sign_concordant_fisher_p_two_sided": 1.0,
+   "n_overlap": 0
+  },
+  "regulator_class": {
+   "RBP": {
+    "n_regulators": 2,
+    "n_pairs": 20984,
+    "selected": 0,
+    "positives": 0,
+    "a": 0,
+    "or": 41969.0,
+    "fisher_p_greater": 1.0,
+    "fisher_p_two_sided": 1.0
+   },
+   "TF": {
+    "n_regulators": 61,
+    "n_pairs": 636235,
+    "selected": 0,
+    "positives": 469,
+    "a": 0,
+    "or": 1354.1352502662407,
+    "fisher_p_greater": 1.0,
+    "fisher_p_two_sided": 1.0
+   },
+   "kinase": {
+    "n_regulators": 12,
+    "n_pairs": 126090,
+    "selected": 0,
+    "positives": 138,
+    "a": 0,
+    "or": 909.4043321299639,
+    "fisher_p_greater": 1.0,
+    "fisher_p_two_sided": 1.0
+   },
+   "other": {
+    "n_regulators": 641,
+    "n_pairs": 6730594,
+    "selected": 7525,
+    "positives": 7504,
+    "a": 0,
+    "or": 0.05945597038384061,
+    "fisher_p_greater": 1.0,
+    "fisher_p_two_sided": 0.00039888569597031515
+   },
+   "ribosomal": {
+    "n_regulators": 1,
+    "n_pairs": 10616,
+    "selected": 0,
+    "positives": 0,
+    "a": 0,
+    "or": 21233.0,
+    "fisher_p_greater": 1.0,
+    "fisher_p_two_sided": 1.0
+   }
+  },
+  "class_iii": {
+   "a": 0,
+   "b": 7525,
+   "c": 8111,
+   "d": 7508883,
+   "or": 0.06150477556279473,
+   "log_or": -2.7886404557568243,
+   "fisher_p_greater": 1.0,
+   "fisher_p_two_sided": 0.0005931532248768,
+   "n_regulators": 717
+  },
+  "n_regulators_missing_in_scores": 0,
+  "n_targets_missing_in_scores": 0
+ },
+ "wall_s": 1.7241201400756836,
+ "score_wall_s": 67.22,
+ "threads": {
+  "cpu_count": 10,
+  "blas": []
+ },
+ "seed": 20261027,
+ "spawn": {
+  "perm_regulator": 0,
+  "perm_degree": 1,
+  "perm_sign": 2,
+  "bootstrap": 3
+ },
+ "params_hash": "0a8c50a97d2d250a",
+ "git_hash": "603a7f55ccccd92b4a7b0a2d2e9c5f12be1e56ef+dirty",
+ "data_checksums": {
+  "data/processed/bench/universe_regulators_hek293t.tsv": "9bf839d5e8ee3bd5414ebc978c36a7e77b513f8621c9ce6673cb83f70e64bc3e",
+  "data/processed/bench/universe_targets_hek293t.tsv": "7db0f37c45ced4389a3e98fc5e3050997c73989138cc189c296735207fdd7c2f",
+  "/Users/colmclaude/DepMapTR_sealed/data/processed/bench/positives_hek293t_TEST.parquet": "38d8c496aae59d188c6e289a9afef09c8a7005165b56d32c836978d6b78e6f22",
+  "/Users/colmclaude/DepMapTR_sealed/data/processed/bench/regulator_labels_hek293t_TEST.tsv": "aeb07374faf04b0bb75343429b397106b347305e59cff6431e3ca50a2b6983ea",
+  "/Users/colmclaude/ClaudeExperiments/DepMapTR/data/results/scores/g1_t100_w0__a3_r095_s2_w0/scores.npz": "e16190fbe86a7bdbe6fd2a980103068ad0b2108baebe09807b5dd76445fed20a"
+ },
+ "subset": "class_iii",
+ "debug": false
+}

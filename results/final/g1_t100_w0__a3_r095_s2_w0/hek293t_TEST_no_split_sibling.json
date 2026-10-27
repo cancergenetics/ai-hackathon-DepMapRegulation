@@ -1,0 +1,261 @@
+{
+ "run_id": "g1_t100_w0__a3_r095_s2_w0",
+ "variant": "g1_t100_w0+a3_r095_s2_w0",
+ "line": "hek293t",
+ "split": "TEST",
+ "metrics": {
+  "n_regulators": 319,
+  "n_targets": 11000,
+  "n_pairs": 3371874,
+  "n_arms": 4,
+  "n_target_bins": 584,
+  "n_positives": {
+   "pos_primary": 4389,
+   "pos_ueffect": 2034,
+   "pos_p01": 1164
+  },
+  "top0.001": {
+   "a": 0,
+   "b": 3372,
+   "c": 4389,
+   "d": 3364113,
+   "or": 0.1136249309816851,
+   "log_or": -2.174852333906592,
+   "fisher_p_greater": 1.0,
+   "fisher_p_two_sided": 0.02690355863640069,
+   "K": 3372
+  },
+  "top0.0001": {
+   "a": 0,
+   "b": 337,
+   "c": 4389,
+   "d": 3367148,
+   "or": 1.1364319736070505,
+   "log_or": 0.12789350647594602,
+   "fisher_p_greater": 1.0,
+   "fisher_p_two_sided": 1.0,
+   "K": 337
+  },
+  "top0.01": {
+   "a": 18,
+   "b": 33701,
+   "c": 4371,
+   "d": 3333784,
+   "or": 0.407367491544245,
+   "log_or": -0.8980395733063413,
+   "fisher_p_greater": 0.9999970492898638,
+   "fisher_p_two_sided": 1.3560271176406655e-05,
+   "K": 33719
+  },
+  "primary_or": 0.1136249309816851,
+  "sensitivity_positives": {
+   "pos_ueffect": {
+    "a": 0,
+    "b": 3372,
+    "c": 2034,
+    "d": 3366468,
+    "or": 0.24532110202053858,
+    "log_or": -1.4051873060587607
+   },
+   "pos_p01": {
+    "a": 0,
+    "b": 3372,
+    "c": 1164,
+    "d": 3367338,
+    "or": 0.42871169299587725,
+    "log_or": -0.84697063027577
+   }
+  },
+  "folds_log_or": {},
+  "jackknife_log_or": {
+   "G": 4,
+   "estimate": -2.174852333906592,
+   "se": 0.33203526664312244,
+   "ci95": [
+    -3.231536741459072,
+    -1.118167926354112
+   ],
+   "lb90_one_sided": -2.956251989489191,
+   "t_crit": 3.182446305284263
+  },
+  "callset": {
+   "n_calls": 269793,
+   "or": 1.124672822784916,
+   "table": [
+    391,
+    269402,
+    3998,
+    3098083
+   ],
+   "fisher_p_greater": 0.015338344073378942,
+   "fisher_p_two_sided": 0.027860088143690967
+  },
+  "perm_regulator": {
+   "perm_p": 0.9200799200799201,
+   "n_perm": 1000,
+   "or": 0.1136249309816851,
+   "median_null_or": 0.9301876095768138,
+   "or_over_median_null": 0.12215270318788532,
+   "null_or_q05_q95": [
+    0.11390823642921276,
+    10.227980963508713
+   ]
+  },
+  "perm_degree": {
+   "perm_p": 0.8791208791208791,
+   "n_perm": 1000,
+   "or": 0.1136249309816851,
+   "median_null_or": 0.46089223052699124,
+   "or_over_median_null": 0.2465325372305899,
+   "null_or_q05_q95": [
+    0.11426198032084713,
+    2.7899797151997685
+   ]
+  },
+  "bootstrap_log_or": {
+   "ci95": [
+    -2.6215221308934016,
+    -1.2313913141246446
+   ],
+   "n_boot": 1000
+  },
+  "cmh_regulator_x_exprdecile": {
+   "cmh_or": 0.0,
+   "n_strata": 3190,
+   "cmh_chi2": 2.1590926233377505,
+   "cmh_p": 0.14172836166824
+  },
+  "cmh_ownclass_x_exprdecile": {
+   "cmh_or": 0.0,
+   "n_strata": 30,
+   "cmh_chi2": 14.303031577584186,
+   "cmh_p": 0.00015561406394029722
+  },
+  "cmh_regulator_x_context_exprdecile_D6": {
+   "cmh_or": 0.0,
+   "n_strata": 3190,
+   "cmh_chi2": 2.1067212257331502,
+   "cmh_p": 0.1466532416303923,
+   "label": "CMH_OR(reg x HEK293 expr) [D6 diagnostic]"
+  },
+  "auroc": {
+   "mean_auroc": 0.5009487966510245,
+   "n_regulators": 37
+  },
+  "top10_regulator_share": 0.9733096085409253,
+  "hub_excluded": {
+   "a": 0,
+   "b": 3296,
+   "c": 1366,
+   "d": 3291077,
+   "or": 0.3652964045235528,
+   "log_or": -1.0070461877599903,
+   "fisher_p_greater": 1.0,
+   "fisher_p_two_sided": 0.6513524671382314,
+   "n_reg_dropped": 4,
+   "n_tgt_dropped": 110
+  },
+  "sign": {
+   "sign_concordant_or": 0.809920538297871,
+   "sign_concordant_table": [
+    0,
+    3372,
+    616,
+    3367886
+   ],
+   "sign_concordant_fisher_p_greater": 1.0,
+   "sign_concordant_fisher_p_two_sided": 1.0,
+   "n_overlap": 0
+  },
+  "regulator_class": {
+   "TF": {
+    "n_regulators": 21,
+    "n_pairs": 221086,
+    "selected": 45,
+    "positives": 521,
+    "a": 0,
+    "or": 4.646792325603448,
+    "fisher_p_greater": 1.0,
+    "fisher_p_two_sided": 1.0
+   },
+   "kinase": {
+    "n_regulators": 7,
+    "n_pairs": 73914,
+    "selected": 0,
+    "positives": 75,
+    "a": 0,
+    "or": 978.0066225165563,
+    "fisher_p_greater": 1.0,
+    "fisher_p_two_sided": 1.0
+   },
+   "other": {
+    "n_regulators": 288,
+    "n_pairs": 3045158,
+    "selected": 3322,
+    "positives": 3790,
+    "a": 0,
+    "or": 0.12061544697750871,
+    "fisher_p_greater": 1.0,
+    "fisher_p_two_sided": 0.041424295053615785
+   },
+   "ribosomal": {
+    "n_regulators": 3,
+    "n_pairs": 31716,
+    "selected": 5,
+    "positives": 3,
+    "a": 0,
+    "or": 823.5974025974026,
+    "fisher_p_greater": 1.0,
+    "fisher_p_two_sided": 1.0
+   }
+  },
+  "class_i": {
+   "a": 0,
+   "b": 371,
+   "c": 1514,
+   "d": 368733,
+   "or": 0.3276834476240665,
+   "log_or": -1.115707235312718,
+   "fisher_p_greater": 1.0,
+   "fisher_p_two_sided": 0.4135942537725815,
+   "n_regulators": 35
+  },
+  "class_iii": {
+   "a": 0,
+   "b": 2969,
+   "c": 2851,
+   "d": 2963590,
+   "or": 0.17499735829079066,
+   "log_or": -1.7429844006537571,
+   "fisher_p_greater": 1.0,
+   "fisher_p_two_sided": 0.1270683191043236,
+   "n_regulators": 281
+  },
+  "n_regulators_missing_in_scores": 0,
+  "n_targets_missing_in_scores": 0
+ },
+ "wall_s": 1.59083890914917,
+ "score_wall_s": 67.22,
+ "threads": {
+  "cpu_count": 10,
+  "blas": []
+ },
+ "seed": 20261027,
+ "spawn": {
+  "perm_regulator": 0,
+  "perm_degree": 1,
+  "perm_sign": 2,
+  "bootstrap": 3
+ },
+ "params_hash": "5c30e3a6ac8908a2",
+ "git_hash": "603a7f55ccccd92b4a7b0a2d2e9c5f12be1e56ef+dirty",
+ "data_checksums": {
+  "data/processed/bench/universe_regulators_hek293t.tsv": "9bf839d5e8ee3bd5414ebc978c36a7e77b513f8621c9ce6673cb83f70e64bc3e",
+  "data/processed/bench/universe_targets_hek293t.tsv": "7db0f37c45ced4389a3e98fc5e3050997c73989138cc189c296735207fdd7c2f",
+  "/Users/colmclaude/DepMapTR_sealed/data/processed/bench/positives_hek293t_TEST.parquet": "38d8c496aae59d188c6e289a9afef09c8a7005165b56d32c836978d6b78e6f22",
+  "/Users/colmclaude/DepMapTR_sealed/data/processed/bench/regulator_labels_hek293t_TEST.tsv": "aeb07374faf04b0bb75343429b397106b347305e59cff6431e3ca50a2b6983ea",
+  "/Users/colmclaude/ClaudeExperiments/DepMapTR/data/results/scores/g1_t100_w0__a3_r095_s2_w0/scores.npz": "e16190fbe86a7bdbe6fd2a980103068ad0b2108baebe09807b5dd76445fed20a"
+ },
+ "subset": "no_split_sibling",
+ "debug": false
+}

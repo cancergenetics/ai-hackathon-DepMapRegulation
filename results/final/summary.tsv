@@ -1,0 +1,572 @@
+role	run	label	line	split	subset	metric_set	n_pairs	K	OR@0.1%	OR@0.01%	OR@1%	fisher_p(indep.)	jk_CI95_lo	jk_CI95_hi	perm_p	perm_p_degree	OR/median_null	OR/median_null_degree	CMH_OR(reg x S2 expr)	CMH_OR(own class x S2 expr)	CMH_OR(reg x HCT116 expr) [D6 diagnostic]	mean_AUROC	top10_share	OR_hub_excluded	sign_concordant_OR	n_overlap	concordance	c0	sign_OR	sign_perm_p	reg_weighted_concordance	n_calls	callset_OR	callset_fisher_p	n_regulators	selected	positives	a	eval_wall_s	score_wall_s	threads	dlogOR	boot_lb90	jk_lb90	dlogCMH	boot_cmh_ub90	boot_cmh_n_undefined	adopt_style_no_folds	adopt_rule_8_2	OR_run	OR_C1	dOR	c1_mode
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST		pooled	17692753.0	17693.0	3.846257157401947	2.9236860791591277	4.77290355166207	2.040406746037687e-36	1.3265756883648818	11.1517904712246	0.06793206793206794	0.060939060939060936	2.2659861092100573	2.0956945360320542																																			
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST		cmh													0.9418883767123518	1.7997827989583244	0.9930589862822834	0.5002255961290137	0.2614593341999661	2.6886848972971555																													
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST		sign																			5.8431442680400885	131.0	0.7175572519083969	0.5408775712371073	7.015873015873016	0.011988011988011988	0.6537037037037037																						
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST		callset																										1187033.0	1.145413779448397	3.275702470133242e-11																			
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST		class:RBP			3.5615373363563227			1.2115322974528095e-08																							17.0	482.0	3055.0	30.0															
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST		class:TF			6.666131241908928			1.0																							137.0	82.0	1205.0	0.0															
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST		class:kinase			42.853358032137166			1.0																							51.0	69.0	83.0	0.0															
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST		class:other			3.2092613624893582			8.089352183930946e-23																							1596.0	16429.0	29978.0	101.0															
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST		class:ribosomal			5.433993138031143			1.0																							16.0	631.0	22.0	0.0															
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST		runtime																																	2.5717532634735107	67.22	{'cpu_count': 10, 'blas': []}												
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	TEST		pooled	17692753.0	17693.0	1.457838967461588	0.873450756573892	2.021783229566907	0.007043948179546484	0.9107910682616248	2.333459921940053	0.22877122877122877	0.2057942057942058	1.536318793996805	1.4606666997155229																																			
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	TEST		cmh													0.9094825625143661	1.2408707354464377	0.9728837497774826	0.4983809178073835	0.16130673147572486	1.3912841120200643																													
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	TEST		sign																			1.8943365449184582	50.0	0.72	0.4928	12.833333333333334	0.005994005994005994	0.9019607843137255																						
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	TEST		callset																										1187033.0	1.145413779448397	3.275702470133242e-11																			
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	TEST		class:RBP			4.481370619120046			9.045037635448753e-07																							17.0	220.0	3055.0	17.0															
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	TEST		class:TF			1.4317122235590045			0.4076792647812869																							137.0	1540.0	1205.0	2.0															
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	TEST		class:kinase			16.05182626660426			1.0																							51.0	185.0	83.0	0.0															
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	TEST		class:other			1.0473088912284392			0.42285047912060836																							1596.0	15353.0	29978.0	31.0															
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	TEST		class:ribosomal			8.689787891557803			1.0																							16.0	395.0	22.0	0.0															
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	TEST		runtime																																	2.5411157608032227	66.06	{'cpu_count': 10, 'blas': []}												
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	TEST		pooled	17692753.0	17693.0	18.384075518024517	16.524151112601828	13.379565554236176	0.0	10.933704267741097	30.911228653731808	0.014985014985014986	0.02097902097902098	1.7945322613418058	1.5805452920400653																																			
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	TEST		cmh													3.4035455340927983	3.4430258133927385	2.8180325768342276	0.6464970107738737	0.12315605041541852	14.815160323879345																													
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	TEST		sign																			21.100759639840813	601.0	0.5490848585690515	0.5070251743489083	1.4460887949260042	0.21578421578421578	0.4905076016887836																						
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	TEST		callset																										1187033.0	1.145413779448397	3.275702470133242e-11																			
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	TEST		class:RBP			22.00002706213466			6.092861065728178e-66																							17.0	261.0	3055.0	75.0															
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	TEST		class:TF			6.208282111622353			0.042352049030919485																							137.0	357.0	1205.0	2.0															
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	TEST		class:kinase			36.7539541759054			0.027319641513782904																							51.0	166.0	83.0	1.0															
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	TEST		class:other			17.238932598092454			0.0																							1596.0	16489.0	29978.0	523.0															
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	TEST		class:ribosomal			8.171832474567314			1.0																							16.0	420.0	22.0	0.0															
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	TEST		runtime																																	3.1989450454711914	82.69	{'cpu_count': 10, 'blas': []}												
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	TEST		pooled	17692753.0	17693.0	4.5007277228366664	2.9236860791591277	5.485873705678751	4.117424848333666e-50	1.1862771780440267	17.075731043321767	0.08291708291708291	0.017982017982017984	2.476786005344709	2.523696341052222																																			
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	TEST		cmh													1.1971833425381206	2.009613098444335	1.1961221989218818	0.5044997361278906	0.2909060080257729	2.189056822350253																													
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	TEST		sign																			7.181610453555004	153.0	0.6339869281045751	0.6069033277799137	1.409032258064516	0.9050949050949051	0.5160578386605784																						
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	TEST		callset																										0.0	514.1703815860352	1.0																			
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	TEST		class:RBP			5.252822871147799			3.2669729560376793e-10																							17.0	269.0	3055.0	24.0															
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	TEST		class:TF			38.48060403203962			7.997478633526078e-05																							137.0	89.0	1205.0	3.0															
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	TEST		class:kinase			61.889995022399205			0.016382940657154805																							51.0	99.0	83.0	1.0															
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	TEST		class:other			4.0069873577798365			1.7607460167537705e-36																							1596.0	16323.0	29978.0	125.0															
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	TEST		class:ribosomal			3.7496442255062945			1.0																							16.0	913.0	22.0	0.0															
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	TEST		runtime																																	2.43825101852417	51.53	{'cpu_count': 10, 'blas': []}												
+baseline	B0		hct116	TEST		pooled	17692753.0	17693.0	1.1652700504219746	0.873450756573892	1.0016770928796042	0.18721374959477763	0.9641861279673272	1.4082906308484497	0.14485514485514486	0.17082917082917082	1.166263476186451	1.159610679428228																																			
+baseline	B0		hct116	TEST		cmh													1.0415919482289824	1.177289870486778	1.0323863405342908	0.5002354494064946	0.010851749279376025	0.9931495401151681																													
+baseline	B0		hct116	TEST		sign																			1.24845713895436	40.0	0.7	0.7	2.28	1.0	0.7142857142857143																						
+baseline	B0		hct116	TEST		class:RBP			1.4603700560786268			0.2994016861451392																							17.0	150.0	3055.0	4.0															
+baseline	B0		hct116	TEST		class:TF			1.5718780612114729			0.3639598648416536																							137.0	1403.0	1205.0	2.0															
+baseline	B0		hct116	TEST		class:kinase			5.705851958594795			1.0																							51.0	521.0	83.0	0.0															
+baseline	B0		hct116	TEST		class:other			1.1417647876104586			0.24287613571351047																							1596.0	15450.0	29978.0	34.0															
+baseline	B0		hct116	TEST		class:ribosomal			20.305801376597838			1.0																							16.0	169.0	22.0	0.0															
+baseline	B0		hct116	TEST		runtime																																	2.239682674407959	2.73	{'cpu_count': 10, 'blas': []}												
+baseline	B1		hct116	TEST		pooled	17692753.0	17693.0	1.1360407610786274	0.2908039270146893	0.8780833648419722	0.23436360958834304	0.3131342730712981	4.121518217005426	0.7232767232767233	0.6013986013986014	0.811532161743796	0.9333109706869225																																			
+baseline	B1		hct116	TEST		cmh													3.1286236393666984	1.4021700845071212	2.2641468371693327	0.5142530092046128	0.13299044819985306	1.3912841120200643																													
+baseline	B1		hct116	TEST		sign																			0.9892473935578784	39.0	0.46153846153846156	0.5470085470085471	0.4090909090909091	1.0	0.5454545454545454																						
+baseline	B1		hct116	TEST		class:RBP			0.1313749138873232			1.0																							17.0	202.0	3055.0	0.0															
+baseline	B1		hct116	TEST		class:TF			3.6917394021480296			0.006611527943207496																							137.0	1801.0	1205.0	6.0															
+baseline	B1		hct116	TEST		class:kinase			3.423746634537488			1.0																							51.0	868.0	83.0	0.0															
+baseline	B1		hct116	TEST		class:other			1.1610683357620455			0.21865167320977966																							1596.0	14747.0	29978.0	33.0															
+baseline	B1		hct116	TEST		class:ribosomal			45.61486387049301			1.0																							16.0	75.0	22.0	0.0															
+baseline	B1		hct116	TEST		runtime																																	2.170564889907837	4.12	{'cpu_count': 10, 'blas': []}												
+baseline	B2		hct116	TEST		pooled	17692753.0	17693.0	6.027478211957766	8.27530544254028	5.306567673628708	6.586629497995903e-87	2.70747473395611	13.418590075830618	0.09490509490509491	0.33166833166833165	3.028202162898596	1.3886245156105166																																			
+baseline	B2		hct116	TEST		cmh													0.9578411440408526	3.082250684201391	0.8077909848237105	0.4821555668360623	0.2267563443169615	3.991401915359281																													
+baseline	B2		hct116	TEST		sign																			7.833613950265506	204.0	0.8431372549019608	0.8446270665128796	1.8253968253968254	1.0	0.8197086151533783																						
+baseline	B2		hct116	TEST		class:RBP			2.690009098768223			6.08149225768166e-08																							17.0	860.0	3055.0	41.0															
+baseline	B2		hct116	TEST		class:TF			1.5999683709340957			0.4652701806531662																							137.0	689.0	1205.0	1.0															
+baseline	B2		hct116	TEST		class:kinase			4.049457246161183			1.0																							51.0	734.0	83.0	0.0															
+baseline	B2		hct116	TEST		class:other			5.532137021680428			1.7882120517014565e-64																							1596.0	15387.0	29978.0	162.0															
+baseline	B2		hct116	TEST		class:ribosomal			146.59905437352245			1.0																							16.0	23.0	22.0	0.0															
+baseline	B2		hct116	TEST		runtime																																	2.1901021003723145	4.8	{'cpu_count': 10, 'blas': []}												
+baseline	B3		hct116	TEST		pooled	17692753.0	17693.0	0.029034459314061758	0.14527235732321594	10.555634893939468	0.9999999999999989	8.754141779417144e-11	9629725.550504297	0.6663336663336663	0.42157842157842157	0.4671847553516407	0.9544657065658534																																			
+baseline	B3		hct116	TEST		cmh													inf	0.013314269273278423	inf	0.5	1.0	0.09917458850364008																													
+baseline	B3		hct116	TEST		sign																			0.02223264055312634	1.0	0.0	0.0	0.3333333333333333	1.0																							
+baseline	B3		hct116	TEST		class:RBP			53.27295041728031			1.0																							17.0	0.0	3055.0	0.0															
+baseline	B3		hct116	TEST		class:TF			1099.9796764827872			1.0																							137.0	0.0	1205.0	0.0															
+baseline	B3		hct116	TEST		class:kinase			0.7424279199876214			0.7413647346862399																							51.0	8040.0	83.0	1.0															
+baseline	B3		hct116	TEST		class:other			0.026792669585368384			1.0																							1596.0	9653.0	29978.0	0.0															
+baseline	B3		hct116	TEST		class:ribosomal			6891.177777777778			1.0																							16.0	0.0	22.0	0.0															
+baseline	B3		hct116	TEST		runtime																																	1.7285141944885254	2.39	{'cpu_count': 10, 'blas': []}												
+baseline	B4		hct116	TEST		pooled	17692753.0	17693.0	5.727057152520176	10.388013314221572	3.517646867362803	3.350584437008292e-79	4.225999481442923	7.76128434758671	0.5284715284715285	0.5354645354645354	1.008026280335271	1.0055076237398655																																			
+baseline	B4		hct116	TEST		cmh													7.145625439044687	4.598886803767607	2.9006699510408827	0.5767699735657086	0.006217148024642514	2.7887048375041132																													
+baseline	B4		hct116	TEST		sign																			3.6762756978065427	194.0	0.422680412371134	0.422680412371134	0.7333333333333333	1.0	0.2558035714285714																						
+baseline	B4		hct116	TEST		class:RBP			2.378767741611916			0.03310084869980935																							17.0	164.0	3055.0	7.0															
+baseline	B4		hct116	TEST		class:TF			11.234569890509045			4.1493913468881366e-10																							137.0	1299.0	1205.0	13.0															
+baseline	B4		hct116	TEST		class:kinase			6.005565055559919			1.0																							51.0	495.0	83.0	0.0															
+baseline	B4		hct116	TEST		class:other			5.873647667878739			8.314568340414192e-73																							1596.0	15582.0	29978.0	174.0															
+baseline	B4		hct116	TEST		class:ribosomal			22.42468331523706			1.0																							16.0	153.0	22.0	0.0															
+baseline	B4		hct116	TEST		runtime																																	2.048943042755127	2.68	{'cpu_count': 10, 'blas': []}												
+baseline	B4e		hct116	TEST		pooled	17692753.0	17693.0	7.385802244780529	10.085102143823766	6.788134056877838	4.019657452990145e-124	5.54761259803899	9.833072125167476	0.5314685314685315	0.5854145854145855	0.9985537474094951	0.993478114599256																																			
+baseline	B4e		hct116	TEST		cmh													4.122391477949113	2.7289358000626036	3.618293946655665	0.6993530673628121	0.006217148024642514	8.03337375460833																													
+baseline	B4e		hct116	TEST		sign																			5.904798425871595	249.0	0.5261044176706827	0.5261044176706827	1.109704641350211	1.0	0.5481150793650793																						
+baseline	B4e		hct116	TEST		class:RBP			4.925496287578532			2.9221889082531957e-06																							17.0	166.0	3055.0	14.0															
+baseline	B4e		hct116	TEST		class:TF			6.597133668747128			4.1500412780092116e-05																							137.0	1350.0	1205.0	8.0															
+baseline	B4e		hct116	TEST		class:kinase			5.886642145975112			1.0																							51.0	505.0	83.0	0.0															
+baseline	B4e		hct116	TEST		class:other			7.735699264435473			2.9770050236550492e-117																							1596.0	15517.0	29978.0	227.0															
+baseline	B4e		hct116	TEST		class:ribosomal			22.13597713469096			1.0																							16.0	155.0	22.0	0.0															
+baseline	B4e		hct116	TEST		runtime																																	2.1987669467926025	2.86	{'cpu_count': 10, 'blas': []}												
+baseline	B5		hct116	TEST		pooled	17692753.0	17693.0	22.78417985239222	15.90378483672447	12.633718127935678	0.0	3.2679674009233177	158.85068235365077	0.04295704295704296	0.03496503496503497	2.889071535059002	2.3353609833096116																																			
+baseline	B5		hct116	TEST		cmh													3.960066525402295	4.215682170649829	2.9174117542610363	0.6993530673628121	0.3869892047702481	11.817863051658593																													
+baseline	B5		hct116	TEST		sign																			26.2217551048051	736.0	0.7567934782608695	0.7567934782608695	3.105849582172702	1.0	0.7016495398387208																						
+baseline	B5		hct116	TEST		class:RBP			0.14265972274319197			1.0																							17.0	186.0	3055.0	0.0															
+baseline	B5		hct116	TEST		class:TF			1.3106461297519465			1.0																							137.0	419.0	1205.0	0.0															
+baseline	B5		hct116	TEST		class:kinase			3.3465438284938283			1.0																							51.0	888.0	83.0	0.0															
+baseline	B5		hct116	TEST		class:other			27.01030880548493			0.0																							1596.0	15182.0	29978.0	736.0															
+baseline	B5		hct116	TEST		class:ribosomal			3.360792014400262			1.0																							16.0	1018.0	22.0	0.0															
+baseline	B5		hct116	TEST		runtime																																	1.979680061340332	2.41	{'cpu_count': 10, 'blas': []}												
+baseline	B6		hct116	TEST		pooled	17692753.0	17693.0	0.6107700811231759	1.1652948393979146	0.8105551219199306	0.9942648198821942	0.3485396171913638	1.0702946626305472	0.989010989010989	0.9410589410589411	0.5761565260175979	0.6439414699541648																																			
+baseline	B6		hct116	TEST		cmh													0.6865751006071222	0.562612263775599	0.7470278351661626	0.5059061858452127	0.016955858249025037	0.6948769215462642																													
+baseline	B6		hct116	TEST		sign																			0.5849398653618936	21.0	0.5238095238095238	0.5238095238095238	1.0	0.4645354645354645																							
+baseline	B6		hct116	TEST		class:RBP			0.7450289638301429			0.7490767750830285																							17.0	145.0	3055.0	2.0															
+baseline	B6		hct116	TEST		class:TF			1.7233221068351552			0.3236955381343875																							137.0	1280.0	1205.0	2.0															
+baseline	B6		hct116	TEST		class:kinase			5.356252391706237			1.0																							51.0	555.0	83.0	0.0															
+baseline	B6		hct116	TEST		class:other			0.5657825583653707			0.9961831592048672																							1596.0	15563.0	29978.0	17.0															
+baseline	B6		hct116	TEST		class:ribosomal			22.872129937246218			1.0																							16.0	150.0	22.0	0.0															
+baseline	B6		hct116	TEST		runtime																																	1.921389102935791	12.23	{'cpu_count': 10, 'blas': []}												
+control	NC1	NC1: residual-permutation null	hct116	TEST		pooled	17692753.0	17693.0	1.2822373738622466	1.4574868233351546	1.116769211618869	0.06308089707588925	0.4842053449478756	3.3955277447549457	0.16283716283716285	0.11888111888111888	1.5648940769587352	1.621848492754457																																			
+control	NC1	NC1: residual-permutation null	hct116	TEST		cmh													1.105054731339829	1.3196780942166433	1.1557765055074445	0.48390260210642255	0.09941784886678347	0.893694085128396																													
+control	NC1	NC1: residual-permutation null	hct116	TEST		sign																			0.8282342339487058	44.0	0.36363636363636365	0.41735537190082644	0.5478260869565217	0.5174825174825175	0.09523809523809523																						
+control	NC1	NC1: residual-permutation null	hct116	TEST		class:RBP			0.832468688605108			0.7014638349966864																							17.0	65.0	3055.0	1.0															
+control	NC1	NC1: residual-permutation null	hct116	TEST		class:TF			3.348687551637623			0.12155106999826332																							137.0	660.0	1205.0	2.0															
+control	NC1	NC1: residual-permutation null	hct116	TEST		class:kinase			4.7109154612390425			1.0																							51.0	631.0	83.0	0.0															
+control	NC1	NC1: residual-permutation null	hct116	TEST		class:other			1.314666432817479			0.052702097650054076																							1596.0	16189.0	29978.0	41.0															
+control	NC1	NC1: residual-permutation null	hct116	TEST		class:ribosomal			23.18047138047138			1.0																							16.0	148.0	22.0	0.0															
+control	NC1	NC1: residual-permutation null	hct116	TEST		runtime																																	2.257852077484131	27.48	{'cpu_count': 10, 'blas': []}												
+control	C2_g2	C2: context fusion applied to NC1	hct116	TEST		pooled	17692753.0	17693.0	10.596581337145185	14.051752225010004	7.537011077657156	4.250932480166225e-224	8.565467412217046	13.109329664202138	0.14785214785214784	0.3946053946053946	1.1861429589474004	1.03186365446652																																			
+control	C2_g2	C2: context fusion applied to NC1	hct116	TEST		cmh													2.4871567506441705	2.1285438394715293	2.030486901391314	0.6325671353476874	0.07110156559091166	9.971239078502991																													
+control	C2_g2	C2: context fusion applied to NC1	hct116	TEST		sign																			12.968998250367065	354.0	0.5847457627118644	0.5138848989753902	1.821917808219178	0.000999000999000999	0.615885152858837																						
+control	C2_g2	C2: context fusion applied to NC1	hct116	TEST		class:RBP			6.65180793441663			6.270694497574586e-10																							17.0	172.0	3055.0	19.0															
+control	C2_g2	C2: context fusion applied to NC1	hct116	TEST		class:TF			16.873930858893264			4.541494540656309e-08																							137.0	533.0	1205.0	8.0															
+control	C2_g2	C2: context fusion applied to NC1	hct116	TEST		class:kinase			4.1054330262869705			1.0																							51.0	724.0	83.0	0.0															
+control	C2_g2	C2: context fusion applied to NC1	hct116	TEST		class:other			11.087441953325849			6.570752431845517e-213																							1596.0	15746.0	29978.0	327.0															
+control	C2_g2	C2: context fusion applied to NC1	hct116	TEST		class:ribosomal			6.623100825029465			1.0																							16.0	518.0	22.0	0.0															
+control	C2_g2	C2: context fusion applied to NC1	hct116	TEST		runtime																																	1.9201898574829102	42.81	{'cpu_count': 10, 'blas': []}												
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	TEST		pooled	17692753.0	17693.0	3.4014452923337974	1.4574868233351546	4.779334265263516	5.4816390859862e-28	1.6376528167042161	7.064885767438845	0.1048951048951049	0.11788211788211789	2.1969852369100638	1.8879830136469282																																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	TEST		cmh													0.7311485633792086	1.6041856402627903	0.7990491572863007	0.503672057003389	0.33533035663821853	1.889656868450768																													
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	TEST		sign																			4.545383958099726	116.0	0.5862068965517241	0.4665576694411415	3.2934472934472936	0.13286713286713286	0.5240929705215419																						
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	TEST		callset																										367013.0	1.1059586295305246	0.0031492760745355395																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	TEST		class:RBP			3.0573545205892643			4.6543240398773595e-08																							17.0	631.0	3055.0	34.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	TEST		class:TF			5.365341777017936			1.0																							137.0	102.0	1205.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	TEST		class:kinase			283.6820644425435			1.0																							51.0	10.0	83.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	TEST		class:other			2.6262637030105958			3.697526580060714e-14																							1596.0	16271.0	29978.0	82.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	TEST		class:ribosomal			5.048565121412803			1.0																							16.0	679.0	22.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	TEST		runtime																																	2.523098945617676	53.92	{'cpu_count': 10, 'blas': []}												
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	TEST		pooled	17692753.0	17693.0	3.786882583328156	2.9236860791591277	4.7825499694525355	3.0108329332694644e-35	1.3767259069233686	10.416365107824143	0.06893106893106893	0.06493506493506493	2.2166535900075917	2.0942081132546497																																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	TEST		cmh													0.9282304975425322	1.7723045068233227	0.9802537683372289	0.5003418042672757	0.26247668569490756	2.6886848972971555																													
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	TEST		sign																			5.726338867259272	129.0	0.7131782945736435	0.5280932636259841	7.111111111111111	0.003996003996003996	0.6559601390246551																						
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	TEST		callset																										1186476.0	1.1364830352563104	4.1642262639656486e-10																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	TEST		class:RBP			3.6490887229648195			4.142488086573861e-09																							17.0	487.0	3055.0	31.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	TEST		class:TF			6.666131241908928			1.0																							137.0	82.0	1205.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	TEST		class:kinase			42.853358032137166			1.0																							51.0	69.0	83.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	TEST		class:other			3.1126699495793333			2.6502774776328745e-21																							1596.0	16431.0	29978.0	98.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	TEST		class:ribosomal			5.495151676897073			1.0																							16.0	624.0	22.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	TEST		runtime																																	2.5783050060272217	66.5	{'cpu_count': 10, 'blas': []}												
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	TEST		pooled	17692753.0	17693.0	2.8987101333260004	0.5819539827154162	4.067976630989991	1.851712304932367e-19	1.0521091456544092	7.986358137606051	0.1878121878121878	0.11888111888111888	1.7599949936659447	1.8369777547358344																																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	TEST		cmh													0.8198290823007287	1.2942050379528196	0.8442280218623857	0.49803903139905414	0.2859888091335556	2.2889195918224945																													
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	TEST		sign																			4.031325380858248	99.0	0.6565656565656566	0.4973982246709519	7.5	0.011988011988011988	0.605																						
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	TEST		callset																										3226477.0	1.133949116395312	1.5130052143217614e-20																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	TEST		class:RBP			3.3462190440932913			2.1846932499584007e-09																							17.0	614.0	3055.0	36.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	TEST		class:TF			3.1156761443948473			1.0																							137.0	176.0	1205.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	TEST		class:kinase			44.78686236549458			1.0																							51.0	66.0	83.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	TEST		class:other			2.0286252323417466			3.354149936570062e-07																							1596.0	16155.0	29978.0	63.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	TEST		class:ribosomal			5.0262759462759465			1.0																							16.0	682.0	22.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	TEST		runtime																																	2.6185522079467773	90.67	{'cpu_count': 10, 'blas': []}												
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	TEST		pooled	17692753.0	17693.0	3.490315891505966	1.7500273018769568	4.5388149801300735	1.309588166463036e-29	1.3772918321414471	8.845115274921616	0.0969030969030969	0.07392607392607392	2.0502874244655915	2.0186269724986463																																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	TEST		cmh													0.9565285320502407	1.6415676971975657	1.0088100427018762	0.5009236976325621	0.2665460916746736	2.5886964140188864																													
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	TEST		sign																			5.094053622921009	119.0	0.6890756302521008	0.5234093637454982	5.654761904761905	0.006993006993006993	0.6548976608187135																						
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	TEST		callset																										1099644.0	1.122325616746122	5.009837666436773e-08																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	TEST		class:RBP			3.7706388991038766			3.6211888500131216e-09																							17.0	457.0	3055.0	30.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	TEST		class:TF			7.0962309843325615			1.0																							137.0	77.0	1205.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	TEST		class:kinase			73.54276631921343			1.0																							51.0	40.0	83.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	TEST		class:other			2.816123025134017			6.156942791997903e-17																							1596.0	16479.0	29978.0	89.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	TEST		class:ribosomal			5.357325006505334			1.0																							16.0	640.0	22.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	TEST		runtime																																	2.5707108974456787	66.57	{'cpu_count': 10, 'blas': []}												
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	TEST		pooled	17692753.0	17693.0	3.7275284320670594	2.9236860791591277	4.7343387146437985	4.307022385894604e-34	1.356153039501012	10.245501655905068	0.07092907092907093	0.07092907092907093	2.189651117107962	2.0705974775751224																																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	TEST		cmh													0.9179099575964053	1.743675202551233	0.9701515007735405	0.5001085572531091	0.2623071271124173	2.5886964140188864																													
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	TEST		sign																			5.601564604314216	127.0	0.7086614173228346	0.5335730671461343	6.603174603174603	0.004995004995004995	0.6508720930232558																						
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	TEST		callset																										1181215.0	1.1400111732601497	1.6906926316178984e-10																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	TEST		class:RBP			3.522462339729099			1.5262931271895876e-08																							17.0	487.0	3055.0	30.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	TEST		class:TF			6.666131241908928			1.0																							137.0	82.0	1205.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	TEST		class:kinase			39.44731728595789			1.0																							51.0	75.0	83.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	TEST		class:other			3.0830724510986895			7.865154866214074e-21																							1596.0	16418.0	29978.0	97.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	TEST		class:ribosomal			5.433993138031143			1.0																							16.0	631.0	22.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	TEST		runtime																																	2.5182559490203857	66.09	{'cpu_count': 10, 'blas': []}												
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	paralog_exclusion	pooled	17685089.0	17685.0	3.819669676782681	2.924721548467564	4.773652936373	7.279296698681504e-36	1.3372897381442126	10.910033946704639	0.06893106893106893	0.06493506493506493	2.2471951937171095	2.091575783924245																																			
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	paralog_exclusion	cmh													0.9323438132625608	1.7875884181996258	0.9826083448844235	0.5002548534466196	0.2614645179530676	2.6904894674836037																													
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	paralog_exclusion	sign																			5.7861578406764655	130.0	0.7153846153846154	0.5390532544378698	6.912698412698413	0.003996003996003996	0.6537037037037037																						
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	paralog_exclusion	callset																										1186551.0	1.1454061265028335	3.3380371560160293e-11																			
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	paralog_exclusion	class:RBP			3.5674173782195875			1.1695829073970895e-08																							17.0	482.0	3047.0	30.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	paralog_exclusion	class:TF			6.662150772985144			1.0																							137.0	82.0	1204.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	paralog_exclusion	class:kinase			43.33573141486811			1.0																							51.0	69.0	82.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	paralog_exclusion	class:other			3.179496489484874			2.4803760224492773e-22																							1596.0	16421.0	29961.0	100.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	paralog_exclusion	class:ribosomal			5.433817190111727			1.0																							16.0	631.0	22.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	paralog_exclusion	runtime																																	2.6536970138549805	67.22	{'cpu_count': 10, 'blas': []}												
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_i	pooled	7038496.0	7038.0	1.6135877952975362	1.0050005635959467	2.2928065604404653	0.0013045715587853082	0.7797678679147343	3.3390264978421347	0.1108891108891109	0.13486513486513488	2.0049195599425715	1.835862508150102																																			
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_i	cmh													0.8411316479483324	1.5238337362223733	0.903657669263297	0.5002312962545281	0.305484512645638	0.8757656246563761																													
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_i	sign																			2.3018466785119975	48.0	0.7708333333333334	0.5208333333333334	13.0	0.007992007992007992	0.8888888888888888																						
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_i	callset																										524353.0	1.0783726821065933	0.0002499449943578728																			
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_i	class:RBP			2.7562526494277235			0.000232496755188364																							10.0	221.0	3051.0	18.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_i	class:TF			5.244404113732608			1.0																							30.0	28.0	971.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_i	class:kinase			114.24573465749937			1.0																							23.0	16.0	59.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_i	class:other			1.1287856621975358			0.27872157237939726																							645.0	6488.0	25742.0	30.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_i	class:ribosomal			11.27795290912629			1.0																							15.0	285.0	22.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_i	runtime																																	1.81514310836792	67.22	{'cpu_count': 10, 'blas': []}												
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_iii	pooled	10033495.0	10033.0	0.22734145793783136	2.278188671598301	0.3163428044379369	0.9876850904245389	0.0179050758230027	2.886563509041386	0.5164835164835165	0.7442557442557443	0.9547236823688702	0.48221297677288194																																			
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_iii	cmh													0.49521654638652124	0.215657253933182	0.49747169885882575	0.4988889189860572	0.9965115120103658	0.4497286977890254																													
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_iii	sign																			12.97397161068861	1.0	0.0	0.0	0.3333333333333333	1.0																							
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_iii	callset																										621137.0	0.7642934405998785	0.999967337934953																			
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_iii	class:RBP			13060.555555555555			1.0																							6.0	0.0	4.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_iii	class:TF			145.31360363774158			1.0																							99.0	14.0	227.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_iii	class:kinase			116.36986929603302			1.0																							26.0	44.0	24.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_iii	class:other			0.2117146436704499			0.991094996219546																							898.0	9975.0	4139.0	1.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_iii	class:ribosomal			19747.0			1.0																							1.0	0.0	0.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	class_iii	runtime																																	1.797234296798706	67.22	{'cpu_count': 10, 'blas': []}												
+control	M1		hct116	TEST	NC2_M1	pooled	8697840.0	8698.0	1.45797390059467	2.4297505669187767	0.6776499885413166	0.23348116442057648	0.24292487067926333	8.750392205093764	0.06793206793206794	0.058941058941058944	2.846695222594581	2.869688604392167																																			
+control	M1		hct116	TEST	NC2_M1	cmh													2.1996995824082	1.4495878323991904	2.515967020033284	0.49598067961609865	0.10151759025063233	2.9359489453863237																													
+control	M1		hct116	TEST	NC2_M1	sign																			1.5985770212765957	6.0	0.5	0.5	1.0	1.0																							
+control	M1		hct116	TEST	NC2_M1	callset																										529899.0	0.8033187521460212	0.9992551900893955																			
+control	M1		hct116	TEST	NC2_M1	class:RBP			221.25612052730696			1.0																							6.0	29.0	4.0	0.0															
+control	M1		hct116	TEST	NC2_M1	class:TF			5.985099289541114			0.15468066352915147																							85.0	649.0	213.0	1.0															
+control	M1		hct116	TEST	NC2_M1	class:kinase			20.89694145374685			1.0																							20.0	190.0	24.0	0.0															
+control	M1		hct116	TEST	NC2_M1	class:other			1.2558173954567664			0.3678461104055388																							781.0	7819.0	3877.0	5.0															
+control	M1		hct116	TEST	NC2_M1	class:ribosomal			857.6086956521739			1.0																							1.0	11.0	0.0	0.0															
+control	M1		hct116	TEST	NC2_M1	runtime																																	1.863778829574585	51.59	{'cpu_count': 10, 'blas': []}												
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	NC2	pooled	8697840.0	8698.0	0.12121534841020518	1.2123400966639022	0.24090702938604508	1.0	0.017229501160868868	0.8527908354989461	0.7542457542457542	0.6473526473526473	0.4944137622014449	0.9491142744277462																																			
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	NC2	cmh													0.0	0.0	0.0	0.5	1.0	0.4874527556418747																													
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	NC2	sign																			47.56776619942683	0.0																											
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	NC2	callset																										529899.0	0.8033187521460212	0.9992551900893955																			
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	NC2	class:RBP			13060.555555555555			1.0																							6.0	0.0	4.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	NC2	class:TF			3854.1334894613583			1.0																							85.0	0.0	213.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	NC2	class:kinase			7969.489795918367			1.0																							20.0	0.0	24.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	NC2	class:other			0.11263894665728437			1.0																							781.0	8698.0	3877.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	NC2	class:ribosomal			19747.0			1.0																							1.0	0.0	0.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	NC2	runtime																																	1.7293267250061035	67.22	{'cpu_count': 10, 'blas': []}												
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	no_split_sibling	pooled	7074275.0	7074.0	2.61000582148125	1.6268926401375932	3.155049701910083	2.0202656924980444e-06	0.41130510032686596	16.562231741722588	0.15084915084915085	0.15484515484515485	2.423189994478267	2.3885575380602866																																			
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	no_split_sibling	cmh													0.6397321856574151	1.4391522099896215	0.6768411150653237	0.49064875524193247	0.45942889454339836	1.0565697549241893																													
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	no_split_sibling	sign																			3.5922715551576148	32.0	0.5	0.4765625	1.25	0.4805194805194805	0.5652173913043478																						
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	no_split_sibling	callset																										646760.0	0.8838630340084617	0.999934944154077																			
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	no_split_sibling	class:RBP			1.453417224790974			0.06044375046456567																							3.0	334.0	1434.0	23.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	no_split_sibling	class:TF			9.404922335527731			1.0																							56.0	30.0	952.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	no_split_sibling	class:kinase			2106.9322033898306			1.0																							19.0	1.0	29.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	no_split_sibling	class:other			0.8943116727682321			0.6742873886060707																							637.0	6362.0	9887.0	9.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	no_split_sibling	class:ribosomal			6.2293098854249935			1.0																							6.0	347.0	13.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	TEST	no_split_sibling	runtime																																	1.7787418365478516	67.22	{'cpu_count': 10, 'blas': []}												
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	TEST		pooled	17692753.0	17693.0	3.7572029553576893	3.8076186378092305	4.654102234290749	1.1432192539237914e-34	2.035222820743906	6.936131957575399	0.08391608391608392	0.08191808191808192	2.0670692484732194	1.992265389598418																																			
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	TEST		cmh													0.9771273045902926	1.824990303305392	0.9906863470136086	0.49653950016867	0.2625897247499011	1.9894254720327933																													
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	TEST		sign																			3.7085791245022843	128.0	0.4140625	0.46923828125	0.575187969924812	0.996003996003996	0.3362312209257988																						
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	TEST		class:RBP			5.674217002237136			1.1295608986535094e-19																							17.0	494.0	3055.0	47.0															
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	TEST		class:TF			6.747929352431214			1.0																							137.0	81.0	1205.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	TEST		class:kinase			85.43026451391275			0.011941348781960395																							51.0	72.0	83.0	1.0															
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	TEST		class:other			2.5403594818901283			3.853321215147095e-13																							1596.0	16407.0	29978.0	80.0															
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	TEST		class:ribosomal			5.365737121014682			1.0																							16.0	639.0	22.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	TEST		runtime																																	0.9634900093078613	67.22	{'cpu_count': 10, 'blas': []}												
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	TEST		pooled	17692753.0	17693.0	17.29215400769386	20.278454267487028	12.8849210593025	0.0	10.589959558537911	28.23604647146419	0.02197802197802198	0.026973026973026972	1.7055341113361926	1.5327765991641953																																			
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	TEST		cmh													2.979552764340581	3.247781018147563	2.435569546140495	0.6455620214350709	0.12519075340530153	12.641961067417819																													
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	TEST		sign																			20.616200154671244	567.0	0.5044091710758377	0.488016697305351	1.1491228070175439	0.5264735264735265	0.46954517656256783																						
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	TEST		class:RBP			18.310088159214487			1.7738121607859864e-52																							17.0	254.0	3055.0	64.0															
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	TEST		class:TF			15.472315592903827			2.3577353182928725e-05																							137.0	362.0	1205.0	5.0															
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	TEST		class:kinase			18.787226808213227			1.0																							51.0	158.0	83.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	TEST		class:other			16.392749186729656			0.0																							1596.0	16472.0	29978.0	498.0															
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	TEST		class:ribosomal			7.677442582247052			1.0																							16.0	447.0	22.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	TEST		runtime																																	1.0667707920074463	82.69	{'cpu_count': 10, 'blas': []}												
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST		pooled	8373505.0	8374.0	0.49249430403400646	1.6461288028136083	0.6301813988779121	0.9817956831233186	0.017252179176119164	14.059130561412458	0.8781218781218781	0.7932067932067932	0.23809843181253829	0.4355398215266563																																			
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST		cmh													0.6751817288522844	0.13934150560373817	0.6827378775760837	0.49966456270929	0.7963935992357296	0.8333100240419176																													
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST		sign																			1.033038799247603	6.0	0.3333333333333333	0.5555555555555556	0.2	1.0	0.2																						
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST		callset																										512822.0	1.160290012448344	2.1554832394480316e-05																			
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST		class:RBP			155.07476635514018			1.0																							4.0	0.0	267.0	0.0															
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST		class:TF			4.036997179431547			1.0																							67.0	82.0	1047.0	0.0															
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST		class:kinase			595.6409736308317			1.0																							14.0	0.0	246.0	0.0															
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST		class:other			0.5087512920261749			0.9767775144438255																							710.0	8280.0	10604.0	6.0															
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST		class:ribosomal			362.30285714285714			1.0																							3.0	12.0	3.0	0.0															
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST		runtime																																	1.7776877880096436	67.22	{'cpu_count': 10, 'blas': []}												
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	TEST		pooled	8373505.0	8374.0	0.49249430403400646	0.41021936955861743	0.5313668327799024	0.9817956831233186	0.12607898797326073	1.9237990675923051	0.7822177822177823	0.8451548451548452	0.5769957824015606	0.5756309937692226																																			
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	TEST		cmh													0.9613023114779223	0.440624167245634	1.0492500776913534	0.5067148281055256	0.25543348459517556	0.6247759641648392																													
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	TEST		sign																			0.15637495970309148	6.0	0.16666666666666666	0.5	0.08571428571428572	1.0																							
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	TEST		callset																										512822.0	1.160290012448344	2.1554832394480316e-05																			
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	TEST		class:RBP			10.336573208722742			1.0																							4.0	7.0	267.0	0.0															
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	TEST		class:TF			1.092712284111212			0.6000604242331974																							67.0	611.0	1047.0	1.0															
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	TEST		class:kinase			2.0733827593274485			1.0																							14.0	143.0	246.0	0.0															
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	TEST		class:other			0.46859216299270795			0.9810883949430912																							710.0	7491.0	10604.0	5.0															
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	TEST		class:ribosomal			36.841399416909624			1.0																							3.0	122.0	3.0	0.0															
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	TEST		runtime																																	2.1366429328918457	66.06	{'cpu_count': 10, 'blas': []}												
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	TEST		pooled	8373505.0	8374.0	5.063084390144565	15.124509863336105	6.347042237965109	1.582096999875176e-23	0.8805036185180809	29.113819639798734	0.9050949050949051	0.7062937062937062	0.351862988358799	0.5795809868445451																																			
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	TEST		cmh													3.1139694186148255	0.5148300573429393	3.3604560653158475	0.5165668057558582	0.5372581800812037	3.9779251144137864																													
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	TEST		sign																			12.040590873641658	61.0	0.3770491803278688	0.4039236764310669	0.3055555555555556	0.3826173826173826	0.6452991452991453																						
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	TEST		callset																										512822.0	1.160290012448344	2.1554832394480316e-05																			
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	TEST		class:RBP			155.07476635514018			1.0																							4.0	0.0	267.0	0.0															
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	TEST		class:TF			30.492657342657342			6.6227173588550595e-09																							67.0	161.0	1047.0	7.0															
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	TEST		class:kinase			595.6409736308317			1.0																							14.0	0.0	246.0	0.0															
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	TEST		class:other			4.783643498959919			5.825285465445565e-20																							710.0	8010.0	10604.0	54.0															
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	TEST		class:ribosomal			22.12039312039312			1.0																							3.0	203.0	3.0	0.0															
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	TEST		runtime																																	2.2411139011383057	82.69	{'cpu_count': 10, 'blas': []}												
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	TEST		pooled	8373505.0	8374.0	0.08199960461751299	0.41021936955861743	0.252607437713622	0.9999948815776623	0.01872727406033329	0.35904505566405936	0.9820179820179821	0.6693306693306693	0.030800557999381563	0.4814828498980037																																			
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	TEST		cmh													0.240468445834594	0.027884843668891064	0.24975974106400858	0.4977507087841446	0.8742536422259374	0.20812105681778814																													
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	TEST		sign																			0.305502046564794	1.0	0.0	0.0	0.3333333333333333	1.0																							
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	TEST		callset																										0.0	687.1862338196014	1.0																			
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	TEST		class:RBP			155.07476635514018			1.0																							4.0	0.0	267.0	0.0															
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	TEST		class:TF			1.107980732192567			1.0																							67.0	300.0	1047.0	0.0															
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	TEST		class:kinase			595.6409736308317			1.0																							14.0	0.0	246.0	0.0															
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	TEST		class:other			0.0868967084086113			0.9999898292466518																							710.0	8071.0	10604.0	1.0															
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	TEST		class:ribosomal			1294.3061224489795			1.0																							3.0	3.0	3.0	0.0															
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	TEST		runtime																																	2.011139154434204	51.53	{'cpu_count': 10, 'blas': []}												
+baseline	B0		hek293t	TEST		pooled	8373505.0	8374.0	0.7391890123338191	0.41021936955861743	0.8533373829714828	0.8559740373857085	0.4144782733038095	1.3182847718402346	0.7542457542457542	0.5614385614385614	0.78860895498924	0.9496773075734257																																			
+baseline	B0		hek293t	TEST		cmh													0.797498990855779	0.7340089586657025	0.7961050339994237	0.4977602585524947	0.023286362550752327	0.8333100240419176																													
+baseline	B0		hek293t	TEST		sign																			0.32453911170549926	9.0	0.2222222222222222	0.2222222222222222	0.3333333333333333	1.0																							
+baseline	B0		hek293t	TEST		class:RBP			4.869595864661654			0.1908784844508446																							4.0	33.0	267.0	1.0															
+baseline	B0		hek293t	TEST		class:TF			0.4730004936110447			1.0																							67.0	703.0	1047.0	0.0															
+baseline	B0		hek293t	TEST		class:kinase			3.7888659261172823			0.23380536803644403																							14.0	159.0	246.0	1.0															
+baseline	B0		hek293t	TEST		class:other			0.6599474112151094			0.9035678193491282																							710.0	7450.0	10604.0	7.0															
+baseline	B0		hek293t	TEST		class:ribosomal			153.4358353510896			1.0																							3.0	29.0	3.0	0.0															
+baseline	B0		hek293t	TEST		runtime																																	1.6239500045776367	2.73	{'cpu_count': 10, 'blas': []}												
+baseline	B1		hek293t	TEST		pooled	8373505.0	8374.0	0.9861826399046597	0.41021936955861743	1.2361731729285488	0.5576056390905723	0.2532221089550139	3.8407238738466662	0.6153846153846154	0.6413586413586414	0.8250501229774644	0.8740069366035188																																			
+baseline	B1		hek293t	TEST		cmh													1.6229511826178407	0.885400433319715	1.591810475305459	0.5321571307441936	0.23859565321232387	1.0419819611139138																													
+baseline	B1		hek293t	TEST		sign																			1.2923612937688465	12.0	0.6666666666666666	0.5	7.222222222222222	1.0																							
+baseline	B1		hek293t	TEST		class:RBP			155.07476635514018			1.0																							4.0	0.0	267.0	0.0															
+baseline	B1		hek293t	TEST		class:TF			0.40847497110106057			1.0																							67.0	814.0	1047.0	0.0															
+baseline	B1		hek293t	TEST		class:kinase			2.2668195481731694			0.22308683422372527																							14.0	531.0	246.0	2.0															
+baseline	B1		hek293t	TEST		class:other			1.0019306518520683			0.5398082570495137																							710.0	7016.0	10604.0	10.0															
+baseline	B1		hek293t	TEST		class:ribosomal			335.4550264550264			1.0																							3.0	13.0	3.0	0.0															
+baseline	B1		hek293t	TEST		runtime																																	1.534067153930664	4.12	{'cpu_count': 10, 'blas': []}												
+baseline	B2		hek293t	TEST		pooled	8373505.0	8374.0	1.3985040706615435	0.41021936955861743	2.4136192128219074	0.11038184669865833	0.255374259397659	7.658616965821091	0.26673326673326675	0.5174825174825175	1.3728681179273372	0.9560631971609621																																			
+baseline	B2		hek293t	TEST		cmh													0.9260076603402512	0.8796647368039238	0.908248030121027	0.4971693829437605	0.34857893479818486	1.2507918802959026																													
+baseline	B2		hek293t	TEST		sign																			1.6171461835977583	17.0	0.5882352941176471	0.5882352941176471	1.4	1.0	0.8																						
+baseline	B2		hek293t	TEST		class:RBP			9.12028587135789			1.0																							4.0	8.0	267.0	0.0															
+baseline	B2		hek293t	TEST		class:TF			0.7732547212959344			1.0																							67.0	430.0	1047.0	0.0															
+baseline	B2		hek293t	TEST		class:kinase			1.6664393952307088			1.0																							14.0	178.0	246.0	0.0															
+baseline	B2		hek293t	TEST		class:other			1.5480292074958768			0.05557052146484731																							710.0	7730.0	10604.0	17.0															
+baseline	B2		hek293t	TEST		class:ribosomal			158.82456140350877			1.0																							3.0	28.0	3.0	0.0															
+baseline	B2		hek293t	TEST		runtime																																	1.6888036727905273	4.8	{'cpu_count': 10, 'blas': []}												
+baseline	B3		hek293t	TEST		pooled	8373505.0	8374.0	0.7391890123338191	0.41021936955861743	7.7803407863545	0.8559740373857085	7.26082717909698e-07	752531.8844222964	0.28471528471528473	0.04995004995004995	4.351951887256494	2.7846189843095246																																			
+baseline	B3		hek293t	TEST		cmh													1.1178753929430139	0.19817173935777888	1.1653631602376906	0.5	1.0	1.878050581103085																													
+baseline	B3		hek293t	TEST		sign																			0.08317347268247877	9.0	0.0	0.0	0.05263157894736842	1.0	0.0																						
+baseline	B3		hek293t	TEST		class:RBP			155.07476635514018			1.0																							4.0	0.0	267.0	0.0															
+baseline	B3		hek293t	TEST		class:TF			666.182816229117			1.0																							67.0	0.0	1047.0	0.0															
+baseline	B3		hek293t	TEST		class:kinase			595.6409736308317			1.0																							14.0	0.0	246.0	0.0															
+baseline	B3		hek293t	TEST		class:other			0.7550296283278802			0.8394998018142038																							710.0	8374.0	10604.0	9.0															
+baseline	B3		hek293t	TEST		class:ribosomal			9061.0			1.0																							3.0	0.0	3.0	0.0															
+baseline	B3		hek293t	TEST		runtime																																	1.41520094871521	2.39	{'cpu_count': 10, 'blas': []}												
+baseline	B4		hek293t	TEST		pooled	8373505.0	8374.0	0.9861826399046597	0.41021936955861743	1.1359800459415244	0.5576056390905723	0.4412727527413807	2.203979722761889	0.965034965034965	0.97002997002997	0.8337564214606592	0.8271705649883465																																			
+baseline	B4		hek293t	TEST		cmh													0.5905411610081401	0.6005897521610595	0.44045675126635947	0.45314605460328594	0.013135896823501313	1.0419819611139138																													
+baseline	B4		hek293t	TEST		sign																			0.6494445736111135	12.0	0.3333333333333333	0.3333333333333333	0.5294117647058824	1.0																							
+baseline	B4		hek293t	TEST		class:RBP			1.9126572054920965			1.0																							4.0	40.0	267.0	0.0															
+baseline	B4		hek293t	TEST		class:TF			1.9449551522591264			0.2755509356805957																							67.0	688.0	1047.0	2.0															
+baseline	B4		hek293t	TEST		class:kinase			2.0308828721555705			1.0																							14.0	146.0	246.0	0.0															
+baseline	B4		hek293t	TEST		class:other			0.9411503741321421			0.6175352686333488																							710.0	7468.0	10604.0	10.0															
+baseline	B4		hek293t	TEST		class:ribosomal			139.25934065934067			1.0																							3.0	32.0	3.0	0.0															
+baseline	B4		hek293t	TEST		runtime																																	1.5735821723937988	2.68	{'cpu_count': 10, 'blas': []}												
+baseline	B4e		hek293t	TEST		pooled	8373505.0	8374.0	14.515648466592364	17.714514461308976	17.895620229367324	1.3131586756717794e-130	10.158321719728875	20.742013909292574	0.48451548451548454	0.48451548451548454	1.007225256178001	1.0109675347828644																																			
+baseline	B4e		hek293t	TEST		cmh													5.618888888354151	3.760886144157707	5.887874055810195	0.6907765057300487	0.014330069262001434	11.653717308532487																													
+baseline	B4e		hek293t	TEST		sign																			11.883600164949543	171.0	0.4152046783625731	0.4152046783625731	0.7114427860696517	1.0	0.46153846153846156																						
+baseline	B4e		hek293t	TEST		class:RBP			12.39354066985646			0.0023039306682087466																							4.0	41.0	267.0	3.0															
+baseline	B4e		hek293t	TEST		class:TF			13.497115198451112			9.047726320600663e-12																							67.0	714.0	1047.0	14.0															
+baseline	B4e		hek293t	TEST		class:kinase			12.235318651985319			0.002166610982847617																							14.0	151.0	246.0	3.0															
+baseline	B4e		hek293t	TEST		class:other			14.745445945215703			1.6126984566079728e-116																							710.0	7436.0	10604.0	151.0															
+baseline	B4e		hek293t	TEST		class:ribosomal			139.25934065934067			1.0																							3.0	32.0	3.0	0.0															
+baseline	B4e		hek293t	TEST		runtime																																	1.65995192527771	2.86	{'cpu_count': 10, 'blas': []}												
+baseline	B5		hek293t	TEST		pooled	8373505.0	8374.0	35.9003583352625	4.963791750690272	13.364634903608184	0.0	5.276769570898908	244.2471120414484	0.14485514485514486	0.15184815184815184	1.9249455838624443	1.5637668499214814																																			
+baseline	B5		hek293t	TEST		cmh													2.535208464062256	4.9148627129418925	2.8591210874175172	0.6907765057300487	0.9835204203486984	15.342667689009858																													
+baseline	B5		hek293t	TEST		sign																			30.912411347908964	403.0	0.4491315136476427	0.4491315136476427	0.8157303370786517	1.0	0.32429084841483763																						
+baseline	B5		hek293t	TEST		class:RBP			155.07476635514018			1.0																							4.0	0.0	267.0	0.0															
+baseline	B5		hek293t	TEST		class:TF			283.0955802208089			4.5654159184268965e-240																							67.0	455.0	1047.0	124.0															
+baseline	B5		hek293t	TEST		class:kinase			595.6409736308317			1.0																							14.0	0.0	246.0	0.0															
+baseline	B5		hek293t	TEST		class:other			29.54752472307697			9.947144581374089e-292																							710.0	7080.0	10604.0	279.0															
+baseline	B5		hek293t	TEST		class:ribosomal			5.253892623160044			1.0																							3.0	839.0	3.0	0.0															
+baseline	B5		hek293t	TEST		runtime																																	1.5718626976013184	2.41	{'cpu_count': 10, 'blas': []}												
+baseline	B6		hek293t	TEST		pooled	8373505.0	8374.0	0.41032908996559353	1.6461288028136083	0.8036483862152575	0.9932893250401975	0.059229158517989114	2.842687052878773	0.7842157842157842	0.6883116883116883	0.6810294860199738	0.7951913893077968																																			
+baseline	B6		hek293t	TEST		cmh													0.48202885224909525	0.40349737095849864	0.49956743003317394	0.5061660256078472	0.04060186290900406	0.1040089876353693																													
+baseline	B6		hek293t	TEST		sign																			0.15206033901629007	5.0	0.2	0.19999999999999996	0.3333333333333333	1.0																							
+baseline	B6		hek293t	TEST		class:RBP			1.7806209045010206			1.0																							4.0	43.0	267.0	0.0															
+baseline	B6		hek293t	TEST		class:TF			0.5406951292098126			1.0																							67.0	615.0	1047.0	0.0															
+baseline	B6		hek293t	TEST		class:kinase			1.819509834936822			1.0																							14.0	163.0	246.0	0.0															
+baseline	B6		hek293t	TEST		class:other			0.469785709826321			0.9807447089494186																							710.0	7472.0	10604.0	5.0															
+baseline	B6		hek293t	TEST		class:ribosomal			55.44697633654689			1.0																							3.0	81.0	3.0	0.0															
+baseline	B6		hek293t	TEST		runtime																																	1.6193690299987793	12.23	{'cpu_count': 10, 'blas': []}												
+control	NC1	NC1: residual-permutation null	hek293t	TEST		pooled	8373505.0	8374.0	1.7289611632634583	0.8220122043785056	1.2947249025072214	0.013211101102978557	0.20025883463264688	14.927215119157612	0.1068931068931069	0.16283716283716285	1.6863901057928439	1.4296098324525364																																			
+control	NC1	NC1: residual-permutation null	hek293t	TEST		cmh													1.0091478372143456	1.9118667219402863	1.0409219359941515	0.49697381341933594	0.16670647241461667	0.4163796766641552																													
+control	NC1	NC1: residual-permutation null	hek293t	TEST		sign																			0.3258108806854258	21.0	0.09523809523809523	0.30839002267573695	0.020833333333333332	1.0	0.0																						
+control	NC1	NC1: residual-permutation null	hek293t	TEST		class:RBP			8.160059026069847			1.0																							4.0	9.0	267.0	0.0															
+control	NC1	NC1: residual-permutation null	hek293t	TEST		class:TF			0.687018332015635			1.0																							67.0	484.0	1047.0	0.0															
+control	NC1	NC1: residual-permutation null	hek293t	TEST		class:kinase			1.071202236719478			1.0																							14.0	277.0	246.0	0.0															
+control	NC1	NC1: residual-permutation null	hek293t	TEST		class:other			1.9473662012522641			0.003810080269292322																							710.0	7598.0	10604.0	21.0															
+control	NC1	NC1: residual-permutation null	hek293t	TEST		class:ribosomal			696.8681318681319			1.0																							3.0	6.0	3.0	0.0															
+control	NC1	NC1: residual-permutation null	hek293t	TEST		runtime																																	1.6980159282684326	27.48	{'cpu_count': 10, 'blas': []}												
+control	C2_g2	C2: context fusion applied to NC1	hek293t	TEST		pooled	8373505.0	8374.0	12.765422634428164	26.496285685310074	7.291425023727679	6.89731134662411e-108	5.87058103292646	27.75807268847766	0.33966033966033965	0.12987012987012986	1.1331857077372374	1.3389401506203622																																			
+control	C2_g2	C2: context fusion applied to NC1	hek293t	TEST		cmh													1.3243456613646358	1.6514457168062844	1.5108680060742081	0.5144939712874735	0.25316455696202533	5.033085550237275																													
+control	C2_g2	C2: context fusion applied to NC1	hek293t	TEST		sign																			56.46349850408081	151.0	0.5695364238410596	0.5253278364983991	1.6176470588235294	0.987012987012987	0.5317522285567399																						
+control	C2_g2	C2: context fusion applied to NC1	hek293t	TEST		class:RBP			87.42901234567901			5.408953060736824e-56																							4.0	120.0	267.0	39.0															
+control	C2_g2	C2: context fusion applied to NC1	hek293t	TEST		class:TF			28.33396133474845			4.713081219613059e-18																							67.0	398.0	1047.0	16.0															
+control	C2_g2	C2: context fusion applied to NC1	hek293t	TEST		class:kinase			3.325586138905572			1.0																							14.0	89.0	246.0	0.0															
+control	C2_g2	C2: context fusion applied to NC1	hek293t	TEST		class:other			9.076097531950083			1.4626846491702277e-56																							710.0	7581.0	10604.0	96.0															
+control	C2_g2	C2: context fusion applied to NC1	hek293t	TEST		class:ribosomal			24.149751053236308			1.0																							3.0	186.0	3.0	0.0															
+control	C2_g2	C2: context fusion applied to NC1	hek293t	TEST		runtime																																	1.4496381282806396	42.81	{'cpu_count': 10, 'blas': []}												
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	TEST		pooled	8373505.0	8374.0	1.4810683021857887	0.8220122043785056	1.3365953653070528	0.06937705253638837	0.22153451314911932	9.901677551537821	0.5734265734265734	0.45854145854145856	0.8198318789208179	1.2158054301015881																																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	TEST		cmh													1.127167090520667	0.48778845606059046	1.1685501103906593	0.4989869405347701	0.8220683066634822	2.5065549071342166																													
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	TEST		sign																			2.6662587434212734	18.0	0.2777777777777778	0.4629629629629629	0.07482993197278912	1.0	0.2777777777777778																						
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	TEST		callset																										150101.0	1.2013491797600513	0.00236860904530129																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	TEST		class:RBP			155.07476635514018			1.0																							4.0	0.0	267.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	TEST		class:TF			0.36256533981908395			1.0																							67.0	917.0	1047.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	TEST		class:kinase			595.6409736308317			1.0																							14.0	0.0	246.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	TEST		class:other			1.7010587357012525			0.02353829582600678																							710.0	7451.0	10604.0	18.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	TEST		class:ribosomal			696.8681318681319			1.0																							3.0	6.0	3.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	TEST		runtime																																	2.0124459266662598	53.92	{'cpu_count': 10, 'blas': []}												
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	TEST		pooled	8373505.0	8374.0	0.49249430403400646	1.6461288028136083	0.6219382724432676	0.9817956831233186	0.017250809978235134	14.060246435498383	0.8781218781218781	0.7882117882117882	0.23837785308045772	0.4130159908668364																																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	TEST		cmh													0.6717510651490886	0.13920862524270983	0.679862638843954	0.4996647612339684	0.7975877716742298	0.8333100240419176																													
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	TEST		sign																			1.0378697079318198	6.0	0.3333333333333333	0.5555555555555556	0.2	1.0	0.2																						
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	TEST		callset																										512743.0	1.1604807606327698	2.1145861631772355e-05																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	TEST		class:RBP			155.07476635514018			1.0																							4.0	0.0	267.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	TEST		class:TF			4.036997179431547			1.0																							67.0	82.0	1047.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	TEST		class:kinase			595.6409736308317			1.0																							14.0	0.0	246.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	TEST		class:other			0.5087512920261749			0.9767775144438255																							710.0	8280.0	10604.0	6.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	TEST		class:ribosomal			362.30285714285714			1.0																							3.0	12.0	3.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	TEST		runtime																																	2.0197229385375977	66.5	{'cpu_count': 10, 'blas': []}												
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	TEST		pooled	8373505.0	8374.0	0.5746926856290062	0.8220122043785056	0.712698614930684	0.9584533609663293	0.013393013597104132	24.6599975816415	0.8601398601398601	0.6743256743256744	0.280319324740374	0.6626749102659417																																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	TEST		cmh													0.7994864631761608	0.1495630606953929	0.8266417318424755	0.4991348370081155	0.7905421542870791	1.0419819611139138																													
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	TEST		sign																			1.0167377262631163	7.0	0.2857142857142857	0.5306122448979592	0.14285714285714285	1.0	0.16666666666666666																						
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	TEST		callset																										1417212.0	1.1388661018457942	1.712060230933814e-08																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	TEST		class:RBP			0.8742700248165162			1.0																							4.0	88.0	267.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	TEST		class:TF			1.4383634798476266			1.0																							67.0	231.0	1047.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	TEST		class:kinase			595.6409736308317			1.0																							14.0	0.0	246.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	TEST		class:other			0.6113515295203463			0.9379408682271424																							710.0	8041.0	10604.0	7.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	TEST		class:ribosomal			312.3103448275862			1.0																							3.0	14.0	3.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	TEST		runtime																																	2.0699760913848877	90.67	{'cpu_count': 10, 'blas': []}												
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	TEST		pooled	8373505.0	8374.0	0.49249430403400646	1.6461288028136083	0.6054567027167609	0.9817956831233186	0.01575969907448403	15.390562875572	0.8441558441558441	0.7682317682317682	0.28846298468283055	0.4420297033397532																																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	TEST		cmh													0.7320510824720193	0.15837125178780045	0.7502661386779365	0.49965376002297557	0.8065440649629807	0.6247759641648392																													
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	TEST		sign																			1.0394900647468173	6.0	0.3333333333333333	0.5	0.23809523809523808	1.0	0.2																						
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	TEST		callset																										474843.0	1.1474845694579874	0.00013696637478375232																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	TEST		class:RBP			155.07476635514018			1.0																							4.0	0.0	267.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	TEST		class:TF			0.2967932190176777			1.0																							67.0	1120.0	1047.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	TEST		class:kinase			595.6409736308317			1.0																							14.0	0.0	246.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	TEST		class:other			0.5816516601249169			0.9438182520475225																							710.0	7244.0	10604.0	6.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	TEST		class:ribosomal			431.34013605442175			1.0																							3.0	10.0	3.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	TEST		runtime																																	2.01122784614563	66.57	{'cpu_count': 10, 'blas': []}												
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	TEST		pooled	8373505.0	8374.0	0.49249430403400646	1.6461288028136083	0.6301813988779121	0.9817956831233186	0.017275923846055467	14.039807171372823	0.8801198801198801	0.7932067932067932	0.23812828358047075	0.41481361701265906																																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	TEST		cmh													0.6731913843151289	0.13915008745364113	0.6796545349683568	0.49967824737857364	0.7983042751373298	0.8333100240419176																													
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	TEST		sign																			1.0373307107358305	6.0	0.3333333333333333	0.5555555555555556	0.2	1.0	0.2																						
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	TEST		callset																										510544.0	1.1628797073677393	1.693043107806051e-05																			
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	TEST		class:RBP			155.07476635514018			1.0																							4.0	0.0	267.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	TEST		class:TF			4.036997179431547			1.0																							67.0	82.0	1047.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	TEST		class:kinase			595.6409736308317			1.0																							14.0	0.0	246.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	TEST		class:other			0.5087512920261749			0.9767775144438255																							710.0	8280.0	10604.0	6.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	TEST		class:ribosomal			362.30285714285714			1.0																							3.0	12.0	3.0	0.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	TEST		runtime																																	2.029444932937622	66.09	{'cpu_count': 10, 'blas': []}												
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	paralog_exclusion	pooled	8369889.0	8370.0	0.49255732981575173	1.645552302169748	0.6302322385828738	0.9817777749704188	0.017257756427552663	14.058184455998159	0.8791208791208791	0.7962037962037962	0.23804128528746268	0.4354333292645672																																			
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	paralog_exclusion	cmh													0.6749273800699294	0.13938505114522112	0.6824900400635225	0.4996790334647059	0.7962962962962963	0.8334227744029631																													
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	paralog_exclusion	sign																			1.0336207996565636	6.0	0.3333333333333333	0.5555555555555556	0.2	1.0	0.2																						
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	paralog_exclusion	callset																										512629.0	1.1603241360965977	2.148230717679712e-05																			
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	paralog_exclusion	class:RBP			154.93644859813085			1.0																							4.0	0.0	267.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	paralog_exclusion	class:TF			4.029898025602083			1.0																							67.0	82.0	1047.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	paralog_exclusion	class:kinase			595.1135902636917			1.0																							14.0	0.0	246.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	paralog_exclusion	class:other			0.5088936785855411			0.976729974912333																							710.0	8276.0	10603.0	6.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	paralog_exclusion	class:ribosomal			362.2914285714286			1.0																							3.0	12.0	3.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	paralog_exclusion	runtime																																	2.080677032470703	67.22	{'cpu_count': 10, 'blas': []}												
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_i	pooled	755076.0	755.0	0.49498643940548454	1.2183981614655708	0.1715716771150822	0.9111107674224245	0.01643663362705288	14.906432835009317	0.4945054945054945	0.4085914085914086	0.975124624835902	1.8972670467446804																																			
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_i	cmh													3.4860305733920582	0.4521362429013004	3.4682029837142547	0.4977075006567071	0.9152317880794701	0.39911929543634905																													
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_i	sign																			0.2717640441220951	2.0	0.0	0.5	0.1111111111111111	1.0																							
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_i	callset																										56025.0	0.7861339761245176	0.9999126699208587																			
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_i	class:RBP			76.62990654205608			1.0																							2.0	0.0	267.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_i	class:TF			23.883086742094576			1.0																							4.0	1.0	574.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_i	class:kinase			192.38248847926266			1.0																							2.0	0.0	108.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_i	class:other			0.5594839698777668			0.8716321881431721																							62.0	754.0	3076.0	2.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_i	class:ribosomal			6027.857142857143			1.0																							2.0	0.0	3.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_i	runtime																																	1.472715139389038	67.22	{'cpu_count': 10, 'blas': []}												
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_iii	pooled	7524519.0	7525.0	0.06150477556279473	0.6156434314679355	0.03659217099813584	1.0	0.008736802001175168	0.43297735447374586	0.7632367632367633	0.5604395604395604	0.4830218214930644	0.9478372520554512																																			
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_iii	cmh													0.0	0.0	0.0	0.5001488953211017	1.0	0.1675092034430107																													
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_iii	sign																			4.872469376477699	0.0																											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_iii	callset																										451020.0	1.2871114458389086	3.5293918751503005e-09																			
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_iii	class:RBP			41969.0			1.0																							2.0	0.0	0.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_iii	class:TF			1354.1352502662407			1.0																							61.0	0.0	469.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_iii	class:kinase			909.4043321299639			1.0																							12.0	0.0	138.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_iii	class:other			0.05945597038384061			1.0																							641.0	7525.0	7504.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_iii	class:ribosomal			21233.0			1.0																							1.0	0.0	0.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	class_iii	runtime																																	1.7241201400756836	67.22	{'cpu_count': 10, 'blas': []}												
+control	M1		hek293t	TEST	NC2_M1	pooled	6331578.0	6332.0	0.32369473591466325	1.6222332569339142	1.2020035254321586	0.9850769113920557	0.044546583787653186	2.3521058889347333	0.7992007992007992	0.6413586413586414	0.47732274272356073	0.9447667926508481																																			
+control	M1		hek293t	TEST	NC2_M1	cmh													0.5474422414603861	0.3342789357015501	0.558149993293777	0.5048094954165082	0.1315540113708149	0.23204597447281308																													
+control	M1		hek293t	TEST	NC2_M1	sign																			0.6216877623438352	2.0	1.0	0.5	9.0	1.0																							
+control	M1		hek293t	TEST	NC2_M1	callset																										379315.0	1.184574543290152	0.0004867155102712194																			
+control	M1		hek293t	TEST	NC2_M1	class:RBP			790.8867924528302			1.0																							2.0	26.0	0.0	0.0															
+control	M1		hek293t	TEST	NC2_M1	class:TF			5.154279100130011			1.0																							45.0	216.0	210.0	0.0															
+control	M1		hek293t	TEST	NC2_M1	class:kinase			3.5100950931913273			1.0																							11.0	119.0	137.0	0.0															
+control	M1		hek293t	TEST	NC2_M1	class:other			0.3287316001194472			0.9838109576168466																							544.0	5962.0	5823.0	2.0															
+control	M1		hek293t	TEST	NC2_M1	class:ribosomal			1116.578947368421			1.0																							1.0	9.0	0.0	0.0															
+control	M1		hek293t	TEST	NC2_M1	runtime																																	1.679029941558838	51.59	{'cpu_count': 10, 'blas': []}												
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	NC2	pooled	6331578.0	6332.0	0.0808589434471859	0.808999295026422	0.09628001887235138	1.0	8.738361959463592e-05	74.82144554923606	0.6553446553446554	0.5074925074925075	0.9495499541740097	0.9500299384364027																																			
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	NC2	cmh													0.0	0.0	0.0	0.5001840887606349	1.0	0.23204597447281308																													
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	NC2	sign																			4.969347105766077	0.0																											
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	NC2	callset																										379315.0	1.184574543290152	0.0004867155102712194																			
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	NC2	class:RBP			41969.0			1.0																							2.0	0.0	0.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	NC2	class:TF			2232.8289786223277			1.0																							45.0	0.0	210.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	NC2	class:kinase			839.7781818181818			1.0																							11.0	0.0	137.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	NC2	class:other			0.07731036944088694			1.0																							544.0	6332.0	5823.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	NC2	class:ribosomal			21233.0			1.0																							1.0	0.0	0.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	NC2	runtime																																	1.6632390022277832	67.22	{'cpu_count': 10, 'blas': []}												
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	no_split_sibling	pooled	3371874.0	3372.0	0.1136249309816851	1.1364319736070505	0.407367491544245	1.0	0.039496755825062534	0.32687811114856946	0.9200799200799201	0.8791208791208791	0.12215270318788532	0.2465325372305899																																			
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	no_split_sibling	cmh													0.0	0.0	0.0	0.5009487966510245	0.9733096085409253	0.3652964045235528																													
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	no_split_sibling	sign																			0.809920538297871	0.0																											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	no_split_sibling	callset																										269793.0	1.124672822784916	0.015338344073378942																			
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	no_split_sibling	class:TF			4.646792325603448			1.0																							21.0	45.0	521.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	no_split_sibling	class:kinase			978.0066225165563			1.0																							7.0	0.0	75.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	no_split_sibling	class:other			0.12061544697750871			1.0																							288.0	3322.0	3790.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	no_split_sibling	class:ribosomal			823.5974025974026			1.0																							3.0	5.0	3.0	0.0															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	TEST	no_split_sibling	runtime																																	1.59083890914917	67.22	{'cpu_count': 10, 'blas': []}												
+control	g1_t100_w0__a3_r095_s2_w0_C1		hek293t	TEST		pooled	8373505.0	8374.0	0.7391890123338191	0.41021936955861743	0.5972182586362601	0.8559740373857085	0.049075534907682	11.133865315638493	0.8531468531468531	0.7432567432567433	0.3044573108512725	0.5022512239305744																																			
+control	g1_t100_w0__a3_r095_s2_w0_C1		hek293t	TEST		cmh													1.0796253080429115	0.21323539430337324	1.0533745619709038	0.4979448624674129	0.8006926200143301	1.2507918802959026																													
+control	g1_t100_w0__a3_r095_s2_w0_C1		hek293t	TEST		sign																			1.101999968903252	9.0	0.2222222222222222	0.345679012345679	0.16666666666666666	1.0	0.14285714285714285																						
+control	g1_t100_w0__a3_r095_s2_w0_C1		hek293t	TEST		class:RBP			155.07476635514018			1.0																							4.0	0.0	267.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0_C1		hek293t	TEST		class:TF			3.8953314072771428			1.0																							67.0	85.0	1047.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0_C1		hek293t	TEST		class:kinase			595.6409736308317			1.0																							14.0	0.0	246.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0_C1		hek293t	TEST		class:other			0.763805102051357			0.8300822571159648																							710.0	8278.0	10604.0	9.0															
+control	g1_t100_w0__a3_r095_s2_w0_C1		hek293t	TEST		class:ribosomal			393.8198757763975			1.0																							3.0	11.0	3.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0_C1		hek293t	TEST		runtime																																	0.4786989688873291	67.22	{'cpu_count': 10, 'blas': []}												
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hek293t	TEST		pooled	8373505.0	8374.0	4.727239265095012	16.848927041134917	6.384459254903578	9.543941519023203e-21	0.6844523806968708	32.64915383405312	0.9170829170829171	0.7112887112887113	0.3394593499714057	0.5820071643853376																																			
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hek293t	TEST		cmh													2.7786582420625585	0.47855625096463855	3.0457926124288712	0.5164203996546134	0.5286601385240028	4.399570160163801																													
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hek293t	TEST		sign																			13.990470541081091	57.0	0.43859649122807015	0.492151431209603	0.1234866828087167	1.0	0.6210526315789474																						
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hek293t	TEST		class:RBP			155.07476635514018			1.0																							4.0	0.0	267.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hek293t	TEST		class:TF			26.232966265577996			1.7929003441503333e-08																							67.0	186.0	1047.0	7.0															
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hek293t	TEST		class:kinase			595.6409736308317			1.0																							14.0	0.0	246.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hek293t	TEST		class:other			4.434875086278344			2.5517528151032238e-17																							710.0	7993.0	10604.0	50.0															
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hek293t	TEST		class:ribosomal			23.03142126415784			1.0																							3.0	195.0	3.0	0.0															
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hek293t	TEST		runtime																																	0.47219371795654297	82.69	{'cpu_count': 10, 'blas': []}												
+control	PC2		hct116	TEST		pooled	5822281.0	5822.0	180.73690699365562	1020.8636780868989	20.157078276803656	0.0	75.15694510694306	434.6348764329379	0.000999000999000999	0.000999000999000999	59.08085652854622	7.076274795847842																																			
+control	PC2		hct116	TEST		cmh													7.545341100430876	65.1423233552502	7.347151465771823	0.5556286832331085	0.6662658880109927	168.84897675355242																													
+control	PC2		hct116	TEST		sign																			9228.684723346254	301.0	0.9900332225913622	0.7033917947925519	7505.285714285715	0.000999000999000999	0.9973544973544973																						
+control	PC2		hct116	TEST		callset																										9889.0	118.89129535251939	0.0																			
+control	PC2		hct116	TEST		class:RBP			169.73607038123168			8.721653393627551e-21																							3.0	198.0	23.0	12.0															
+control	PC2		hct116	TEST		class:TF			176.7511465941906			2.7296074173578287e-21																							49.0	214.0	156.0	11.0															
+control	PC2		hct116	TEST		class:kinase			468.784			0.002606982895757901																							12.0	51.0	6.0	1.0															
+control	PC2		hct116	TEST		class:other			177.09775765496178			0.0																							531.0	5359.0	1867.0	277.0															
+control	PC2		hct116	TEST		class:ribosomal			8420.714285714286			1.0																							3.0	0.0	3.0	0.0															
+control	PC2		hct116	TEST		runtime																																	1.5138280391693115														
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs a3_r095_s2_w0	hct116	TEST		paired							0.29694524067033845	1.6433454165314445																												0.9701453286008914	0.4485305913531832	0.4182985341512606	0.035010946328220056	0.4233836436751855	0.0	True	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	hct116	TEST		paired							-2.424013135135144	-0.7047555056249944																												-1.5643843203800691	-2.208527609563397	-2.2690535774762752	-1.2846861999105756	-0.6971401897185103	0.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs focal__g1_t100_w0__a3_r095_s2_w0	hct116	TEST		paired							-0.6877986821599645	0.37352149944560475																												-0.1571385913571799	-0.45449444244893394	-0.5921401240398023	-0.23984009070217752	0.49150681068793295	0.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs B0	hct116	TEST		paired							0.13008716510331264	2.258208125771759																												1.194147645437536	0.23661925566014583	0.3218982567334293	-0.10061876973344142	0.6892287843776143	0.0	True	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs B1	hct116	TEST		paired							-0.4782049653472502	2.917307580635126																												1.2195513076439377	-0.003339119132033039	-0.17216175627887909	-1.2004616834960034	-0.11644386394540886	0.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs B2	hct116	TEST		paired							-1.685305792029263	0.7868493765020144																												-0.44922820776362427	-1.6003490047042235	-1.4624863234375545	-0.01679517230841284	0.5168690559932652	0.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs B3	hct116	TEST		paired							-14.679913596210918	24.45265841767074																												4.88637241072991	-5.525442714857897	-11.152829612263348	-inf	-inf	592.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs B4	hct116	TEST		paired							-1.7017355705218447	0.9055329618853825																												-0.3981013043182311	-1.4916905752629424	-1.466738109091457	-2.0263688502426036	-1.2358099081767377	2.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs B4e	hct116	TEST		paired							-1.9278004274639244	0.6228823610456924																												-0.652459033209116	-1.6579791316846757	-1.6979031335091177	-1.4763019582610748	-0.8534856354313433	0.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs B5	hct116	TEST		paired							-4.1277311321350645	0.5697992911943257																												-1.7789659204703692	-2.969256398123743	-3.7043348801750833	-1.4361293319553567	-0.813138534530988	0.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs B6	hct116	TEST		paired							0.49955510518949087	3.180715291743838																												1.8401351984666645	0.779459892026662	0.7412125446503857	0.3161711559026824	1.1647562597361112	0.0	True	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs NC1	hct116	TEST		paired							-0.656158947280064	2.8531469635856466																												1.0984940081527914	0.048793474364012324	-0.33985935244136467	-0.159763371853456	0.7629657302675003	0.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs C2_g2	hct116	TEST		paired							-1.989446689868556	-0.037415160540898884																												-1.0134309252047276	-1.795582579599143	-1.8135068323807855	-0.9710086983244329	-0.2795379549766393	0.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__S1	hct116	TEST		paired							-0.29063192286086387	0.5364320853632087																												0.12290008125117247	-0.3171619624557257	-0.216087264358177	0.2532700993184487	0.6342544905893075	0.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__noHCT116	hct116	TEST		paired							-0.047373032447506555	0.07848776301941184																												0.01555736528595264	-0.03613339748580474	-0.036028989031684194	0.014606688578766007	0.0730397614489363	0.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__hidden_factors	hct116	TEST		paired							-0.07323212163431153	0.6389014258230001																												0.28283465209434433	-0.02953589363589783	-0.0090463372504625	0.13879088918224824	0.42212096613955363	0.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion	hct116	TEST		paired							-0.055285476622076696	0.24950200279532384																												0.09710826308662357	-0.05787600043382996	-0.02781447275400689	-0.015423846578898455	0.10208554556827631	0.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop	hct116	TEST		paired							-0.029695539451299095	0.09240576595579786																												0.03135511325224938	0.0026510379850255505	-0.018690345144937323	0.02578747109323947	0.06332589381531027	0.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 vs B5	hct116	TEST		paired							-2.2886814279797916	1.8595182277991915																												-0.21458160009030003	-1.1916125495795253	-1.9147972743155566	-0.1514431320447811	0.12204755079318806	0.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 vs C2_g2	hct116	TEST		paired							0.07166040809135577	1.0302463822593273																												0.5509533951753416	0.11147853034923667	0.1580593607470941	0.3136775015861427	0.6827553728869125	0.0	True	False				
+comparison	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 vs g1_t100_w0__a3_r095_s2_w0	hct116	TEST		paired							0.7047555056249944	2.424013135135144																												1.5643843203800691	1.0646528095512853	0.8597150632838628	1.2846861999105756	1.8510919154668641	0.0	True	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs a3_r095_s2_w0	hek293t	TEST		paired							-3.217151770137082	3.217151770137082																												0.0	-2.659098502100165	-2.6372172604220627	-0.3533070570357384	inf	45.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	hek293t	TEST		paired							-4.19674289030772	-0.46375359911404535																												-2.3302482447108828	-4.360405381975309	-3.860282339323584	-1.528671649167407	-0.6462354355245998	6.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs focal__g1_t100_w0__a3_r095_s2_w0	hek293t	TEST		paired							-2.129804921099515	5.715341860333709																												1.7927684696170967	-0.998196316422721	-1.42270875694513	1.0323930039794307	inf	150.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs B0	hek293t	TEST		paired							-3.9102460263173504	3.098104504681547																												-0.40607076081790155	-3.016374793947314	-3.2785717038882503	-0.16649868670709123	1.4685328954634813	9.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs B1	hek293t	TEST		paired							-4.74588808207648	3.357170731104405																												-0.6943586754860375	-3.597553611199391	-4.015545876335003	-0.877019606010101	1.4594953310083787	2.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs B2	hek293t	TEST		paired							-4.93894942505171	2.8515983685722475																												-1.0436755282397312	-3.84934491524245	-4.236774358732998	-0.3159006245511285	0.7596405334623793	19.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs B3	hek293t	TEST		paired							-14.160838643869477	13.348697122233675																												-0.40607076081790155	-9.08147301202723	-11.681358302734834	-0.5042033096086808	0.5352843006271717	330.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs B4	hek293t	TEST		paired							-4.055461473785663	2.6667441228135886																												-0.6943586754860375	-3.3408192824072924	-3.4495778715487018	0.13394254401014516	1.8573193883988295	10.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs B4e	hek293t	TEST		paired							-6.754669667160275	-0.01232964473277498																												-3.383499655946525	-5.970102048601468	-6.146971315541657	-2.1189073340761366	-0.8667726176327021	0.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs B5	hek293t	TEST		paired							-8.548805587474046	-0.029233734082176888																												-4.289019660778112	-7.376145420212439	-7.780922366725626	-1.323049264421806	-0.08236386263187787	7.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs B6	hek293t	TEST		paired							-4.026154618404175	4.391201416282343																												0.18252339893908398	-2.722099140834615	-3.267484279879131	0.33697791086945206	inf	35.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs NC1	hek293t	TEST		paired							-5.230369305827704	2.7187830491587373																												-1.2557931283344836	-3.7759964178041496	-4.5138989458604115	-0.4018796456017291	0.9945009468335476	13.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs C2_g2	hek293t	TEST		paired							-6.877973460302549	0.3679483746183032																												-3.255012542842123	-5.938357562568891	-6.224886440011131	-0.6736918933949276	0.4052332352348715	1.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__S1	hek293t	TEST		paired							-3.721857392922065	1.5197853188493773																												-1.101036037036344	-3.353793459812922	-3.249419392892158	-0.5124808818152056	inf	53.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__noHCT116	hek293t	TEST		paired							-0.0024467369526849072	0.0024467369526849072																												0.0	-0.003882476283852121	-0.0020056799878788974	0.005094049438981341	0.012197837209988007	197.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__hidden_factors	hek293t	TEST		paired							-0.609694757099934	0.3009896710697441																												-0.15435254301509493	-0.5113305363750018	-0.5276132506789326	-0.16898771795210632	0.1681439150850323	196.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion	hek293t	TEST		paired							-0.32472198223772036	0.32472198223772036																												0.0	-0.4957550519099482	-0.2661865145265724	-0.08086841375780174	0.41996451190978734	195.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop	hek293t	TEST		paired							-0.005805268141351922	0.005805268141351922																												0.0	-0.0073230821533563865	-0.004758791141239585	0.0029522184376192806	0.006999363437790001	197.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 vs B5	hek293t	TEST		paired							-4.477366793167141	0.5598239610326827																												-1.958771416067229	-4.103463824613267	-4.023356389073983	0.20562238474560124	1.1474680723963169	7.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 vs C2_g2	hek293t	TEST		paired							-2.952003445548507	1.102474849286027																												-0.9247642981312401	-3.125195914016025	-2.5865665544619443	0.8549797557724794	1.5942417597710978	0.0	False	False				
+comparison	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 vs g1_t100_w0__a3_r095_s2_w0	hek293t	TEST		paired							0.46375359911404535	4.19674289030772																												2.3302482447108828	1.159938323449641	0.8002141500981814	1.528671649167407	inf	6.0	True	False				
+control	g1_t100_w0__a3_r095_s2_w0	C1 pair-specific gain	hct116	TEST		C1							-0.7467876437138734	0.7936390893284997																												0.023425722807313143								3.846257157401947	3.7572029553576893	0.08905420204425774	score (approximation)
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	C1 pair-specific gain	hct116	TEST		C1							-0.0634957612626561	0.18595967295737026																												0.06123195584735708								18.384075518024517	17.29215400769386	1.091921510330657	pair_score x target_weight
+control	g1_t100_w0__a3_r095_s2_w0	C1 pair-specific gain	hek293t	TEST		C1							-1.0898283413415397	0.27768681970573666																												-0.40607076081790155								0.49249430403400646	0.7391890123338191	-0.2466947082998126	score (approximation)
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	C1 pair-specific gain	hek293t	TEST		C1							-0.14316654278144456	0.2804355300622734																												0.0686344936404144								5.063084390144565	4.727239265095012	0.3358451250495529	pair_score x target_weight
