@@ -1,0 +1,83 @@
+# Pre-registered variants (DESIGN v3.1 §5.5), baselines and controls (§7), sensitivity analyses.
+# Hash-locked at freeze (results/FROZEN.sha256). Do not edit after freeze without a decision note.
+#
+# Composition: `scripts/run_model.py --variant a+b+c` starts from `defaults` and applies the `params`
+# of a, b, c in order (later ids override earlier ones). Greedy tuning (§5.5) composes the current best
+# configuration with one option of the next tier, e.g. `--variant focal+g1_t30_w0`.
+# Cap (§5.5): at most 30 configurations evaluated on TRAIN in total.
+version: 1
+design: "DESIGN.md v3.1 (frozen) §5.5, §7"
+cap_train_configurations: 30
+seeds: [20261027, 1, 2, 3, 4]
+
+defaults:            # = M1: LOCO, log2 clip(2^-2, 2^3), linear dosage, no gates, no attribution
+  arm_handling: loco
+  n_pcs: 20
+  cn_floor: 0.25
+  cn_cap: 8.0
+  rint: false
+  dosage: linear
+  g1_tau: null
+  g1_w: 0.0
+  g2_threshold: null
+  g2_w: 0.0
+  context: HCT116
+  a3_rho: null
+  a3_s: 2.0
+  a3_wco: 0.0
+  a3_sigma0: 0.05
+  target_std: false
+  nc1_index: null
+  sample_set: S2
+
+variants:
+  - {id: M1, kind: model, tier: 0, params: {}}
+  # tier 1: arm handling
+  - {id: focal, kind: model, tier: 1, params: {arm_handling: focal}}
+  - {id: loao, kind: model, tier: 1, params: {arm_handling: loao}}
+  - {id: cnpcs20, kind: model, tier: 1, params: {arm_handling: pcs, n_pcs: 20}}
+  # tier 2: G1 instrument gate, tau x w
+  - {id: g1_t10_w0, kind: model, tier: 2, params: {g1_tau: 10, g1_w: 0.0}}
+  - {id: g1_t10_w05, kind: model, tier: 2, params: {g1_tau: 10, g1_w: 0.5}}
+  - {id: g1_t30_w0, kind: model, tier: 2, params: {g1_tau: 30, g1_w: 0.0}}
+  - {id: g1_t30_w05, kind: model, tier: 2, params: {g1_tau: 30, g1_w: 0.5}}
+  - {id: g1_t100_w0, kind: model, tier: 2, params: {g1_tau: 100, g1_w: 0.0}}
+  - {id: g1_t100_w05, kind: model, tier: 2, params: {g1_tau: 100, g1_w: 0.5}}
+  # tier 3: G2 context-expression gate (DepMap HCT116 = ACH-000971), threshold x w
+  - {id: g2_thr1_w0, kind: model, tier: 3, params: {g2_threshold: 1.0, g2_w: 0.0}}
+  - {id: g2_thr1_w05, kind: model, tier: 3, params: {g2_threshold: 1.0, g2_w: 0.5}}
+  - {id: g2_thr2_w0, kind: model, tier: 3, params: {g2_threshold: 2.0, g2_w: 0.0}}
+  - {id: g2_thr2_w05, kind: model, tier: 3, params: {g2_threshold: 2.0, g2_w: 0.5}}
+  # tier 4: A3 attribution, one-at-a-time sweep from (rho 0.95, s 2, w_co 0)
+  - {id: a3_r095_s2_w0, kind: model, tier: 4, params: {a3_rho: 0.95, a3_s: 2.0, a3_wco: 0.0}}
+  - {id: a3_r098_s2_w0, kind: model, tier: 4, params: {a3_rho: 0.98, a3_s: 2.0, a3_wco: 0.0}}
+  - {id: a3_r095_s5_w0, kind: model, tier: 4, params: {a3_rho: 0.95, a3_s: 5.0, a3_wco: 0.0}}
+  - {id: a3_r095_s2_w025, kind: model, tier: 4, params: {a3_rho: 0.95, a3_s: 2.0, a3_wco: 0.25}}
+  - {id: a3_r095_s2_w05, kind: model, tier: 4, params: {a3_rho: 0.95, a3_s: 2.0, a3_wco: 0.5}}
+  # tier 5: target standardisation
+  - {id: tstd, kind: model, tier: 5, params: {target_std: true}}
+  # tier 6: dosage shape (hinge at log2 relCN = 0; loss slope ranked, gain slope stored as t_gain)
+  - {id: hinge, kind: model, tier: 6, params: {dosage: hinge}}
+  # tier 7: transforms
+  - {id: floor5, kind: model, tier: 7, params: {cn_floor: 0.03125}}
+  - {id: rint, kind: model, tier: 7, params: {rint: true}}
+
+baselines:           # same score-file shape; DESIGN §7
+  - {id: B0, kind: baseline, desc: "random scores (seeded; --seed, default 20261027)"}
+  - {id: B1, kind: baseline, desc: "naive Pearson r(x_A, y_B), no covariates (stored as t, df = n-2)"}
+  - {id: B2, kind: baseline, desc: "co-expression r(y_A, y_B), no CN; CN-only regulators NaN (minimum); s_cis = +1"}
+  - {id: B3, kind: baseline, desc: "regulator hub: M1 cis t_A x SD(x_A), target-agnostic"}
+  - {id: B4, kind: baseline, desc: "target hub: SD(y_B) across the panel"}
+  - {id: B4e, kind: baseline, desc: "target detectability: y_B in DepMap HCT116 (ACH-000971)"}
+  - {id: B5, kind: baseline, desc: "rank(|B3|) x rank(B4e)"}
+  - {id: B6, kind: baseline, desc: "arm-only: t of arm CN of A's arm on y_B, adjusted as M1"}
+
+controls:
+  - {id: NC1, kind: model, params: {nc1_index: 0}, desc: "residual permutation of X~ within lineage strata; --perm-index k uses SeedSequence(20261027).spawn(k+1)[k]"}
+
+sensitivity:         # not tuned; reported on TRAIN and in the final run (§5.5)
+  - {id: S1, kind: model, params: {sample_set: S1}, implemented: true}
+  - {id: noHCT116, kind: model, params: {sample_set: S2_noHCT116}, implemented: true}
+  - {id: hidden_factors, implemented: false}
+  - {id: paralog_exclusion, implemented: false, note: "evaluation-side filter"}
+  - {id: cn_outlier_exclusion, implemented: false}
