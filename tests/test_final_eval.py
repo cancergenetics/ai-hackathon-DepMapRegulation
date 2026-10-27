@@ -55,6 +55,7 @@ def toy_project(tmp_path):
         "selected": "good", "ablations": ["random"], "reported": ["good"], "labels": {"random": "toy ablation"},
         "baselines": ["random"], "controls": ["PC2", "NC2"], "nc2_run": "random", "c1": ["good"],
         "subsets": ["paralog_exclusion", "class_i", "hub-excluded"], "lines": ["hct116", "hek293t"],
+        "comparisons": [["random", "good"]],
         "n_perm": 19}))
     regs = pd.read_csv(root / "data/processed/bench/universe_regulators_hct116.tsv", sep="\t")
     tg = pd.read_csv(root / "data/processed/bench/universe_targets_hct116.tsv", sep="\t")
@@ -89,6 +90,8 @@ def test_seal_and_final_eval_workflow(toy_project):
     assert lock(root, mock=True)["status"] == "COMPLETED"
     summ = json.loads((root / "results" / "final_mock" / "summary.json").read_text())
     assert {x["run"] for x in summ["results"]} == {"good", "random", "PC2", "good_C1"}
+    assert sum(c["candidate"] == "random" and c["incumbent"] == "good" for c in summ["comparisons"]) == 2
+    assert all("boot_cmh_n_undefined" in c and "adopt_style_no_folds" in c for c in summ["comparisons"])
     assert len(summ["c1_comparisons"]) == 2 and all(c["split"] == "PSEUDO_TEST" for c in summ["c1_comparisons"])
     from depmaptr.controls import D6_CMH_LABEL
     assert all(x[D6_CMH_LABEL] is not None for x in summ["results"] if x["run"] == "good" and not x["subset"])
@@ -154,8 +157,11 @@ def test_seal_and_final_eval_workflow(toy_project):
     assert msgs[0].startswith("final_eval: TEST evaluation COMPLETED")
     assert msgs[1].startswith("final_eval: LOCK (STARTED)")              # committed before TEST was read
     first = run(["git", "show", "--name-only", "--format=", "HEAD~1"], root, sealed).stdout.split()
-    assert first == ["results/final/LOCK"]
+    assert "results/final/LOCK" in first and set(first) <= {"results/final/LOCK", "results/tuning_log.tsv"}
     assert (root / "results" / "final" / "summary.json").exists()
+    last = run(["git", "show", "--name-only", "--format=", "HEAD"], root, sealed).stdout.split()
+    assert "results/tuning_log.tsv" in last and "results/final/LOCK" in last
+    assert run(["git", "status", "--porcelain", "results/tuning_log.tsv"], root, sealed).stdout == ""
     with pytest.raises(PermissionError):
         open(sealed / "data/processed/bench/positives_hct116_TEST.parquet", "rb")
     r = final_eval(root, sealed)                                          # any rerun refuses
@@ -169,19 +175,48 @@ def test_final_eval_refuses_without_selected(toy_project):
     assert r.returncode != 0 and "selected.yaml" in r.stderr
 
 
-def test_crash_after_lock_consumes_the_run(toy_project):
-    """A tampered sealed file is detected after the STARTED LOCK is committed: the run is FAILED, committed,
-    and cannot be retried."""
+def test_tampered_or_missing_sealed_files_refuse_without_lock(toy_project):
+    """D8a/M1: sealed files are checked (existence, sealed root, sha256) before the LOCK is written."""
     root, sealed = toy_project
     assert run(["bash", "scripts/benchmark/seal_test.sh"], root, sealed).returncode == 0
+    r = final_eval(root, root / "elsewhere")
+    assert r.returncode != 0 and "sealed directory not found" in r.stderr
+    (root / "elsewhere").mkdir()
+    r = final_eval(root, root / "elsewhere")
+    assert r.returncode != 0 and "differs from the one recorded" in r.stderr
     p = sealed / "data/processed/bench/regulator_labels_hct116_TEST.tsv"
     p.chmod(0o600)
-    p.write_text(p.read_text() + "X\t0\t0\n")
+    orig = p.read_text()
+    p.write_text(orig + "X\t0\t0\n")
     p.chmod(0o000)
     r = final_eval(root, sealed)
     assert r.returncode != 0 and "sha256 mismatch" in r.stderr
+    with pytest.raises(PermissionError):                       # read access removed again after hashing
+        open(p, "rb")
+    p.chmod(0o600)
+    p.write_text(orig)
+    p.chmod(0o000)
+    q = sealed / "data/processed/bench/positives_hek293t_TEST.parquet"
+    q.chmod(0o600)
+    q.unlink()
+    r = final_eval(root, sealed)
+    assert r.returncode != 0 and "sealed file missing" in r.stderr
+    assert not (root / "results" / "final" / "LOCK").exists()
+    assert run(["git", "cat-file", "-e", "HEAD:results/final/LOCK"], root, sealed).returncode != 0
+
+
+def test_crash_after_lock_consumes_the_run(toy_project):
+    """A failure after the STARTED LOCK (here: TEST labels inconsistent with the TEST regulators, with a
+    valid hash) marks the run FAILED, commits it, and blocks any retry."""
+    root, sealed = toy_project
+    lab = root / "data/processed/bench/regulator_labels_hct116_TEST.tsv"
+    lines = lab.read_text().splitlines()
+    lab.write_text("\n".join(lines[:-1]) + "\n")                # one TEST regulator without labels
+    assert run(["bash", "scripts/benchmark/seal_test.sh"], root, sealed).returncode == 0
+    r = final_eval(root, sealed)
+    assert r.returncode != 0
     lk = lock(root)
-    assert lk["status"] == "FAILED" and "sha256 mismatch" in lk["error"]
+    assert lk["status"] == "FAILED" and "labels do not match" in lk["error"]
     assert run(["git", "cat-file", "-e", "HEAD:results/final/LOCK"], root, sealed).returncode == 0
     r = final_eval(root, sealed)
     assert r.returncode != 0 and "LOCK" in r.stderr

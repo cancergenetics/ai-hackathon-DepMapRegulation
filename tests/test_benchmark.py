@@ -826,3 +826,41 @@ def test_load_scores_reads_pair_score_and_c1_uses_exact_mode(tmp_path):
     assert "pair_score" in sc and "target_weight" in sc and np.array_equal(sc["target_weight"], w)
     r = controls.compare_c1(runs["good"], "hct116", "TRAIN", n_boot=10, root=tmp_path)
     assert r["c1_mode"] == "pair_score x target_weight" and "c1_warning" not in r
+
+
+def test_paired_cmh_bootstrap_degenerate_replicates():
+    """D8a regression: replicates in which neither score has any overlap give log CMH = -inf for both, and
+    their Δ is undefined. They must be dropped and counted, not turn the bound into NaN."""
+    regs, tgts, L = toy_tables(nr=40, nt=200, n_chrom=4, arms_per_chrom=2, seed=61, rate=np.full(40, 0.1))
+    hot = (regs.arm == sorted(regs.arm.unique())[0]).values
+    L[~hot] = False                                       # positives only on one arm
+    S = np.random.default_rng(2).normal(size=L.shape).astype(np.float32)
+    S[hot] += 1.5 * L[hot]
+    S2 = S.copy()
+    S2[hot] += 0.01 * np.random.default_rng(3).normal(size=S2[hot].shape).astype(np.float32)
+    pos = pos_from_dense(regs, tgts, L)
+    a = bm.Evaluation(regs, tgts, pos, S, np.ones(40, np.int8))
+    b = bm.Evaluation(regs, tgts, pos, S2, np.ones(40, np.int8))
+    sa, sb = a.topk(0.05), b.topk(0.05)
+    hot_arm = a.arms.get_loc(sorted(regs.arm.unique())[0])
+    Wa, Wb = a.boot_weights(200, np.random.default_rng(5))
+    Wa[:20, :] = 1.0
+    Wa[:20, hot_arm] = 0.0                                # 20 replicates without the hot arm
+    pl = a.pos_lin()
+    da = a.bootstrap_log_cmh(sa, pl, (Wa, Wb))
+    db = b.bootstrap_log_cmh(sb, pl, (Wa, Wb))
+    with np.errstate(invalid="ignore"):
+        d = da - db
+    assert (~np.isfinite(da[:20])).all() and np.isnan(d[:20]).all()  # the pre-D8a NaN source (0/0 or -inf - -inf)
+    r = bm.paired_cmh_bootstrap(a, b, sa, sb, pl, (Wa, Wb))
+    assert r["n_undefined"] == int(np.isnan(d).sum()) >= 20
+    assert np.isfinite(r["ub90"]) and r["ub90"] == pytest.approx(np.quantile(d[~np.isnan(d)], 0.95))
+    # with no degenerate replicate the bound equals the plain quantile (no metric change)
+    W2 = a.boot_weights(100, np.random.default_rng(9))
+    r2 = bm.paired_cmh_bootstrap(a, b, sa, sb, pl, W2)
+    d2 = a.bootstrap_log_cmh(sa, pl, W2) - b.bootstrap_log_cmh(sb, pl, W2)
+    if not np.isnan(d2).any():
+        assert r2["ub90"] == float(np.quantile(d2, 0.95)) and r2["n_undefined"] == 0
+    # an infinite Δ (only one score degenerate) is kept as an order statistic
+    assert bm._quantile_defined(np.array([-np.inf, 0.0, 1.0, 2.0, np.nan]), 0.95) == pytest.approx(1.85)
+    assert bm._quantile_defined(np.array([-np.inf, -np.inf, -np.inf, 1.0]), 0.05) == -np.inf

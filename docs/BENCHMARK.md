@@ -527,3 +527,39 @@ commits it. `--selected` is accepted only with `--mock`, so the dry run can use 
 | `paired` | selected vs each run: Δlog OR, paired jackknife and bootstrap, ΔCMH |
 | `C1` | pair-specific gain |
 | `runtime` | evaluation wall time, plus the score run's wall time and threads from `meta.json` |
+
+### 11.4 D8a fixes (pre-final review, reviews/code/prefinal_review.md)
+
+**M1: sealed files are verified before the LOCK.** `final_eval.py` checks four things first:
+- the sealed root exists and equals the path recorded in the `# sealed … ->` line of `FROZEN.sha256`;
+- every TEST label file exists;
+- every TEST label file has a sealed entry;
+- every TEST label file's sha256 matches. Read access is restored only to hash, then removed; nothing is
+  parsed.
+
+If any check fails, the run is refused and **no LOCK is written**. A failure after the LOCK (tested:
+inconsistent labels with a valid hash) still consumes the run.
+
+**M2: NaN CMH bootstrap bound.**
+- **Cause.** Some replicates of the paired two-way bootstrap give no overlap for a score: the MH numerator
+  is 0, so log CMH = −inf (or 0/0 when nothing is selected either). Δ = (−inf) − (−inf) is NaN, and
+  `np.quantile` then returned NaN. In the mock, this hit all 18 HEK293T comparisons and HCT116 vs
+  B3/B4/B5. On TRAIN, HEK293T selected vs B5 had 3 and 1 −inf replicates in 1,000.
+- **Fix** (`paired_cmh_bootstrap`):
+  - ±inf are kept as order statistics;
+  - replicates with undefined Δ are dropped and counted (`boot_cmh_n_undefined`).
+- When no replicate is undefined, the bound is identical to before. Regression test:
+  `test_paired_cmh_bootstrap_degenerate_replicates`.
+
+**M3: extra comparisons.** `selected.yaml` key `comparisons: [[A, B], ...]` runs paired comparisons of A
+against B: the context layer vs B5, vs C2_g2 and vs the selected run.
+
+**Adoption-style summary.** `compare()` also reports `adopt_style_no_folds`: paired-jackknife and
+bootstrap 90 % lower bounds of Δlog OR > 0, plus the CMH guard. This is usable on TEST, which has no TRAIN
+folds.
+
+**Other changes.**
+- C1 runs on both the selected run and the context layer.
+- Both commits made by `final_eval.py` (LOCK STARTED, and COMPLETED/FAILED) also add
+  `results/tuning_log.tsv`.
+- The draft adds the `class_iii` subset and an NC2 row on ungated `M1` (`NC2_M1`).

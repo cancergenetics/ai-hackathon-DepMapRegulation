@@ -25,6 +25,8 @@
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hct116 | PSEUDO_TEST |  | 17466667 | 17467 | 4.14 | 5.73 | 5.02 | 1.48e-47 | 2.48 | 6.9 | 0.034 | 0.0759 | 2.26 | 1.58 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | paralog_exclusion | 17458234 | 17458 | 4.09 | 5.47 | 5 | 2.39e-46 | 2.4 | 6.97 | 0.034 | 0.0789 | 2.26 | 1.58 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_i | 6189892 | 6.19e+03 | 2.08 | 2.67 | 2.19 | 3.68e-08 | 1.02 | 4.22 | 0.025 | 0.0529 | 2.38 | 1.76 |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_iii | 10486382 | 10486 | 8.76 | 6.35 | 22.2 | 1.17e-24 | 0.457 | 168 | 0.021 | 0.046 | 20 | 6.57 |
+| control | M1 |  | hct116 | PSEUDO_TEST | NC2_M1 | 9288636 | 9.29e+03 | 0.361 | 3.62 | 0.903 | 0.937 | 0.0707 | 1.84 | 0.885 | 0.796 | 0.315 | 0.469 |
 | control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | NC2 | 9288636 | 9.29e+03 | 0.18 | 1.8 | 4.93 | 1 | 0.053 | 0.614 | 0.858 | 0.65 | 0.468 | 0.931 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | no_split_sibling | 6595619 | 6.6e+03 | 4.42 | 9.57 | 5.34 | 1.77e-23 | 1.26 | 15.5 | 0.023 | 0.153 | 3.35 | 1.48 |
 | control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hct116 | PSEUDO_TEST |  | 17466667 | 17467 | 5.2 | 5.2 | 5.08 | 2.35e-74 | 3.11 | 8.68 | 0.00799 | 0.02 | 3.07 | 2.11 |
@@ -50,6 +52,8 @@
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hek293t | PSEUDO_TEST |  | 9161007 | 9.16e+03 | 6.96 | 3.62 | 5.57 | 2.86e-64 | 0.791 | 61.3 | 0.027 | 0.037 | 2.95 | 1.85 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | paralog_exclusion | 9157040 | 9.16e+03 | 6.96 | 3.62 | 5.57 | 2.73e-64 | 0.793 | 61.2 | 0.027 | 0.04 | 2.95 | 1.85 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | class_i | 693275 | 693 | 3.19 | 2.66 | 4.09 | 0.000573 | 0.0739 | 138 | 0.0919 | 0.0949 | 2.27 | 1.79 |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | class_iii | 8354670 | 8.36e+03 | 0.0637 | 0.319 | 1.68 | 1 | 0.00036 | 11.3 | 0.486 | 0.225 | 0.959 | 1.88 |
+| control | M1 |  | hek293t | PSEUDO_TEST | NC2_M1 | 7114163 | 7.11e+03 | 0.366 | 0.365 | 0.657 | 0.998 | 0.0369 | 3.62 | 0.943 | 0.963 | 0.476 | 0.437 |
 | control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | NC2 | 7114163 | 7.11e+03 | 0.0365 | 0.365 | 6.12 | 1 | 7.49e-08 | 17811 | 0.677 | 0.495 | 0.941 | 0.949 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | no_split_sibling | 3557652 | 3.56e+03 | 7.09 | 6.9 | 8.83 | 4.4e-26 | 1.98 | 25.4 | 0.042 | 0.004 | 2.77 | 2.09 |
 | control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hek293t | PSEUDO_TEST |  | 9161007 | 9.16e+03 | 6.48 | 4.14 | 5.8 | 8.36e-57 | 0.965 | 43.5 | 0.0669 | 0.147 | 2.63 | 1.54 |
@@ -81,6 +85,8 @@
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hct116 | PSEUDO_TEST |  | 0.918 | 2.17 | 0.92 | 0.506 | 0.273 | 3.74 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | paralog_exclusion | 0.912 | 2.15 | 0.913 | 0.506 | 0.272 | 3.61 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_i | 1.04 | 2.24 | 1.08 | 0.509 | 0.312 | 1.87 |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_iii | 0.89 | 8.65 | 0.898 | 0.502 | 0.885 | 0.336 |
+| control | M1 |  | hct116 | PSEUDO_TEST | NC2_M1 | 0.547 | 0.4 | 0.569 | 0.498 | 0.069 | 0.765 |
 | control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | NC2 | 0 | 0 | 0 | 0.501 | 1 | 0.382 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | no_split_sibling | 0.866 | 3.12 | 0.857 | 0.503 | 0.414 | 3.59 |
 | control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hct116 | PSEUDO_TEST |  | 1.2 | 2.77 | 1.22 | 0.501 | 0.271 | 5.34 |
@@ -106,6 +112,8 @@
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hek293t | PSEUDO_TEST |  | 0.989 | 3.44 | 1.03 | 0.499 | 0.892 | 3.15 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | paralog_exclusion | 0.988 | 3.44 | 1.03 | 0.499 | 0.892 | 3.15 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | class_i | 0.772 | 3.28 | 0.818 | 0.5 | 0.967 | 5.21 |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | class_iii | 12.4 | 0.0621 | 10.2 | 0.499 | 1 | 0.183 |
+| control | M1 |  | hek293t | PSEUDO_TEST | NC2_M1 | 0.365 | 0.421 | 0.376 | 0.49 | 0.0814 | 0.193 |
 | control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | NC2 | 0 | 0 | 0 | 0.499 | 1 | 0.0966 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | no_split_sibling | 0.905 | 3.17 | 0.942 | 0.5 | 0.988 | 2.82 |
 | control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hek293t | PSEUDO_TEST |  | 0.935 | 3.18 | 0.946 | 0.5 | 0.893 | 3.28 |
@@ -137,6 +145,8 @@
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hct116 | PSEUDO_TEST |  | 5.38 | 159 | 0.553 | 0.467 | 2.3 | 0.0809 | 0.526 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | paralog_exclusion | 5.26 | 157 | 0.548 | 0.466 | 2.2 | 0.0859 | 0.526 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_i | 2.26 | 70 | 0.5 | 0.473 | 1.28 | 0.859 | 0.48 |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_iii | 31.8 | 41 | 0.683 | 0.562 | 4.4 | 0.046 | 0.475 |
+| control | M1 |  | hct116 | PSEUDO_TEST | NC2_M1 | 0.379 | 1 | 0 | 0 | 0.333 | 1 |  |
 | control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | NC2 | 3.89 | 0 |  |  |  |  |  |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | no_split_sibling | 6.36 | 70 | 0.643 | 0.493 | 3.92 | 0.00599 | 0.575 |
 | control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hct116 | PSEUDO_TEST |  | 5.04 | 199 | 0.412 | 0.451 | 0.685 | 0.885 | 0.41 |
@@ -162,6 +172,8 @@
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hek293t | PSEUDO_TEST |  | 23.4 | 133 | 0.481 | 0.49 | 0.907 | 0.966 | 0.363 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | paralog_exclusion | 23.3 | 133 | 0.481 | 0.49 | 0.907 | 0.966 | 0.363 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | class_i | 2.5 | 12 | 0.417 | 0.333 | 2.33 | 0.413 | 0.433 |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | class_iii | 1.22 | 1 | 1 | 1 | 3 | 1 |  |
+| control | M1 |  | hek293t | PSEUDO_TEST | NC2_M1 | 0.447 | 5 | 0.6 | 0.6 | 1.4 | 1 |  |
 | control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | NC2 | 0.632 | 0 |  |  |  |  |  |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | no_split_sibling | 18.9 | 51 | 0.49 | 0.461 | 1.43 | 0.431 | 0.388 |
 | control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hek293t | PSEUDO_TEST |  | 25.2 | 124 | 0.54 | 0.443 | 3.15 | 0.493 | 0.559 |
@@ -183,6 +195,8 @@
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hct116 | PSEUDO_TEST |  | 991048 | 1.23 | 8.75e-24 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | paralog_exclusion | 997231 | 1.23 | 9.04e-24 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_i | 357729 | 1.14 | 9.06e-09 |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_iii | 596179 | 1.82 | 3.83e-30 |
+| control | M1 |  | hct116 | PSEUDO_TEST | NC2_M1 | 525971 | 0.962 | 0.691 |
 | control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | NC2 | 525971 | 0.962 | 0.691 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | no_split_sibling | 362403 | 1.56 | 5.79e-48 |
 | selected | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST |  | 494245 | 0.849 | 1 |
@@ -196,6 +210,8 @@
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hek293t | PSEUDO_TEST |  | 490960 | 0.847 | 1 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | paralog_exclusion | 494005 | 0.849 | 1 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | class_i | 31490 | 0.915 | 0.873 |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | class_iii | 456557 | 0.859 | 1 |
+| control | M1 |  | hek293t | PSEUDO_TEST | NC2_M1 | 383792 | 0.786 | 1 |
 | control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | NC2 | 383792 | 0.786 | 1 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | no_split_sibling | 181603 | 0.826 | 1 |
 | control | PC2 |  | hct116 | PSEUDO_TEST |  | 12839 | 70.9 | 0 |
@@ -211,100 +227,110 @@
 
 ## paired
 
-| role | run | label | line | split | subset | jk_CI95_lo | jk_CI95_hi | dlogOR | boot_lb90 | dlogCMH | boot_cmh_ub90 |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| comparison | a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs a3_r095_s2_w0 | hct116 | PSEUDO_TEST |  | 0.501 | 1.26 | 0.881 | 0.589 | -0.0622 | 0.282 |
-| comparison | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 | hct116 | PSEUDO_TEST |  | -2.21 | -1.49 | -1.85 | -2.23 | -0.973 | -0.687 |
-| comparison | focal__g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs focal__g1_t100_w0__a3_r095_s2_w0 | hct116 | PSEUDO_TEST |  | -2.03 | 0.972 | -0.53 | -1.52 | -0.321 | 0.136 |
-| comparison | B0 | g1_t100_w0__a3_r095_s2_w0 vs B0 | hct116 | PSEUDO_TEST |  | 0.735 | 1.98 | 1.36 | 0.727 | -0.122 | 0.501 |
-| comparison | B1 | g1_t100_w0__a3_r095_s2_w0 vs B1 | hct116 | PSEUDO_TEST |  | 0.265 | 2.09 | 1.18 | 0.333 | -1.52 | -0.893 |
-| comparison | B2 | g1_t100_w0__a3_r095_s2_w0 vs B2 | hct116 | PSEUDO_TEST |  | -0.856 | 0.318 | -0.269 | -0.783 | -0.832 | -0.318 |
-| comparison | B3 | g1_t100_w0__a3_r095_s2_w0 vs B3 | hct116 | PSEUDO_TEST |  | -9.29 | 9.05 | -0.121 | -5.02 | -0.0981 |  |
-| comparison | B4 | g1_t100_w0__a3_r095_s2_w0 vs B4 | hct116 | PSEUDO_TEST |  | -0.805 | 0.257 | -0.274 | -0.983 | -1.86 |  |
-| comparison | B4e | g1_t100_w0__a3_r095_s2_w0 vs B4e | hct116 | PSEUDO_TEST |  | -1.16 | -0.256 | -0.71 | -1.23 | -1.58 | -1.18 |
-| comparison | B5 | g1_t100_w0__a3_r095_s2_w0 vs B5 | hct116 | PSEUDO_TEST |  | -2.52 | -0.252 | -1.39 | -2.26 | -1.18 |  |
-| comparison | B6 | g1_t100_w0__a3_r095_s2_w0 vs B6 | hct116 | PSEUDO_TEST |  | 0.916 | 2.12 | 1.52 | 0.904 | -0.0615 | 0.815 |
-| comparison | NC1 | g1_t100_w0__a3_r095_s2_w0 vs NC1 | hct116 | PSEUDO_TEST |  | 0.892 | 2.09 | 1.49 | 0.833 | 0.0608 | 0.765 |
-| comparison | C2_g2 | g1_t100_w0__a3_r095_s2_w0 vs C2_g2 | hct116 | PSEUDO_TEST |  | -1.85 | -0.626 | -1.24 | -1.83 | -0.905 | -0.508 |
-| comparison | g1_t100_w0__a3_r095_s2_w0__S1 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__S1 | hct116 | PSEUDO_TEST |  | -0.443 | 0.901 | 0.229 | -0.326 | 0.16 | 0.419 |
-| comparison | g1_t100_w0__a3_r095_s2_w0__noHCT116 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__noHCT116 | hct116 | PSEUDO_TEST |  | -0.022 | 0.00923 | -0.00639 | -0.0298 | -0.00146 | 0.019 |
-| comparison | g1_t100_w0__a3_r095_s2_w0__hidden_factors | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__hidden_factors | hct116 | PSEUDO_TEST |  | -0.226 | 0.386 | 0.08 | -0.187 | 0.0491 | 0.376 |
-| comparison | g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion | hct116 | PSEUDO_TEST |  | -0.118 | 0.0303 | -0.0439 | -0.142 | -0.0176 | 0.08 |
-| comparison | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop | hct116 | PSEUDO_TEST |  | -0.0302 | 0.0174 | -0.00639 | -0.0464 | -0.000147 | 0.0136 |
-| comparison | a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs a3_r095_s2_w0 | hek293t | PSEUDO_TEST |  | 0.753 | 3.52 | 2.14 | -0.909 | 0.118 |  |
-| comparison | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 | hek293t | PSEUDO_TEST |  | -2.44 | -0.189 | -1.31 | -4 | -0.726 |  |
-| comparison | focal__g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs focal__g1_t100_w0__a3_r095_s2_w0 | hek293t | PSEUDO_TEST |  | -0.634 | 1.12 | 0.241 | -1.39 | 0.0743 |  |
-| comparison | B0 | g1_t100_w0__a3_r095_s2_w0 vs B0 | hek293t | PSEUDO_TEST |  | 0.339 | 4.51 | 2.43 | -1.12 | 0.44 |  |
-| comparison | B1 | g1_t100_w0__a3_r095_s2_w0 vs B1 | hek293t | PSEUDO_TEST |  | 0.169 | 4.23 | 2.2 | -1.61 | -0.000437 |  |
-| comparison | B2 | g1_t100_w0__a3_r095_s2_w0 vs B2 | hek293t | PSEUDO_TEST |  | -1.7 | 5.16 | 1.73 | -0.748 | -0.387 |  |
-| comparison | B3 | g1_t100_w0__a3_r095_s2_w0 vs B3 | hek293t | PSEUDO_TEST |  | -6.58 | 2.47 | -2.06 | -6.48 | 0.0245 |  |
-| comparison | B4 | g1_t100_w0__a3_r095_s2_w0 vs B4 | hek293t | PSEUDO_TEST |  | -0.798 | 3.62 | 1.41 | -2.3 | -0.129 |  |
-| comparison | B4e | g1_t100_w0__a3_r095_s2_w0 vs B4e | hek293t | PSEUDO_TEST |  | -2.67 | 1.58 | -0.545 | -4.4 | -1.76 |  |
-| comparison | B5 | g1_t100_w0__a3_r095_s2_w0 vs B5 | hek293t | PSEUDO_TEST |  | -3.62 | 0.824 | -1.4 | -5.35 | -0.582 |  |
-| comparison | B6 | g1_t100_w0__a3_r095_s2_w0 vs B6 | hek293t | PSEUDO_TEST |  | -0.34 | 4.38 | 2.02 | -1.34 | 0.0449 |  |
-| comparison | NC1 | g1_t100_w0__a3_r095_s2_w0 vs NC1 | hek293t | PSEUDO_TEST |  | -0.0653 | 5.28 | 2.61 | -1.42 | 0.584 |  |
-| comparison | C2_g2 | g1_t100_w0__a3_r095_s2_w0 vs C2_g2 | hek293t | PSEUDO_TEST |  | -2.42 | 0.909 | -0.757 | -4.47 | -0.451 |  |
-| comparison | g1_t100_w0__a3_r095_s2_w0__S1 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__S1 | hek293t | PSEUDO_TEST |  | -0.678 | 0.725 | 0.0233 | -0.547 | 0.146 |  |
-| comparison | g1_t100_w0__a3_r095_s2_w0__noHCT116 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__noHCT116 | hek293t | PSEUDO_TEST |  | -0.244 | 0.168 | -0.0377 | -0.523 | 0.0105 |  |
-| comparison | g1_t100_w0__a3_r095_s2_w0__hidden_factors | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__hidden_factors | hek293t | PSEUDO_TEST |  | 0.0374 | 0.669 | 0.353 | -0.491 | 0.135 |  |
-| comparison | g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion | hek293t | PSEUDO_TEST |  | 0.0305 | 0.338 | 0.184 | -0.0228 | 0.133 |  |
-| comparison | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop | hek293t | PSEUDO_TEST |  | -0.0029 | 0.0029 | 0 | -0.00223 | -0.00228 |  |
+| role | run | label | line | split | subset | jk_CI95_lo | jk_CI95_hi | dlogOR | boot_lb90 | jk_lb90 | dlogCMH | boot_cmh_ub90 | boot_cmh_n_undefined | adopt_style_no_folds | adopt_rule_8_2 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs a3_r095_s2_w0 | hct116 | PSEUDO_TEST |  | 0.501 | 1.26 | 0.881 | 0.589 | 0.57 | -0.0622 | 0.282 | 0 | True | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 | hct116 | PSEUDO_TEST |  | -2.21 | -1.49 | -1.85 | -2.23 | -2.15 | -0.973 | -0.687 | 0 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs focal__g1_t100_w0__a3_r095_s2_w0 | hct116 | PSEUDO_TEST |  | -2.03 | 0.972 | -0.53 | -1.52 | -1.76 | -0.321 | 0.136 | 0 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs B0 | hct116 | PSEUDO_TEST |  | 0.735 | 1.98 | 1.36 | 0.727 | 0.847 | -0.122 | 0.501 | 0 | True | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs B1 | hct116 | PSEUDO_TEST |  | 0.265 | 2.09 | 1.18 | 0.333 | 0.43 | -1.52 | -0.893 | 0 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs B2 | hct116 | PSEUDO_TEST |  | -0.856 | 0.318 | -0.269 | -0.783 | -0.75 | -0.832 | -0.318 | 0 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs B3 | hct116 | PSEUDO_TEST |  | -9.29 | 9.05 | -0.121 | -5.02 | -7.64 | -0.0981 | 0.312 | 330 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs B4 | hct116 | PSEUDO_TEST |  | -0.805 | 0.257 | -0.274 | -0.983 | -0.71 | -1.86 | -1.28 | 2 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs B4e | hct116 | PSEUDO_TEST |  | -1.16 | -0.256 | -0.71 | -1.23 | -1.08 | -1.58 | -1.18 | 0 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs B5 | hct116 | PSEUDO_TEST |  | -2.52 | -0.252 | -1.39 | -2.26 | -2.31 | -1.18 | -0.841 | 1 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs B6 | hct116 | PSEUDO_TEST |  | 0.916 | 2.12 | 1.52 | 0.904 | 1.02 | -0.0615 | 0.815 | 0 | True | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs NC1 | hct116 | PSEUDO_TEST |  | 0.892 | 2.09 | 1.49 | 0.833 | 1 | 0.0608 | 0.765 | 0 | True | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs C2_g2 | hct116 | PSEUDO_TEST |  | -1.85 | -0.626 | -1.24 | -1.83 | -1.74 | -0.905 | -0.508 | 0 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__S1 | hct116 | PSEUDO_TEST |  | -0.443 | 0.901 | 0.229 | -0.326 | -0.322 | 0.16 | 0.419 | 0 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__noHCT116 | hct116 | PSEUDO_TEST |  | -0.022 | 0.00923 | -0.00639 | -0.0298 | -0.0192 | -0.00146 | 0.019 | 0 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__hidden_factors | hct116 | PSEUDO_TEST |  | -0.226 | 0.386 | 0.08 | -0.187 | -0.17 | 0.0491 | 0.376 | 0 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion | hct116 | PSEUDO_TEST |  | -0.118 | 0.0303 | -0.0439 | -0.142 | -0.105 | -0.0176 | 0.08 | 0 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop | hct116 | PSEUDO_TEST |  | -0.0302 | 0.0174 | -0.00639 | -0.0464 | -0.0259 | -0.000147 | 0.0136 | 0 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 vs B5 | hct116 | PSEUDO_TEST |  | -0.635 | 1.56 | 0.464 | -0.371 | -0.437 | -0.203 | 0.05 | 1 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 vs C2_g2 | hct116 | PSEUDO_TEST |  | 0.0552 | 1.17 | 0.61 | 0.123 | 0.155 | 0.0682 | 0.395 | 0 | True | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 vs g1_t100_w0__a3_r095_s2_w0 | hct116 | PSEUDO_TEST |  | 1.49 | 2.21 | 1.85 | 1.54 | 1.55 | 0.973 | 1.31 | 0 | True | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs a3_r095_s2_w0 | hek293t | PSEUDO_TEST |  | 0.753 | 3.52 | 2.14 | -0.909 | 1 | 0.118 | 1.39 | 8 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 | hek293t | PSEUDO_TEST |  | -2.44 | -0.189 | -1.31 | -4 | -2.24 | -0.726 | -0.476 | 2 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs focal__g1_t100_w0__a3_r095_s2_w0 | hek293t | PSEUDO_TEST |  | -0.634 | 1.12 | 0.241 | -1.39 | -0.477 | 0.0743 | 0.355 | 36 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs B0 | hek293t | PSEUDO_TEST |  | 0.339 | 4.51 | 2.43 | -1.12 | 0.715 | 0.44 | 1.44 | 3 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs B1 | hek293t | PSEUDO_TEST |  | 0.169 | 4.23 | 2.2 | -1.61 | 0.535 | -0.000437 | 0.979 | 4 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs B2 | hek293t | PSEUDO_TEST |  | -1.7 | 5.16 | 1.73 | -0.748 | -1.08 | -0.387 | 1.17 | 9 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs B3 | hek293t | PSEUDO_TEST |  | -6.58 | 2.47 | -2.06 | -6.48 | -5.76 | 0.0245 | 0.342 | 394 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs B4 | hek293t | PSEUDO_TEST |  | -0.798 | 3.62 | 1.41 | -2.3 | -0.4 | -0.129 | 0.775 | 2 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs B4e | hek293t | PSEUDO_TEST |  | -2.67 | 1.58 | -0.545 | -4.4 | -2.29 | -1.76 | -1.12 | 2 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs B5 | hek293t | PSEUDO_TEST |  | -3.62 | 0.824 | -1.4 | -5.35 | -3.22 | -0.582 | -0.111 | 3 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs B6 | hek293t | PSEUDO_TEST |  | -0.34 | 4.38 | 2.02 | -1.34 | 0.0854 | 0.0449 | 2.31 | 7 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs NC1 | hek293t | PSEUDO_TEST |  | -0.0653 | 5.28 | 2.61 | -1.42 | 0.417 | 0.584 | 2.35 | 3 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs C2_g2 | hek293t | PSEUDO_TEST |  | -2.42 | 0.909 | -0.757 | -4.47 | -2.12 | -0.451 | -0.0921 | 2 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__S1 | hek293t | PSEUDO_TEST |  | -0.678 | 0.725 | 0.0233 | -0.547 | -0.552 | 0.146 | 0.831 | 66 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__noHCT116 | hek293t | PSEUDO_TEST |  | -0.244 | 0.168 | -0.0377 | -0.523 | -0.206 | 0.0105 | 0.0622 | 47 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__hidden_factors | hek293t | PSEUDO_TEST |  | 0.0374 | 0.669 | 0.353 | -0.491 | 0.0944 | 0.135 | 0.596 | 24 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion | hek293t | PSEUDO_TEST |  | 0.0305 | 0.338 | 0.184 | -0.0228 | 0.0583 | 0.133 | 0.255 | 66 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0 | g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop | hek293t | PSEUDO_TEST |  | -0.0029 | 0.0029 | 0 | -0.00223 | -0.00237 | -0.00228 | 0 | 66 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 vs B5 | hek293t | PSEUDO_TEST |  | -1.42 | 1.26 | -0.0845 | -1.23 | -1.18 | 0.145 | 0.744 | 0 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 vs C2_g2 | hek293t | PSEUDO_TEST |  | -0.214 | 1.33 | 0.556 | -0.358 | -0.0754 | 0.275 | 0.627 | 0 | False | False |
+| comparison | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 vs g1_t100_w0__a3_r095_s2_w0 | hek293t | PSEUDO_TEST |  | 0.189 | 2.44 | 1.31 | 1.14 | 0.392 | 0.726 |  | 2 | True | False |
 
 ## runtime
 
 | role | run | label | line | split | subset | eval_wall_s | score_wall_s | threads |
 |---|---|---|---|---|---|---|---|---|
-| selected | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST |  | 2.49 | 67.2 | {'cpu_count': 10, 'blas': []} |
-| ablation | a3_r095_s2_w0 | ablation: selected minus G1 | hct116 | PSEUDO_TEST |  | 2.68 | 66.1 | {'cpu_count': 10, 'blas': []} |
-| ablation | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 | context layer (selected + I1 γ=2) | hct116 | PSEUDO_TEST |  | 3.23 | 82.7 | {'cpu_count': 10, 'blas': []} |
-| ablation | focal__g1_t100_w0__a3_r095_s2_w0 | ablation: focal arm handling | hct116 | PSEUDO_TEST |  | 2.51 | 51.5 | {'cpu_count': 10, 'blas': []} |
-| baseline | B0 |  | hct116 | PSEUDO_TEST |  | 2.09 | 2.73 | {'cpu_count': 10, 'blas': []} |
-| baseline | B1 |  | hct116 | PSEUDO_TEST |  | 2.12 | 4.12 | {'cpu_count': 10, 'blas': []} |
-| baseline | B2 |  | hct116 | PSEUDO_TEST |  | 2.09 | 4.8 | {'cpu_count': 10, 'blas': []} |
-| baseline | B3 |  | hct116 | PSEUDO_TEST |  | 1.72 | 2.39 | {'cpu_count': 10, 'blas': []} |
-| baseline | B4 |  | hct116 | PSEUDO_TEST |  | 2.09 | 2.68 | {'cpu_count': 10, 'blas': []} |
-| baseline | B4e |  | hct116 | PSEUDO_TEST |  | 2.23 | 2.86 | {'cpu_count': 10, 'blas': []} |
-| baseline | B5 |  | hct116 | PSEUDO_TEST |  | 1.91 | 2.41 | {'cpu_count': 10, 'blas': []} |
-| baseline | B6 |  | hct116 | PSEUDO_TEST |  | 2.22 | 12.2 | {'cpu_count': 10, 'blas': []} |
-| control | NC1 | NC1: residual-permutation null | hct116 | PSEUDO_TEST |  | 2.33 | 27.5 | {'cpu_count': 10, 'blas': []} |
-| control | C2_g2 | C2: context fusion applied to NC1 | hct116 | PSEUDO_TEST |  | 1.91 | 42.8 | {'cpu_count': 10, 'blas': []} |
-| sensitivity | g1_t100_w0__a3_r095_s2_w0__S1 |  | hct116 | PSEUDO_TEST |  | 2.56 | 53.9 | {'cpu_count': 10, 'blas': []} |
-| sensitivity | g1_t100_w0__a3_r095_s2_w0__noHCT116 |  | hct116 | PSEUDO_TEST |  | 2.68 | 66.5 | {'cpu_count': 10, 'blas': []} |
-| sensitivity | g1_t100_w0__a3_r095_s2_w0__hidden_factors |  | hct116 | PSEUDO_TEST |  | 2.71 | 90.7 | {'cpu_count': 10, 'blas': []} |
-| sensitivity | g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion |  | hct116 | PSEUDO_TEST |  | 2.67 | 66.6 | {'cpu_count': 10, 'blas': []} |
-| sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hct116 | PSEUDO_TEST |  | 2.64 | 66.1 | {'cpu_count': 10, 'blas': []} |
-| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | paralog_exclusion | 2.74 | 67.2 | {'cpu_count': 10, 'blas': []} |
-| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_i | 1.9 | 67.2 | {'cpu_count': 10, 'blas': []} |
-| control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | NC2 | 1.9 | 67.2 | {'cpu_count': 10, 'blas': []} |
-| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | no_split_sibling | 1.89 | 67.2 | {'cpu_count': 10, 'blas': []} |
-| control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hct116 | PSEUDO_TEST |  | 0.929 | 67.2 | {'cpu_count': 10, 'blas': []} |
-| control | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1 |  | hct116 | PSEUDO_TEST |  | 1 | 82.7 | {'cpu_count': 10, 'blas': []} |
-| selected | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST |  | 1.84 | 67.2 | {'cpu_count': 10, 'blas': []} |
-| ablation | a3_r095_s2_w0 | ablation: selected minus G1 | hek293t | PSEUDO_TEST |  | 2.15 | 66.1 | {'cpu_count': 10, 'blas': []} |
-| ablation | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 | context layer (selected + I1 γ=2) | hek293t | PSEUDO_TEST |  | 2.35 | 82.7 | {'cpu_count': 10, 'blas': []} |
-| ablation | focal__g1_t100_w0__a3_r095_s2_w0 | ablation: focal arm handling | hek293t | PSEUDO_TEST |  | 2.07 | 51.5 | {'cpu_count': 10, 'blas': []} |
-| baseline | B0 |  | hek293t | PSEUDO_TEST |  | 1.62 | 2.73 | {'cpu_count': 10, 'blas': []} |
-| baseline | B1 |  | hek293t | PSEUDO_TEST |  | 1.61 | 4.12 | {'cpu_count': 10, 'blas': []} |
+| selected | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST |  | 2.21 | 67.2 | {'cpu_count': 10, 'blas': []} |
+| ablation | a3_r095_s2_w0 | ablation: selected minus G1 | hct116 | PSEUDO_TEST |  | 2.58 | 66.1 | {'cpu_count': 10, 'blas': []} |
+| ablation | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 | context layer (selected + I1 γ=2) | hct116 | PSEUDO_TEST |  | 2.75 | 82.7 | {'cpu_count': 10, 'blas': []} |
+| ablation | focal__g1_t100_w0__a3_r095_s2_w0 | ablation: focal arm handling | hct116 | PSEUDO_TEST |  | 2.4 | 51.5 | {'cpu_count': 10, 'blas': []} |
+| baseline | B0 |  | hct116 | PSEUDO_TEST |  | 2.04 | 2.73 | {'cpu_count': 10, 'blas': []} |
+| baseline | B1 |  | hct116 | PSEUDO_TEST |  | 2.07 | 4.12 | {'cpu_count': 10, 'blas': []} |
+| baseline | B2 |  | hct116 | PSEUDO_TEST |  | 2 | 4.8 | {'cpu_count': 10, 'blas': []} |
+| baseline | B3 |  | hct116 | PSEUDO_TEST |  | 1.67 | 2.39 | {'cpu_count': 10, 'blas': []} |
+| baseline | B4 |  | hct116 | PSEUDO_TEST |  | 2.03 | 2.68 | {'cpu_count': 10, 'blas': []} |
+| baseline | B4e |  | hct116 | PSEUDO_TEST |  | 2.15 | 2.86 | {'cpu_count': 10, 'blas': []} |
+| baseline | B5 |  | hct116 | PSEUDO_TEST |  | 1.88 | 2.41 | {'cpu_count': 10, 'blas': []} |
+| baseline | B6 |  | hct116 | PSEUDO_TEST |  | 2.18 | 12.2 | {'cpu_count': 10, 'blas': []} |
+| control | NC1 | NC1: residual-permutation null | hct116 | PSEUDO_TEST |  | 2.28 | 27.5 | {'cpu_count': 10, 'blas': []} |
+| control | C2_g2 | C2: context fusion applied to NC1 | hct116 | PSEUDO_TEST |  | 1.87 | 42.8 | {'cpu_count': 10, 'blas': []} |
+| sensitivity | g1_t100_w0__a3_r095_s2_w0__S1 |  | hct116 | PSEUDO_TEST |  | 2.47 | 53.9 | {'cpu_count': 10, 'blas': []} |
+| sensitivity | g1_t100_w0__a3_r095_s2_w0__noHCT116 |  | hct116 | PSEUDO_TEST |  | 2.48 | 66.5 | {'cpu_count': 10, 'blas': []} |
+| sensitivity | g1_t100_w0__a3_r095_s2_w0__hidden_factors |  | hct116 | PSEUDO_TEST |  | 2.55 | 90.7 | {'cpu_count': 10, 'blas': []} |
+| sensitivity | g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion |  | hct116 | PSEUDO_TEST |  | 2.48 | 66.6 | {'cpu_count': 10, 'blas': []} |
+| sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hct116 | PSEUDO_TEST |  | 2.49 | 66.1 | {'cpu_count': 10, 'blas': []} |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | paralog_exclusion | 2.6 | 67.2 | {'cpu_count': 10, 'blas': []} |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_i | 1.77 | 67.2 | {'cpu_count': 10, 'blas': []} |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_iii | 1.81 | 67.2 | {'cpu_count': 10, 'blas': []} |
+| control | M1 |  | hct116 | PSEUDO_TEST | NC2_M1 | 1.72 | 51.6 | {'cpu_count': 10, 'blas': []} |
+| control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | NC2 | 1.77 | 67.2 | {'cpu_count': 10, 'blas': []} |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | no_split_sibling | 1.75 | 67.2 | {'cpu_count': 10, 'blas': []} |
+| control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hct116 | PSEUDO_TEST |  | 0.913 | 67.2 | {'cpu_count': 10, 'blas': []} |
+| control | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1 |  | hct116 | PSEUDO_TEST |  | 0.964 | 82.7 | {'cpu_count': 10, 'blas': []} |
+| selected | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST |  | 1.8 | 67.2 | {'cpu_count': 10, 'blas': []} |
+| ablation | a3_r095_s2_w0 | ablation: selected minus G1 | hek293t | PSEUDO_TEST |  | 2.16 | 66.1 | {'cpu_count': 10, 'blas': []} |
+| ablation | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2 | context layer (selected + I1 γ=2) | hek293t | PSEUDO_TEST |  | 2.31 | 82.7 | {'cpu_count': 10, 'blas': []} |
+| ablation | focal__g1_t100_w0__a3_r095_s2_w0 | ablation: focal arm handling | hek293t | PSEUDO_TEST |  | 2.04 | 51.5 | {'cpu_count': 10, 'blas': []} |
+| baseline | B0 |  | hek293t | PSEUDO_TEST |  | 1.63 | 2.73 | {'cpu_count': 10, 'blas': []} |
+| baseline | B1 |  | hek293t | PSEUDO_TEST |  | 1.59 | 4.12 | {'cpu_count': 10, 'blas': []} |
 | baseline | B2 |  | hek293t | PSEUDO_TEST |  | 1.68 | 4.8 | {'cpu_count': 10, 'blas': []} |
-| baseline | B3 |  | hek293t | PSEUDO_TEST |  | 1.48 | 2.39 | {'cpu_count': 10, 'blas': []} |
+| baseline | B3 |  | hek293t | PSEUDO_TEST |  | 1.47 | 2.39 | {'cpu_count': 10, 'blas': []} |
 | baseline | B4 |  | hek293t | PSEUDO_TEST |  | 1.68 | 2.68 | {'cpu_count': 10, 'blas': []} |
-| baseline | B4e |  | hek293t | PSEUDO_TEST |  | 1.67 | 2.86 | {'cpu_count': 10, 'blas': []} |
-| baseline | B5 |  | hek293t | PSEUDO_TEST |  | 1.62 | 2.41 | {'cpu_count': 10, 'blas': []} |
-| baseline | B6 |  | hek293t | PSEUDO_TEST |  | 1.77 | 12.2 | {'cpu_count': 10, 'blas': []} |
+| baseline | B4e |  | hek293t | PSEUDO_TEST |  | 1.65 | 2.86 | {'cpu_count': 10, 'blas': []} |
+| baseline | B5 |  | hek293t | PSEUDO_TEST |  | 1.6 | 2.41 | {'cpu_count': 10, 'blas': []} |
+| baseline | B6 |  | hek293t | PSEUDO_TEST |  | 1.75 | 12.2 | {'cpu_count': 10, 'blas': []} |
 | control | NC1 | NC1: residual-permutation null | hek293t | PSEUDO_TEST |  | 1.65 | 27.5 | {'cpu_count': 10, 'blas': []} |
-| control | C2_g2 | C2: context fusion applied to NC1 | hek293t | PSEUDO_TEST |  | 1.52 | 42.8 | {'cpu_count': 10, 'blas': []} |
-| sensitivity | g1_t100_w0__a3_r095_s2_w0__S1 |  | hek293t | PSEUDO_TEST |  | 2.07 | 53.9 | {'cpu_count': 10, 'blas': []} |
-| sensitivity | g1_t100_w0__a3_r095_s2_w0__noHCT116 |  | hek293t | PSEUDO_TEST |  | 2.09 | 66.5 | {'cpu_count': 10, 'blas': []} |
+| control | C2_g2 | C2: context fusion applied to NC1 | hek293t | PSEUDO_TEST |  | 1.48 | 42.8 | {'cpu_count': 10, 'blas': []} |
+| sensitivity | g1_t100_w0__a3_r095_s2_w0__S1 |  | hek293t | PSEUDO_TEST |  | 2.06 | 53.9 | {'cpu_count': 10, 'blas': []} |
+| sensitivity | g1_t100_w0__a3_r095_s2_w0__noHCT116 |  | hek293t | PSEUDO_TEST |  | 2.06 | 66.5 | {'cpu_count': 10, 'blas': []} |
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__hidden_factors |  | hek293t | PSEUDO_TEST |  | 2.12 | 90.7 | {'cpu_count': 10, 'blas': []} |
-| sensitivity | g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion |  | hek293t | PSEUDO_TEST |  | 2.08 | 66.6 | {'cpu_count': 10, 'blas': []} |
-| sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hek293t | PSEUDO_TEST |  | 2.1 | 66.1 | {'cpu_count': 10, 'blas': []} |
-| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | paralog_exclusion | 2.15 | 67.2 | {'cpu_count': 10, 'blas': []} |
-| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | class_i | 1.47 | 67.2 | {'cpu_count': 10, 'blas': []} |
-| control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | NC2 | 1.73 | 67.2 | {'cpu_count': 10, 'blas': []} |
-| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | no_split_sibling | 1.61 | 67.2 | {'cpu_count': 10, 'blas': []} |
-| control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hek293t | PSEUDO_TEST |  | 0.515 | 67.2 | {'cpu_count': 10, 'blas': []} |
-| control | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1 |  | hek293t | PSEUDO_TEST |  | 0.543 | 82.7 | {'cpu_count': 10, 'blas': []} |
-| control | PC2 |  | hct116 | PSEUDO_TEST |  | 1.8 |  |  |
+| sensitivity | g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion |  | hek293t | PSEUDO_TEST |  | 2.06 | 66.6 | {'cpu_count': 10, 'blas': []} |
+| sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hek293t | PSEUDO_TEST |  | 2.08 | 66.1 | {'cpu_count': 10, 'blas': []} |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | paralog_exclusion | 2.12 | 67.2 | {'cpu_count': 10, 'blas': []} |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | class_i | 1.46 | 67.2 | {'cpu_count': 10, 'blas': []} |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | class_iii | 1.76 | 67.2 | {'cpu_count': 10, 'blas': []} |
+| control | M1 |  | hek293t | PSEUDO_TEST | NC2_M1 | 1.82 | 51.6 | {'cpu_count': 10, 'blas': []} |
+| control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | NC2 | 1.7 | 67.2 | {'cpu_count': 10, 'blas': []} |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | no_split_sibling | 1.6 | 67.2 | {'cpu_count': 10, 'blas': []} |
+| control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hek293t | PSEUDO_TEST |  | 0.504 | 67.2 | {'cpu_count': 10, 'blas': []} |
+| control | g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1 |  | hek293t | PSEUDO_TEST |  | 0.514 | 82.7 | {'cpu_count': 10, 'blas': []} |
+| control | PC2 |  | hct116 | PSEUDO_TEST |  | 1.75 |  |  |
 
 ## class:RBP
 
@@ -331,6 +357,8 @@
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hct116 | PSEUDO_TEST |  | 3.64 | 3.34e-06 | 13 | 150 | 5.13e+03 | 20 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | paralog_exclusion | 3.67 | 2.96e-06 | 13 | 149 | 5.12e+03 | 20 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_i | 5.84 | 2.52e-06 | 11 | 57 | 5.13e+03 | 13 |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_iii | 13256 | 1 | 2 | 0 | 1 | 0 |
+| control | M1 |  | hct116 | PSEUDO_TEST | NC2_M1 | 530 | 1 | 2 | 12 | 1 | 0 |
 | control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | NC2 | 13256 | 1 | 2 | 0 | 1 | 0 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | no_split_sibling | 4.51 | 0.00823 | 5 | 29 | 2.13e+03 | 5 |
 | control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hct116 | PSEUDO_TEST |  | 2.57 | 0.00153 | 13 | 153 | 5.13e+03 | 15 |
@@ -361,6 +389,8 @@
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hct116 | PSEUDO_TEST |  | 10.7 | 1.37e-08 | 206 | 1.78e+03 | 1.15e+03 | 11 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | paralog_exclusion | 10.7 | 1.42e-08 | 206 | 1.79e+03 | 1.15e+03 | 11 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_i | 4.72 | 0.192 | 39 | 154 | 518 | 1 |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_iii | 20.6 | 8.96e-34 | 154 | 4.5e+03 | 611 | 36 |
+| control | M1 |  | hct116 | PSEUDO_TEST | NC2_M1 | 1.23 | 1 | 110 | 1.25e+03 | 341 | 0 |
 | control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | NC2 | 0.443 | 1 | 110 | 3.47e+03 | 341 | 0 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | no_split_sibling | 11.3 | 1.93e-07 | 45 | 856 | 408 | 9 |
 | control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hct116 | PSEUDO_TEST |  | 19.1 | 3.77e-18 | 206 | 1.75e+03 | 1.15e+03 | 19 |
@@ -386,6 +416,8 @@
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hek293t | PSEUDO_TEST |  | 32.8 | 1 | 60 | 2 | 3.78e+03 | 0 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | paralog_exclusion | 32.7 | 1 | 60 | 2 | 3.77e+03 | 0 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | class_i | 8.79e+03 | 1 | 3 | 0 | 3 | 0 |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | class_iii | 153 | 1 | 56 | 0 | 3.77e+03 | 0 |
+| control | M1 |  | hek293t | PSEUDO_TEST | NC2_M1 | 0.244 | 1 | 34 | 300 | 2.39e+03 | 0 |
 | control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | NC2 | 146 | 1 | 34 | 0 | 2.39e+03 | 0 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | no_split_sibling | 982 | 1 | 17 | 0 | 180 | 0 |
 | control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hek293t | PSEUDO_TEST |  | 32.8 | 1 | 60 | 2 | 3.78e+03 | 0 |
@@ -417,6 +449,8 @@
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hct116 | PSEUDO_TEST |  | 3.85 | 0.23 | 39 | 140 | 702 | 1 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | paralog_exclusion | 3.87 | 0.229 | 39 | 139 | 702 | 1 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_i | 3.97 | 0.226 | 16 | 60 | 655 | 1 |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_iii | 4.61e+03 | 1 | 15 | 0 | 31 | 0 |
+| control | M1 |  | hct116 | PSEUDO_TEST | NC2_M1 | 14.3 | 1 | 15 | 160 | 31 | 0 |
 | control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | NC2 | 4.61e+03 | 1 | 15 | 0 | 31 | 0 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | no_split_sibling | 1.52e+03 | 1 | 17 | 2 | 21 | 0 |
 | control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hct116 | PSEUDO_TEST |  | 1.83 | 1 | 39 | 145 | 702 | 0 |
@@ -441,6 +475,8 @@
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion |  | hek293t | PSEUDO_TEST |  | 1.54e+03 | 1 | 15 | 0 | 101 | 0 |
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hek293t | PSEUDO_TEST |  | 1.54e+03 | 1 | 15 | 0 | 101 | 0 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | paralog_exclusion | 1.54e+03 | 1 | 15 | 0 | 101 | 0 |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | class_iii | 1.54e+03 | 1 | 15 | 0 | 101 | 0 |
+| control | M1 |  | hek293t | PSEUDO_TEST | NC2_M1 | 3.65 | 1 | 10 | 176 | 81 | 0 |
 | control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | NC2 | 1.29e+03 | 1 | 10 | 0 | 81 | 0 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | no_split_sibling | 2.05e+03 | 1 | 6 | 0 | 30 | 0 |
 | control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hek293t | PSEUDO_TEST |  | 1.54e+03 | 1 | 15 | 0 | 101 | 0 |
@@ -472,6 +508,8 @@
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hct116 | PSEUDO_TEST |  | 4 | 1.75e-34 | 1.54e+03 | 14385 | 30721 | 118 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | paralog_exclusion | 3.93 | 2.7e-33 | 1.54e+03 | 14378 | 30716 | 116 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_i | 1.92 | 1.75e-05 | 564 | 5.45e+03 | 26556 | 51 |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_iii | 1.81 | 0.147 | 918 | 5.98e+03 | 4.09e+03 | 5 |
+| control | M1 |  | hct116 | PSEUDO_TEST | NC2_M1 | 0.429 | 0.903 | 837 | 7.85e+03 | 2.39e+03 | 1 |
 | control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | NC2 | 0.289 | 1 | 837 | 5.82e+03 | 2.39e+03 | 0 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | no_split_sibling | 4.6 | 7.56e-20 | 620 | 5.44e+03 | 13429 | 56 |
 | control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hct116 | PSEUDO_TEST |  | 5.31 | 7.06e-60 | 1.54e+03 | 14392 | 30721 | 156 |
@@ -497,6 +535,8 @@
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hek293t | PSEUDO_TEST |  | 8.04 | 2.02e-71 | 807 | 9.06e+03 | 15577 | 133 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | paralog_exclusion | 8.04 | 1.92e-71 | 807 | 9.06e+03 | 15573 | 133 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | class_i | 2.99 | 0.001 | 62 | 687 | 3.8e+03 | 12 |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | class_iii | 0.0772 | 1 | 735 | 8.36e+03 | 11774 | 1 |
+| control | M1 |  | hek293t | PSEUDO_TEST | NC2_M1 | 0.448 | 0.986 | 642 | 6.64e+03 | 11177 | 5 |
 | control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | NC2 | 0.0417 | 1 | 642 | 7.11e+03 | 11177 | 0 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hek293t | PSEUDO_TEST | no_split_sibling | 6.8 | 2.6e-25 | 321 | 3.55e+03 | 7.12e+03 | 51 |
 | control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hek293t | PSEUDO_TEST |  | 7.48 | 2.13e-63 | 807 | 9.06e+03 | 15577 | 124 |
@@ -528,6 +568,8 @@
 | sensitivity | g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop |  | hct116 | PSEUDO_TEST |  | 1.16 | 0.376 | 15 | 1.01e+03 | 1.1e+03 | 9 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | paralog_exclusion | 1.17 | 0.371 | 15 | 1.01e+03 | 1.1e+03 | 9 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_i | 1.04 | 0.538 | 14 | 467 | 1.1e+03 | 4 |
+| subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | class_iii | 19255 | 1 | 1 | 0 | 0 | 0 |
+| control | M1 |  | hct116 | PSEUDO_TEST | NC2_M1 | 549 | 1 | 1 | 17 | 0 | 0 |
 | control | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | NC2 | 19255 | 1 | 1 | 0 | 0 | 0 |
 | subset | g1_t100_w0__a3_r095_s2_w0 | selected (CN-only: M1 + G1 + A3) | hct116 | PSEUDO_TEST | no_split_sibling | 2.54 | 1 | 3 | 268 | 20 | 0 |
 | control | g1_t100_w0__a3_r095_s2_w0_C1 |  | hct116 | PSEUDO_TEST |  | 1.15 | 0.39 | 15 | 1.02e+03 | 1.1e+03 | 9 |

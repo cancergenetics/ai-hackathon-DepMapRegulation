@@ -269,7 +269,7 @@
   "n_regulators_missing_in_scores": 0,
   "n_targets_missing_in_scores": 0
  },
- "wall_s": 2.090708017349243,
+ "wall_s": 2.0375900268554688,
  "score_wall_s": 2.73,
  "threads": {
   "cpu_count": 10,
@@ -283,7 +283,7 @@
   "bootstrap": 3
  },
  "params_hash": "01ed99b30e69f8ec",
- "git_hash": "2b4242c66f86926ec0efd7fe562c7db0ac72f6fd+dirty",
+ "git_hash": "7b4dba9ee4a6b9e8e46a7bcf617614d2a8630507+dirty",
  "data_checksums": {
   "data/processed/bench/universe_regulators_hct116.tsv": "f7cc40ef8685e1e85a0035e1bd818c77ca61d8a23e3d73b62c7df19d3ced82a6",
   "data/processed/bench/universe_targets_hct116.tsv": "99f3e9019f6682dfe90f281f6a74972ebfd7d25d1f31d2c213e0ed0acf140573",

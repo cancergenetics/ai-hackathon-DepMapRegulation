@@ -1243,6 +1243,32 @@ def evaluate(run, line: str = PRIMARY_LINE, split: str = "TRAIN", *, variant: Op
     return out
 
 
+def _quantile_defined(x: np.ndarray, q: float) -> float:
+    """Quantile over defined replicates (NaN dropped; ±inf kept as order statistics)."""
+    x = np.asarray(x, dtype=float)
+    x = x[~np.isnan(x)]
+    if not len(x):
+        return float("nan")
+    v = float(np.quantile(x, q))
+    if np.isnan(v):                       # linear interpolation between an infinity and a finite value
+        v = float(np.quantile(x, q, method="inverted_cdf"))
+    return v
+
+
+def paired_cmh_bootstrap(ev_a: "Evaluation", ev_b: "Evaluation", sel_a, sel_b, pl, W) -> dict:
+    """Paired two-way bootstrap of Δlog CMH OR (D8a bug fix).
+
+    A replicate in which no selected pair overlaps a positive has MH numerator 0, so log CMH = -inf (MH
+    denominator 0 gives +inf). These are the correct limits of the estimator and are kept as order
+    statistics. Δ is undefined only when both scores are infinite with the same sign (e.g. both have no
+    overlap in that replicate). Such replicates are dropped and counted; before D8a they produced NaN
+    bounds. Strata with n = 0 contribute nothing, as before."""
+    with np.errstate(invalid="ignore"):
+        d = ev_a.bootstrap_log_cmh(sel_a, pl, W) - ev_b.bootstrap_log_cmh(sel_b, pl, W)
+    return {"ub90": _quantile_defined(d, 0.95), "lb90": _quantile_defined(d, 0.05),
+            "n_undefined": int(np.isnan(d).sum()), "n_inf": int(np.isinf(d).sum())}
+
+
 def compare(run_candidate, run_incumbent, line: str = PRIMARY_LINE, split: str = "TRAIN", *,
             n_boot: int = N_BOOT, root: Path = ROOT, debug: bool = False, _token=None) -> dict:
     """Paired comparison of two score files on the same universe (DESIGN §6 CIs, §8.2 adoption rule):
@@ -1270,16 +1296,20 @@ def compare(run_candidate, run_incumbent, line: str = PRIMARY_LINE, split: str =
     W = evs[0].boot_weights(n_boot)
     bd = evs[0].bootstrap_log_or(sels[0], pl, W) - evs[1].bootstrap_log_or(sels[1], pl, W)
     cm = [e.cmh(s, pl)["cmh_or"] for e, s in zip(evs, sels)]
-    with np.errstate(invalid="ignore"):
-        bc = evs[0].bootstrap_log_cmh(sels[0], pl, W) - evs[1].bootstrap_log_cmh(sels[1], pl, W)
+    bcm = paired_cmh_bootstrap(evs[0], evs[1], sels[0], sels[1], pl, W)
     res = {"candidate": ids[0], "incumbent": ids[1], "line": line, "split": split,
            "delta_log_or": lo[0] - lo[1], "delta_log_or_folds": dfold, "paired_jackknife": jk,
            "boot_delta_log_or_lb90": float(np.quantile(bd, 0.05)),
            "boot_delta_log_or_ci95": [float(np.quantile(bd, .025)), float(np.quantile(bd, .975))],
            "delta_log_cmh": _safe_log(cm[0]) - _safe_log(cm[1]),
-           "boot_delta_log_cmh_ub90": float(np.quantile(bc, 0.95)), "n_boot": n_boot}
+           "boot_delta_log_cmh_ub90": bcm["ub90"], "boot_cmh_n_undefined": bcm["n_undefined"],
+           "boot_cmh_n_inf": bcm["n_inf"], "n_boot": n_boot}
     res["adopt_rule_8_2"] = bool(len(dfold) == 2 and all(v > 0 for v in dfold.values())
                                  and res["boot_delta_log_or_lb90"] > 0 and res["boot_delta_log_cmh_ub90"] > 0)
+    # adoption-style summary usable on TEST, where there are no TRAIN folds: paired-jackknife and bootstrap
+    # 90 % lower bounds of Δlog OR > 0, and the CMH guard (90 % upper bound of Δlog CMH > 0)
+    res["adopt_style_no_folds"] = bool(jk.get("lb90_one_sided", -np.inf) > 0 and res["boot_delta_log_or_lb90"] > 0
+                                       and res["boot_delta_log_cmh_ub90"] > 0)
     res["wall_s"] = time.time() - t0
     _append_log({"timestamp": _dt.datetime.now().isoformat(timespec="seconds"),
                  "run_id": f"{ids[0]}|{ids[1]}", "variant": f"{variants[0]}|{variants[1]}", "kind": "compare",

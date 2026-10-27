@@ -31,6 +31,7 @@ selected.yaml (run ids refer to data/results/scores/<run_id>/; see results/final
   sensitivity: [RUN, ...]                # e.g. selected + __S1 / __noHCT116 / ...
   subsets: [paralog_exclusion, class_i, hub_excluded, ...]   # applied to each run in subset_runs
   subset_runs: [RUN, ...]                # default: [selected]
+  comparisons: [[RUN_A, RUN_B], ...]     # extra paired comparisons A vs B (e.g. context layer vs B5)
   lines: [hct116, hek293t]               # default both
   n_perm: 1000
 The older form of `subsets` entries, {name, run, subset}, is still accepted. Outputs: summary.json,
@@ -94,6 +95,8 @@ class Ctx:
             print(f"(mock) would commit results/final: {msg}", file=sys.stderr)
             return
         git("add", "results/final")
+        if (ROOT / "results" / "tuning_log.tsv").exists():       # DESIGN §8.3: the log is committed too
+            git("add", "results/tuning_log.tsv")
         git("commit", "-m", msg)
 
 
@@ -130,7 +133,11 @@ def check_guards(ctx: Ctx, sel: dict, lines: list) -> None:
     unknown = [c for c in sel.get("controls") or [] if c in BUILTIN_CONTROLS and c not in ("PC2", "NC2")]
     if unknown:
         refuse(f"unknown built-in control {unknown}")
+    for pair in sel.get("comparisons") or []:
+        if len(pair) != 2:
+            refuse(f"comparisons entries must be [candidate, incumbent]: {pair}")
     for r in score_runs(sel) + [x["run"] for x in subset_specs(sel)] + list(sel.get("c1") or []) + \
+            [x for pair in sel.get("comparisons") or [] for x in pair] + \
             [sel.get("nc2_run", sel["selected"])]:
         bm.resolve_run_dir(r)                                   # fail before the LOCK is written
 
@@ -197,6 +204,36 @@ def unseal_and_verify(ctx: Ctx, labels: list) -> None:
             raise RuntimeError(f"sha256 mismatch for {p}")
 
 
+def preverify_sealed(ctx: Ctx, labels: list) -> None:
+    """D8a/M1: before the LOCK is written, check that the sealed root is the recorded one and that every
+    sealed TEST label file exists, has a sealed entry and matches its sha256 (read access is restored
+    for hashing and removed again; the files are not parsed). Any problem refuses the run with no LOCK."""
+    if not ctx.frozen.exists():
+        refuse(f"{ctx.frozen} missing")
+    if not ctx.sealed.is_dir():
+        refuse(f"sealed directory not found: {ctx.sealed}")
+    text = ctx.frozen.read_text()
+    recorded = [ln.split("->", 1)[1].split("(")[0].strip() for ln in text.splitlines()
+                if ln.startswith("# sealed") and "->" in ln]
+    if recorded and Path(recorded[-1]).resolve() != ctx.sealed.resolve():
+        refuse(f"sealed dir {ctx.sealed} differs from the one recorded in FROZEN.sha256 ({recorded[-1]})")
+    _, sealed = bm.read_frozen(ctx.frozen)
+    want = {q: h for h, q in sealed}
+    for p in labels:
+        rel = str(p.relative_to(ctx.sealed))
+        if not p.is_file():
+            refuse(f"sealed file missing: {p}")
+        if rel not in want:
+            refuse(f"{rel} has no sealed entry in {ctx.frozen}")
+        set_readable([p], True)
+        try:
+            ok = bm.sha256_file(p) == want[rel]
+        finally:
+            set_readable([p], False)
+        if not ok:
+            refuse(f"sha256 mismatch for {p}")
+
+
 def run_all(ctx: Ctx, sel: dict, lines: list, token, summary: dict) -> None:
     n_perm = int(sel.get("n_perm", bm.N_PERM))
     labels = sel.get("labels") or {}
@@ -227,9 +264,11 @@ def run_all(ctx: Ctx, sel: dict, lines: list, token, summary: dict) -> None:
                 mask = bm.subset_mask(regs, s["subset"], ROOT)
                 out = bm.evaluate(s["run"], line, "TEST", n_perm=n_perm, reg_subset=mask, subset_name=s["name"],
                                   _token=token)
-            keep("control" if s["name"] == "NC2" else "subset", s["run"], line, out, s["name"])
+            keep("control" if str(s["name"]).startswith("NC2") else "subset", s["run"], line, out, s["name"])
         for _, other in roles(sel)[1:]:
             summary["comparisons"].append(bm.compare(sel["selected"], other, line, "TEST", _token=token))
+        for a, b in sel.get("comparisons") or []:                  # D8a/M3: extra paired comparisons
+            summary["comparisons"].append(bm.compare(a, b, line, "TEST", _token=token))
         for run in sel.get("c1") or [sel["selected"]]:               # D6 matched control C1
             keep("control", f"{run}_C1", line, controls.evaluate_c1(run, line, "TEST", n_perm=n_perm, _token=token))
             summary.setdefault("c1_comparisons", []).append(controls.compare_c1(run, line, "TEST", _token=token))
@@ -271,13 +310,14 @@ def main() -> int:
                         p.chmod(0o600)
                 shutil.rmtree(d)
         bm.build_mock_sealed(MOCK_SEALED, lines, ROOT)
+    labels = label_paths(ctx, lines)
+    preverify_sealed(ctx, labels)                               # no LOCK if anything is missing or altered
     ctx.out.mkdir(parents=True, exist_ok=True)
     lock = {"status": "STARTED", "started": now(), "mock": a.mock, "git_hash": bm.git_hash(ROOT),
             "selected_yaml_sha256": bm.sha256_file(sel_path), "selected_yaml": str(sel_path)}
     ctx.lock.write_text(json.dumps(lock, indent=1))
     ctx.commit("final_eval: LOCK (STARTED) before reading any TEST file")
 
-    labels = label_paths(ctx, lines)
     summary = {**lock, "results": [], "comparisons": [], "notes": []}
     try:
         unseal_and_verify(ctx, labels)

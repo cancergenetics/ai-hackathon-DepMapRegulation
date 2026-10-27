@@ -1,9 +1,9 @@
 {
  "status": "COMPLETED",
- "started": "2026-10-27T22:29:49",
+ "started": "2026-10-27T22:59:47",
  "mock": true,
- "git_hash": "2b4242c66f86926ec0efd7fe562c7db0ac72f6fd+dirty",
- "selected_yaml_sha256": "22e834734cbf69d29d911922240b75958377f7d6574eca8deffb1fb9c9666ae3",
+ "git_hash": "7b4dba9ee4a6b9e8e46a7bcf617614d2a8630507+dirty",
+ "selected_yaml_sha256": "e28e290d2dc44c2189890932191ba84812bcb952cdaff7aafed665e2ed3905c0",
  "selected_yaml": "results/final/selected.DRAFT.yaml",
- "finished": "2026-10-27T22:33:58"
+ "finished": "2026-10-27T23:04:18"
 }

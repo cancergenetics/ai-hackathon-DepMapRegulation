@@ -61,11 +61,14 @@ def summary_frame(records: list, comparisons: list = (), c1: list = ()) -> pd.Da
                          "split": r["out"]["split"], "subset": r.get("subset") or "", "metric_set": ms, **vals})
     for c in comparisons:
         jk = c["paired_jackknife"]
-        rows.append({"role": "comparison", "run": c["incumbent"], "label": f"{c['candidate']} vs {c['incumbent']}",
+        rows.append({"role": "comparison", "run": c["candidate"], "label": f"{c['candidate']} vs {c['incumbent']}",
                      "line": c["line"], "split": c["split"], "subset": "", "metric_set": "paired",
                      "dlogOR": c["delta_log_or"], "jk_CI95_lo": jk.get("ci95", [None, None])[0],
                      "jk_CI95_hi": jk.get("ci95", [None, None])[1], "boot_lb90": c["boot_delta_log_or_lb90"],
-                     "dlogCMH": c["delta_log_cmh"], "boot_cmh_ub90": c["boot_delta_log_cmh_ub90"]})
+                     "jk_lb90": jk.get("lb90_one_sided"), "dlogCMH": c["delta_log_cmh"],
+                     "boot_cmh_ub90": c["boot_delta_log_cmh_ub90"],
+                     "boot_cmh_n_undefined": c.get("boot_cmh_n_undefined"),
+                     "adopt_style_no_folds": c.get("adopt_style_no_folds"), "adopt_rule_8_2": c.get("adopt_rule_8_2")})
     for c in c1:
         rows.append({"role": "control", "run": c["run"], "label": "C1 pair-specific gain", "line": c["line"],
                      "split": c["split"], "subset": "", "metric_set": "C1", "OR_run": c["or_run"],
