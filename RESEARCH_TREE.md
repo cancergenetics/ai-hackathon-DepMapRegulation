@@ -81,6 +81,9 @@ covariate availability), then DESIGN.md and up to three review rounds.
 - [~] M5 Method development (tuning on train regulators only; greedy tiers, DESIGN §5.5, results/tuning/)
   - [-] Tier 1 arm handling (focal, loao, cnpcs20): none adopted. Focal Δlog-OR +0.68, but fold1 −0.09 / fold2 +1.52, jk lb90 −0.62, so the gain is unstable. LOCO retained.
   - [!] Tier 2 G1 instrument gate: all adopted under §8.2. τ=100 is best: Δlog-OR +0.79 (folds 0.65/1.12, jk lb90 +0.61), ΔCMH −0.05. Adopted g1_t100_w0 (w=0.5 identical to 2 d.p.). The gain is monotone in τ up to the grid maximum.
-  - [~] Tier 3 G2 context gate
+  - [-] Tier 3 G2 context gate on top of G1: not adopted (Δlog-OR +0.05, lb90 ≈ 0). Regulators that pass a strong cis gate are already expressed. Incumbent g1_t100_w0: OR 3.50 (jk CI 2.5–4.8), perm p 0.03, CMH 1.04, concordance 0.578 vs c0 0.487.
+  - [!] The G1 gain is regulator selection, not within-regulator target ranking (CMH ≈ 1).
+  - [x] Tier 4 A3 attribution: a3_r095_s2_w0 adopted (Δlog-OR +0.36, folds 0.43/0.28, lb90 +0.04). w_co=0.25 also passes with a smaller Δ; ρ=0.98 and s=5 do not.
+  - [~] Tier 5 target standardisation
 - [ ] M6 Final held-out evaluation
 - [ ] M7 REPORT.md
