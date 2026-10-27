@@ -433,3 +433,97 @@ from explicit flags. `--final-candidate` enforces n_perm and n_boot ≥ 1000 and
         src/depmaptr/benchmark.py src/depmaptr/controls.py scripts/evaluate.py scripts/final_eval.py
 
 Until then, `tests/test_frozen.py` fails, and `final_eval.py` refuses, as intended.
+
+## 11. D8 evaluation-side sensitivity analyses (rules fixed before any result was computed)
+
+### 11.1 Regulator classes (report analysis; HGNC gene groups)
+
+**Source.** `starting_data/gene_with_protein_product.txt` (HGNC, PI-provided; checksum in DATA.md),
+column `gene_group`. This holds the leaf group names, separated by `|`.
+
+**Mapping.** DepMap gene key → `hgnc_id` (`gene_annotation.tsv`) → HGNC row. Each group name is tested
+against the rules below; matching is case-sensitive on the exact HGNC names unless stated otherwise. A gene
+in several classes takes the first one in the order **ribosomal > RBP > TF > kinase > other**. Genes with
+no HGNC row or no group are "other".
+
+| class | a gene group matches (regular expressions on single group names) |
+|---|---|
+| ribosomal | `ribosomal proteins$`: L and S ribosomal proteins, mitochondrial, large/small subunit mitochondrial. Not "Ribosomal protein S6 kinase family" or biogenesis complexes. |
+| RBP | `RNA binding` (any group containing it, e.g. "RNA binding motif containing", ELAV, Musashi, DAZ, Mex-3, fox-1, FASTK); `^Heterogeneous nuclear ribonucleoproteins$`; `^DEAD-box helicases$`; `^DEAH-box helicases$` |
+| TF | `^Zinc fingers C2H2-type$`; `homeobox` (case-insensitive: all homeobox classes and families); `^Basic helix-loop-helix proteins$`; `bHLH transcription factor`; `^Basic leucine zipper proteins$`; `bZIP transcription factor`; `^Forkhead boxes$`; `^Nuclear receptor subfamily`; `^GATA zinc finger domain containing$`; any group containing `transcription factor` (case-insensitive) except those starting `General transcription factor` |
+| kinase | the group name contains `kinase` (case-insensitive substring, so it includes e.g. pseudokinase, hexokinase, lipid and metabolic kinases), unless it contains one of `anchoring`, `kinase phosphatase`, `kinase inhibitor`, `regulatory subunit`, `kinase activators`, `non-catalytic` |
+| other | everything else |
+
+**Reported per class.** For each class, the reported counts use the run's **global** top-K at 0.1 %
+(no re-ranking):
+- n regulators and n universe pairs;
+- selected pairs and positives;
+- a, OR and Fisher p.
+
+The class assignment is label-free and lives in `data/processed/regulator_classes.tsv`, built by
+`scripts/data/build_regulator_classes.py`.
+
+### 11.2 Paralog-pair exclusion (sensitivity subset `paralog_exclusion`)
+
+**Source.** Ensembl release 116, the release of `gene_annotation.tsv`. The intended route was BioMart
+(`hsapiens_paralog_ensembl_gene`), but the query did not complete in about 40 min, so the release-pinned
+Compara 116 homology dump for Homo sapiens was used instead. It is the same gene-tree homology set, and its
+md5 matches Ensembl MD5SUM.
+- Kept: human–human rows with `homology_type` ∈ {within_species_paralog, other_paralog}, which is
+  BioMart's paralogue definition; `gene_split` is excluded.
+- Count: 141,164 human paralogue pairs (23,488 within-species, 236,978 other, as directed DepMap key
+  pairs).
+- `other_paralog` includes distant family members (e.g. all receptor tyrosine kinases for ERBB2), so the
+  exclusion is broad. The table keeps `homology_type` and % identity, so a stricter within-species-only
+  variant can be computed from it.
+
+The data are downloaded by `scripts/data/download_paralogs.py`; the checksum is in DATA.md and
+`annotation_manifest.tsv`.
+
+**Mapping.** Gene key → `ensembl_gene_id` (`gene_annotation.tsv`). An (A, B) pair is a paralog pair if
+either direction is listed. `data/processed/paralog_pairs.tsv` holds the symmetric list of gene-key pairs.
+
+**Exclusion.** Universe pairs (A, B) that are paralog pairs are removed from the universe:
+- their scores are masked like same-chromosome pairs, and their positives are dropped;
+- the top-K is re-ranked within the reduced universe;
+- N and every structural count (per-arm × bin, per-stratum, and per-permutation pair sets) are corrected
+  exactly. A brute-force test checks the permutation pair set.
+
+### 11.3 Final-run selection and summary tables (D8)
+
+**Selection file.** `scripts/final_eval.py` reads `results/final/selected.yaml`; its schema is in the
+script docstring. It lists:
+- `selected`;
+- ≤ 3 `ablations` and the `reported` variants, with display `labels`;
+- `baselines`;
+- `controls`: score runs such as NC1 and C2, plus the built-ins PC2 and NC2 (`nc2_run`, a run without G2);
+- `c1`: the runs that get the C1 pair-shuffle control;
+- `sensitivity` runs;
+- `subsets` (`paralog_exclusion`, `class_i|ii|iii`, `nc2`, `no_split_sibling`, `hub_excluded`) and the
+  `subset_runs` they apply to;
+- the `lines`.
+
+**Subset handling.**
+- `hub_excluded` is reported from every run's own metrics (`OR_hub_excluded`); it needs no extra
+  evaluation.
+- `no_split_sibling` always runs for the selected method.
+- Duplicate run ids are evaluated once.
+
+**Draft.** `results/final/selected.DRAFT.yaml` is the D7/D8 draft. The PI copies it to `selected.yaml` and
+commits it. `--selected` is accepted only with `--mock`, so the dry run can use the draft.
+
+**Outputs** (in `results/final/`, or `results/final_mock/` for the mock):
+- `summary.json`;
+- `summary.tsv` and `summary.md` (`depmaptr.report`): one row per role × run × line × subset × metric
+  set.
+
+| metric set | contents |
+|---|---|
+| `pooled` | ORs at the three K, Fisher p, both permutation p values and OR/median-null ratios, jackknife CI |
+| `cmh` | frozen CMHs, the D6 CMH, mean AUROC, top-10 share, hub-excluded OR |
+| `sign` | sign metrics |
+| `callset` | call-set OR, if the score file has a call array |
+| `class:<c>` | per-class table (§11.1) |
+| `paired` | selected vs each run: Δlog OR, paired jackknife and bootstrap, ΔCMH |
+| `C1` | pair-specific gain |
+| `runtime` | evaluation wall time, plus the score run's wall time and threads from `meta.json` |

@@ -78,9 +78,10 @@ controls:
 sensitivity:         # not tuned; reported on TRAIN and in the final run (§5.5)
   - {id: S1, kind: model, params: {sample_set: S1}, implemented: true}
   - {id: noHCT116, kind: model, params: {sample_set: S2_noHCT116}, implemented: true}
-  - {id: hidden_factors, implemented: false}
+  - {id: hidden_factors, kind: model, params: {hidden_factors: 10}, implemented: true, desc: "D8: k=10 regulator-conditional expression factors per regulator chromosome c (Y residualised on D_c and chr-c segment CN), added to D_c"}
   - {id: paralog_exclusion, implemented: false, note: "evaluation-side filter"}
-  - {id: cn_outlier_exclusion, implemented: false}
+  - {id: cn_outlier_exclusion, kind: model, params: {sample_set: S2_noCNoutlier}, implemented: true, desc: "D8: drop the top 1% of lines by genome-wide max |log2 max(relCN, 2^-2)|"}
+  - {id: tp53_chr17_drop, kind: model, params: {tp53_chr17_drop: true}, implemented: true, desc: "D8: TP53 covariate (+ missing indicator) dropped for chr17 regulators only"}
 
 # Post-hoc tier (PI decision D6, reviews/ideas/M5a_ideas.md §2). Added AFTER the M5a TRAIN results; label-free,
 # DepMap-internal; composed on the incumbent, e.g. --variant g1_t100_w0+a3_r095_s2_w0+i5_comp.

@@ -619,7 +619,9 @@ class Evaluation:
     its ranking key (float32, one regulator split x universe targets)."""
 
     def __init__(self, regs: pd.DataFrame, tgts: pd.DataFrame, pos: pd.DataFrame, S: np.ndarray,
-                 s_cis: np.ndarray, seed: int = SEED):
+                 s_cis: np.ndarray, seed: int = SEED, exclude: Optional[pd.DataFrame] = None):
+        """exclude: optional (regulator, target) pairs removed from the universe (D8 paralog exclusion).
+        Default None: the frozen universe."""
         self.regs = regs.reset_index(drop=True)
         self.tgts = tgts.reset_index(drop=True)
         self.seed = seed
@@ -671,6 +673,20 @@ class Evaluation:
             raise ValueError("duplicate positives")
         if (self.key.ravel()[p["lin"].values] <= -2).any():
             raise ValueError("a positive pair is same-chromosome or A = B: positives must be trans")
+        # optional pair exclusion: masked like same-chromosome pairs; structural counts corrected below
+        self.exclude_df = exclude
+        self.excl = np.zeros(0, dtype=np.int64)
+        if exclude is not None and len(exclude):
+            er = rix.get_indexer(exclude["regulator"])
+            et = tix.get_indexer(exclude["target"])
+            ok = (er >= 0) & (et >= 0)
+            lin = np.unique(er[ok].astype(np.int64) * nt + et[ok])
+            lin = lin[self.key.ravel()[lin] > -2]                  # only trans universe pairs
+            self.key.ravel()[lin] = -2.0
+            self.excl = lin
+            self.n_i = self.n_i - np.bincount(lin // nt, minlength=nr)
+            self.N = int(self.n_i.sum())
+            p = p[~np.isin(p["lin"].values, lin)].reset_index(drop=True)
         self.pos = p
         self._sel_cache: dict = {}
 
@@ -734,6 +750,14 @@ class Evaluation:
         Sel = sp.csr_matrix((np.ones(len(sel), np.int64), (sr, sc)), shape=(nr, nt))
         Pos = sp.csr_matrix((np.ones(len(pl), np.int64), (pr, pc)), shape=(nr, nt))
         M = (Sel @ Pos.T).toarray()                     # M[i, j] = |sel(i) ∩ pos(j)|
+        xr, xc = self.excl // nt, self.excl % nt
+        x_rc = np.bincount(xr * nC + self.ct[xc], minlength=nr * nC).reshape(nr, nC)   # excluded pairs
+        x_tot = x_rc.sum(1)
+        if len(self.excl):
+            Exc = sp.csr_matrix((np.ones(len(self.excl), np.int64), (xr, xc)), shape=(nr, nt))
+            X = (Exc @ Pos.T).toarray()                 # X[i, j] = |excl(i) ∩ pos(j)|
+        else:
+            X = None
         groups = self._strata_index(strata)
         i = np.arange(nr)
         ci = self.cr
@@ -752,9 +776,9 @@ class Evaluation:
                 for g in groups:
                     j[g] = g[rng.permutation(len(g))]
             cj = self.cr[j]
-            n = (nt - self.nT_c[ci] - np.where(cj == ci, 0, self.nT_c[cj])).sum()
+            n = (nt - self.nT_c[ci] - np.where(cj == ci, 0, self.nT_c[cj]) - (x_tot - x_rc[i, cj])).sum()
             s = (s_tot - s_rc[i, cj]).sum()
-            pn = (l_tot[j] - l_rc[j, ci]).sum()
+            pn = (l_tot[j] - l_rc[j, ci]).sum() - (X[i, j].sum() if X is not None else 0)
             an = M[i, j].sum()
             po = (l_tot - l_rc[i, cj]).sum()
             ao = (o_tot - o_rc[i, cj]).sum()
@@ -816,7 +840,7 @@ class Evaluation:
         arm_chrom = np.zeros(G, dtype=np.int64)
         arm_chrom[self.ga] = self.cr
         n = regs_per_arm[:, None] * self.nB[None, :] * (arm_chrom[:, None] != self.bin_chrom[None, :])
-        return f(both), f(sel), f(pl), n.astype(float)
+        return f(both), f(sel), f(pl), n.astype(float) - f(self.excl)
 
     def boot_weights(self, n_boot: int = N_BOOT, rng=None):
         rng = rng if rng is not None else spawn_rng(SPAWN["bootstrap"], self.seed)
@@ -843,7 +867,7 @@ class Evaluation:
         a, s, p = f(both), f(sel), f(pl)
         nE_c = np.zeros((E, self.nC), dtype=np.int64)
         np.add.at(nE_c, (self.te, self.ct), 1)
-        n = nE_c.sum(1)[None, :] - nE_c[:, self.cr].T          # (nr, E)
+        n = nE_c.sum(1)[None, :] - nE_c[:, self.cr].T - f(self.excl)          # (nr, E)
         if by == "own_class":
             cls = pd.Index(sorted(self.regs["own_class"].astype(str).unique()))
             gi = cls.get_indexer(self.regs["own_class"].astype(str))
@@ -868,6 +892,10 @@ class Evaluation:
         mk = lambda lin: sp.csr_matrix((np.ones(len(lin)), (kix.get_indexer(sk(lin)), self.tb[lin % nt])),
                                        shape=(len(active), H))
         Qa, Qs, Qp = mk(both), mk(sel), mk(pl)
+        xk = kix.get_indexer(sk(self.excl))
+        xin = xk >= 0                                           # excluded pairs in active strata
+        Qx = sp.csr_matrix((np.ones(int(xin.sum())), (xk[xin], self.tb[self.excl[xin] % nt])),
+                           shape=(len(active), H))
         nEB = np.zeros((E, H))
         np.add.at(nEB, (self.te, self.tb), 1)
         with np.errstate(all="ignore"):     # spurious Accelerate matmul flags (DESIGN §10)
@@ -886,7 +914,8 @@ class Evaluation:
                 a = (Qa @ wb).T                                 # (b, K)
                 s = (Qs @ wb).T
                 p = (Qp @ wb).T
-            n = NE[b0:b1][:, ke] - NEC[b0:b1][:, ke, self.cr[ki]]
+            with np.errstate(all="ignore"):
+                n = NE[b0:b1][:, ke] - NEC[b0:b1][:, ke, self.cr[ki]] - (Qx @ wb).T
             A, Bc, C, D = table_from_counts(a, s, p, n)
             with np.errstate(divide="ignore", invalid="ignore"):
                 num = np.where(n > 0, A * D / n, 0.0)
@@ -902,7 +931,7 @@ class Evaluation:
         rows = np.flatnonzero(p >= min_pos)
         aucs = []
         for i in rows:
-            valid = self.ct != self.cr[i]
+            valid = self.key[i] > -2                            # trans and not excluded
             k = self.key[i, valid]
             y = np.zeros(self.nt, dtype=bool)
             y[pl[pl // self.nt == i] % self.nt] = True
@@ -980,7 +1009,8 @@ class Evaluation:
         regs = self.regs[rm]
         tgts = self.tgts[tm]
         pos = self.pos[self.pos["regulator"].isin(regs["regulator"]) & self.pos["target"].isin(tgts["target"])]
-        return Evaluation(regs, tgts, pos.drop(columns="lin"), self.S[np.ix_(rm, tm)], self.s_cis[rm], self.seed)
+        return Evaluation(regs, tgts, pos.drop(columns="lin"), self.S[np.ix_(rm, tm)], self.s_cis[rm], self.seed,
+                          exclude=self.exclude_df)
 
     def hub_excluded(self, frac_hub: float = 0.01, k: float = PRIMARY_K) -> dict:
         """Drop the top 1 % of regulators and of targets by benchmark degree (evaluated split), re-rank."""
@@ -1038,11 +1068,11 @@ def _jsonable(x):
     return x
 
 
-def build_evaluation(sc: dict, bench: Bench, reg_subset=None, seed: int = SEED):
+def build_evaluation(sc: dict, bench: Bench, reg_subset=None, seed: int = SEED, exclude=None):
     regs = bench.regs if reg_subset is None else bench.regs[np.asarray(reg_subset, bool)]
     S, s_cis, miss_r, miss_t = align_scores(sc, regs["regulator"], bench.tgts["target"])
     pos = bench.pos[bench.pos["regulator"].isin(regs["regulator"])]
-    ev = Evaluation(regs, bench.tgts, pos, S, s_cis, seed)
+    ev = Evaluation(regs, bench.tgts, pos, S, s_cis, seed, exclude=exclude)
     return ev, {"n_regulators_missing_in_scores": miss_r, "n_targets_missing_in_scores": miss_t}
 
 
@@ -1087,6 +1117,8 @@ def compute_metrics(ev: Evaluation, *, n_perm: int = N_PERM, n_boot: int = N_BOO
     m["top10_regulator_share"] = ev.top10_share(sel)
     m["hub_excluded"] = ev.hub_excluded()
     m["sign"] = ev.sign_metrics(sel, "pos_primary", n_perm)
+    if "reg_class" in ev.regs.columns:       # D8 report analysis (global top-K; no re-ranking)
+        m["regulator_class"] = class_table(ev, sel, pl)
     for cls in ("i", "iii"):
         msk = (ev.regs["own_class"].astype(str) == cls).values
         if msk.sum() >= 1:
@@ -1117,10 +1149,43 @@ def _out_dir(root: Path, split: str) -> Path:
     return Path(root) / "results" / {"TEST": "final", "PSEUDO_TEST": "final_mock"}.get(split, "eval")
 
 
+def class_table(ev: "Evaluation", sel, pl) -> dict:
+    """Per regulator class (docs/BENCHMARK.md §11.1): counts and OR within the run's global top-K."""
+    s, p, a, _ = ev.per_reg(sel, pl)
+    out = {}
+    for cls, idx in ev.regs.groupby(ev.regs["reg_class"].fillna("other").astype(str)).indices.items():
+        tab = table_from_counts(a[idx].sum(), s[idx].sum(), p[idx].sum(), ev.n_i[idx].sum())
+        out[cls] = {"n_regulators": int(len(idx)), "n_pairs": int(ev.n_i[idx].sum()),
+                    "selected": int(s[idx].sum()), "positives": int(p[idx].sum()), "a": int(tab[0]),
+                    "or": float(odds_ratio(*tab)), **fisher(*tab)}
+    return out
+
+
+def attach_classes(regs: pd.DataFrame, root: Path = ROOT) -> pd.DataFrame:
+    """Add reg_class from data/processed/regulator_classes.tsv (label-free), if that table exists."""
+    p = Path(root) / "data" / "processed" / "regulator_classes.tsv"
+    if not p.exists() or "reg_class" in regs.columns:
+        return regs
+    c = pd.read_csv(p, sep="\t", usecols=["gene", "reg_class"]).set_index("gene")["reg_class"]
+    out = regs.copy()
+    out["reg_class"] = out["regulator"].map(c).fillna("other")
+    return out
+
+
+def paralog_pairs(root: Path = ROOT) -> pd.DataFrame:
+    """Symmetric paralog gene-key pairs (data/processed/paralog_pairs.tsv; docs/BENCHMARK.md §11.2)."""
+    d = pd.read_csv(Path(root) / "data" / "processed" / "paralog_pairs.tsv", sep="\t")
+    return d.rename(columns={"gene_a": "regulator", "gene_b": "target"})[["regulator", "target"]]
+
+
+PAIR_SUBSETS = {"paralog_exclusion": paralog_pairs}
+
+
 def evaluate(run, line: str = PRIMARY_LINE, split: str = "TRAIN", *, variant: Optional[str] = None,
              n_perm: int = N_PERM, n_boot: int = N_BOOT, full: bool = True, reg_subset=None,
              subset_name: Optional[str] = None, call_mask: Optional[np.ndarray] = None, root: Path = ROOT,
-             debug: bool = False, write_json: bool = True, _token=None) -> dict:
+             debug: bool = False, write_json: bool = True, _token=None,
+             exclude_pairs: Optional[pd.DataFrame] = None) -> dict:
     """Evaluate one score file (run id, directory, or in-memory score dict) on one line x split.
 
     Every call is logged (DESIGN §8.3): results/tuning_log.tsv, or results/tuning_log_debug.tsv when
@@ -1130,10 +1195,13 @@ def evaluate(run, line: str = PRIMARY_LINE, split: str = "TRAIN", *, variant: Op
     root = Path(root)
     _check_token(split, _token)
     bench = load_bench(line, split, root, token=_token)
+    bench.regs = attach_classes(bench.regs, root)
     sc, score_check = _resolve_scores(run, root)
     if call_mask is not None:
         sc["call"] = np.asarray(call_mask, bool)
-    ev, miss = build_evaluation(sc, bench, reg_subset)
+    ev, miss = build_evaluation(sc, bench, reg_subset, exclude=exclude_pairs)
+    if exclude_pairs is not None:
+        miss["n_pairs_excluded"] = int(len(ev.excl))
     call_block = align_scores(sc, ev.regs["regulator"], ev.tgts["target"], "call")[0] if "call" in sc else None
     m = compute_metrics(ev, n_perm=n_perm, n_boot=n_boot, call_block=call_block, full=full, line=line)
     m.update(miss)
@@ -1141,7 +1209,8 @@ def evaluate(run, line: str = PRIMARY_LINE, split: str = "TRAIN", *, variant: Op
     meta = sc["meta"]
     run_id = meta.get("run_id", "scores")
     variant = variant or meta.get("variant", meta.get("variant_id", ""))
-    evp = {"k_fracs": K_FRACS, "n_perm": n_perm, "n_boot": n_boot, "full": full, "subset": subset_name}
+    evp = {"k_fracs": K_FRACS, "n_perm": n_perm, "n_boot": n_boot, "full": full, "subset": subset_name,
+           "exclude_pairs": None if exclude_pairs is None else int(len(exclude_pairs))}
     checks = dict(bench.files)
     checks.update(score_check)
     out = {"run_id": run_id, "variant": variant, "line": line, "split": bench.split, "metrics": _jsonable(m),

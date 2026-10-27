@@ -1,0 +1,48 @@
+run_id	variant	kind	data	sample_set	n_samples	n_regulators	n_targets	wall_time_s	engine_s	calls_nc1_perms	cpu_count	blas_threads	peak_rss_gb	git
+B0	B0	baseline	real	S2	1436	12141	18276	2.73			10	n/a (Accelerate)	5.484	4332c129fb0d3ff87ae5e82409efe8e61899906a-dirty
+B1	B1	baseline	real	S2	1436	12141	18276	4.12			10	n/a (Accelerate)	5.401	dfe403cb096451ef509f84aab2e6046eb3c21998-dirty
+B2	B2	baseline	real	S2	1436	12141	18276	4.8			10	n/a (Accelerate)	5.711	dfe403cb096451ef509f84aab2e6046eb3c21998-dirty
+B3	B3	baseline	real	S2	1436	12141	18276	2.39			10	n/a (Accelerate)	5.432	dfe403cb096451ef509f84aab2e6046eb3c21998-dirty
+B4	B4	baseline	real	S2	1436	12141	18276	2.68			10	n/a (Accelerate)	5.494	dfe403cb096451ef509f84aab2e6046eb3c21998-dirty
+B4e	B4e	baseline	real	S2	1436	12141	18276	2.86			10	n/a (Accelerate)	5.437	dfe403cb096451ef509f84aab2e6046eb3c21998-dirty
+B5	B5	baseline	real	S2	1436	12141	18276	2.41			10	n/a (Accelerate)	6.379	dfe403cb096451ef509f84aab2e6046eb3c21998-dirty
+B6	B6	baseline	real	S2	1436	12141	18276	12.23			10	n/a (Accelerate)	6.595	dfe403cb096451ef509f84aab2e6046eb3c21998-dirty
+C2_g1	C2_g1	model	real	S2	1436	12141	18276	42.32	41.09		10	n/a (Accelerate)	16.93	704aac08100acd64c8b1ee62cf17e13758797bcd-dirty
+C2_g2	C2_g2	model	real	S2	1436	12141	18276	42.81	41.61		10	n/a (Accelerate)	17.001	704aac08100acd64c8b1ee62cf17e13758797bcd-dirty
+M1	M1	model	real	S2	1436	12141	18276	51.59	23.1	1.0	10	n/a (Accelerate)	13.266	4332c129fb0d3ff87ae5e82409efe8e61899906a-dirty
+NC1	NC1	model	real	S2	1436	12141	18276	27.48	26.1		10	n/a (Accelerate)	11.308	4332c129fb0d3ff87ae5e82409efe8e61899906a-dirty
+a3_r095_s2_w0	a3_r095_s2_w0	model	real	S2	1436	12141	18276	66.06	37.34	1.0	10	n/a (Accelerate)	14.215	2b4242c66f86926ec0efd7fe562c7db0ac72f6fd-dirty
+cnpcs20	cnpcs20	model	real	S2	1436	12141	18276	58.2	26.53	1.0	10	n/a (Accelerate)	13.504	f2deb852430ec3375495b4f63ae80a65dc7da25a
+focal	focal	model	real	S2	1436	12141	18276	38.68	16.82	1.0	10	n/a (Accelerate)	12.851	57f2de34dd7850e09e122efd02545d1d1793f41e
+focal__g1_t100_w0__a3_r095_s2_w0	focal+g1_t100_w0+a3_r095_s2_w0	model	real	S2	1436	12141	18276	51.53	30.34	1.0	10	n/a (Accelerate)	13.793	2b4242c66f86926ec0efd7fe562c7db0ac72f6fd-dirty
+g1_t100_w0	g1_t100_w0	model	real	S2	1436	12141	18276	52.32	23.56	1.0	10	n/a (Accelerate)	13.31	f2deb852430ec3375495b4f63ae80a65dc7da25a-dirty
+g1_t100_w05	g1_t100_w05	model	real	S2	1436	12141	18276	52.18	23.54	1.0	10	n/a (Accelerate)	13.299	f2deb852430ec3375495b4f63ae80a65dc7da25a-dirty
+g1_t100_w0__a3_r095_s2_w0	g1_t100_w0+a3_r095_s2_w0	model	real	S2	1436	12141	18276	67.22	38.29	1.0	10	n/a (Accelerate)	14.184	6288007dce419e6c9b0f019427a9befebaa00be5
+g1_t100_w0__a3_r095_s2_w025	g1_t100_w0+a3_r095_s2_w025	model	real	S2	1436	12141	18276	107.03	78.2	1.0	10	n/a (Accelerate)	14.312	6288007dce419e6c9b0f019427a9befebaa00be5
+g1_t100_w0__a3_r095_s2_w05	g1_t100_w0+a3_r095_s2_w05	model	real	S2	1436	12141	18276	107.04	78.14	1.0	10	n/a (Accelerate)	14.346	6288007dce419e6c9b0f019427a9befebaa00be5
+g1_t100_w0__a3_r095_s2_w0__S1	g1_t100_w0+a3_r095_s2_w0+S1	model	real	S1	999	12141	18276	53.92	30.69	1.0	10	n/a (Accelerate)	13.502	2b4242c66f86926ec0efd7fe562c7db0ac72f6fd-dirty
+g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion	g1_t100_w0+a3_r095_s2_w0+cn_outlier_exclusion	model	real	S2_noCNoutlier	1421	12141	18276	66.57	37.41	1.0	10	n/a (Accelerate)	13.962	2b4242c66f86926ec0efd7fe562c7db0ac72f6fd-dirty
+g1_t100_w0__a3_r095_s2_w0__floor5	g1_t100_w0+a3_r095_s2_w0+floor5	model	real	S2	1436	12141	18276	66.11	37.39	1.0	10	n/a (Accelerate)	14.167	c968b1dca5e5c4b896d3c5f223ccaafe9b257d9a
+g1_t100_w0__a3_r095_s2_w0__hidden_factors	g1_t100_w0+a3_r095_s2_w0+hidden_factors	model	real	S2	1436	12141	18276	90.67	49.66	1.0	10	n/a (Accelerate)	14.335	2b4242c66f86926ec0efd7fe562c7db0ac72f6fd-dirty
+g1_t100_w0__a3_r095_s2_w0__hinge	g1_t100_w0+a3_r095_s2_w0+hinge	model	real	S2	1436	12141	18276	151.43	88.94	1.0	10	n/a (Accelerate)	16.699	c968b1dca5e5c4b896d3c5f223ccaafe9b257d9a
+g1_t100_w0__a3_r095_s2_w0__i1_fuse_g1	g1_t100_w0+a3_r095_s2_w0+i1_fuse_g1	model	real	S2	1436	12141	18276	83.08	54.35	1.0	10	n/a (Accelerate)	20.192	f209390da4323568f8dd5ae7c8b5f51cd445817d
+g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	g1_t100_w0+a3_r095_s2_w0+i1_fuse_g2	model	real	S2	1436	12141	18276	82.69	54.13	1.0	10	n/a (Accelerate)	20.227	f209390da4323568f8dd5ae7c8b5f51cd445817d
+g1_t100_w0__a3_r095_s2_w0__i3_ivshrink	g1_t100_w0+a3_r095_s2_w0+i3_ivshrink	model	real	S2	1436	12141	18276	70.11	41.12	1.0	10	n/a (Accelerate)	14.847	f209390da4323568f8dd5ae7c8b5f51cd445817d
+g1_t100_w0__a3_r095_s2_w0__i5_comp	g1_t100_w0+a3_r095_s2_w0+i5_comp	model	real	S2	1436	12141	18276	76.95	42.74	1.0	10	n/a (Accelerate)	14.349	f209390da4323568f8dd5ae7c8b5f51cd445817d
+g1_t100_w0__a3_r095_s2_w0__i6_linrep	g1_t100_w0+a3_r095_s2_w0+i6_linrep	model	real	S2	1436	12141	18276	103.08	74.11	1.0	10	n/a (Accelerate)	16.473	f209390da4323568f8dd5ae7c8b5f51cd445817d
+g1_t100_w0__a3_r095_s2_w0__noHCT116	g1_t100_w0+a3_r095_s2_w0+noHCT116	model	real	S2_noHCT116	1435	12141	18276	66.5	37.43	1.0	10	n/a (Accelerate)	14.206	2b4242c66f86926ec0efd7fe562c7db0ac72f6fd-dirty
+g1_t100_w0__a3_r095_s2_w0__rint	g1_t100_w0+a3_r095_s2_w0+rint	model	real	S2	1436	12141	18276	71.94	40.12	1.0	10	n/a (Accelerate)	14.267	c968b1dca5e5c4b896d3c5f223ccaafe9b257d9a
+g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop	g1_t100_w0+a3_r095_s2_w0+tp53_chr17_drop	model	real	S2	1436	12141	18276	66.09	37.18	1.0	10	n/a (Accelerate)	14.23	2b4242c66f86926ec0efd7fe562c7db0ac72f6fd-dirty
+g1_t100_w0__a3_r095_s2_w0__tstd	g1_t100_w0+a3_r095_s2_w0+tstd	model	real	S2	1436	12141	18276	68.52	39.79	1.0	10	n/a (Accelerate)	14.181	c968b1dca5e5c4b896d3c5f223ccaafe9b257d9a
+g1_t100_w0__a3_r095_s5_w0	g1_t100_w0+a3_r095_s5_w0	model	real	S2	1436	12141	18276	66.35	37.47	1.0	10	n/a (Accelerate)	14.191	6288007dce419e6c9b0f019427a9befebaa00be5
+g1_t100_w0__a3_r098_s2_w0	g1_t100_w0+a3_r098_s2_w0	model	real	S2	1436	12141	18276	64.74	36.17	1.0	10	n/a (Accelerate)	14.234	6288007dce419e6c9b0f019427a9befebaa00be5
+g1_t100_w0__g2_thr1_w0	g1_t100_w0+g2_thr1_w0	model	real	S2	1436	12141	18276	52.42	23.66	1.0	10	n/a (Accelerate)	13.232	6288007dce419e6c9b0f019427a9befebaa00be5
+g1_t100_w0__g2_thr1_w05	g1_t100_w0+g2_thr1_w05	model	real	S2	1436	12141	18276	52.46	23.69	1.0	10	n/a (Accelerate)	13.337	6288007dce419e6c9b0f019427a9befebaa00be5
+g1_t100_w0__g2_thr2_w0	g1_t100_w0+g2_thr2_w0	model	real	S2	1436	12141	18276	52.37	23.51	1.0	10	n/a (Accelerate)	13.316	6288007dce419e6c9b0f019427a9befebaa00be5
+g1_t100_w0__g2_thr2_w05	g1_t100_w0+g2_thr2_w05	model	real	S2	1436	12141	18276	52.37	23.59	1.0	10	n/a (Accelerate)	13.324	6288007dce419e6c9b0f019427a9befebaa00be5
+g1_t100_w0__i4_r090	g1_t100_w0+i4_r090	model	real	S2	1436	12141	18276	67.19	38.01	1.0	10	n/a (Accelerate)	14.139	f209390da4323568f8dd5ae7c8b5f51cd445817d
+g1_t10_w0	g1_t10_w0	model	real	S2	1436	12141	18276	51.76	23.34	1.0	10	n/a (Accelerate)	13.294	f2deb852430ec3375495b4f63ae80a65dc7da25a-dirty
+g1_t10_w05	g1_t10_w05	model	real	S2	1436	12141	18276	52.31	23.46	1.0	10	n/a (Accelerate)	13.225	f2deb852430ec3375495b4f63ae80a65dc7da25a-dirty
+g1_t30_w0	g1_t30_w0	model	real	S2	1436	12141	18276	52.19	23.54	1.0	10	n/a (Accelerate)	13.281	f2deb852430ec3375495b4f63ae80a65dc7da25a-dirty
+g1_t30_w05	g1_t30_w05	model	real	S2	1436	12141	18276	52.05	23.58	1.0	10	n/a (Accelerate)	13.275	f2deb852430ec3375495b4f63ae80a65dc7da25a-dirty
+loao	loao	model	real	S2	1436	12141	18276	66.07	30.45	1.0	10	n/a (Accelerate)	12.535	f2deb852430ec3375495b4f63ae80a65dc7da25a

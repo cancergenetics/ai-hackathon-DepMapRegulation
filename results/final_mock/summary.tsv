@@ -1,0 +1,499 @@
+role	run	label	line	split	subset	metric_set	n_pairs	K	OR@0.1%	OR@0.01%	OR@1%	fisher_p(indep.)	jk_CI95_lo	jk_CI95_hi	perm_p	perm_p_degree	OR/median_null	OR/median_null_degree	CMH_OR(reg x S2 expr)	CMH_OR(own class x S2 expr)	CMH_OR(reg x HCT116 expr) [D6 diagnostic]	mean_AUROC	top10_share	OR_hub_excluded	sign_concordant_OR	n_overlap	concordance	c0	sign_OR	sign_perm_p	reg_weighted_concordance	n_calls	callset_OR	callset_fisher_p	n_regulators	selected	positives	a	eval_wall_s	score_wall_s	threads	dlogOR	boot_lb90	dlogCMH	boot_cmh_ub90	OR_run	OR_C1	dOR	c1_mode
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	4.1123791632208695	5.730658493145259	4.998502729151961	6.146223271674964e-47	2.4441310099089457	6.919294552350206	0.03396603396603397	0.07692307692307693	2.2691001994282374	1.5855700711759764																															
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST		cmh													0.9180846487850451	2.1638167127159136	0.9190152113661699	0.505960062851044	0.27211312761206846	3.6721037134650047																									
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST		sign																			5.315803100962994	158.0	0.5506329113924051	0.4668322384233296	2.2452380952380953	0.08791208791208792	0.5255633018946936																		
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST		callset																										997722.0	1.2286549924183412	9.219048995537877e-24															
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST		class:RBP			3.667024821984666			3.007713704759067e-06																							13.0	149.0	5128.0	20.0											
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST		class:TF			10.711188948595089			1.4222480510910205e-08																							206.0	1788.0	1148.0	11.0											
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST		class:kinase			3.8757158510616305			0.2289223036417071																							39.0	139.0	702.0	1.0											
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST		class:other			3.967171660196246			7.010256951481733e-34																							1544.0	14385.0	30721.0	117.0											
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST		class:ribosomal			1.1650617912130552			0.37144093957856233																							15.0	1006.0	1105.0	9.0											
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST		runtime																																	2.490339756011963	67.22	{'cpu_count': 10, 'blas': []}								
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	1.7046798565306063	2.0663517595554897	1.8672632958386306	4.2618594327004275e-05	0.7550513134999631	3.8486568545799242	0.0939060939060939	0.1048951048951049	1.729875360690514	1.4493949696907706																															
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	PSEUDO_TEST		cmh													0.9769893039034437	1.784384123679108	1.014922724031034	0.5075181538044666	0.14931012766931928	1.449984643629471																									
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	PSEUDO_TEST		sign																			1.951403285400899	66.0	0.5454545454545454	0.48393021120293844	1.708994708994709	0.4925074925074925	0.5324074074074074																		
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	PSEUDO_TEST		callset																										997722.0	1.2286549924183412	9.219048995537877e-24															
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	PSEUDO_TEST		class:RBP			4.830972846259035			0.0002645444984980635																							13.0	53.0	5128.0	9.0											
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	PSEUDO_TEST		class:TF			4.026545991531124			0.0090002762295514																							206.0	2142.0	1148.0	5.0											
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	PSEUDO_TEST		class:kinase			4.733490714907907			0.1920075274045578																							39.0	114.0	702.0	1.0											
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	PSEUDO_TEST		class:other			1.5155171507964986			0.004918289731577449																							1544.0	14696.0	30721.0	46.0											
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	PSEUDO_TEST		class:ribosomal			1.4123035607718322			0.2847397549651888																							15.0	462.0	1105.0	5.0											
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hct116	PSEUDO_TEST		runtime																																	2.6758861541748047	66.06	{'cpu_count': 10, 'blas': []}								
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	26.15407902077427	32.92710329032547	18.314588806427363	0.0	19.157966752766946	35.70503374665846	0.000999000999000999	0.000999000999000999	2.2008418362016022	1.646121664888077																															
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	PSEUDO_TEST		cmh													2.4290762298425026	4.5214259477724275	2.0372067827672433	0.6396108279294248	0.10740253048605942	16.673323669576163																									
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	PSEUDO_TEST		sign																			26.30542923844964	940.0	0.44042553191489364	0.41335445903123585	1.393939393939394	0.000999000999000999	0.47079711532449775																		
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	PSEUDO_TEST		callset																										997722.0	1.2286549924183412	9.219048995537877e-24															
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	PSEUDO_TEST		class:RBP			13.518295960108686			1.4856114575589264e-78																							13.0	334.0	5128.0	120.0											
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	PSEUDO_TEST		class:TF			20.117214036602405			1.145644663022196e-17																							206.0	1576.0	1148.0	18.0											
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	PSEUDO_TEST		class:kinase			62.74593247715096			2.5997569234774503e-47																							39.0	338.0	702.0	34.0											
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	PSEUDO_TEST		class:other			25.69836903149541			0.0																							1544.0	14630.0	30721.0	724.0											
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	PSEUDO_TEST		class:ribosomal			10.797879791437886			4.484405250658505e-29																							15.0	589.0	1105.0	44.0											
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hct116	PSEUDO_TEST		runtime																																	3.2329351902008057	82.69	{'cpu_count': 10, 'blas': []}								
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	6.986409743782479	6.2592076319623144	6.502816802986335	6.5782714151328565e-127	2.4330405576257665	20.06128543769486	0.000999000999000999	0.014985014985014986	4.848858729243217	3.0422871620464984																															
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	PSEUDO_TEST		cmh													1.2653958417546753	4.367963586432661	1.226542377795716	0.49695883605669444	0.4203354897807294	5.656138659286796																									
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	PSEUDO_TEST		sign																			6.372423378776393	266.0	0.34962406015037595	0.3634744756628413	0.8152337858220211	0.12087912087912088	0.4607962330067593																		
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	PSEUDO_TEST		callset																										0.0	449.11965107139633	1.0															
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	PSEUDO_TEST		class:RBP			1.2323808607810391			0.35030231571877724																							13.0	141.0	5128.0	7.0											
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	PSEUDO_TEST		class:TF			14.767941810749683			4.409865744033089e-26																							206.0	3848.0	1148.0	32.0											
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	PSEUDO_TEST		class:kinase			8.751823114170701			1.0																							39.0	30.0	702.0	0.0											
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	PSEUDO_TEST		class:other			8.880172321347281			2.180744637036354e-127																							1544.0	12472.0	30721.0	224.0											
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	PSEUDO_TEST		class:ribosomal			0.3958336053480265			0.98055064441961																							15.0	976.0	1105.0	3.0											
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hct116	PSEUDO_TEST		runtime																																	2.513982057571411	51.53	{'cpu_count': 10, 'blas': []}								
+baseline	B0		hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	1.0567650408343179	1.0306983456654304	0.9920678712514638	0.38317663591000767	0.7941129973609482	1.406288973031328	0.3776223776223776	0.5054945054945055	1.056630969649267	1.0104766471061621																															
+baseline	B0		hct116	PSEUDO_TEST		cmh													1.037184488622633	1.0633278312202348	1.0411337842030528	0.49932919471544995	0.01156466479647335	1.0078264382738147																									
+baseline	B0		hct116	PSEUDO_TEST		sign																			1.0662886691441988	41.0	0.6097560975609756	0.6097560975609756	1.5454545454545454	1.0																			
+baseline	B0		hct116	PSEUDO_TEST		class:RBP			1.5851087403381607			0.12986510837387033																							13.0	143.0	5128.0	9.0											
+baseline	B0		hct116	PSEUDO_TEST		class:TF			0.8786401089084854			0.679797312841478																							206.0	1953.0	1148.0	1.0											
+baseline	B0		hct116	PSEUDO_TEST		class:kinase			1.3164198927640316			0.533019473876315																							39.0	407.0	702.0	1.0											
+baseline	B0		hct116	PSEUDO_TEST		class:other			0.9791679462082412			0.57009355559152																							1544.0	14810.0	30721.0	30.0											
+baseline	B0		hct116	PSEUDO_TEST		class:ribosomal			0.41655945046757975			1.0																							15.0	154.0	1105.0	0.0											
+baseline	B0		hct116	PSEUDO_TEST		runtime																																	2.090708017349243	2.73	{'cpu_count': 10, 'blas': []}								
+baseline	B1		hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	1.2638045777772662	2.846364227785406	1.4431706245825868	0.0635292370823635	0.6768499793163841	2.359757789198637	0.8451548451548452	0.8151848151848152	0.6383702602411631	0.7065525796868752																															
+baseline	B1		hct116	PSEUDO_TEST		cmh													4.19544722688833	1.7621936480032303	2.781594151994403	0.522550781579451	0.1547489551726112	2.209723451315695																									
+baseline	B1		hct116	PSEUDO_TEST		sign																			1.2676107169723252	49.0	0.5102040816326531	0.6001665972511453	0.10602910602910603	1.0	0.7705882352941176																		
+baseline	B1		hct116	PSEUDO_TEST		class:RBP			0.034330409213149074			1.0																							13.0	342.0	5128.0	0.0											
+baseline	B1		hct116	PSEUDO_TEST		class:TF			1.6279776134094552			0.4593774133062919																							206.0	1055.0	1148.0	1.0											
+baseline	B1		hct116	PSEUDO_TEST		class:kinase			1.0778834609439591			1.0																							39.0	247.0	702.0	0.0											
+baseline	B1		hct116	PSEUDO_TEST		class:other			1.4688009914006117			0.007164442776609912																							1544.0	15821.0	30721.0	48.0											
+baseline	B1		hct116	PSEUDO_TEST		class:ribosomal			25.77087290818634			1.0																							15.0	2.0	1105.0	0.0											
+baseline	B1		hct116	PSEUDO_TEST		runtime																																	2.124314069747925	4.12	{'cpu_count': 10, 'blas': []}								
+baseline	B2		hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	5.383320713408057	7.586201174051966	4.627449531845101	1.9733619734195866e-79	3.5681695364887016	8.121851164035913	0.20679320679320679	0.5334665334665335	1.726340238109523	0.9563911463533349																															
+baseline	B2		hct116	PSEUDO_TEST		cmh													2.1096805880392244	2.498967815430259	1.7889812995805991	0.5068561907029693	0.20421366004465563	8.433119712765224																									
+baseline	B2		hct116	PSEUDO_TEST		sign																			7.524477405716064	206.0	0.8252427184466019	0.8252427184466019	4.671232876712328	1.0	0.7280213903743316																		
+baseline	B2		hct116	PSEUDO_TEST		class:RBP			1.072450980392157			0.38620570103986773																							13.0	644.0	5128.0	28.0											
+baseline	B2		hct116	PSEUDO_TEST		class:TF			1.8216412426398043			0.422891815265914																							206.0	943.0	1148.0	1.0											
+baseline	B2		hct116	PSEUDO_TEST		class:kinase			0.2568399331860405			1.0																							39.0	1036.0	702.0	0.0											
+baseline	B2		hct116	PSEUDO_TEST		class:other			5.482738890489145			4.3134358198190876e-65																							1544.0	14747.0	30721.0	165.0											
+baseline	B2		hct116	PSEUDO_TEST		class:ribosomal			18.388461331467628			1.597059897922457e-11																							15.0	97.0	1105.0	12.0											
+baseline	B2		hct116	PSEUDO_TEST		runtime																																	2.0911428928375244	4.8	{'cpu_count': 10, 'blas': []}								
+baseline	B3		hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	4.640699861636538	0.12849059528459406	4.169432417912232	8.526583335674002e-60	0.0005253368732615507	40994.828845892094	0.14285714285714285	0.3966033966033966	56.87888159885197	2.0698761301420867																															
+baseline	B3		hct116	PSEUDO_TEST		cmh													1.0127047255242863	1.8790250405711022	1.028492872492511	0.5	1.0	10.191752300116951																									
+baseline	B3		hct116	PSEUDO_TEST		sign																			6.3607092826503	178.0	0.8258426966292135	0.8258426966292135	4.682539682539683	1.0	0.8258426966292135																		
+baseline	B3		hct116	PSEUDO_TEST		class:RBP			23.583016476552597			1.0																							13.0	0.0	5128.0	0.0											
+baseline	B3		hct116	PSEUDO_TEST		class:TF			1714.5655202437963			1.0																							206.0	0.0	1148.0	0.0											
+baseline	B3		hct116	PSEUDO_TEST		class:kinase			533.9039145907474			1.0																							39.0	0.0	702.0	0.0											
+baseline	B3		hct116	PSEUDO_TEST		class:other			4.989835617030705			3.346456392827817e-64																							1544.0	17467.0	30721.0	178.0											
+baseline	B3		hct116	PSEUDO_TEST		class:ribosomal			128.8561736770692			1.0																							15.0	0.0	1105.0	0.0											
+baseline	B3		hct116	PSEUDO_TEST		runtime																																	1.718763828277588	2.39	{'cpu_count': 10, 'blas': []}								
+baseline	B4		hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	5.4099072190572155	10.804111839165465	3.7356913872347812	3.643960625603455e-80	4.582765234223939	6.3863398238778775	0.47352647352647353	0.46153846153846156	1.0022936097020287	1.0054082487078035																															
+baseline	B4		hct116	PSEUDO_TEST		cmh													5.8786895818682	4.442593754986579	2.3872097259870304	0.5784578588519543	0.006297589740653804	4.886347622192865																									
+baseline	B4		hct116	PSEUDO_TEST		sign																			3.2581267553776336	207.0	0.3671497584541063	0.3671497584541063	0.5817490494296578	1.0	0.25																		
+baseline	B4		hct116	PSEUDO_TEST		class:RBP			2.8763666660998792			0.000809458555180234																							13.0	129.0	5128.0	14.0											
+baseline	B4		hct116	PSEUDO_TEST		class:TF			19.19773650745325			4.536773389028868e-19																							206.0	1837.0	1148.0	20.0											
+baseline	B4		hct116	PSEUDO_TEST		class:kinase			10.311384990368362			8.04512058554835e-06																							39.0	373.0	702.0	7.0											
+baseline	B4		hct116	PSEUDO_TEST		class:other			5.262424666690451			3.0427877395142204e-61																							1544.0	14983.0	30721.0	161.0											
+baseline	B4		hct116	PSEUDO_TEST		class:ribosomal			4.620454545454545			0.0055060638162813275																							15.0	145.0	1105.0	5.0											
+baseline	B4		hct116	PSEUDO_TEST		runtime																																	2.0875091552734375	2.68	{'cpu_count': 10, 'blas': []}								
+baseline	B4e		hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	8.361758774932976	9.189273082983972	7.534460900504778	4.629173887761985e-172	6.86989856149026	10.177589841297651	0.4405594405594406	0.48151848151848153	1.0075239431476086	1.0012658922425886																															
+baseline	B4e		hct116	PSEUDO_TEST		cmh													4.458675187362868	2.9376706082411563	3.969520697517056	0.7052963599085293	0.006297589740653804	7.784709259031637																									
+baseline	B4e		hct116	PSEUDO_TEST		sign																			7.889751041320567	317.0	0.5741324921135647	0.5741324921135647	1.3468634686346863	1.0	0.5355311355311355																		
+baseline	B4e		hct116	PSEUDO_TEST		class:RBP			5.804111768164056			5.761705721791201e-11																							13.0	127.0	5128.0	25.0											
+baseline	B4e		hct116	PSEUDO_TEST		class:TF			4.236923917252835			0.007336870253607974																							206.0	2036.0	1148.0	5.0											
+baseline	B4e		hct116	PSEUDO_TEST		class:kinase			11.673712905989563			7.462866209174847e-07																							39.0	378.0	702.0	8.0											
+baseline	B4e		hct116	PSEUDO_TEST		class:other			9.11062380728604			7.780080727462262e-157																							1544.0	14789.0	30721.0	272.0											
+baseline	B4e		hct116	PSEUDO_TEST		class:ribosomal			6.979403110550652			0.00010154008908317456																							15.0	137.0	1105.0	7.0											
+baseline	B4e		hct116	PSEUDO_TEST		runtime																																	2.225416898727417	2.86	{'cpu_count': 10, 'blas': []}								
+baseline	B5		hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	16.43908720323173	28.502831368219415	16.10509398294605	0.0	6.10159149463476	44.290672083355176	0.2007992007992008	0.6963036963036963	1.5425081152099442	0.8324957583316628																															
+baseline	B5		hct116	PSEUDO_TEST		cmh													2.975948902670882	2.5322967638909017	2.4760144215613753	0.7052963599085293	0.34797045857903475	16.740266549325078																									
+baseline	B5		hct116	PSEUDO_TEST		sign																			18.412181909348337	608.0	0.6825657894736842	0.6825657894736842	2.147286821705426	1.0	0.6120728215400526																		
+baseline	B5		hct116	PSEUDO_TEST		class:RBP			0.022298625236456312			1.0																							13.0	526.0	5128.0	0.0											
+baseline	B5		hct116	PSEUDO_TEST		class:TF			17.675502336081575			1.0																							206.0	48.0	1148.0	0.0											
+baseline	B5		hct116	PSEUDO_TEST		class:kinase			533.9039145907474			1.0																							39.0	0.0	702.0	0.0											
+baseline	B5		hct116	PSEUDO_TEST		class:other			18.522873273677554			0.0																							1544.0	16745.0	30721.0	608.0											
+baseline	B5		hct116	PSEUDO_TEST		class:ribosomal			0.4334084094373556			1.0																							15.0	148.0	1105.0	0.0											
+baseline	B5		hct116	PSEUDO_TEST		runtime																																	1.9081110954284668	2.41	{'cpu_count': 10, 'blas': []}								
+baseline	B6		hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	0.9016661178824681	0.25721191477412897	1.0730070927837656	0.7512095682225817	0.3806886947732175	2.1356079108720563	0.34565434565434566	0.4065934065934066	1.071301353149632	1.0295583796664214																															
+baseline	B6		hct116	PSEUDO_TEST		cmh													0.9763244694503302	1.0536448939469678	1.0978490169372173	0.5151794551837953	0.014312703956031373	0.8816336768675692																									
+baseline	B6		hct116	PSEUDO_TEST		sign																			0.9063767690370061	35.0	0.4857142857142857	0.4693877551020408	1.1785714285714286	0.32667332667332666	0.4																		
+baseline	B6		hct116	PSEUDO_TEST		class:RBP			0.7606267784744781			0.7687919875542945																							13.0	128.0	5128.0	4.0											
+baseline	B6		hct116	PSEUDO_TEST		class:TF			0.3508381499719444			1.0																							206.0	2440.0	1148.0	0.0											
+baseline	B6		hct116	PSEUDO_TEST		class:kinase			0.6433227873912316			1.0																							39.0	414.0	702.0	0.0											
+baseline	B6		hct116	PSEUDO_TEST		class:other			1.0459108180906909			0.4257233849994222																							1544.0	14330.0	30721.0	31.0											
+baseline	B6		hct116	PSEUDO_TEST		class:ribosomal			0.4138777029788212			1.0																							15.0	155.0	1105.0	0.0											
+baseline	B6		hct116	PSEUDO_TEST		runtime																																	2.224560260772705	12.23	{'cpu_count': 10, 'blas': []}								
+control	NC1	NC1: residual-permutation null	hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	0.927505189792248	0.25721191477412897	0.9946763259170253	0.6956933258709441	0.5735754282889396	1.4998304227533847	0.5574425574425574	0.6593406593406593	0.9520611632669547	0.9187794786111372																															
+control	NC1	NC1: residual-permutation null	hct116	PSEUDO_TEST		cmh													0.8639350928536321	0.7823019718842481	0.8825779635773109	0.5049001986906634	0.0664681971718097	0.692459537477902																									
+control	NC1	NC1: residual-permutation null	hct116	PSEUDO_TEST		sign																			1.0715159938438963	36.0	0.5833333333333334	0.5432098765432098	1.4814814814814814	1.0	0.75																		
+control	NC1	NC1: residual-permutation null	hct116	PSEUDO_TEST		class:RBP			1.430078125			0.21147269358505932																							13.0	140.0	5128.0	8.0											
+control	NC1	NC1: residual-permutation null	hct116	PSEUDO_TEST		class:TF			4.5672810115223506			0.029319129588606732																							206.0	1132.0	1148.0	3.0											
+control	NC1	NC1: residual-permutation null	hct116	PSEUDO_TEST		class:kinase			0.8844106338154576			0.677679970192081																							39.0	605.0	702.0	1.0											
+control	NC1	NC1: residual-permutation null	hct116	PSEUDO_TEST		class:other			0.7513748905302032			0.9376057406564501																							1544.0	15429.0	30721.0	24.0											
+control	NC1	NC1: residual-permutation null	hct116	PSEUDO_TEST		class:ribosomal			0.3984846384458232			1.0																							15.0	161.0	1105.0	0.0											
+control	NC1	NC1: residual-permutation null	hct116	PSEUDO_TEST		runtime																																	2.333601951599121	27.48	{'cpu_count': 10, 'blas': []}								
+control	C2_g2	C2: context fusion applied to NC1	hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	14.206928307095174	26.75655346142056	8.807676690457848	0.0	8.522289589596383	23.683402189164646	0.012987012987012988	0.5324675324675324	1.3398396821498284	0.9922353044898722																															
+control	C2_g2	C2: context fusion applied to NC1	hct116	PSEUDO_TEST		cmh													2.2689857125736315	2.5256509936061824	1.9777223962336394	0.6280018965032478	0.06303314822236217	10.780544103441526																									
+control	C2_g2	C2: context fusion applied to NC1	hct116	PSEUDO_TEST		sign																			13.530982452578721	529.0	0.43667296786389415	0.4861796520166809	0.6173985086992544	0.5644355644355644	0.5213266087589091																		
+control	C2_g2	C2: context fusion applied to NC1	hct116	PSEUDO_TEST		class:RBP			4.450489087691703			6.754304365664295e-14																							13.0	266.0	5128.0	42.0											
+control	C2_g2	C2: context fusion applied to NC1	hct116	PSEUDO_TEST		class:TF			8.5283703390657			6.773987955730531e-06																							206.0	1627.0	1148.0	8.0											
+control	C2_g2	C2: context fusion applied to NC1	hct116	PSEUDO_TEST		class:kinase			15.37794111608426			4.9678521840030044e-14																							39.0	584.0	702.0	16.0											
+control	C2_g2	C2: context fusion applied to NC1	hct116	PSEUDO_TEST		class:other			15.890014272555282			0.0																							1544.0	14463.0	30721.0	455.0											
+control	C2_g2	C2: context fusion applied to NC1	hct116	PSEUDO_TEST		class:ribosomal			1.9943127429335217			0.05353139690462884																							15.0	527.0	1105.0	8.0											
+control	C2_g2	C2: context fusion applied to NC1	hct116	PSEUDO_TEST		runtime																																	1.9119548797607422	42.81	{'cpu_count': 10, 'blas': []}								
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	3.2707262017342864	3.890771826635691	5.110433550643038	9.832428966692772e-29	2.4706601156525942	4.329875169367657	0.0939060939060939	0.17882117882117882	1.994939882318742	1.3949417367888053																															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	PSEUDO_TEST		cmh													0.7823139837201677	1.704403998079138	0.8193081045001545	0.5090962982412992	0.33543252991355127	3.991097154357051																									
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	PSEUDO_TEST		sign																			3.8505700351468946	126.0	0.5158730158730159	0.46119929453262787	1.789090909090909	0.7822177822177823	0.3809491807475678																		
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	PSEUDO_TEST		callset																										279030.0	1.064326966201605	0.05988163057639044															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	PSEUDO_TEST		class:RBP			3.8178048333364942			9.574560981796467e-08																							13.0	180.0	5128.0	25.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	PSEUDO_TEST		class:TF			16.212276242108366			2.8430705030837655e-15																							206.0	1841.0	1148.0	17.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	PSEUDO_TEST		class:kinase			7.03864779638111			0.13411062789093134																							39.0	77.0	702.0	1.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	PSEUDO_TEST		class:other			2.6124572004938074			1.9494541681504958e-13																							1544.0	14504.0	30721.0	78.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	PSEUDO_TEST		class:ribosomal			0.7483615221987315			0.7954107183237418																							15.0	865.0	1105.0	5.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hct116	PSEUDO_TEST		runtime																																	2.5576813220977783	53.92	{'cpu_count': 10, 'blas': []}								
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	4.1387533148186595	5.730658493145259	5.012836915420728	1.482196669319579e-47	2.456918851171823	6.971853788639646	0.03296703296703297	0.07792207792207792	2.28689639213309	1.5831166116371																															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	PSEUDO_TEST		cmh													0.919427146312986	2.176604320208651	0.9185799768233192	0.5059426866521998	0.27211312761206846	3.6721037134650047																									
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	PSEUDO_TEST		sign																			5.381479335909556	159.0	0.5534591194968553	0.46746568569281277	2.294047619047619	0.07092907092907093	0.5262696131273206																		
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	PSEUDO_TEST		callset																										997292.0	1.2252767388023087	3.87397296603779e-23															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	PSEUDO_TEST		class:RBP			3.63878682007108			3.3383649076586125e-06																							13.0	150.0	5128.0	20.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	PSEUDO_TEST		class:TF			10.73537589395511			1.3904630770909409e-08																							206.0	1784.0	1148.0	11.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	PSEUDO_TEST		class:kinase			3.8757158510616305			0.2289223036417071																							39.0	139.0	702.0	1.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	PSEUDO_TEST		class:other			4.002332977226911			1.7150147844923548e-34																							1544.0	14382.0	30721.0	118.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	PSEUDO_TEST		class:ribosomal			1.1580432061479795			0.37791184444495823																							15.0	1012.0	1105.0	9.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hct116	PSEUDO_TEST		runtime																																	2.6780617237091064	66.5	{'cpu_count': 10, 'blas': []}								
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	3.796232505352211	3.6291978334223653	4.9899044621389095	9.559098782151259e-40	2.100738187185542	6.860151028148981	0.11888111888111888	0.1088911088911089	1.810351339936164	1.5182795541638772																															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	PSEUDO_TEST		cmh													0.8740690759963103	1.8133850072371152	0.8269867607751271	0.5052858179940164	0.2484112898608805	3.0352803777774024																									
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	PSEUDO_TEST		sign																			4.905611905639435	146.0	0.5547945205479452	0.4585288046537812	2.727272727272727	0.003996003996003996	0.5811026936026936																		
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	PSEUDO_TEST		callset																										2785276.0	1.2418817929069237	1.8150425808420352e-60															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	PSEUDO_TEST		class:RBP			1.2461922248562884			0.23022851292996022																							13.0	319.0	5128.0	16.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	PSEUDO_TEST		class:TF			7.91660207636585			0.00014193662961723357																							206.0	1312.0	1148.0	6.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	PSEUDO_TEST		class:kinase			2.330749506596839			1.0																							39.0	114.0	702.0	0.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	PSEUDO_TEST		class:other			3.870426246650546			1.7650797811796686e-33																							1544.0	14994.0	30721.0	119.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	PSEUDO_TEST		class:ribosomal			0.8910285426882937			0.6599655827694273																							15.0	728.0	1105.0	5.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hct116	PSEUDO_TEST		runtime																																	2.7064831256866455	90.67	{'cpu_count': 10, 'blas': []}								
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	4.2970907294430125	4.414867280930042	5.00710267963172	2.5561457279470025e-51	2.4953569665107	7.399738388085206	0.025974025974025976	0.07092907092907093	2.4088747952575376	1.6454244637037165																															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	PSEUDO_TEST		cmh													0.9343441962196891	2.273664942299562	0.9392852462852463	0.5058618021387048	0.2858533234098586	3.799654496916321																									
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	PSEUDO_TEST		sign																			5.4632817734865915	165.0	0.5393939393939394	0.46130394857667584	2.1617486338797813	0.14285714285714285	0.46003159121580167																		
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	PSEUDO_TEST		callset																										923243.0	1.2308736249481647	1.2602381903715672e-22															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	PSEUDO_TEST		class:RBP			3.754428161241004			2.185952108849249e-06																							13.0	146.0	5128.0	20.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	PSEUDO_TEST		class:TF			10.812108865471707			2.8770833314795315e-09																							206.0	1934.0	1148.0	12.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	PSEUDO_TEST		class:kinase			4.021473083564832			0.22167660605303088																							39.0	134.0	702.0	1.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	PSEUDO_TEST		class:other			4.2163951494986005			5.661368977601553e-38																							1544.0	14239.0	30721.0	123.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	PSEUDO_TEST		class:ribosomal			1.1557223009042379			0.3800707852409484																							15.0	1014.0	1105.0	9.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hct116	PSEUDO_TEST		runtime																																	2.6719322204589844	66.57	{'cpu_count': 10, 'blas': []}								
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	4.1387533148186595	5.730658493145259	5.0214396726229165	1.482196669319579e-47	2.483670164514634	6.896760787988891	0.03396603396603397	0.07592407592407592	2.2579761510855962	1.5822645980036523																															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	PSEUDO_TEST		cmh													0.9182198799131057	2.1657468274261253	0.9196571180728074	0.506319982876915	0.2729718898494303	3.7358713425457077																									
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	PSEUDO_TEST		sign																			5.382136191335249	159.0	0.5534591194968553	0.46707013171947315	2.3	0.08091908091908091	0.5255633018946936																		
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	PSEUDO_TEST		callset																										991048.0	1.2295196417306595	8.750503440879491e-24															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	PSEUDO_TEST		class:RBP			3.63878682007108			3.3383649076586125e-06																							13.0	150.0	5128.0	20.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	PSEUDO_TEST		class:TF			10.747510338309926			1.3748093361778313e-08																							206.0	1782.0	1148.0	11.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	PSEUDO_TEST		class:kinase			3.8478227403811616			0.2303633401406144																							39.0	140.0	702.0	1.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	PSEUDO_TEST		class:other			4.001490574028967			1.7471891702222442e-34																							1544.0	14385.0	30721.0	118.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	PSEUDO_TEST		class:ribosomal			1.1603733857383491			0.3757538444585775																							15.0	1010.0	1105.0	9.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hct116	PSEUDO_TEST		runtime																																	2.638458013534546	66.09	{'cpu_count': 10, 'blas': []}								
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	paralog_exclusion	pooled	17458234.0	17458.0	4.08795913825771	5.469788810903324	4.997980759722008	2.393964478753226e-46	2.3987133379512713	6.966822442542404	0.03396603396603397	0.07892107892107893	2.2574079986559905	1.5762618125631729																															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	paralog_exclusion	cmh													0.9117679058052405	2.150833056726147	0.9127671447846468	0.5059999543903076	0.27219612784969643	3.609432055673966																									
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	paralog_exclusion	sign																			5.256183820197875	157.0	0.5477707006369427	0.46622581037770294	2.1964285714285716	0.08591408591408592	0.5255633018946936																		
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	paralog_exclusion	callset																										997231.0	1.2287545101561064	9.041340226822663e-24															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	paralog_exclusion	class:RBP			3.6707715284716804			2.964315366144473e-06																							13.0	149.0	5117.0	20.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	paralog_exclusion	class:TF			10.71335300535608			1.4194728819265288e-08																							206.0	1786.0	1147.0	11.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	paralog_exclusion	class:kinase			3.872376935640596			0.22909493023729324																							39.0	139.0	702.0	1.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	paralog_exclusion	class:other			3.934264304889908			2.704268968781207e-33																							1544.0	14378.0	30716.0	116.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	paralog_exclusion	class:ribosomal			1.165028845661071			0.3714711449219311																							15.0	1006.0	1105.0	9.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	paralog_exclusion	runtime																																	2.7404000759124756	67.22	{'cpu_count': 10, 'blas': []}								
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	class_i	pooled	6189892.0	6190.0	2.075506048514239	2.6748412899213547	2.1949949346653908	3.6751873830564555e-08	1.0218293243837804	4.215699485838291	0.024975024975024976	0.052947052947052944	2.377862173200468	1.7627055513718881																															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	class_i	cmh													1.0443561297328865	2.241781042550004	1.0755526653867589	0.5086180183344688	0.31179321486268174	1.8749220980624717																									
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	class_i	sign																			2.2604224804775055	70.0	0.5	0.47306122448979593	1.2820512820512822	0.8591408591408591	0.4804843304843305																		
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	class_i	callset																										357729.0	1.135061413861766	9.059734130589754e-09															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	class_i	class:RBP			5.836180538272834			2.52486033570102e-06																							11.0	57.0	5127.0	13.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	class_i	class:TF			4.721293030429451			0.19217628352339192																							39.0	154.0	518.0	1.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	class_i	class:kinase			3.970196444306225			0.22581267615804404																							16.0	60.0	655.0	1.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	class_i	class:other			1.9201680042692633			1.7530374909238074e-05																							564.0	5452.0	26556.0	51.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	class_i	class:ribosomal			1.038600290723336			0.538327430144828																							14.0	467.0	1105.0	4.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	class_i	runtime																																	1.9037079811096191	67.22	{'cpu_count': 10, 'blas': []}								
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	NC2	pooled	9288636.0	9289.0	0.1804172061850873	1.8047294516337669	4.925510005677659	1.0	0.05303712649340316	0.6137279758487851	0.8581418581418582	0.6503496503496503	0.46789858219486724	0.9313167690812881																															
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	NC2	cmh													0.0	0.0	0.0	0.5007974082473478	1.0	0.3822227567952604																									
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	NC2	sign																			3.886744437414486	0.0																							
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	NC2	callset																										525971.0	0.9616314141698238	0.6912865558297765															
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	NC2	class:RBP			13255.666666666666			1.0																							2.0	0.0	1.0	0.0											
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	NC2	class:TF			0.4426425678307564			1.0																							110.0	3467.0	341.0	0.0											
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	NC2	class:kinase			4606.111111111111			1.0																							15.0	0.0	31.0	0.0											
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	NC2	class:other			0.28882804545015633			1.0																							837.0	5822.0	2394.0	0.0											
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	NC2	class:ribosomal			19255.0			1.0																							1.0	0.0	0.0	0.0											
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	NC2	runtime																																	1.898348093032837	67.22	{'cpu_count': 10, 'blas': []}								
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	no_split_sibling	pooled	6595619.0	6596.0	4.424263961300304	9.56783539578222	5.344271427132982	1.7680345535821603e-23	1.2599403095619583	15.535745186266775	0.022977022977022976	0.15284715284715283	3.3480203156841446	1.4802403504319999																															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	no_split_sibling	cmh													0.8656871197529452	3.122481017511411	0.8568046231290092	0.5032377586711919	0.41403881140084897	3.593203793704865																									
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	no_split_sibling	sign																			6.362563248895211	70.0	0.6428571428571429	0.4926530612244898	3.9206349206349205	0.005994005994005994	0.5752380952380951																		
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	no_split_sibling	callset																										362403.0	1.5569119511752088	5.793833157577075e-48															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	no_split_sibling	class:RBP			4.51189354686764			0.008227741596616234																							5.0	29.0	2128.0	5.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	no_split_sibling	class:TF			11.347142945912598			1.9328668568139758e-07																							45.0	856.0	408.0	9.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	no_split_sibling	class:kinase			1519.120930232558			1.0																							17.0	2.0	21.0	0.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	no_split_sibling	class:other			4.59561162088747			7.558735375197715e-20																							620.0	5441.0	13429.0	56.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	no_split_sibling	class:ribosomal			2.5394467911159557			1.0																							3.0	268.0	20.0	0.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hct116	PSEUDO_TEST	no_split_sibling	runtime																																	1.8879878520965576	67.22	{'cpu_count': 10, 'blas': []}								
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	5.197339573725884	5.203387376954256	5.081706165682755	2.3458502773875244e-74	3.1109275211192626	8.683049817534336	0.007992007992007992	0.01998001998001998	3.073388492212587	2.1077502102404284																															
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	PSEUDO_TEST		cmh													1.195167175857675	2.7746558184493844	1.2167214217900895	0.5010282817115518	0.2705673555848171	5.335118880979043																									
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	PSEUDO_TEST		sign																			5.038347798135647	199.0	0.4120603015075377	0.4506956895027903	0.6851851851851852	0.8851148851148851	0.4099960645415191																		
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	PSEUDO_TEST		class:RBP			2.56819785882533			0.0015258011233942488																							13.0	153.0	5128.0	15.0											
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	PSEUDO_TEST		class:TF			19.083689373422196			3.773029675911739e-18																							206.0	1754.0	1148.0	19.0											
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	PSEUDO_TEST		class:kinase			1.834012058064595			1.0																							39.0	145.0	702.0	0.0											
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	PSEUDO_TEST		class:other			5.308228172729139			7.05901694585841e-60																							1544.0	14392.0	30721.0	156.0											
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	PSEUDO_TEST		class:ribosomal			1.1453915259361638			0.3897958438484856																							15.0	1023.0	1105.0	9.0											
+control	g1_t100_w0__a3_r095_s2_w0_C1		hct116	PSEUDO_TEST		runtime																																	0.9289200305938721	67.22	{'cpu_count': 10, 'blas': []}								
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	PSEUDO_TEST		pooled	17466667.0	17467.0	26.696682837579345	40.18488731031891	18.19021193797055	0.0	20.18564784152974	35.30790193733468	0.000999000999000999	0.000999000999000999	2.334701691815722	1.726471272159938																															
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	PSEUDO_TEST		cmh													2.5505521185746276	4.625014187475275	2.1170858492813625	0.639047782347181	0.1095780614873762	16.673323669576163																									
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	PSEUDO_TEST		sign																			26.337490394997314	958.0	0.430062630480167	0.43603366442789215	0.9385650224215246	0.6323676323676324	0.43658455354128883																		
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	PSEUDO_TEST		class:RBP			12.742748166809756			2.4757051943094192e-76																							13.0	347.0	5128.0	120.0											
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	PSEUDO_TEST		class:TF			11.815883763069094			5.297130227885412e-09																							206.0	1622.0	1148.0	11.0											
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	PSEUDO_TEST		class:kinase			38.01502724321818			1.2436816244052382e-25																							39.0	325.0	702.0	21.0											
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	PSEUDO_TEST		class:other			27.132305571721865			0.0																							1544.0	14583.0	30721.0	759.0											
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	PSEUDO_TEST		class:ribosomal			11.609571205269333			3.313047031904111e-32																							15.0	590.0	1105.0	47.0											
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hct116	PSEUDO_TEST		runtime																																	1.002777099609375	82.69	{'cpu_count': 10, 'blas': []}								
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	6.960512116602854	3.618089755518857	5.577981611924529	2.8615814683821256e-64	0.7922179614716602	61.15580721670914	0.026973026973026972	0.03996003996003996	2.9525932812037525	1.8457795882465609																															
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST		cmh													0.9867088550635229	3.4354133000674283	1.0257019635686557	0.4991554507415219	0.8914965615107521	3.1530178994786393																									
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST		sign																			23.27898905924712	133.0	0.48120300751879697	0.4896828537509187	0.9074074074074074	0.9660339660339661	0.3633089133089133																		
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST		callset																										494245.0	0.8489567977409513	0.9999995739649247															
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST		class:TF			32.77153448960678			1.0																							60.0	2.0	3776.0	0.0											
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST		class:kinase			1541.423645320197			1.0																							15.0	0.0	101.0	0.0											
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST		class:other			8.039457587329927			1.993673505853578e-71																							807.0	9063.0	15577.0	133.0											
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST		class:ribosomal			12.621456872904602			1.0																							2.0	96.0	8.0	0.0											
+selected	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST		runtime																																	1.8426940441131592	67.22	{'cpu_count': 10, 'blas': []}								
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	0.821657675962038	0.5133220062094204	1.0644414202235464	0.8142097207401476	0.2734193641977599	2.469178942201887	0.4385614385614386	0.5314685314685315	1.0690029309959397	0.9439293721415714																															
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	PSEUDO_TEST		cmh													0.8772996472687957	0.9077123669358373	0.918288207532247	0.4911889297069441	0.2510642942910163	0.501972842158987																									
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	PSEUDO_TEST		sign																			0.7067828604235368	16.0	0.4375	0.453125	0.75	0.5084915084915085	0.4																		
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	PSEUDO_TEST		callset																										494245.0	0.8489567977409513	0.9999995739649247															
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	PSEUDO_TEST		class:TF			0.24927145986726776			1.0																							60.0	328.0	3776.0	0.0											
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	PSEUDO_TEST		class:kinase			8.418180839322728			1.0																							15.0	91.0	101.0	0.0											
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	PSEUDO_TEST		class:other			0.9827964804973941			0.5608827138938756																							807.0	8738.0	15577.0	16.0											
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	PSEUDO_TEST		class:ribosomal			271.8627450980392			1.0																							2.0	4.0	8.0	0.0											
+ablation	a3_r095_s2_w0	ablation: selected minus G1	hek293t	PSEUDO_TEST		runtime																																	2.152803897857666	66.06	{'cpu_count': 10, 'blas': []}								
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	25.88607228900719	40.82436379189702	10.099055257641437	0.0	7.1325227426147935	93.9483493754764	0.02197802197802198	0.07692307692307693	2.1547129831175624	1.3282362798326242																															
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	PSEUDO_TEST		cmh													2.0396617223318194	4.810316662815317	2.546909482644576	0.527681033676131	0.6322453880580723	20.30241297344839																									
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	PSEUDO_TEST		sign																			121.54355917793902	468.0	0.6367521367521367	0.4991233837387684	3.1442594963721726	0.003996003996003996	0.6086864188866923																		
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	PSEUDO_TEST		callset																										494245.0	0.8489567977409513	0.9999995739649247															
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	PSEUDO_TEST		class:TF			2.1846453947658766			1.0																							60.0	37.0	3776.0	0.0											
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	PSEUDO_TEST		class:kinase			1541.423645320197			1.0																							15.0	0.0	101.0	0.0											
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	PSEUDO_TEST		class:other			31.570570635961634			0.0																							807.0	8591.0	15577.0	465.0											
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	PSEUDO_TEST		class:ribosomal			22.948301886792454			0.0008500606692308724																							2.0	533.0	8.0	3.0											
+ablation	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	context layer (selected + I1 γ=2)	hek293t	PSEUDO_TEST		runtime																																	2.3499648571014404	82.69	{'cpu_count': 10, 'blas': []}								
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	5.470209922369917	3.097652296305668	7.47450212416388	5.155957311764494e-42	1.276871804490794	23.434769637447992	0.03996003996003996	0.13586413586413587	5.066094305273244	1.7799398926705936																															
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	PSEUDO_TEST		cmh													0.9160395820844692	3.5158983301058857	0.9529299728810309	0.4978748366274998	0.9832987665102063	1.5087804764294976																									
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	PSEUDO_TEST		sign																			27.10643678044579	105.0	0.45714285714285713	0.44263038548752837	1.1851851851851851	0.7862137862137862	0.4149659863945578																		
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	PSEUDO_TEST		callset																										0.0	469.70047527296083	1.0															
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	PSEUDO_TEST		class:TF			18.206349206349206			1.0																							60.0	4.0	3776.0	0.0											
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	PSEUDO_TEST		class:kinase			1541.423645320197			1.0																							15.0	0.0	101.0	0.0											
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	PSEUDO_TEST		class:other			6.3029514416935335			2.3925630257353434e-47																							807.0	9081.0	15577.0	105.0											
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	PSEUDO_TEST		class:ribosomal			15.936562860438293			1.0																							2.0	76.0	8.0	0.0											
+ablation	focal__g1_t100_w0__a3_r095_s2_w0	ablation: focal arm handling	hek293t	PSEUDO_TEST		runtime																																	2.0670738220214844	51.53	{'cpu_count': 10, 'blas': []}								
+baseline	B0		hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	0.6158468834022064	0.2562211731612789	0.9499957224516703	0.9723620872593013	0.3503678025692095	1.0824835530407868	0.9500499500499501	0.9400599400599401	0.609315955278876	0.6372031126407443																															
+baseline	B0		hek293t	PSEUDO_TEST		cmh													0.6354639634796159	0.6123484096922953	0.6286591981825861	0.501175734970927	0.022049994542080557	0.753316624694244																									
+baseline	B0		hek293t	PSEUDO_TEST		sign																			0.7496484370589064	12.0	0.5833333333333334	0.5833333333333334	1.3636363636363635	1.0																			
+baseline	B0		hek293t	PSEUDO_TEST		class:TF			0.12838394301186648			1.0																							60.0	637.0	3776.0	0.0											
+baseline	B0		hek293t	PSEUDO_TEST		class:kinase			4.337126205508915			1.0																							15.0	177.0	101.0	0.0											
+baseline	B0		hek293t	PSEUDO_TEST		class:other			0.7733880258778718			0.8469395711692861																							807.0	8323.0	15577.0	12.0											
+baseline	B0		hek293t	PSEUDO_TEST		class:ribosomal			49.885954381752704			1.0																							2.0	24.0	8.0	0.0											
+baseline	B0		hek293t	PSEUDO_TEST		runtime																																	1.6227869987487793	2.73	{'cpu_count': 10, 'blas': []}								
+baseline	B1		hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	0.7701801577222717	1.0278201821162638	0.9292213856133784	0.8729454533417477	0.4934678753360683	1.2020589485083084	0.39760239760239763	0.6393606393606394	1.1905641742380408	0.8216337487065957																															
+baseline	B1		hek293t	PSEUDO_TEST		cmh													0.9871404822990774	0.9085814559996486	0.9025604954484465	0.4953785699363169	0.2806462176618273	1.7610801131346128																									
+baseline	B1		hek293t	PSEUDO_TEST		sign																			1.2466073818655379	15.0	0.8	0.5333333333333333	16.0	0.3956043956043956	0.8																		
+baseline	B1		hek293t	PSEUDO_TEST		class:TF			0.20702099600245916			1.0																							60.0	395.0	3776.0	0.0											
+baseline	B1		hek293t	PSEUDO_TEST		class:kinase			3.991381074168798			0.22375982131189728																							15.0	392.0	101.0	1.0											
+baseline	B1		hek293t	PSEUDO_TEST		class:other			0.8971075120816241			0.6921515364867499																							807.0	8374.0	15577.0	14.0											
+baseline	B1		hek293t	PSEUDO_TEST		class:ribosomal			2447.235294117647			1.0																							2.0	0.0	8.0	0.0											
+baseline	B1		hek293t	PSEUDO_TEST		runtime																																	1.608180046081543	4.12	{'cpu_count': 10, 'blas': []}								
+baseline	B2		hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	1.2340744044117766	4.6625676417607	1.3624373275787995	0.17769403656356658	0.0971818171816201	15.671034765465505	0.19880119880119881	0.7562437562437563	1.7332364321440945	0.6650928317144347																															
+baseline	B2		hek293t	PSEUDO_TEST		cmh													1.4533668653572236	0.9884024707232292	1.4109667508557713	0.506284685991892	0.3449405086780919	2.8993972690923053																									
+baseline	B2		hek293t	PSEUDO_TEST		sign																			1.9690397032649374	24.0	0.8333333333333334	0.8333333333333334	4.555555555555555	1.0	1.0																		
+baseline	B2		hek293t	PSEUDO_TEST		class:TF			1.2700872490729593			1.0																							60.0	64.0	3776.0	0.0											
+baseline	B2		hek293t	PSEUDO_TEST		class:kinase			1.5442483352724212			1.0																							15.0	497.0	101.0	0.0											
+baseline	B2		hek293t	PSEUDO_TEST		class:other			1.5007899621240022			0.03678480578412156																							807.0	8596.0	15577.0	24.0											
+baseline	B2		hek293t	PSEUDO_TEST		class:ribosomal			271.8627450980392			1.0																							2.0	4.0	8.0	0.0											
+baseline	B2		hek293t	PSEUDO_TEST		runtime																																	1.684183120727539	4.8	{'cpu_count': 10, 'blas': []}								
+baseline	B3		hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	54.36565043459227	51.41245708466177	8.234856964443688	0.0	0.6318079592255741	4678.041648603289	0.03396603396603397	0.03396603396603397	521.3052467717005	6.050474938935077																															
+baseline	B3		hek293t	PSEUDO_TEST		cmh													0.9628355466935478	26.871573781345663	0.9891354318143988	0.5	1.0	47.910988588678975																									
+baseline	B3		hek293t	PSEUDO_TEST		sign																			85.73770649651021	911.0	0.7530186608122942	0.7530186608122942	3.0443458980044347	1.0	0.7530186608122942																		
+baseline	B3		hek293t	PSEUDO_TEST		class:TF			163.85820203892493			1.0																							60.0	0.0	3776.0	0.0											
+baseline	B3		hek293t	PSEUDO_TEST		class:kinase			1541.423645320197			1.0																							15.0	0.0	101.0	0.0											
+baseline	B3		hek293t	PSEUDO_TEST		class:other			62.77323787444884			0.0																							807.0	9161.0	15577.0	911.0											
+baseline	B3		hek293t	PSEUDO_TEST		class:ribosomal			2447.235294117647			1.0																							2.0	0.0	8.0	0.0											
+baseline	B3		hek293t	PSEUDO_TEST		runtime																																	1.4837920665740967	2.39	{'cpu_count': 10, 'blas': []}								
+baseline	B4		hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	1.6993138379886874	0.5133220062094204	1.2785733775775945	0.0031390752183793947	1.413962669054692	2.0422515977104263	0.4435564435564436	0.45254745254745254	0.9916436729902158	0.9944699100287077																															
+baseline	B4		hek293t	PSEUDO_TEST		cmh													1.1229461705557056	1.1087209378012968	0.8417635253583089	0.4790562163195447	0.012007422770439908	2.7726772547328133																									
+baseline	B4		hek293t	PSEUDO_TEST		sign																			2.7959017375378066	33.0	0.7878787878787878	0.7878787878787878	3.533333333333333	1.0																			
+baseline	B4		hek293t	PSEUDO_TEST		class:TF			1.6129060312214636			0.17444696075870045																							60.0	616.0	3776.0	6.0											
+baseline	B4		hek293t	PSEUDO_TEST		class:kinase			4.888497927906795			1.0																							15.0	157.0	101.0	0.0											
+baseline	B4		hek293t	PSEUDO_TEST		class:other			1.7355306661279983			0.00535265918427428																							807.0	8368.0	15577.0	27.0											
+baseline	B4		hek293t	PSEUDO_TEST		class:ribosomal			59.631276901004306			1.0																							2.0	20.0	8.0	0.0											
+baseline	B4		hek293t	PSEUDO_TEST		runtime																																	1.6837339401245117	2.68	{'cpu_count': 10, 'blas': []}								
+baseline	B4e		hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	12.008645536494656	8.889107779822213	13.67963047951021	9.889463217910113e-155	9.206125662852553	15.66430580054561	0.5754245754245755	0.5584415584415584	1.0041494194047764	0.9932155993461314																															
+baseline	B4e		hek293t	PSEUDO_TEST		cmh													5.707503320840035	3.41000592122726	6.084473579044507	0.6601217107624436	0.012007422770439908	10.483526838257786																									
+baseline	B4e		hek293t	PSEUDO_TEST		sign																			13.966721012835578	226.0	0.5575221238938053	0.5575221238938053	1.2587064676616915	1.0	0.5396825396825398																		
+baseline	B4e		hek293t	PSEUDO_TEST		class:TF			10.128439448873428			4.038165000135404e-24																							60.0	641.0	3776.0	37.0											
+baseline	B4e		hek293t	PSEUDO_TEST		class:kinase			31.478651987110634			0.00014771299410100473																							15.0	155.0	101.0	3.0											
+baseline	B4e		hek293t	PSEUDO_TEST		class:other			12.283426957021895			9.068297682728579e-129																							807.0	8343.0	15577.0	185.0											
+baseline	B4e		hek293t	PSEUDO_TEST		class:ribosomal			141.36054421768708			0.008428060445618005																							2.0	22.0	8.0	1.0											
+baseline	B4e		hek293t	PSEUDO_TEST		runtime																																	1.6709749698638916	2.86	{'cpu_count': 10, 'blas': []}								
+baseline	B5		hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	28.167283925107846	154.7226510477465	9.679792090322398	0.0	8.306214945882132	95.5183424564483	0.028971028971028972	0.030969030969030968	2.606912319560112	2.0772174735895774																															
+baseline	B5		hek293t	PSEUDO_TEST		cmh													1.7650694551735968	5.639356987218339	2.194905955806009	0.6601217107624436	0.9805698067896518	26.721721623263257																									
+baseline	B5		hek293t	PSEUDO_TEST		sign																			29.794365395095166	506.0	0.5197628458498024	0.5197628458498024	1.0821355236139631	1.0	0.6637031708925253																		
+baseline	B5		hek293t	PSEUDO_TEST		class:TF			163.85820203892493			1.0																							60.0	0.0	3776.0	0.0											
+baseline	B5		hek293t	PSEUDO_TEST		class:kinase			1541.423645320197			1.0																							15.0	0.0	101.0	0.0											
+baseline	B5		hek293t	PSEUDO_TEST		class:other			36.576615259451216			0.0																							807.0	8093.0	15577.0	502.0											
+baseline	B5		hek293t	PSEUDO_TEST		class:ribosomal			18.549812030075188			0.0004089656772140295																							2.0	1068.0	8.0	4.0											
+baseline	B5		hek293t	PSEUDO_TEST		runtime																																	1.6198601722717285	2.41	{'cpu_count': 10, 'blas': []}								
+baseline	B6		hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	0.9246623901207366	0.5133220062094204	0.918838131122086	0.6608180397505006	0.38749132690678395	2.2065023816893707	0.08891108891108891	0.12987012987012986	1.3356759941956369	1.3131150134629206																															
+baseline	B6		hek293t	PSEUDO_TEST		cmh													0.9433768764700444	1.0036017685977345	0.9269262586238312	0.5010711882919987	0.030127715314921952	1.2567201865664483																									
+baseline	B6		hek293t	PSEUDO_TEST		sign																			1.0008030847176104	18.0	0.5555555555555556	0.4814814814814815	2.0	1.0																			
+baseline	B6		hek293t	PSEUDO_TEST		class:TF			1.0659545301709645			0.5176618511126959																							60.0	619.0	3776.0	4.0											
+baseline	B6		hek293t	PSEUDO_TEST		class:kinase			8.446972972972972			0.11317347658289105																							15.0	186.0	101.0	1.0											
+baseline	B6		hek293t	PSEUDO_TEST		class:other			0.8365809799496638			0.7744927094575959																							807.0	8337.0	15577.0	13.0											
+baseline	B6		hek293t	PSEUDO_TEST		class:ribosomal			62.69230769230769			1.0																							2.0	19.0	8.0	0.0											
+baseline	B6		hek293t	PSEUDO_TEST		runtime																																	1.7731480598449707	12.23	{'cpu_count': 10, 'blas': []}								
+control	NC1	NC1: residual-permutation null	hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	0.5130407051135772	0.2562211731612789	0.7789191268094762	0.993249501723774	0.19729430883384316	1.3341021677675795	0.942057942057942	0.8761238761238761	0.5903998769337472	0.6790528349712982																															
+control	NC1	NC1: residual-permutation null	hek293t	PSEUDO_TEST		cmh													0.5499964730128544	0.45587336825952113	0.6216207302061348	0.5056767765799624	0.08405195939307936	0.6276149267869526																									
+control	NC1	NC1: residual-permutation null	hek293t	PSEUDO_TEST		sign																			0.40094355800399367	10.0	0.4	0.5	0.375	1.0																			
+control	NC1	NC1: residual-permutation null	hek293t	PSEUDO_TEST		class:TF			0.9725656883974216			0.6098715616760157																							60.0	339.0	3776.0	2.0											
+control	NC1	NC1: residual-permutation null	hek293t	PSEUDO_TEST		class:kinase			6.039891818796484			1.0																							15.0	127.0	101.0	0.0											
+control	NC1	NC1: residual-permutation null	hek293t	PSEUDO_TEST		class:other			0.4943228610731584			0.9909899466266557																							807.0	8674.0	15577.0	8.0											
+control	NC1	NC1: residual-permutation null	hek293t	PSEUDO_TEST		class:ribosomal			56.85499316005472			1.0																							2.0	21.0	8.0	0.0											
+control	NC1	NC1: residual-permutation null	hek293t	PSEUDO_TEST		runtime																																	1.6541938781738281	27.48	{'cpu_count': 10, 'blas': []}								
+control	C2_g2	C2: context fusion applied to NC1	hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	14.842489583109646	18.13676954550951	8.302369471141743	2.941836574391595e-212	7.917460009550531	27.824516544318424	0.0979020979020979	0.2007992007992008	1.582431732502317	1.1964729285257396																															
+control	C2_g2	C2: context fusion applied to NC1	hek293t	PSEUDO_TEST		cmh													1.5485694808042685	2.56286626952028	1.7885398487073423	0.5249632029449437	0.34068333151402685	8.017899076943879																									
+control	C2_g2	C2: context fusion applied to NC1	hek293t	PSEUDO_TEST		sign																			69.50114442031793	277.0	0.6173285198555957	0.5183046827144887	2.352438590245639	1.0	0.61739106697821																		
+control	C2_g2	C2: context fusion applied to NC1	hek293t	PSEUDO_TEST		class:TF			20.197970387128763			4.626158055155067e-40																							60.0	405.0	3776.0	44.0											
+control	C2_g2	C2: context fusion applied to NC1	hek293t	PSEUDO_TEST		class:kinase			1541.423645320197			1.0																							15.0	0.0	101.0	0.0											
+control	C2_g2	C2: context fusion applied to NC1	hek293t	PSEUDO_TEST		class:other			15.449366710528539			5.8170206730987284e-182																							807.0	8391.0	15577.0	232.0											
+control	C2_g2	C2: context fusion applied to NC1	hek293t	PSEUDO_TEST		class:ribosomal			8.020800627943485			0.13202571070283253																							2.0	365.0	8.0	1.0											
+control	C2_g2	C2: context fusion applied to NC1	hek293t	PSEUDO_TEST		runtime																																	1.5174999237060547	42.81	{'cpu_count': 10, 'blas': []}								
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	6.8001903597886155	4.139726878587193	6.904922761881827	9.460942377649889e-62	1.4829248295342266	31.183366822367116	0.059940059940059943	0.14485514485514486	3.19826798817664	1.5494842646857774																															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	PSEUDO_TEST		cmh													0.853055309869566	3.6455052350585833	0.864069060030503	0.500945644933552	0.9807881235672962	3.7881244903587588																									
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	PSEUDO_TEST		sign																			39.99750890905053	130.0	0.7461538461538462	0.5568047337278107	9.0	0.000999000999000999	0.7226956279587858																		
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	PSEUDO_TEST		callset																										140579.0	0.8618008281695636	0.9928615987883543															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	PSEUDO_TEST		class:TF			163.85820203892493			1.0																							60.0	0.0	3776.0	0.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	PSEUDO_TEST		class:kinase			1541.423645320197			1.0																							15.0	0.0	101.0	0.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	PSEUDO_TEST		class:other			7.804098595988594			2.077436782881781e-68																							807.0	9120.0	15577.0	130.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	PSEUDO_TEST		class:ribosomal			29.42664776754075			1.0																							2.0	41.0	8.0	0.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__S1		hek293t	PSEUDO_TEST		runtime																																	2.0687882900238037	53.92	{'cpu_count': 10, 'blas': []}								
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	7.228061303718116	4.139726878587193	5.891499959748965	1.555028785410962e-68	0.9649655493112441	54.14169474505865	0.022977022977022976	0.04195804195804196	3.080774190628949	1.8194867736629405																															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	PSEUDO_TEST		cmh													0.9764501034758353	3.6156924458606308	1.0135492550242093	0.4991965449200481	0.9253356620456282	3.6609824698900315																									
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	PSEUDO_TEST		sign																			24.762723263479295	138.0	0.4927536231884058	0.4924385633270321	1.0034722222222223	0.9330669330669331	0.3918032121998702																		
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	PSEUDO_TEST		callset																										494000.0	0.8464259410505844	0.9999997235787852															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	PSEUDO_TEST		class:TF			32.77153448960678			1.0																							60.0	2.0	3776.0	0.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	PSEUDO_TEST		class:kinase			1541.423645320197			1.0																							15.0	0.0	101.0	0.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	PSEUDO_TEST		class:other			8.353759058142025			4.930063037714866e-76																							807.0	9058.0	15577.0	138.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	PSEUDO_TEST		class:ribosomal			11.996812518110692			1.0																							2.0	101.0	8.0	0.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__noHCT116		hek293t	PSEUDO_TEST		runtime																																	2.094957113265991	66.5	{'cpu_count': 10, 'blas': []}								
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	4.888415315841175	3.618089755518857	4.6504699861856	3.995782755119269e-34	0.631759846217962	37.825456054555985	0.08491508491508491	0.15484515484515485	2.2189945649974723	1.4572102188763236																															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	PSEUDO_TEST		cmh													0.8619025225929796	2.494926990090601	0.905222437513002	0.4994812909575372	0.8157406396681585	3.0261774732664812																									
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	PSEUDO_TEST		sign																			19.66813291896686	94.0	0.5957446808510638	0.48822996831145316	3.878787878787879	0.22677322677322678	0.42414529914529914																		
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	PSEUDO_TEST		callset																										1384219.0	0.8262203560228996	1.0															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	PSEUDO_TEST		class:TF			0.38541662448111774			1.0																							60.0	212.0	3776.0	0.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	PSEUDO_TEST		class:kinase			1541.423645320197			1.0																							15.0	0.0	101.0	0.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	PSEUDO_TEST		class:other			5.791428630588384			2.5585958974537125e-39																							807.0	8739.0	15577.0	93.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	PSEUDO_TEST		class:ribosomal			14.075187969924812			0.0779521484041365																							2.0	210.0	8.0	1.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__hidden_factors		hek293t	PSEUDO_TEST		runtime																																	2.116772174835205	90.67	{'cpu_count': 10, 'blas': []}								
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	5.788425255907799	4.139726878587193	5.560628234969204	1.5593408699092174e-46	0.7607269904037529	44.04453551128528	0.055944055944055944	0.07892107892107893	2.5186047468727515	1.6624966911148646																															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	PSEUDO_TEST		cmh													0.8640282130995722	2.881411339896376	0.8962274380334178	0.49851636667928717	0.8967361641742168	3.1530178994786393																									
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	PSEUDO_TEST		sign																			22.170380095162407	111.0	0.5315315315315315	0.4792630468306144	2.1666666666666665	0.46653346653346656	0.4004191725897576																		
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	PSEUDO_TEST		callset																										456304.0	0.8131814674623781	0.9999999982511202															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	PSEUDO_TEST		class:TF			23.40820109322691			1.0																							60.0	3.0	3776.0	0.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	PSEUDO_TEST		class:kinase			1541.423645320197			1.0																							15.0	0.0	101.0	0.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	PSEUDO_TEST		class:other			6.680606516494248			2.6747260803315783e-52																							807.0	9067.0	15577.0	111.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	PSEUDO_TEST		class:ribosomal			13.31436837029894			1.0																							2.0	91.0	8.0	0.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion		hek293t	PSEUDO_TEST		runtime																																	2.080575942993164	66.57	{'cpu_count': 10, 'blas': []}								
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	6.960512116602854	3.618089755518857	5.572196403105373	2.8615814683821256e-64	0.7906705191785831	61.27549687284139	0.026973026973026972	0.03696303696303696	2.9469408226664817	1.853767522384905																															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	PSEUDO_TEST		cmh													0.988959873462971	3.439260905966921	1.0281612104916447	0.499134161892024	0.8917148782883965	3.1530178994786393																									
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	PSEUDO_TEST		sign																			23.4230437950096	133.0	0.48120300751879697	0.4896828537509187	0.9074074074074074	0.9660339660339661	0.3633089133089133																		
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	PSEUDO_TEST		callset																										490960.0	0.8469843580006399	0.999999671412917															
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	PSEUDO_TEST		class:TF			32.77153448960678			1.0																							60.0	2.0	3776.0	0.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	PSEUDO_TEST		class:kinase			1541.423645320197			1.0																							15.0	0.0	101.0	0.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	PSEUDO_TEST		class:other			8.038556448672898			2.019653520733757e-71																							807.0	9064.0	15577.0	133.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	PSEUDO_TEST		class:ribosomal			12.75423467816446			1.0																							2.0	95.0	8.0	0.0											
+sensitivity	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop		hek293t	PSEUDO_TEST		runtime																																	2.099524736404419	66.09	{'cpu_count': 10, 'blas': []}								
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	paralog_exclusion	pooled	9157040.0	9157.0	6.963463818720013	3.6180104306517453	5.574663620539421	2.728144191990299e-64	0.7925722647356366	61.18032451059405	0.026973026973026972	0.03996003996003996	2.9513727768298375	1.845263498130662																															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	paralog_exclusion	cmh													0.9878579092851336	3.437456373727985	1.026790697910371	0.4991606666277702	0.8915583706454079	3.154635245491246																									
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	paralog_exclusion	sign																			23.28756634888592	133.0	0.48120300751879697	0.4896828537509187	0.9074074074074074	0.9660339660339661	0.3633089133089133																		
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	paralog_exclusion	callset																										494005.0	0.8493707870362858	0.9999995399589631															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	paralog_exclusion	class:TF			32.73015241882041			1.0																							60.0	2.0	3772.0	0.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	paralog_exclusion	class:kinase			1539.3546798029556			1.0																							15.0	0.0	101.0	0.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	paralog_exclusion	class:other			8.042014742781259			1.9220141930220603e-71																							807.0	9060.0	15573.0	133.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	paralog_exclusion	class:ribosomal			12.753618724976901			1.0																							2.0	95.0	8.0	0.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	paralog_exclusion	runtime																																	2.145477056503296	67.22	{'cpu_count': 10, 'blas': []}								
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	class_i	pooled	693275.0	693.0	3.1948263686363094	2.660938706191138	4.094484854652062	0.0005734161321438543	0.07388583025269653	138.14442486232136	0.0919080919080919	0.09490509490509491	2.2745477701827608	1.7870568640780626																															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	class_i	cmh													0.7724083382840566	3.278105045473951	0.8175841910164522	0.499846994703804	0.9668109668109668	5.206683755570226																									
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	class_i	sign																			2.5043590145290815	12.0	0.4166666666666667	0.33333333333333337	2.3333333333333335	0.4125874125874126	0.43333333333333335																		
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	class_i	callset																										31490.0	0.9145464463230693	0.8734896766083691															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	class_i	class:TF			8788.42857142857			1.0																							3.0	0.0	3.0	0.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	class_i	class:other			2.9906324064296608			0.0010029852703947193																							62.0	687.0	3800.0	12.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	class_i	class:ribosomal			188.1945701357466			1.0																							2.0	6.0	8.0	0.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	class_i	runtime																																	1.4747450351715088	67.22	{'cpu_count': 10, 'blas': []}								
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	NC2	pooled	7114163.0	7114.0	0.03651469966971955	0.36545092055684447	6.121056885633237	1.0	7.485947467740178e-08	17811.01587628848	0.6773226773226774	0.4945054945054945	0.9412754898098219	0.9491981604993545																															
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	NC2	cmh													0.0	0.0	0.0	0.49930335581591456	1.0	0.09656416947256569																									
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	NC2	sign																			0.6317784514071783	0.0																							
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	NC2	callset																										383792.0	0.7861722853569331	0.999999998410538															
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	NC2	class:TF			146.47421173522656			1.0																							34.0	0.0	2394.0	0.0											
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	NC2	class:kinase			1291.3067484662577			1.0																							10.0	0.0	81.0	0.0											
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	NC2	class:other			0.04173308944584256			1.0																							642.0	7114.0	11177.0	0.0											
+control	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	NC2	runtime																																	1.726722002029419	67.22	{'cpu_count': 10, 'blas': []}								
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	no_split_sibling	pooled	3557652.0	3558.0	7.086001294371201	6.903670643602384	8.828273661616333	4.39927244087015e-26	1.9768324270694206	25.399934590443184	0.04195804195804196	0.003996003996003996	2.771203001832953	2.086985063005184																															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	no_split_sibling	cmh													0.9052834703313688	3.17127716860414	0.9420026225328075	0.500416241179012	0.9879145587408656	2.81970856560522																									
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	no_split_sibling	sign																			18.87375275076945	51.0	0.49019607843137253	0.4609765474817378	1.4318181818181819	0.4305694305694306	0.3883597883597883																		
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	no_split_sibling	callset																										181603.0	0.8261710880855782	0.9996816402509899															
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	no_split_sibling	class:TF			982.0581717451523			1.0																							17.0	0.0	180.0	0.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	no_split_sibling	class:kinase			2045.360655737705			1.0																							6.0	0.0	30.0	0.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	no_split_sibling	class:other			6.804186958270038			2.6024079748393497e-25																							321.0	3547.0	7119.0	51.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	no_split_sibling	class:ribosomal			304.71014492753625			1.0																							1.0	11.0	1.0	0.0											
+subset	g1_t100_w0__a3_r095_s2_w0	selected (CN-only: M1 + G1 + A3)	hek293t	PSEUDO_TEST	no_split_sibling	runtime																																	1.6061370372772217	67.22	{'cpu_count': 10, 'blas': []}								
+control	g1_t100_w0__a3_r095_s2_w0_C1		hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	6.480013465058262	4.139726878587193	5.798376453606835	8.363391663862597e-57	0.964521011201913	43.53515788630765	0.06693306693306693	0.14685314685314685	2.634500469507027	1.5409389363438026																															
+control	g1_t100_w0__a3_r095_s2_w0_C1		hek293t	PSEUDO_TEST		cmh													0.934941436720411	3.1756965329448854	0.9462406938017783	0.4999950581566821	0.8928064621766183	3.279918579972554																									
+control	g1_t100_w0__a3_r095_s2_w0_C1		hek293t	PSEUDO_TEST		sign																			25.179849583304545	124.0	0.5403225806451613	0.44250780437044746	3.1485714285714286	0.4925074925074925	0.5592225098264787																		
+control	g1_t100_w0__a3_r095_s2_w0_C1		hek293t	PSEUDO_TEST		class:TF			32.77153448960678			1.0																							60.0	2.0	3776.0	0.0											
+control	g1_t100_w0__a3_r095_s2_w0_C1		hek293t	PSEUDO_TEST		class:kinase			1541.423645320197			1.0																							15.0	0.0	101.0	0.0											
+control	g1_t100_w0__a3_r095_s2_w0_C1		hek293t	PSEUDO_TEST		class:other			7.4835184498293605			2.1262521740833852e-63																							807.0	9063.0	15577.0	124.0											
+control	g1_t100_w0__a3_r095_s2_w0_C1		hek293t	PSEUDO_TEST		class:ribosomal			12.621456872904602			1.0																							2.0	96.0	8.0	0.0											
+control	g1_t100_w0__a3_r095_s2_w0_C1		hek293t	PSEUDO_TEST		runtime																																	0.514887809753418	67.22	{'cpu_count': 10, 'blas': []}								
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hek293t	PSEUDO_TEST		pooled	9161007.0	9161.0	25.231050948521673	53.32813736321402	10.207646663731365	0.0	6.183277258204562	102.95607092859807	0.028971028971028972	0.12487512487512488	2.0967334378083162	1.2748025294651333																															
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hek293t	PSEUDO_TEST		cmh													2.0436150392874377	4.650158044769149	2.5467152988388295	0.5277054312656594	0.6303896954480952	16.679558385722732																									
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hek293t	PSEUDO_TEST		sign																			93.72422551503541	457.0	0.5032822757111597	0.4995475199785491	1.0309278350515463	0.7662337662337663	0.45202676799473196																		
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hek293t	PSEUDO_TEST		class:TF			3.3439152438414794			1.0																							60.0	24.0	3776.0	0.0											
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hek293t	PSEUDO_TEST		class:kinase			1541.423645320197			1.0																							15.0	0.0	101.0	0.0											
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hek293t	PSEUDO_TEST		class:other			30.9016574856927			0.0																							807.0	8573.0	15577.0	455.0											
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hek293t	PSEUDO_TEST		class:ribosomal			12.004151838671412			0.018424081623374222																							2.0	564.0	8.0	2.0											
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1		hek293t	PSEUDO_TEST		runtime																																	0.5432300567626953	82.69	{'cpu_count': 10, 'blas': []}								
+control	PC2		hct116	PSEUDO_TEST		pooled	6536088.0	6536.0	112.52692307692308	808.4033160645536	14.115362619720342	0.0	56.028171126057984	225.99896021361818	0.000999000999000999	0.000999000999000999	7.718917097725898	3.788115652788631																															
+control	PC2		hct116	PSEUDO_TEST		cmh													13.242818205618052	30.682560548459374	12.37995110666108	0.5685665789824055	0.6253059975520195	167.5023391625197																									
+control	PC2		hct116	PSEUDO_TEST		sign																			4781.772387298157	374.0	0.9786096256684492	0.5217335354170837	2131.2	0.000999000999000999	0.9807869524621442																		
+control	PC2		hct116	PSEUDO_TEST		callset																										12839.0	70.91117985593625	0.0															
+control	PC2		hct116	PSEUDO_TEST		class:TF			192.90517998244073			2.4147958261560945e-40																							46.0	1161.0	66.0	22.0											
+control	PC2		hct116	PSEUDO_TEST		class:kinase			1254.208695652174			9.89254132650501e-17																							10.0	29.0	26.0	6.0											
+control	PC2		hct116	PSEUDO_TEST		class:other			119.80474909871356			0.0																							623.0	5344.0	3802.0	346.0											
+control	PC2		hct116	PSEUDO_TEST		class:ribosomal			3807.8			1.0																							1.0	2.0	0.0	0.0											
+control	PC2		hct116	PSEUDO_TEST		runtime																																	1.7991759777069092										
+comparison	a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs a3_r095_s2_w0	hct116	PSEUDO_TEST		paired							0.5013272481878622	1.2599215661764007																												0.8806244071821315	0.5893074227670554	-0.06218610770973382	0.2816315086520725				
+comparison	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	hct116	PSEUDO_TEST		paired							-2.2140428050828946	-1.4859640568934007																												-1.8500034309881477	-2.229882352109468	-0.9729767153552866	-0.6873764995905878				
+comparison	focal__g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs focal__g1_t100_w0__a3_r095_s2_w0	hct116	PSEUDO_TEST		paired							-2.0320668022183015	0.9721366743410429																												-0.5299650639386293	-1.518605343999178	-0.3208506742211119	0.13574849385636872				
+comparison	B0	g1_t100_w0__a3_r095_s2_w0 vs B0	hct116	PSEUDO_TEST		paired							0.7345663808988838	1.9830122978757607																												1.3587893393873223	0.7265595538090087	-0.12197550212825164	0.5008974949562415				
+comparison	B1	g1_t100_w0__a3_r095_s2_w0 vs B1	hct116	PSEUDO_TEST		paired							0.2652255683807724	2.09452454216592																												1.1798750552733461	0.33328379435711775	-1.5194656263525528	-0.8932483299235437				
+comparison	B2	g1_t100_w0__a3_r095_s2_w0 vs B2	hct116	PSEUDO_TEST		paired							-0.8561598515365713	0.3175524837708278																												-0.26930368388287174	-0.7826775460371965	-0.83200223855989	-0.3178922209027018				
+comparison	B3	g1_t100_w0__a3_r095_s2_w0 vs B3	hct116	PSEUDO_TEST		paired							-9.294900759964278	9.053173851450264																												-0.12086345425700662	-5.017551270042254	-0.09809038021519664					
+comparison	B4	g1_t100_w0__a3_r095_s2_w0 vs B4	hct116	PSEUDO_TEST		paired							-0.8053733145672194	0.2569128946513094																												-0.274230209957955	-0.9829574613149281	-1.8567995594542406					
+comparison	B4e	g1_t100_w0__a3_r095_s2_w0 vs B4e	hct116	PSEUDO_TEST		paired							-1.1632370590658796	-0.25609704471449807																												-0.7096670518901889	-1.2303358099550774	-1.5803173613209551	-1.1815319639587858				
+comparison	B5	g1_t100_w0__a3_r095_s2_w0 vs B5	hct116	PSEUDO_TEST		paired							-2.5192143367541853	-0.25210592787067543																												-1.3856601323124302	-2.2553997358783286	-1.1760286296292237					
+comparison	B6	g1_t100_w0__a3_r095_s2_w0 vs B6	hct116	PSEUDO_TEST		paired							0.91610727235559	2.118918163363097																												1.5175127178593435	0.9038652619105736	-0.061505382996832295	0.8151850246064998				
+comparison	NC1	g1_t100_w0__a3_r095_s2_w0 vs NC1	hct116	PSEUDO_TEST		paired							0.8924325783442535	2.0860846654742113																												1.4892586219092323	0.833258824096735	0.06079195440479919	0.7652896920240433				
+comparison	C2_g2	g1_t100_w0__a3_r095_s2_w0 vs C2_g2	hct116	PSEUDO_TEST		paired							-1.8531079606900571	-0.6263480827346195																												-1.2397280217123383	-1.828897406260468	-0.9047985915907669	-0.5077810956599345				
+comparison	g1_t100_w0__a3_r095_s2_w0__S1	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__S1	hct116	PSEUDO_TEST		paired							-0.44275176305582387	0.9007311481803538																												0.22898969256226498	-0.32649184442706525	0.1600334227059988	0.4188590309582243				
+comparison	g1_t100_w0__a3_r095_s2_w0__noHCT116	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__noHCT116	hct116	PSEUDO_TEST		paired							-0.02201354305866149	0.009227787168087311																												-0.00639287794528709	-0.029788231731702298	-0.0014612126794406877	0.01898962424040882				
+comparison	g1_t100_w0__a3_r095_s2_w0__hidden_factors	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__hidden_factors	hct116	PSEUDO_TEST		paired							-0.2255838120678515	0.3855690198510824																												0.07999260389161544	-0.18678172931755274	0.04913018952169575	0.3756684313951972				
+comparison	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion	hct116	PSEUDO_TEST		paired							-0.11814365721070785	0.030270684580383622																												-0.043936486315162115	-0.14246275878256262	-0.01755529240419426	0.08000403187363035				
+comparison	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop	hct116	PSEUDO_TEST		paired							-0.030213114481300703	0.017427358590726524																												-0.00639287794528709	-0.04638402954794851	-0.00014728616761720825	0.013647114998824823				
+comparison	a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs a3_r095_s2_w0	hek293t	PSEUDO_TEST		paired							0.7525980287300171	3.5207709210269442																												2.136684474878481	-0.9094809064474112	0.11752640917646823					
+comparison	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	hek293t	PSEUDO_TEST		paired							-2.437993634281669	-0.18891041171050071																												-1.3134520229960849	-3.997264549431875	-0.7261642344556425					
+comparison	focal__g1_t100_w0__a3_r095_s2_w0	g1_t100_w0__a3_r095_s2_w0 vs focal__g1_t100_w0__a3_r095_s2_w0	hek293t	PSEUDO_TEST		paired							-0.6344652649711409	1.1163373827325958																												0.24093605888072744	-1.386612689564593	0.0743154406230725					
+comparison	B0	g1_t100_w0__a3_r095_s2_w0 vs B0	hek293t	PSEUDO_TEST		paired							0.33943308834023345	4.510586839385527																												2.4250099638628804	-1.1195690123856306	0.44001963300011393					
+comparison	B1	g1_t100_w0__a3_r095_s2_w0 vs B1	hek293t	PSEUDO_TEST		paired							0.16912135160637654	4.23364639248285																												2.2013838720446133	-1.611526381545856	-0.0004373456821289163					
+comparison	B2	g1_t100_w0__a3_r095_s2_w0 vs B2	hek293t	PSEUDO_TEST		paired							-1.6955649192981723	5.155428584570654																												1.729931832636241	-0.7481303586600618	-0.3872631036561023					
+comparison	B3	g1_t100_w0__a3_r095_s2_w0 vs B3	hek293t	PSEUDO_TEST		paired							-6.580598188151033	2.469639234185396																												-2.055479476982818	-6.483500270927968	0.024492390896729145					
+comparison	B4	g1_t100_w0__a3_r095_s2_w0 vs B4	hek293t	PSEUDO_TEST		paired							-0.7979638340179667	3.618020847497717																												1.4100285067398752	-2.2987923206155214	-0.1293360037331509					
+comparison	B4e	g1_t100_w0__a3_r095_s2_w0 vs B4e	hek293t	PSEUDO_TEST		paired							-2.6735103275013627	1.5827627272139275																												-0.5453738001437176	-4.395453516070428	-1.7551619439955155					
+comparison	B5	g1_t100_w0__a3_r095_s2_w0 vs B5	hek293t	PSEUDO_TEST		paired							-3.620165556727588	0.824349340038308																												-1.39790810834464	-5.345486333329201	-0.5815703037200903					
+comparison	B6	g1_t100_w0__a3_r095_s2_w0 vs B6	hek293t	PSEUDO_TEST		paired							-0.33971995798374444	4.376879244697432																												2.0185796433568437	-1.3397370060300469	0.044909156540148466					
+comparison	NC1	g1_t100_w0__a3_r095_s2_w0 vs NC1	hek293t	PSEUDO_TEST		paired							-0.06531542744533914	5.280621710186066																												2.607653141370364	-1.420285016332149	0.5844631507441506					
+comparison	C2_g2	g1_t100_w0__a3_r095_s2_w0 vs C2_g2	hek293t	PSEUDO_TEST		paired							-2.4234803097446527	0.9089984422991313																												-0.7572409337227608	-4.4668123382112705	-0.4507118519081068					
+comparison	g1_t100_w0__a3_r095_s2_w0__S1	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__S1	hek293t	PSEUDO_TEST		paired							-0.678207990805557	0.724812882274226																												0.023302445734334487	-0.5468262242376576	0.1455506292745093					
+comparison	g1_t100_w0__a3_r095_s2_w0__noHCT116	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__noHCT116	hek293t	PSEUDO_TEST		paired							-0.24357654893634192	0.1681409439265986																												-0.03771780250487167	-0.5234805845223639	0.010451364545955613					
+comparison	g1_t100_w0__a3_r095_s2_w0__hidden_factors	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__hidden_factors	hek293t	PSEUDO_TEST		paired							0.03744755424644236	0.6693221796242064																												0.35338486693532434	-0.4913100261860166	0.13523283481562853					
+comparison	g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion	hek293t	PSEUDO_TEST		paired							0.030535042152762287	0.33825050493863607																												0.18439277354569916	-0.022758401091818127	0.13276959392485005					
+comparison	g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop	g1_t100_w0__a3_r095_s2_w0 vs g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop	hek293t	PSEUDO_TEST		paired							-0.0028956168698698907	0.0028956168698698907																												0.0	-0.002233764348507594	-0.0022787417151578972					
+control	g1_t100_w0__a3_r095_s2_w0	C1 pair-specific gain	hct116	PSEUDO_TEST		C1							-0.5351516668938685	0.06686138415129322																												-0.2341451413712876				4.1123791632208695	5.197339573725884	-1.0849604105050146	score (approximation)
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	C1 pair-specific gain	hct116	PSEUDO_TEST		C1							-0.16771650543435943	0.12664819433323846																												-0.020534155550560484				26.15407902077427	26.696682837579345	-0.5426038168050766	pair_score x target_weight
+control	g1_t100_w0__a3_r095_s2_w0	C1 pair-specific gain	hek293t	PSEUDO_TEST		C1							-0.22293595076355915	0.36599687737958947																												0.07153046330801516				6.960512116602854	6.480013465058262	0.48049865154459237	score (approximation)
+control	g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2	C1 pair-specific gain	hek293t	PSEUDO_TEST		C1							-0.12855548298875724	0.17981479919738802																												0.02562965810431539				25.88607228900719	25.231050948521673	0.655021340485515	pair_score x target_weight

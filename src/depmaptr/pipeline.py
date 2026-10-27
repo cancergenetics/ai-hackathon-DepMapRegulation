@@ -47,6 +47,10 @@ class Params:
     fuse_gamma: float | None = None     # I1: S = sign(t) * rho_P * rho_T^gamma
     regctx: bool = False                # I2: S <- S * rho_R(A)
     lineage_halves_file: str = "results/split/lineage_halves.tsv"   # I6
+    # --- sensitivity analyses D8 (DESIGN §4, §5.5, §13) ---
+    hidden_factors: int = 0             # k regulator-conditional expression factors added to D_c
+    hidden_factors_rho: float = 0.95    # segmentation used to represent chr-c CN when building the factors
+    tp53_chr17_drop: bool = False       # drop the TP53 covariate (+ missing indicator) for chr17 regulators
 
     @classmethod
     def from_dict(cls, d: dict) -> "Params":
@@ -88,7 +92,7 @@ class Prepared:
             return g
         if self.p.arm_handling == "loao":
             return g[:-1]
-        raise ValueError("I5 (comp_renorm) is defined per regulator chromosome; not for arm_handling=focal")
+        raise ValueError("I5 / hidden factors / TP53-chr17 drop are defined per regulator chromosome; not for arm_handling=focal")
 
     def y_cols(self, g: str, idx) -> np.ndarray:
         """Expression columns `idx` (into expr_keys) as used in group g.
@@ -134,7 +138,8 @@ def prepare(ds: Dataset, p: Params, Z_df: pd.DataFrame | None = None) -> Prepare
     DEL = (ds.relcn[:, tc] < HOMDEL_RELCN).astype(np.float64)
     ndel = DEL.sum(0)
     DEL[:, ndel < HOMDEL_MIN_LINES] = 0.0
-    builder = DesignBuilder(ds, Zdf.to_numpy(), arms, p.arm_handling, x_all=x_all, n_pcs=p.n_pcs)
+    builder = DesignBuilder(ds, Zdf.to_numpy(), arms, p.arm_handling, x_all=x_all, n_pcs=p.n_pcs,
+                            z_names=list(Zdf.columns))
     prep = Prepared(ds=ds, p=p, x_all=x_all, x_lin=x_lin, y_all=y_all, arms=arms, Z=Zdf.to_numpy(), zlog=zlog,
                     strata=strata, cn_idx=cn_idx, ex_idx=ex_idx, XT=XT, YT=YT, DEL=DEL, y_raw=centred_norm(YT),
                     builder=builder)
@@ -153,12 +158,29 @@ class GroupCache:
         self.key, self.val = None, None
         self.log = {}
 
+    def design(self, g: str):
+        """builder design for group g plus the D8 sensitivity modifications (TP53 drop for chr17, hidden factors)."""
+        D, names = self.builder.design(g)
+        p = self.prep.p
+        extra = {}
+        if p.tp53_chr17_drop and self.prep.group_chrom(g) == "17":
+            keep = [i for i, nm in enumerate(names) if nm not in ("Z:tp53_altered", "Z:tp53_missing")]
+            extra["dropped"] = [nm for i, nm in enumerate(names) if i not in set(keep)]
+            assert "Z:tp53_altered" in extra["dropped"], "tp53_altered not in Z"
+            D, names = D[:, keep], [names[i] for i in keep]
+        if p.hidden_factors:
+            F, info = hidden_factors(self.prep, g, D)
+            D = np.column_stack([D, F])
+            names = names + [f"hf{i + 1}" for i in range(F.shape[1])]
+            extra.update(info)
+        return D, names, extra
+
     def get(self, g: str, need_targets: bool = True):
         if self.key == (g, need_targets):
             return self.val
-        D, names = self.builder.design(g)
+        D, names, extra = self.design(g)
         res = Residualiser(D)
-        self.log[g] = {"rank": res.rank, "n_cols": res.n_cols, "cond": res.cond}
+        self.log[g] = {"rank": res.rank, "n_cols": res.n_cols, "cond": res.cond, **extra}
         val = {"res": res}
         if need_targets:
             pr = self.prep
@@ -171,6 +193,35 @@ class GroupCache:
             val["W"] = [res(pr.XT), res(pr.DEL)]
         self.key, self.val = (g, need_targets), val
         return val
+
+
+def hidden_factors(prep: Prepared, g: str, D: np.ndarray):
+    """Regulator-conditional hidden factors (DESIGN §4 ablation; PI decision D8).
+
+    For the group's regulator chromosome c: residualise the measured-target expression Y on [D_g, S_c], where
+    S_c holds the CN of chromosome c's genes represented by their greedy-segment means (segments as in A3,
+    rho = hidden_factors_rho, on LOCO-residualised CN). A literal regression on every chr-c gene is impossible
+    (chr1 has more CN genes than lines) and the gene CN within a segment has r >= rho with its mean.
+    Columns of the residual are standardised, and the top-k left singular vectors (scaled by the singular
+    values) are the factors. They are exactly orthogonal to D_g and S_c, i.e. they contain no chr-c CN effect."""
+    p = prep.p
+    c = prep.group_chrom(g)
+    ds = prep.ds
+    keys = [k for k in ds.cn_keys if str(ds.genes.loc[k, "chrom"]) == c]
+    x = prep.x_all[:, [prep.cn_idx[k] for k in keys]]
+    Dl, _ = DesignBuilder(ds, prep.Z, prep.arms, "loco").design(c)
+    labels = attribution.greedy_segments(Residualiser(Dl)(x), p.hidden_factors_rho)
+    S = np.column_stack([x[:, labels == s].mean(1) for s in np.unique(labels)])
+    res0 = Residualiser(np.column_stack([D, S]), cond_max=np.inf)
+    te = [prep.ex_idx[k] for k in ds.targets]
+    Y0 = res0(prep.y_cols(g, te))
+    nrm = np.linalg.norm(Y0, axis=0)
+    Y0 = Y0[:, nrm > 0] / nrm[nrm > 0]
+    w, U = np.linalg.eigh(Y0 @ Y0.T)
+    idx = np.argsort(w)[::-1][: p.hidden_factors]
+    F = U[:, idx] * np.sqrt(np.maximum(w[idx], 0))
+    return F, {"hf_n_segments": int(S.shape[1]), "hf_rank_D_S": int(res0.rank),
+               "hf_var_explained": float(w[idx].sum() / w.sum())}
 
 
 def nc1_permutation(prep: Prepared, index: int) -> np.ndarray:

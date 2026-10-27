@@ -4,10 +4,10 @@
 97bad526c60c4c5bbe8123e451ea4bbd57c9b6d25cb1855497b11e37f971c786  results/split/regulator_split.tsv
 3d982afa44bac37604c88f99e0450f2b0a97afce0c1af6ba533269cbd0c2b88b  results/split/train_folds.tsv
 e880e44baaacbb0e4a161266ac068f52309d92c4fabcdc44a8e39afc45c3e836  results/split/arm_units.tsv
-253bed0c27413a555eea9f27f14af3feeb504b7aa41e794a35643ad0d8ccef62  src/depmaptr/benchmark.py
+2ce1874135ca54956631096be94273e5e10f7f56851898913aecd2892cc0b8c1  src/depmaptr/benchmark.py
 81ff271aa6596b9da643ea10b558c6d19e00a530fd8ae4cc9b5a3cedf6112ece  scripts/benchmark/build_benchmark.py
-268bbba90110ae68ae6af9345e9f231f1f01d2fe9217450e514729dd690ceba9  scripts/final_eval.py
-b3388f8a7dbdcc81d2044752f65198a0833c56c5c5fba0c9a1af00ece3a12aec  scripts/evaluate.py
+12da354241a6b36216e40ce3046834773a25492c128ded070d83c71fe0ca9405  scripts/final_eval.py
+6a7f921aa0bfa12cc8b4b5d4896b31d71ac444b47e7fa81244a99488c13171d1  scripts/evaluate.py
 9a5e5d1fb968d9c552e743e8e0beda8c09a0177fcf2c75bc9d04a952ee9ac24a  scripts/benchmark/seal_test.sh
 696cb1ef13c1419ee967265a42697167c007825e8c0d8081814f8450027fdf6b  data/processed/frozen_flags.tsv
 2a701c8a78ff54b49106d5842895f86987da9dde0e3fbc0e44e60f5dd7e032e1  data/processed/panel_s2.tsv
@@ -21,10 +21,17 @@ f7cc40ef8685e1e85a0035e1bd818c77ca61d8a23e3d73b62c7df19d3ced82a6  data/processed
 842274e873a694087ad48d02a223a543d9ff172c3a53c810a671cad32fcc74ee  data/processed/bench/positives_hct116_TRAIN.parquet
 0ee2edc85c00d17d091c184cc3c295064b728389a4de9d8e0fe683513f48cf87  data/processed/bench/positives_hek293t_TRAIN.parquet
 a3f8e4c0d93c6083276501d406ea3d7c67915506edb0814508cf7762eff417a1  data/processed/bench/manifest.json
-6267bf1ea61189c1e881de4688cf137f887aa346b4cf0d13c020dce7317cb813  results/variants.yaml
+97c6609230d34f1506d20a038e5143070b553951fc466afc13fe119e3920ce07  results/variants.yaml
 ee2f20af5079f9509ff70a3967a17843f2e0b364d0cde2a56beb1a6d6ecbfa5f  src/depmaptr/controls.py
 # re-recorded 2026-10-27T21:48:09Z (D6): src/depmaptr/benchmark.py src/depmaptr/controls.py scripts/evaluate.py scripts/final_eval.py results/variants.yaml
 # re-recorded 2026-10-27T22:01:22Z (D6a): src/depmaptr/benchmark.py
+d61337bf17fc4bbda50119aae9fa375d25cbd6e655d066ff14bbab5518f48e9d  src/depmaptr/report.py
+2aacf589d52c615b9fb3158b0efe91829c9e90693706dc1c5225dab60ddb4390  scripts/data/download_paralogs.py
+676b766a0f49befbcf4b114c76d63dba1abc6f7fbeaec0c8d597534ab6678c35  scripts/data/build_regulator_classes.py
+4faeb29ebbbcf0166ab0345077f88128e2d771b7f5232430227b9e3e76eebd4f  data/processed/paralog_pairs.tsv
+eeed40023102649725a92ec78223268a958c843658e62dd92fb270cb1598557d  data/processed/regulator_classes.tsv
+# re-recorded 2026-10-27T22:34:34Z (D8 evaluation-side sensitivity analyses (paralog exclusion, regulator classes, final_eval schema + summary tables)): src/depmaptr/benchmark.py src/depmaptr/report.py scripts/final_eval.py scripts/evaluate.py scripts/data/download_paralogs.py scripts/data/build_regulator_classes.py data/processed/paralog_pairs.tsv data/processed/regulator_classes.tsv
+# re-recorded 2026-10-27T22:37:49Z (D8): results/variants.yaml
 # sealed 2026-10-27T20:05:42Z -> /Users/colmclaude/DepMapTR_sealed (path relative to the sealed root)
 e389192e633f4d9e03f7abbf431f6d8db3a85a9f3236aa6d9e1971349159de0b  data/processed/bench/positives_hct116_TEST.parquet
 38d8c496aae59d188c6e289a9afef09c8a7005165b56d32c836978d6b78e6f22  data/processed/bench/positives_hek293t_TEST.parquet

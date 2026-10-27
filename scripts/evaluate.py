@@ -57,7 +57,7 @@ def main() -> int:
     ap.add_argument("--n-boot", type=int, default=bm.N_BOOT)
     ap.add_argument("--quick", action="store_true", help="ORs, folds and jackknife only (no permutations)")
     ap.add_argument("--compare", metavar="INCUMBENT", help="paired comparison of each RUN against INCUMBENT")
-    ap.add_argument("--subset", choices=bm.SUBSETS)
+    ap.add_argument("--subset", choices=list(bm.SUBSETS) + list(bm.PAIR_SUBSETS))
     ap.add_argument("--pc2", action="store_true", help="evaluate PC2 (HCT116, regulators shared with HEK293T)")
     ap.add_argument("--debug", action="store_true", help="log to results/tuning_log_debug.tsv")
     ap.add_argument("--c1", action="store_true", help="evaluate the C1 pair-shuffle control of each RUN (D6)")
@@ -90,9 +90,11 @@ def main() -> int:
                                  default=str))
             if (a.c1 or a.compare_c1) and not a.final_candidate:
                 continue
-            mask = bm.subset_mask(bm.load_bench(line, "TRAIN").regs, a.subset) if a.subset else None
+            pair = a.subset in bm.PAIR_SUBSETS
+            mask = bm.subset_mask(bm.load_bench(line, "TRAIN").regs, a.subset) if a.subset and not pair else None
             out = bm.evaluate(run, line, "TRAIN", variant=a.variant, n_perm=a.n_perm, n_boot=a.n_boot,
-                              full=not a.quick, reg_subset=mask, subset_name=a.subset, debug=a.debug)
+                              full=not a.quick, reg_subset=mask, subset_name=a.subset, debug=a.debug,
+                              exclude_pairs=bm.PAIR_SUBSETS[a.subset]() if pair else None)
             print(json.dumps(headline(out), default=str))
     return 0
 

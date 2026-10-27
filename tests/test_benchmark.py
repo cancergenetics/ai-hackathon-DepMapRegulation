@@ -721,3 +721,108 @@ def test_d6_cmh_matches_bruteforce(tmp_path):
     # the frozen CMH is unchanged by the diagnostic (computed on S2-mean deciles, as before)
     assert m["cmh_regulator_x_exprdecile"]["cmh_or"] == pytest.approx(
         ev.cmh(ev.topk(bm.PRIMARY_K), ev.pos_lin())["cmh_or"])
+
+
+# ----------------------------------------------------------------------------- D8: pair exclusion, classes
+def test_pair_exclusion_matches_bruteforce():
+    from statsmodels.stats.contingency_tables import StratifiedTable
+    regs, tgts, L, = toy_tables(nr=30, nt=90, n_chrom=5, seed=51, rate=np.full(30, 0.15))[:3]
+    V = dense_valid(regs, tgts)
+    rng = np.random.default_rng(3)
+    E = V & (rng.random(V.shape) < 0.08) & ((rng.random(V.shape) < 0.5) | L)      # exclude some positives too
+    E[0, :] = False
+    S = (rng.normal(size=V.shape) + 1.5 * L).astype(np.float32)
+    S[E] = 50.0                                                                    # would be top-K if kept
+    r, t = np.nonzero(E)
+    exc = pd.DataFrame({"regulator": regs.regulator.values[r], "target": tgts.target.values[t]})
+    exc = pd.concat([exc, pd.DataFrame({"regulator": ["R0"], "target": ["nope"]})])  # unknown keys ignored
+    ev = bm.Evaluation(regs, tgts, pos_from_dense(regs, tgts, L), S, np.ones(30, np.int8), exclude=exc)
+    Vx, Lx = V & ~E, L & ~E
+    assert ev.N == Vx.sum() and len(ev.excl) == E.sum()
+    sel = ev.topk(0.1)
+    Sd = dense_sel(ev, 0.1)
+    assert not (Sd & E).any() and Sd.sum() == round(0.1 * Vx.sum())
+    pl = ev.pos_lin()
+    rres = ev.pooled(sel, pl)
+    assert (rres["a"], rres["b"], rres["c"], rres["d"]) == tuple(int(x) for x in dense_or(Sd, Lx, Vx))
+    perms = [rng.permutation(30) for _ in range(15)]
+    res = ev.permutation(sel, pl, np.zeros(30), perms=perms, return_null=True)
+    for j, (tn, to) in zip(perms, res["tables"]):
+        P = Vx & V[j]
+        exp_n = bm.table_from_counts((Sd & Lx[j] & P).sum(), (Sd & P).sum(), (Lx[j] & P).sum(), P.sum())
+        exp_o = bm.table_from_counts((Sd & Lx & P).sum(), (Sd & P).sum(), (Lx & P).sum(), P.sum())
+        assert tuple(map(int, tn)) == tuple(map(int, exp_n)) and tuple(map(int, to)) == tuple(map(int, exp_o))
+    Wa, Wb = ev.boot_weights(4, np.random.default_rng(1))
+    rep = ev.bootstrap_log_or(sel, pl, (Wa, Wb))
+    repc = ev.bootstrap_log_cmh(sel, pl, (Wa, Wb), chunk=2)
+    for b in range(4):
+        wr, wt = Wa[b][ev.ga], Wb[b][ev.tb]
+        assert rep[b] == pytest.approx(bm.log_or(*dense_or(Sd, Lx, Vx, wr, wt)))
+        num = den = 0.0
+        for i in range(30):
+            for e in range(1, 11):
+                m = Vx[i] & (tgts.expr_decile.values == e)
+                a, bb, c, d = dense_or(Sd[i:i + 1, m], Lx[i:i + 1, m], Vx[i:i + 1, m], None, wt[m])
+                n = a + bb + c + d
+                if n > 0:
+                    num, den = num + wr[i] * a * d / n, den + wr[i] * bb * c / n
+        assert repc[b] == pytest.approx(math.log(num / den))
+    tabs = []
+    for i in range(30):
+        for e in range(1, 11):
+            m = Vx[i] & (tgts.expr_decile.values == e)
+            t4 = dense_or(Sd[i:i + 1, m], Lx[i:i + 1, m], Vx[i:i + 1, m])
+            if sum(t4) > 0:
+                tabs.append(np.array(t4, float).reshape(2, 2))
+    assert ev.cmh(sel, pl)["cmh_or"] == pytest.approx(StratifiedTable(tabs).oddsratio_pooled)
+    # without exclusion the object is the frozen one
+    ev0 = bm.Evaluation(regs, tgts, pos_from_dense(regs, tgts, L), S, np.ones(30, np.int8))
+    assert ev0.N == V.sum() and len(ev0.excl) == 0
+
+
+def test_regulator_class_table(tmp_path):
+    regs, tgts, L, runs = write_toy_bench(tmp_path)
+    cls = np.where(np.arange(len(regs)) % 3 == 0, "TF", np.where(np.arange(len(regs)) % 3 == 1, "RBP", "other"))
+    pd.DataFrame({"gene": regs.regulator, "reg_class": cls}).to_csv(
+        tmp_path / "data/processed/regulator_classes.tsv", sep="\t", index=False)
+    m = bm.evaluate(runs["good"], "hct116", "TRAIN", n_perm=9, n_boot=9, root=tmp_path)["metrics"]
+    tr = (regs.split == "TRAIN").values
+    ev = bm.Evaluation(regs[tr], tgts, pos_from_dense(regs[tr], tgts, L[tr]),
+                       (np.random.default_rng(1).normal(size=L.shape) + 2 * L).astype(np.float32)[tr],
+                       np.ones(tr.sum(), np.int8))
+    Sd, V = dense_sel(ev, bm.PRIMARY_K), dense_valid(regs[tr], tgts)
+    for c in ("TF", "RBP", "other"):
+        k = cls[tr] == c
+        a, b, cc, d = dense_or(Sd[k], L[tr][k], V[k])
+        row = m["regulator_class"][c]
+        assert (row["a"], row["selected"], row["positives"], row["n_pairs"]) == (a, a + b, a + cc, a + b + cc + d)
+    assert sum(r["selected"] for r in m["regulator_class"].values()) == m["top0.001"]["K"]
+
+
+def test_paralog_exclusion_via_evaluate(tmp_path):
+    regs, tgts, L, runs = write_toy_bench(tmp_path)
+    tr = regs[regs.split == "TRAIN"]
+    pairs = pd.DataFrame({"gene_a": list(tr.regulator[:5]), "gene_b": list(tgts.target[:5])})
+    pairs = pd.concat([pairs, pairs.rename(columns={"gene_a": "gene_b", "gene_b": "gene_a"})])
+    pairs.to_csv(tmp_path / "data/processed/paralog_pairs.tsv", sep="\t", index=False)
+    full = bm.evaluate(runs["good"], "hct116", "TRAIN", full=False, root=tmp_path)["metrics"]
+    ex = bm.evaluate(runs["good"], "hct116", "TRAIN", full=False, root=tmp_path, subset_name="paralog_exclusion",
+                     exclude_pairs=bm.paralog_pairs(tmp_path))["metrics"]
+    chrom = dict(zip(tgts.target, tgts.chrom))
+    n_trans = sum(chrom[t] != c for t, c in zip(tgts.target[:5], tr.chrom[:5]))
+    assert ex["n_pairs_excluded"] == n_trans and ex["n_pairs"] == full["n_pairs"] - n_trans
+
+
+def test_load_scores_reads_pair_score_and_c1_uses_exact_mode(tmp_path):
+    """Regression (D6a): load_scores must load pair_score / target_weight so that C1 runs in exact mode."""
+    regs, tgts, L, runs = write_toy_bench(tmp_path)
+    z = dict(np.load(runs["good"] / "scores.npz"))
+    w = np.linspace(0.2, 1.0, len(z["targets"])).astype(np.float32)
+    z["pair_score"] = z["score"].copy()
+    z["target_weight"] = w
+    z["score"] = (z["pair_score"] * w[None, :]).astype(np.float32)
+    np.savez(runs["good"] / "scores.npz", **z)
+    sc = bm.load_scores(runs["good"])
+    assert "pair_score" in sc and "target_weight" in sc and np.array_equal(sc["target_weight"], w)
+    r = controls.compare_c1(runs["good"], "hct116", "TRAIN", n_boot=10, root=tmp_path)
+    assert r["c1_mode"] == "pair_score x target_weight" and "c1_warning" not in r

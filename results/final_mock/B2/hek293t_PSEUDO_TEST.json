@@ -1,0 +1,286 @@
+{
+ "run_id": "B2",
+ "variant": "B2",
+ "line": "hek293t",
+ "split": "PSEUDO_TEST",
+ "metrics": {
+  "n_regulators": 884,
+  "n_targets": 11000,
+  "n_pairs": 9161007,
+  "n_arms": 14,
+  "n_target_bins": 584,
+  "n_positives": {
+   "pos_primary": 19462,
+   "pos_ueffect": 4088,
+   "pos_p01": 6269
+  },
+  "top0.001": {
+   "a": 24,
+   "b": 9137,
+   "c": 19438,
+   "d": 9132408,
+   "or": 1.2340744044117766,
+   "log_or": 0.21032121897488834,
+   "fisher_p_greater": 0.17769403656356658,
+   "fisher_p_two_sided": 0.304748583221819,
+   "K": 9161
+  },
+  "top0.0001": {
+   "a": 9,
+   "b": 907,
+   "c": 19453,
+   "d": 9140638,
+   "or": 4.6625676417607,
+   "log_or": 1.5395662924809355,
+   "fisher_p_greater": 0.0001897752814536607,
+   "fisher_p_two_sided": 0.00018977528145366072,
+   "K": 916
+  },
+  "top0.01": {
+   "a": 264,
+   "b": 91346,
+   "c": 19198,
+   "d": 9050199,
+   "or": 1.3624373275787995,
+   "log_or": 0.30927524839001364,
+   "fisher_p_greater": 1.1495451697411854e-06,
+   "fisher_p_two_sided": 1.856146189726487e-06,
+   "K": 91610
+  },
+  "primary_or": 1.2340744044117766,
+  "sensitivity_positives": {
+   "pos_ueffect": {
+    "a": 22,
+    "b": 9139,
+    "c": 4066,
+    "d": 9147780,
+    "or": 5.4159212473345075,
+    "log_or": 1.6893429947609968
+   },
+   "pos_p01": {
+    "a": 10,
+    "b": 9151,
+    "c": 6259,
+    "d": 9145587,
+    "or": 1.5967542418078715,
+    "log_or": 0.46797296998202104
+   }
+  },
+  "folds_log_or": {
+   "fold1": 0.0,
+   "fold2": 0.21032121897488834
+  },
+  "jackknife_log_or": {
+   "G": 14,
+   "estimate": 0.21032121897488834,
+   "se": 1.176416285443477,
+   "ci95": [
+    -2.3311716510474914,
+    2.751814088997268
+   ],
+   "lb90_one_sided": -1.8730336684997035,
+   "t_crit": 2.1603686564610127
+  },
+  "callset": {
+   "skipped": "no boolean `call` array in scores.npz (optional key; DESIGN \u00a76 call-set OR)"
+  },
+  "perm_regulator": {
+   "perm_p": 0.19880119880119881,
+   "n_perm": 1000,
+   "or": 1.2340744044117766,
+   "median_null_or": 0.7120058068968519,
+   "or_over_median_null": 1.7332364321440945,
+   "null_or_q05_q95": [
+    0.21529973988399775,
+    1.890881073457759
+   ]
+  },
+  "perm_degree": {
+   "perm_p": 0.7562437562437563,
+   "n_perm": 1000,
+   "or": 1.2340744044117766,
+   "median_null_or": 1.8554919637769314,
+   "or_over_median_null": 0.6650928317144347,
+   "null_or_q05_q95": [
+    0.6427566919500931,
+    3.520338742126509
+   ]
+  },
+  "bootstrap_log_or": {
+   "ci95": [
+    -2.4821957822948515,
+    1.4753802244066532
+   ],
+   "n_boot": 1000
+  },
+  "cmh_regulator_x_exprdecile": {
+   "cmh_or": 1.4533668653572236,
+   "n_strata": 8840,
+   "cmh_log_se": 0.21529584957847994,
+   "cmh_ci95": [
+    0.9530487011881469,
+    2.2163350547405924
+   ],
+   "cmh_chi2": 3.137219919695841,
+   "cmh_p": 0.07652414197869858
+  },
+  "cmh_ownclass_x_exprdecile": {
+   "cmh_or": 0.9884024707232292,
+   "n_strata": 30,
+   "cmh_log_se": 0.20524352048303068,
+   "cmh_ci95": [
+    0.6610437745877681,
+    1.4778740556796117
+   ],
+   "cmh_chi2": 0.0032240799226440253,
+   "cmh_p": 0.9547196636180706
+  },
+  "cmh_regulator_x_context_exprdecile_D6": {
+   "cmh_or": 1.4109667508557713,
+   "n_strata": 8840,
+   "cmh_log_se": 0.21505491298991045,
+   "cmh_ci95": [
+    0.9256817562782307,
+    2.150660481875277
+   ],
+   "cmh_chi2": 2.6541225026897646,
+   "cmh_p": 0.1032817376424241,
+   "label": "CMH_OR(reg x HEK293 expr) [D6 diagnostic]"
+  },
+  "auroc": {
+   "mean_auroc": 0.506284685991892,
+   "n_regulators": 96
+  },
+  "top10_regulator_share": 0.3449405086780919,
+  "hub_excluded": {
+   "a": 23,
+   "b": 8955,
+   "c": 7938,
+   "d": 8961002,
+   "or": 2.8993972690923053,
+   "log_or": 1.0645028771470348,
+   "fisher_p_greater": 1.028725155276172e-05,
+   "fisher_p_two_sided": 1.028725155276172e-05,
+   "n_reg_dropped": 9,
+   "n_tgt_dropped": 110
+  },
+  "sign": {
+   "sign_concordant_or": 1.9690397032649374,
+   "sign_concordant_table": [
+    20,
+    9141,
+    10158,
+    9141688
+   ],
+   "sign_concordant_fisher_p_greater": 0.0041335137500373535,
+   "sign_concordant_fisher_p_two_sided": 0.0065094053200091765,
+   "n_overlap": 24,
+   "concordance": 0.8333333333333334,
+   "q_pred_down": 1.0,
+   "u_lfc_down": 0.8333333333333334,
+   "c0": 0.8333333333333334,
+   "concordance_minus_c0": 0.0,
+   "sign_2x2": [
+    20,
+    4,
+    0,
+    0
+   ],
+   "sign_or": 4.555555555555555,
+   "sign_perm_p": 1.0,
+   "sign_perm_null_mean": 0.8333333333333334,
+   "regulator_weighted_concordance": 1.0,
+   "n_regulators_weighted": 1
+  },
+  "regulator_class": {
+   "TF": {
+    "n_regulators": 60,
+    "n_pairs": 622586,
+    "selected": 64,
+    "positives": 3776,
+    "a": 0,
+    "or": 1.2700872490729593,
+    "fisher_p_greater": 1.0,
+    "fisher_p_two_sided": 1.0
+   },
+   "kinase": {
+    "n_regulators": 15,
+    "n_pairs": 156555,
+    "selected": 497,
+    "positives": 101,
+    "a": 0,
+    "or": 1.5442483352724212,
+    "fisher_p_greater": 1.0,
+    "fisher_p_two_sided": 1.0
+   },
+   "other": {
+    "n_regulators": 807,
+    "n_pairs": 8361057,
+    "selected": 8596,
+    "positives": 15577,
+    "a": 24,
+    "or": 1.5007899621240022,
+    "fisher_p_greater": 0.03678480578412156,
+    "fisher_p_two_sided": 0.05845871189821193
+   },
+   "ribosomal": {
+    "n_regulators": 2,
+    "n_pairs": 20809,
+    "selected": 4,
+    "positives": 8,
+    "a": 0,
+    "or": 271.8627450980392,
+    "fisher_p_greater": 1.0,
+    "fisher_p_two_sided": 1.0
+   }
+  },
+  "class_i": {
+   "a": 16,
+   "b": 677,
+   "c": 3795,
+   "d": 688787,
+   "or": 4.2894783036841995,
+   "log_or": 1.4561651180123094,
+   "fisher_p_greater": 2.3708052554611357e-06,
+   "fisher_p_two_sided": 2.370805255461137e-06,
+   "n_regulators": 67
+  },
+  "class_iii": {
+   "a": 4,
+   "b": 8351,
+   "c": 15642,
+   "d": 8330673,
+   "or": 0.25509932751542563,
+   "log_or": -1.3661022899984667,
+   "fisher_p_greater": 0.9998772673010328,
+   "fisher_p_two_sided": 0.0009059049022448891,
+   "n_regulators": 806
+  },
+  "n_regulators_missing_in_scores": 0,
+  "n_targets_missing_in_scores": 0
+ },
+ "wall_s": 1.684183120727539,
+ "score_wall_s": 4.8,
+ "threads": {
+  "cpu_count": 10,
+  "blas": []
+ },
+ "seed": 20261027,
+ "spawn": {
+  "perm_regulator": 0,
+  "perm_degree": 1,
+  "perm_sign": 2,
+  "bootstrap": 3
+ },
+ "params_hash": "01ed99b30e69f8ec",
+ "git_hash": "2b4242c66f86926ec0efd7fe562c7db0ac72f6fd+dirty",
+ "data_checksums": {
+  "data/processed/bench/universe_regulators_hek293t.tsv": "9bf839d5e8ee3bd5414ebc978c36a7e77b513f8621c9ce6673cb83f70e64bc3e",
+  "data/processed/bench/universe_targets_hek293t.tsv": "7db0f37c45ced4389a3e98fc5e3050997c73989138cc189c296735207fdd7c2f",
+  "/Users/colmclaude/ClaudeExperiments/DepMapTR/data/interim/mock_sealed/data/processed/bench/positives_hek293t_TEST.parquet": "d2333ca0009e0fb12af0d1b04bc99d4da9346cb6ce40505b1dbd0f8c49e64649",
+  "/Users/colmclaude/ClaudeExperiments/DepMapTR/data/interim/mock_sealed/data/processed/bench/regulator_labels_hek293t_TEST.tsv": "69bb02655e1260cdcaccd94b7441d05ac7a6e9e3ae938a2a7e2e15b18e509e9b",
+  "/Users/colmclaude/ClaudeExperiments/DepMapTR/data/results/scores/B2/scores.npz": "039e211167aae8baf4d04a963f2bd473ba891d966054ef2e3df2cdd711440c38"
+ },
+ "subset": null,
+ "debug": false
+}

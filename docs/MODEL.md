@@ -305,3 +305,49 @@ single argsort average-rank, which takes 15 s, agrees to 3e-8 and is tested agai
 
 Non-D6 outputs are unchanged by the D6 code: the incumbent regenerated with it is bit-identical to the
 coordinator's `g1_t100_w0__a3_r095_s2_w0` (t, score, cis_t, s_cis).
+
+## 11. Sensitivity analyses D8 (model side)
+
+These are listed in `results/variants.yaml` under `sensitivity` and compose with the selected method, e.g.
+`--variant g1_t100_w0+a3_r095_s2_w0+hidden_factors`. Run id = spec with `+` → `__`. Tests are in
+`tests/test_sensitivity_d8.py`.
+
+- **`S1`, `noHCT116`:** sample sets (`io.apply_sample_set`). Frozen flags and the regulator/target lists stay
+  those of S2. Targets that are constant within the subset become NaN through the guard.
+
+- **`hidden_factors` (k = 10): regulator-conditional factors (DESIGN §4).**
+  - For each regulator chromosome c (LOCO group), the measured-target expression Y (I5-renormalised if
+    `comp_renorm`) is residualised on [D_c, S_c]. S_c is the CN of chromosome c's genes, represented by their
+    greedy-segment means (segmentation as in A3: LOCO-residualised CN, ρ = 0.95).
+  - Segment means replace the individual genes because a regression on every chr-c gene is impossible:
+    chr1 has ~1,900 CN genes, more than n = 1,436. Within a segment each gene has r ≥ 0.95 with the mean.
+    S2 has 54–483 segments per chromosome.
+  - The residual columns are standardised to unit norm. The top 10 eigenvectors of the n×n Gram matrix,
+    scaled by √eigenvalue, are added to D_c for that group's targets, cis model and co-expression term.
+  - The factors are exactly orthogonal to D_c and to S_c (tested).
+  - **Consequence:** because the factors are orthogonal to chr-c CN, they change β_AB only through the
+    small part of x_A outside the segment-mean span; they mainly reduce residual variance and so sharpen t.
+    **They cannot remove confounding that is correlated with chr-c CN.** On SIM with lineage removed from Z,
+    the 2q → lineage-programme false positives stay at ~100% with or without factors, even though the
+    factors capture the L1 indicator with R² = 0.82. This follows from DESIGN §4's definition; it is not a bug.
+  - Not defined for the focal variant.
+
+- **`cn_outlier_exclusion`** (sample set `S2_noCNoutlier`; DESIGN §13, TPM compositional artefact):
+  - The lines removed are the top ⌈1% · n⌉ = 15 by genome-wide max |log2 max(relCN, 2^-2)| over the in-scope CN
+    genes.
+  - The design floor 2^-2 is applied and there is no cap. With raw log2, homozygous deletions
+    (relCN ≈ 1e-6 → log2 ≈ −20) would decide the ranking instead of amplicons.
+  - The removed lines and their scores are logged in meta.json `sample_notes`. The threshold is 7.2 (≈ 150×
+    relative CN).
+  - The 15 lines: SMS-KCN, CHLA-01R-MED, KP-N-YN, SMS-KAN, SK-N-BE(2), KELLY, MFM-223, NBL-WN, NMB, COG-N-305,
+    NB-1643, HD-MB03, SMS-SAN, COLO-320, CHP-134. Mostly MYCN-amplified neuroblastomas.
+
+- **`tp53_chr17_drop`:** for the chr17 group only, `tp53_altered` and `tp53_missing` are removed from D.
+  - On S2, `tp53_missing` is already absent from Z: it is identical to `msi_missing`, which stays as the MSI
+    missingness indicator. So only `tp53_altered` is actually dropped; this is logged per group in meta.json.
+  - The t of every other chromosome is bit-identical to the selected method (tested).
+  - Not defined for the focal variant.
+
+- **Runtime table:** `scripts/runtime_table.py` → `results/runtime_table.tsv`. It reads every
+  `data/results/scores/*/meta.json` and records wall time, engine time, NC1 call passes, CPU count, BLAS
+  threads (threadpoolctl cannot see Accelerate) and peak RSS.

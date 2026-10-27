@@ -81,11 +81,15 @@ def test_real_score_files(run_id):
     assert META_KEYS <= set(meta)
     if meta.get("data") != "real":
         pytest.skip("not a real-data run")
-    assert meta["n_samples"] == 1436
+    expected_n = {"S2": 1436, "S1": 999, "S2_noHCT116": 1435, "S2_noCNoutlier": 1421}
+    assert meta["n_samples"] == expected_n[meta["sample_set"]]
     assert 11000 < meta["n_regulators"] < 13000 and 17500 < meta["n_targets"] < 18500
     z = _check_npz(d / "scores.npz", meta["n_regulators"], meta["n_targets"])
     R, T = z["t"].shape
     n_same = len(set(z["regulators"]) & set(z["targets"]))
+    if meta["sample_set"] != "S2":       # targets constant within the subset are NaN (guard): whole columns
+        nan_cols = int(np.isnan(z["t"]).all(0).sum())
+        n_same += nan_cols * R
     allowed = n_same
     if meta["variant"] == "B2":       # whole NaN rows: CN-only regulators + constant-expression regulators
         nan_rows = np.isnan(z["score"]).all(1)

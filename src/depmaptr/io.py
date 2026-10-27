@@ -51,6 +51,7 @@ class Dataset:
     context_expr: dict = field(default_factory=dict)
     sample_set: str = "S2"
     input_checksums: dict = field(default_factory=dict)
+    sample_notes: dict = field(default_factory=dict)
 
     @property
     def n(self) -> int:
@@ -65,7 +66,7 @@ class Dataset:
         return Dataset(panel=self.panel.loc[mask].reset_index(drop=True), relcn=self.relcn[mask],
                        cn_keys=self.cn_keys, expr=self.expr[mask], expr_keys=self.expr_keys, genes=self.genes,
                        regulators=self.regulators, targets=self.targets, context_expr=self.context_expr,
-                       sample_set=name, input_checksums=self.input_checksums)
+                       sample_set=name, input_checksums=self.input_checksums, sample_notes=dict(self.sample_notes))
 
 
 # ----------------------------------------------------------------------------- transforms
@@ -180,12 +181,40 @@ def load_real(sample_set: str = "S2", proc: Path = PROC, checksums: bool = True)
     ds = Dataset(panel=panel.reset_index(drop=True), relcn=relcn, cn_keys=np.asarray(cn_keys), expr=expr,
                  expr_keys=expr_keys, genes=genes, regulators=np.asarray(regulators), targets=np.asarray(targets),
                  context_expr=context_expr, sample_set="S2", input_checksums=cks)
-    if sample_set == "S2":
+    return apply_sample_set(ds, sample_set)
+
+
+CN_OUTLIER_FRAC = 0.01
+
+
+def cn_outlier_score(ds: Dataset) -> np.ndarray:
+    """Genome-wide max |log2 relCN| per line over the in-scope CN genes, with the design floor 2^-2 and no cap
+    (DESIGN §13 CN-outlier sensitivity). The floor stops homozygous deletions (relCN ~ 1e-6 -> log2 ~ -20)
+    from dominating; the score is then driven by high-level amplicons (e.g. COLO320 MYC)."""
+    return np.abs(np.log2(np.maximum(ds.relcn, CN_FLOOR))).max(axis=1)
+
+
+def apply_sample_set(ds: Dataset, sample_set: str) -> Dataset:
+    """S2 (default), S1 (in_S1), S2_noHCT116, S2_noCNoutlier (top 1% of lines by cn_outlier_score removed)."""
+    if sample_set in ("S2", "SIM") or sample_set == ds.sample_set:
         return ds
     if sample_set == "S1":
         return ds.subset_rows(ds.panel["in_S1"].astype(bool).to_numpy(), "S1")
     if sample_set == "S2_noHCT116":
         return ds.subset_rows(ds.panel["ModelID"].to_numpy() != CONTEXT_LINES["HCT116"][0], "S2_noHCT116")
+    if sample_set == "S2_noCNoutlier":
+        sc = cn_outlier_score(ds)
+        k = int(np.ceil(CN_OUTLIER_FRAC * ds.n))
+        drop = np.argsort(-sc, kind="stable")[:k]
+        keep = np.ones(ds.n, bool)
+        keep[drop] = False
+        out = ds.subset_rows(keep, "S2_noCNoutlier")
+        names = ds.panel["CellLineName"].to_numpy() if "CellLineName" in ds.panel else ds.model_ids
+        out.sample_notes["cn_outlier_removed"] = [
+            {"ModelID": str(ds.model_ids[i]), "name": str(names[i]), "max_abs_log2_relcn": float(sc[i])} for i in drop]
+        out.sample_notes["cn_outlier_n_removed"] = int(k)
+        out.sample_notes["cn_outlier_threshold"] = float(sc[drop].min())
+        return out
     raise ValueError(f"unknown sample set {sample_set}")
 
 

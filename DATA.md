@@ -121,7 +121,10 @@ WGS ProfileID (`sig24_source = same_profile`), otherwise from model-level `Omics
 | Ensembl GTF, GRCh38 | https://ftp.ensembl.org/pub/release-116/gtf/homo_sapiens/Homo_sapiens.GRCh38.116.gtf.gz (**Ensembl 116**, current at download) | Ensembl: no restrictions on use | 141,121,632 B, `ed992f0eac7197d9627bda618f8f831ba355c95bd5d0796af785387d462828b6`; BSD `sum` matches Ensembl CHECKSUMS |
 | UCSC hg38 cytoBand | https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/cytoBand.txt.gz (Last-Modified 2022-10-29) | UCSC Genome Browser data, free use | 12,118 B, `e514e48b0a12a516fd5231b44241a20a282f290bdd6131cadcddc6276ee26082` |
 
-All of these are obtained by `scripts/data/download_annotation.py`, except the PI-provided HGNC protein-coding file.
+| Ensembl Compara homologies, Homo sapiens (paralogues; D8 paralog-pair exclusion) | https://ftp.ensembl.org/pub/release-116/tsv/ensembl-compara/homologies/homo_sapiens/Compara.116.protein_default.homologies.tsv.gz (**Ensembl Compara 116**, same release as the GTF). It is the gene-tree homology set behind BioMart's `hsapiens_paralog_ensembl_gene`; the BioMart query did not complete in about 40 min, so the dump is used. Kept: human–human rows with `homology_type` ∈ {within_species_paralog, other_paralog} | Ensembl: no restrictions on use | 109,478,724 B, `fc101ab6e90966091064e5f2e695e46da50d9bc50f4543340ded7d0ccd6e7933`; md5 `59857f48bbbdf6812999d58d7a24ccc4` matches Ensembl MD5SUM |
+
+All of these are obtained by `scripts/data/download_annotation.py`, except the PI-provided HGNC protein-coding file
+and the Compara dump (`scripts/data/download_paralogs.py`, which also builds `data/processed/paralog_pairs.tsv`).
 
 ## 6. NextGen 3D model metadata (used only for release identification)
 
@@ -135,6 +138,8 @@ https://figshare.com/articles/dataset/29472362 (`model_metadata.csv`, figshare f
 |---|---|---|
 | `data/interim/depmap_{cn_wgs,expr_tpm_logp1}.parquet` | `convert_depmap.py` | all profile rows, float32 (max abs rounding error 7e-6) |
 | `gene_annotation.tsv` | `build_gene_annotation.py` | one row per DepMap gene column: HGNC id/symbol, Entrez, Ensembl, chrom, arm, cytoband, GRCh38 start/end (Ensembl 116), chrom_class, PAR flag |
+| `paralog_pairs.tsv` | `download_paralogs.py` | symmetric DepMap gene-key paralogue pairs (141,164 human pairs → 260,466 directed key pairs; homology type, % identity) |
+| `regulator_classes.tsv` | `build_regulator_classes.py` | HGNC-group regulator class (ribosomal / RBP / TF / kinase / other; rules in docs/BENCHMARK.md §11.1) |
 | `pie_gene_map.tsv` | `build_gene_annotation.py` | one row per PIE target/feature identifier: mapping method, HGNC, location, and the DepMap CN/expression column it links to (one-to-one) |
 | `depmap_models.tsv` | `build_depmap_tables.py` | one row per model with a default CN and/or RNA profile: profile ids, Model/ModelCondition annotations, 24Q4 signatures (with provenance), CMP MSI/ploidy |
 | `depmap_{cn,expr}_matched.parquet` | `build_depmap_tables.py` | 1,724 matched models, identical row order (sorted by ModelID) |

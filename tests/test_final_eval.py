@@ -12,6 +12,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pandas as pd
 import pytest
 import yaml
 
@@ -50,10 +51,17 @@ def toy_project(tmp_path):
     shutil.copy(REPO / "scripts" / "benchmark" / "seal_test.sh", root / "scripts" / "benchmark")
     fin = root / "results" / "final"
     fin.mkdir(parents=True)
-    (fin / "selected.yaml").write_text(yaml.safe_dump({"selected": "good", "baselines": ["random"],
-                                                       "lines": ["hct116", "hek293t"], "n_perm": 19,
-                                                       "subsets": [{"name": "NC2", "run": "random",
-                                                                    "subset": "nc2"}]}))
+    (fin / "selected.yaml").write_text(yaml.safe_dump({
+        "selected": "good", "ablations": ["random"], "reported": ["good"], "labels": {"random": "toy ablation"},
+        "baselines": ["random"], "controls": ["PC2", "NC2"], "nc2_run": "random", "c1": ["good"],
+        "subsets": ["paralog_exclusion", "class_i", "hub-excluded"], "lines": ["hct116", "hek293t"],
+        "n_perm": 19}))
+    regs = pd.read_csv(root / "data/processed/bench/universe_regulators_hct116.tsv", sep="\t")
+    tg = pd.read_csv(root / "data/processed/bench/universe_targets_hct116.tsv", sep="\t")
+    pd.DataFrame({"gene_a": list(regs.regulator[:6]), "gene_b": list(tg.target[:6])}).to_csv(
+        root / "data/processed/paralog_pairs.tsv", sep="\t", index=False)
+    pd.DataFrame({"gene": regs.regulator, "reg_class": ["TF", "other"] * (len(regs) // 2) + ["other"] * (len(regs) % 2)}
+                 ).to_csv(root / "data/processed/regulator_classes.tsv", sep="\t", index=False)
     sealed = tmp_path / "sealed"
     run(["git", "init", "-q"], root, sealed, check=True)
     run(["git", "add", "results/final/selected.yaml"], root, sealed, check=True)
@@ -83,9 +91,16 @@ def test_seal_and_final_eval_workflow(toy_project):
     assert {x["run"] for x in summ["results"]} == {"good", "random", "PC2", "good_C1"}
     assert len(summ["c1_comparisons"]) == 2 and all(c["split"] == "PSEUDO_TEST" for c in summ["c1_comparisons"])
     from depmaptr.controls import D6_CMH_LABEL
-    assert all(x[D6_CMH_LABEL] is not None for x in summ["results"] if x["run"] == "good" and "subset" not in x)
-    assert {x.get("subset") for x in summ["results"]} >= {"NC2", "no_split_sibling"}
-    assert all(x["split"] == "PSEUDO_TEST" for x in summ["results"] if "split" in x)
+    assert all(x[D6_CMH_LABEL] is not None for x in summ["results"] if x["run"] == "good" and not x["subset"])
+    assert {x.get("subset") for x in summ["results"]} >= {"NC2", "no_split_sibling", "paralog_exclusion", "class_i"}
+    assert any("hub_excluded" in n for n in summ["notes"])
+    tab = pd.read_csv(root / "results" / "final_mock" / "summary.tsv", sep="\t")
+    assert {"pooled", "cmh", "sign", "C1", "paired", "runtime", "class:TF"} <= set(tab.metric_set)
+    assert set(tab.line) == {"hct116", "hek293t"} and (tab.split.dropna() == "PSEUDO_TEST").all()
+    assert (tab[(tab.role == "ablation") & (tab.metric_set == "pooled")].label == "toy ablation").all()
+    md = (root / "results" / "final_mock" / "summary.md").read_text()
+    assert "## pooled" in md and "## C1" in md and "MOCK" in md
+    assert all(x["split"] == "PSEUDO_TEST" for x in summ["results"])
     for q in (root / "data" / "interim" / "mock_sealed").rglob("*_TEST.*"):
         with pytest.raises(PermissionError):                # chmod round trip restored the seal
             open(q, "rb")

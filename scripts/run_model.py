@@ -111,6 +111,7 @@ def main(argv=None):
     if a.sim is not None:
         from depmaptr.simulate import simulate
         ds, _ = simulate(seed=a.sim)
+        ds = dio.apply_sample_set(ds, p.sample_set)
         inv = dio.check_invariants(ds, real=False)
     else:
         ds = dio.load_real(p.sample_set)
@@ -177,7 +178,7 @@ def main(argv=None):
         "run_id": od.name, "variant": a.variant, "kind": kind, "params": p.to_dict(),
         "seed": seed_used, "nc1_index": p.nc1_index, "calls": call_meta,
         "git": git_hash(), "data": "SIM" if a.sim is not None else "real", "sim_seed": a.sim,
-        "input_checksums": ds.input_checksums, "sample_set": ds.sample_set,
+        "input_checksums": ds.input_checksums, "sample_set": ds.sample_set, "sample_notes": ds.sample_notes,
         "n_samples": int(n), "n_regulators": int(R), "n_targets": int(T), "n_pairs": int(R * T),
         "n_trans_pairs": n_trans, "n_nan_scores": n_nan,
         "n_regulators_without_expression": int(sum(k not in set(ds.expr_keys) for k in ds.regulators)),

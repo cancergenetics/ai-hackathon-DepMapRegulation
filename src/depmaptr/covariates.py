@@ -183,8 +183,10 @@ class DesignBuilder:
     """
 
     def __init__(self, ds: Dataset, Z: np.ndarray, arms: pd.DataFrame, mode: str = "loco",
-                 x_all: np.ndarray | None = None, n_pcs: int = 20):
+                 x_all: np.ndarray | None = None, n_pcs: int = 20, z_names: list[str] | None = None):
         self.ds, self.Z, self.arms, self.mode, self.n_pcs = ds, Z, arms, mode, n_pcs
+        self.z_names = list(z_names) if z_names is not None else [f"Z{i}" for i in range(Z.shape[1])]
+        assert len(self.z_names) == Z.shape[1]
         if mode == "pcs":
             assert x_all is not None
             chrom = ds.genes.loc[ds.cn_keys, "chrom"].astype(str).to_numpy()
@@ -228,7 +230,7 @@ class DesignBuilder:
             blk = arms[use].to_numpy()
             names = [f"arm[{a}]" for a in use]
         D = np.column_stack([np.ones(n), self.Z, B, blk])
-        return D, ["intercept"] + [f"Z{i}" for i in range(self.Z.shape[1])] + ["burden_frac", "burden_mean"] + names
+        return D, ["intercept"] + [f"Z:{z}" for z in self.z_names] + ["burden_frac", "burden_mean"] + names
 
 
 def lineage_halves(panel: pd.DataFrame, seed: int = 20261027) -> pd.Series:
