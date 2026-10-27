@@ -4,6 +4,19 @@ Legend: [ ] planned · [~] in progress · [x] done · [-] abandoned/negative · 
 
 ## Status summary (latest first)
 
+### 2026-10-27 — M6 done: single TEST run (LOCKed, commits 603a7f5 → e9085c7); M7 REPORT.md drafted, under verification
+**HCT116 TEST** (14 arms, 1,817 regulators):
+- **Selected CN-only tool** (M1 + G1 + A3): OR@0.1% = 3.85 (jackknife CI 1.33–11.2), regulator-label permutation p = 0.068 (Fisher p 2e-36 assuming independence).
+- **Sign concordance** 0.718 vs c0 0.541 (n = 131, within-regulator permutation p = 0.012); sign-concordant OR 5.84.
+- **G1 replicates:** Δlog-OR +0.97 vs no gate (CI 0.30–1.64).
+- **No within-regulator information:** AUROC 0.500, CMH 0.94, C1 Δ ≈ 0.
+- **Context layer** 18.4 (CI 10.9–30.9, perm p 0.015); not different from B5 (22.8; Δ −0.22, CI −2.3 to 1.9); beats C2 (+0.55, CI 0.07–1.03).
+- **Controls:** B0 1.17, NC1 1.28, class-iii null 0.23. Sensitivity analyses are stable (2.9–4.5). PC2 ceiling 181.
+
+**HEK293T TEST:** the CN-only tool fails (0.49, 6 overlaps); context layer 5.1.
+
+The overall conclusion: DepMap CN identifies which regulators have trans consequences and in which direction, but not which targets respond. Pooled benchmark enrichment is dominated by hubness and target detectability.
+
 ### 2026-10-27 — M5 complete: tuning closed (D7)
 All 30 budgeted configurations except one were used; every adoption decision followed §8.2 on HCT116 TRAIN.
 - **Selected (CN-only):** LOCO reduced form + G1 cis gate (F ≥ 100) + SuSiE L=1 co-segment attribution. TRAIN OR@0.1% = 5.0 vs M1 1.59, perm p ≤ 0.005. Sign concordance 0.561 vs c0 0.483 (within-regulator sign permutation p ≤ 0.005).
@@ -132,11 +145,11 @@ covariate availability), then DESIGN.md and up to three review rounds.
   - [-] Tier 7 floor 2^-5 (Δ −0.01), RINT (Δ −0.16): not adopted
   - [x] Incumbent after pre-registered tiers: g1_t100_w0__a3_r095_s2_w0, HCT116 TRAIN OR 5.0 (perm p 0.005), sign concordance significant; still well below B5 (19.7)
   - [-] D6 I5/I4/I3/I6 not adopted; [!] I1 passes §8.2 but fails C1 (no pair-specific gain) → reported as the context layer, not selected (D7)
-- [ ] M6 Final held-out evaluation
+- [x] M6 Final held-out evaluation
   - [x] sensitivity analyses implemented (D8). TRAIN Δlog-OR vs selected:
     - leave-HCT116-out −0.005; CN-outlier exclusion +0.005; TP53-chr17 drop +0.003 (all robust);
     - S1 −0.10; hidden factors +0.13 (fold-unstable);
     - ablations: minus G1 −0.91 (G1 is the key component); focal +0.04 (folds −0.53/+0.50).
-  - [ ] selected.yaml committed; mock final run; independent review
-  - [ ] one real TEST run
-- [ ] M7 REPORT.md
+  - [x] selected.yaml committed; mock final run; independent pre-final review (GO; D8a fixes)
+  - [!] one real TEST run: selected OR 3.85 (perm p 0.068), sign concordance 0.718 vs 0.541 (p 0.012); context layer 18.4 ≈ B5 22.8; HEK293T fails for CN-only
+- [~] M7 REPORT.md (drafted; independent number verification running)
