@@ -9,17 +9,17 @@ Compiled 2026-10-27 by the literature agent. I checked every reference below on 
 | Quantity | Value | Source |
 |---|---|---|
 | Genes whose CN correlates positively with mRNA (tumours) | 99% of abundantly expressed genes | Fehrmann 2015 [F1] |
-| mRNA change for a gained / lost arm (367 CCLE lines) | about +21% / −24% (protein +12% / −9%) | Schukken & Sheltzer 2022 [S1] |
-| Genes on gained arms whose RNA "scales" | 59% (5% anti-scale) | [S1] |
+| mRNA change for a gained / lost arm (367 CCLE lines) | about +21% / −24% (protein +12% / −9%) [unverified: percentages not checked] | Schukken & Sheltzer 2022 [S1] |
+| Genes on gained arms whose RNA "scales" | 59% (5% anti-scale) [unverified: not checked] | [S1] |
 | CNAs with ≥50 trans-affected genes, breast tumours | 68% (mRNA), 13% (protein) | Mertins 2016 [M1] |
-| Share of a CN-regulator's trans effects matching its LINCS knockdown | about 17% on average (10 of 502 candidates significant) | [M1] |
+| Share of a CN-regulator's trans effects matching its LINCS knockdown | about 17% on average (10 of 502 candidates significant) [unverified: not found in accessible sources] | [M1] |
 | Median on-target CRISPRi knockdown, X-Atlas/Orion | 75.4% HCT116, 51.5% HEK293T | Huang 2025 [H1] |
 | Perturbations with a discernible transcriptomic phenotype | 48.4% HCT116, 40.4% HEK293T (classifier, q<0.05) | [H1] |
 | Perturbations with any downstream DE gene, K562 | 41%; 3.1% of ordered gene pairs show an effect | Aguirre 2025 [A1] |
-| Typical vs essential-gene perturbation footprint | about 45 vs >500 affected genes | Nadig 2025 [N1] |
+| Typical vs essential-gene perturbation footprint | about 45 vs >500 affected genes [unverified: numbers not found] | Nadig 2025 [N1] |
 | K562 vs RPE1 similarity of perturbation profiles | median r = 0.23 (K562 day 6 vs day 8: 0.50) | Replogle 2022 [R1] |
 | Best published observational-to-Perturb-seq enrichment (cis-trans eQTL colocalisation) | OR 1.9 (K562), 12.4 (HCT116); sign concordance 68% (n=231) and 71% (n=41) | Warmerdam 2026 [W1] |
-| trans-eQTL links vs matched-context Perturb-seq | no enrichment above background | Yao 2023 [Y1] |
+| trans-eQTL links vs matched-context Perturb-seq | no enrichment above background [unverified: see §5] | Yao 2023 [Y1] |
 
 ---
 
@@ -28,13 +28,13 @@ Compiled 2026-10-27 by the literature agent. I checked every reference below on 
 **Cis dosage effects are near-universal at the mRNA level but attenuated.**
 - Fehrmann et al. [F1] analysed 77,840 expression profiles. Copy number correlated positively with expression for 99% of abundantly expressed genes. CN is therefore one of the dominant sources of expression covariance in cancer samples.
 - Bhattacharya et al. [B1] reanalysed more than 34,000 profiles to quantify transcript-level buffering. They introduced TACNA, which uses independent component analysis to separate CNA-driven transcriptional effects from non-genetic factors.
-- Schukken & Sheltzer [S1] used 367 CCLE lines with matched CN, RNA and protein. Arm calls were made relative to basal ploidy, following Cohen-Sharir [C1]. For genes on gained arms, 59% scaled at the RNA level and about 5% anti-scaled. RNA changed by about +21% on gain and −24% on loss. Only about 31% (gain) and 24% (loss) of proteins scaled. Ribosomal proteins, CORUM complex subunits, spliceosome and cell-cycle genes were the most buffered at the protein level. Extracellular and adhesion genes were enriched among anti-scaling genes. A 2026 follow-up [S2] used machine learning and named gene dependency, complex membership, haploinsufficiency and mRNA decay as predictors of buffering (abstract-level verification only).
+- Schukken & Sheltzer [S1] used 367 CCLE lines with matched CN, RNA and protein. Arm calls were made relative to basal ploidy, following Cohen-Sharir [C1]. For genes on gained arms, 59% scaled at the RNA level and about 5% anti-scaled. RNA changed by about +21% on gain and −24% on loss. Only about 31% (gain) and 24% (loss) of proteins scaled. [unverified: these percentages could not be checked; Genome Research full text paywalled, bioRxiv 403. Only the 367-line cohort and the qualitative finding are verified.] Ribosomal proteins, CORUM complex subunits, spliceosome and cell-cycle genes were the most buffered at the protein level. Extracellular and adhesion genes were enriched among anti-scaling genes. A 2026 follow-up [S2] used machine learning and named gene dependency, complex membership, haploinsufficiency and mRNA decay as predictors of buffering (abstract-level verification only).
 - Gonçalves et al. [G1] used 282 CPTAC/TCGA tumours. CN effects on protein were attenuated post-transcriptionally for 23–33% of proteins, mostly complex members. They also found 48 "rate-limiting" complex interactions, where a subunit's CN drives its partners' protein but not their mRNA (e.g. AP3B1→AP3M1, GTF2E2→GTF2E1).
 
 **Trans effects of CNAs are real and have been checked against knockdown signatures.**
 - Mertins et al. [M1] (77 breast tumours) correlated each CNA gene with every mRNA and protein (Pearson, BH FDR<0.05). Trans effects were common for mRNA (68% of tested CNA genes had ≥50 trans-affected genes) and rarer for protein (13%).
-  - Of 502 CNA genes queried against 3,797 LINCS knockdown signatures (connectivity score >|90|, permutation FDR<0.05), 10 were significant candidate regulators.
-  - On average about 17% of a candidate's trans effects matched its knockdown signature. Examples: ERBB2, SKP1 and CETN3 on 5q (linked to EGFR), and FBXO7.
+  - Of 502 CNA genes queried against 3,797 LINCS knockdown signatures (connectivity score >|90|, permutation FDR<0.05), 10 were significant candidate regulators [unverified: not found in accessible sources].
+  - On average about 17% of a candidate's trans effects matched its knockdown signature [unverified: not found in accessible sources]. Examples: SKP1 and CETN3 on 5q (linked to EGFR), ERBB2 (17q) and FBXO7.
   - This is the closest precedent to our benchmark. It shows that most CN-trans associations are not recapitulated by knocking down the gene in the region.
 - Li et al. (CPTAC pan-cancer, 1,064 tumours) [L1] separated cis and trans effects of drivers. Example: RICTOR gain tracks MAPKAP1 and mTOR protein.
 - Goh et al. [G2] treated CN as "genomic randomisation", like Mendelian randomisation. They required three conditions:
@@ -166,8 +166,8 @@ Compiled 2026-10-27 by the literature agent. I checked every reference below on 
 - **Statistical caveats:**
   - The tests are per cell against very large control pools, so they are highly powered. Strong perturbations will reach significance for many tiny effects.
   - Cells are treated as independent (no pseudo-replication across guides or batches), so p-values are likely optimistic. *Inference.*
-  - TRADE [N1] estimates that a typical perturbation affects about 45 genes and an essential gene more than 500.
-- **Context:** PIE itself uses DepMap 25Q3 as a knowledge source, and DepMap was the most valuable source for unseen perturbations [P4]. This shows that DepMap carries information predictive of these DE tables.
+  - TRADE [N1] estimates that a typical perturbation affects about 45 genes and an essential gene more than 500 [unverified: numbers not found in accessible sources].
+- **Context:** PIE itself uses DepMap 25Q3 as a knowledge source, and DepMap was the most valuable source for unseen perturbations [P4] [unverified: PIE preprint not found; only the README's use of DepMap CRISPRGeneEffect as a knowledge source is confirmed]. This shows that DepMap carries information predictive of these DE tables.
 
 **Structure of the ground truth (K562) [A1].**
 - Only 41% of perturbations affect any other gene.
@@ -193,7 +193,7 @@ Compiled 2026-10-27 by the literature agent. I checked every reference below on 
 
 **General GRN and forecasting benchmarks.** These are mostly negative.
 - BEELINE [P5]: GRN inference from scRNA-seq had moderate AUPRC and early precision.
-- CausalBench (Chevalley et al.; Communications Biology 2025 per the PMC/BioStudies record S-EPMC11897147; arXiv 2210.17283) [C2] used Replogle K562/RPE1. Methods that use interventional data did **not** outperform observational-only methods, and scalability limited performance.
+- CausalBench (Chevalley et al.; Communications Biology 2025 per the PMC/BioStudies record S-EPMC11897147; arXiv 2210.17283) [C2] used Replogle K562/RPE1. The 2022 preprint concluded that methods using interventional data did not outperform observational-only methods. The challenge report (CLeaR 2025, PMLR 275) states that winning solutions significantly improved on previous baselines, and the leading entries used interventional information, so this is not a settled negative.
 - Kernfeld et al. (GGRN/PEREGGRN, Genome Biology 2025) [K2]: it is "uncommon" for forecasting methods to beat simple baselines. In the 2023 preprint, uninformed baselines matched or beat methods on MAE in every case.
 - Ahlmann-Eltze, Huber & Anders [A4]: no foundation or deep model beat simple linear or additive baselines.
 - Systema [V2]: "systematic variation", meaning generic perturbed-vs-control differences from selection biases and confounders, inflates common metrics. Predicting perturbation-*specific* effects is much harder.
@@ -205,9 +205,10 @@ Compiled 2026-10-27 by the literature agent. I checked every reference below on 
   - Null: degree-preserving shuffles of pairings.
   - Enrichment: OR 1.9 in K562 (P=4e-8) and OR 12.4 in HCT116 (P=2e-7). The reference list cites X-Atlas/Orion; I could not see the exact dataset mapping in the text.
   - Sign concordance: 68% of 231 (K562) and 71% of 41 (HCT116) overlapping pairs.
+  - Caveat (checked in the full text): the OR compares 10,406 colocalised positives with 10,406 degree-matched shuffled negatives, not a CN-variable-regulator universe. The HCT116 OR 12.4 rests on only 41 overlapping pairs (sign-test P=9e-3), with a degree-matched null. K562 = Replogle/Ota; HCT116 = X-Atlas/Orion.
   - This is the best available calibration for what a strong observational trans method achieves on this benchmark. The ORs come from very few, high-confidence pairs.
-- **Yao et al. 2023 (compressed Perturb-seq) [Y1].** Cis-by-trans colocalised eQTL links from LPS monocytes (N=432), a context matched to their macrophage line, were *not* enriched among Perturb-seq effects (if anything slightly depleted). They *were* enriched among co-expressed pairs.
-- **Mertins 2016 [M1].** About 17% of CN-trans effects of candidate regulators matched LINCS knockdowns, and only 10 of 502 regulators were significant.
+- **Yao et al. 2023 (compressed Perturb-seq) [Y1].** Cis-by-trans colocalised eQTL links from LPS monocytes (N=432), a context matched to their macrophage line, were *not* enriched among Perturb-seq effects (if anything slightly depleted). They *were* enriched among co-expressed pairs. [unverified: enrichment/depletion numbers not found; a Harvard thesis chapter from the same project reports low eQTL concordance, which is consistent.]
+- **Mertins 2016 [M1].** About 17% of CN-trans effects of candidate regulators matched LINCS knockdowns, and only 10 of 502 regulators were significant [unverified: not found in accessible sources].
 - **Morris et al. 2023 (STING-seq) [M2].** Trans networks of GWAS loci arose mainly when the cis target was a TF or miRNA.
 - **Ota et al. 2025 (Nature) [O1].** Combined LoF burden effects with K562 Perturb-seq to build regulator→program→trait graphs.
 - I found **no published study** that benchmarks DepMap/CCLE CN→trans-expression associations against genome-wide Perturb-seq. The closest are Mertins (LINCS) and Goh (siRNA, 24 pairs). This project appears to be novel in that respect.
@@ -369,3 +370,14 @@ Compiled 2026-10-27 by the literature agent. I checked every reference below on 
 - The X-Atlas knockdown filter in the PIE tables has two descriptions in the PIE paper; the data agent must check it.
 - Some author lists are abbreviated with "et al." where I verified only the first authors.
 - Author initials for a few multi-author papers (e.g. [A3], [M2], [Q1], [S4], [Y1]) are given as indexed by PubMed/PMC and were not individually cross-checked.
+
+---
+
+## Corrections (2026-10-27)
+
+Round-1 prior-work review (reviews/round1/prior_work.md). Changes:
+- Mertins: ERBB2 is on 17q, not 5q; only SKP1 and CETN3 are 5q.
+- CausalBench: replaced the "interventional methods did not outperform" conclusion with the challenge-report finding (see §5).
+- Marked as unverified: Schukken percentages (59%, +21%/-24%, 31%/24%), Nadig 45/>500, Yao eQTL enrichment, PIE "DepMap most valuable", Mertins "10/502, 17%".
+- Warmerdam: added the caveat that the HCT116 OR 12.4 rests on 41 pairs with a degree-matched null; dataset mapping (K562 = Replogle/Ota, HCT116 = X-Atlas/Orion) confirmed.
+- Verified without change: Huang, PIE dataset card, Aguirre (41%, 3.1%), Fehrmann, Kang, Dahl, Systema, Mertins 68%/13%.
