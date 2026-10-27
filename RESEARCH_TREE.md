@@ -132,7 +132,10 @@ covariate availability), then DESIGN.md and up to three review rounds.
   - [x] Incumbent after pre-registered tiers: g1_t100_w0__a3_r095_s2_w0, HCT116 TRAIN OR 5.0 (perm p 0.005), sign concordance significant; still well below B5 (19.7)
   - [-] D6 I5/I4/I3/I6 not adopted; [!] I1 passes §8.2 but fails C1 (no pair-specific gain) → reported as the context layer, not selected (D7)
 - [ ] M6 Final held-out evaluation
-  - [ ] sensitivity analyses implemented
+  - [x] sensitivity analyses implemented (D8). TRAIN Δlog-OR vs selected:
+    - leave-HCT116-out −0.005; CN-outlier exclusion +0.005; TP53-chr17 drop +0.003 (all robust);
+    - S1 −0.10; hidden factors +0.13 (fold-unstable);
+    - ablations: minus G1 −0.91 (G1 is the key component); focal +0.04 (folds −0.53/+0.50).
   - [ ] selected.yaml committed; mock final run; independent review
   - [ ] one real TEST run
 - [ ] M7 REPORT.md
