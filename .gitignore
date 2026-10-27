@@ -1,6 +1,6 @@
 .venv/
-data/
-starting_data/
+/data/
+/starting_data/
 *.parquet
 *.npy
 *.h5
