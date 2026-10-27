@@ -474,8 +474,21 @@ def write_toy_bench(root, seed=0):
     TRAIN + TEST positives, TEST regulator labels, results/split/arm_units.tsv, and two score files."""
     regs, tgts, L = toy_tables(nr=48, nt=120, n_chrom=4, arms_per_chrom=2, seed=seed)
     regs["expr_context"] = np.random.default_rng(seed).choice([0.0, 0.5, 3.0, np.nan], len(regs))
+    erng = np.random.default_rng(seed + 7)
+    tgts["expr_hct116"] = erng.uniform(0, 8, len(tgts))
+    tgts["expr_hek293"] = erng.uniform(0, 8, len(tgts))
     bd = root / "data" / "processed" / "bench"
     bd.mkdir(parents=True)
+    # label-free DepMap side used by depmaptr.controls (context expression, chromosomes)
+    ex = {"ModelID": ["ACH-000971", "ACH-001085"]}
+    for t, h, k in zip(tgts.target, tgts.expr_hct116, tgts.expr_hek293):
+        ex[t] = [h, k]
+    ex["XT1"], ex["XT2"] = [1.0, 1.0], [2.0, 2.0]
+    pd.DataFrame(ex).to_parquet(root / "data" / "processed" / "depmap_expr_matched.parquet")
+    pd.DataFrame({"gene_key": list(regs.regulator) + list(tgts.target) + ["XR1", "XT1", "XT2"],
+                  "chrom": list(regs.chrom) + list(tgts.chrom) + ["1", "2", "3"], "arm": "p"}
+                 ).drop_duplicates("gene_key").to_csv(root / "data" / "processed" / "frozen_flags.tsv",
+                                                      sep="\t", index=False)
     arm_test = sorted(regs.arm.unique())[:2]
     regs["split"] = np.where(regs.arm.isin(arm_test), "TEST", "TRAIN")
     regs["fold"] = np.where(regs.split == "TRAIN", regs["fold"], 0)
@@ -632,3 +645,79 @@ def test_final_eval_token_and_mock_sealed_path(tmp_path, monkeypatch):
     assert mock["split"] == "PSEUDO_TEST"
     assert mock["metrics"]["n_regulators"] == ((regs.split == "TRAIN") & (regs.fold == 2)).sum()
     assert (tmp_path / "results" / "final_mock" / "good" / "hct116_PSEUDO_TEST.json").exists()
+
+
+# ----------------------------------------------------------------------------- D6 controls (C1, CMH)
+from depmaptr import controls  # noqa: E402
+
+
+def test_c1_shuffle_properties(tmp_path):
+    regs, tgts, L, runs = write_toy_bench(tmp_path)
+    sc = bm.load_scores(runs["good"])
+    c1 = controls.c1_scores(sc, "hct116", root=tmp_path)
+    T = sc["targets"]
+    bins = controls.c1_bins(controls.context_expression("hct116", T, tmp_path))
+    fl = pd.read_csv(tmp_path / "data/processed/frozen_flags.tsv", sep="\t", dtype={"chrom": str})
+    chrom = dict(zip(fl.gene_key, fl.chrom))
+    tc = np.array([chrom[t] for t in T])
+    assert not np.array_equal(c1["score"], sc["score"])
+    for i, r in enumerate(sc["regulators"]):
+        a, b = sc["score"][i], c1["score"][i]
+        for grp in np.unique(bins):
+            for cis in (True, False):
+                m = (bins == grp) & ((tc == chrom.get(r, "?")) == cis)
+                assert sorted(a[m]) == sorted(b[m])          # within-bin, within-trans/cis permutation
+    # independent of which regulators are shuffled together (pair-hash keys)
+    sub = controls.c1_scores(sc, "hct116", regulators=sc["regulators"][:5], root=tmp_path)
+    idx = pd.Index(c1["regulators"]).get_indexer(sub["regulators"])
+    assert np.array_equal(sub["score"], c1["score"][idx])
+    again = controls.c1_scores(sc, "hct116", root=tmp_path)
+    assert np.array_equal(again["score"], c1["score"]) and not c1["c1_exact"]
+    # exact mode: shuffle pair_score, then multiply by target_weight
+    sc2 = dict(sc, pair_score=sc["score"], target_weight=np.linspace(0.1, 1, len(T)).astype(np.float32))
+    e = controls.c1_scores(sc2, "hct116", root=tmp_path)
+    assert e["c1_exact"] and np.allclose(e["score"], c1["score"] * sc2["target_weight"][None, :])
+
+
+def test_c1_known_answers(tmp_path):
+    regs, tgts, L, runs = write_toy_bench(tmp_path)
+    # pair-specific signal: C1 destroys it -> positive pair-specific gain
+    r = controls.compare_c1(runs["good"], "hct116", "TRAIN", n_boot=50, root=tmp_path)
+    assert r["delta_log_or"]["estimate"] > 1 and r["delta_or"]["estimate"] > 0
+    assert r["or_run"] - r["or_c1"] == pytest.approx(r["delta_or"]["estimate"])
+    assert read_log(tmp_path).kind.iloc[-1] == "control:C1"
+    # detectability-only score (a function of the C1 bin): C1 leaves it unchanged -> gain exactly 0
+    sc = bm.load_scores(runs["good"])
+    bins = controls.c1_bins(controls.context_expression("hct116", sc["targets"], tmp_path))
+    det = dict(sc, score=np.tile(bins.astype(np.float32), (len(sc["regulators"]), 1)),
+               meta={"run_id": "det", "variant": "det"})
+    r0 = controls.compare_c1(det, "hct116", "TRAIN", n_boot=20, root=tmp_path)
+    assert r0["delta_log_or"]["estimate"] == 0 and r0["delta_or"]["se"] == 0
+    out = controls.evaluate_c1(runs["good"], "hct116", "TRAIN", n_perm=19, n_boot=20, root=tmp_path, full=False)
+    assert out["run_id"] == "good_C1" and out["metrics"]["primary_or"] == pytest.approx(r["or_c1"])
+
+
+def test_d6_cmh_matches_bruteforce(tmp_path):
+    from statsmodels.stats.contingency_tables import StratifiedTable
+    regs, tgts, L, runs = write_toy_bench(tmp_path)
+    out = bm.evaluate(runs["good"], "hct116", "TRAIN", n_perm=19, n_boot=20, root=tmp_path)
+    m = out["metrics"]
+    tr = (regs.split == "TRAIN").values
+    ev = bm.Evaluation(regs[tr], tgts, pos_from_dense(regs[tr], tgts, L[tr]),
+                       (np.random.default_rng(1).normal(size=L.shape) + 2 * L).astype(np.float32)[tr],
+                       np.ones(tr.sum(), np.int8))
+    Sd, V = dense_sel(ev, bm.PRIMARY_K), dense_valid(regs[tr], tgts)
+    dec = bm.quantile_bins(tgts.expr_hct116.values, 10)
+    tabs = []
+    for i in range(tr.sum()):
+        for e in range(1, 11):
+            k = V[i] & (dec == e)
+            t = dense_or(Sd[i:i + 1, k], L[tr][i:i + 1, k], V[i:i + 1, k])
+            if sum(t) > 0:
+                tabs.append(np.array(t, float).reshape(2, 2))
+    d6 = m["cmh_regulator_x_context_exprdecile_D6"]
+    assert d6["cmh_or"] == pytest.approx(StratifiedTable(tabs).oddsratio_pooled)
+    assert d6["label"] == controls.D6_CMH_LABEL
+    # the frozen CMH is unchanged by the diagnostic (computed on S2-mean deciles, as before)
+    assert m["cmh_regulator_x_exprdecile"]["cmh_or"] == pytest.approx(
+        ev.cmh(ev.topk(bm.PRIMARY_K), ev.pos_lin())["cmh_or"])

@@ -215,3 +215,93 @@ M1's λ ≈ 2 is not an engine artefact:
   r ≈ 0.85 with B6 rows.
 
 The Efron empirical null (DESIGN §5.2) is not implemented; it is deferrable per §12.
+
+## 10. Post-hoc tier D6 (reviews/ideas/M5a_ideas.md §2)
+
+These variants were added after the M5a TRAIN results (PI decision D6). They are all label-free and
+DepMap-internal. They are listed in `results/variants.yaml` under `posthoc_D6` and are meant to be composed
+on the incumbent, e.g. `--variant g1_t100_w0+a3_r095_s2_w0+i5_comp`. New `Params` fields: `comp_renorm`,
+`score_base` (t | iv_shrink | t_rep), `fuse_gamma`, `regctx`, `lineage_halves_file`. Tests are in
+`tests/test_posthoc_d6.py`.
+
+**Score order.** b = t (or I3's β̃, or I6's t_rep) → target standardisation → × w_G1 × w_G2 × α = S_inc →
+I1 fusion → × ρ_R (I2). The `t` array in the score file is always the full-sample reduced-form t.
+The call set (§7b) is always computed on t, with NC1 passes of the same t-affecting parameters (I5 included).
+
+### I5 `i5_comp`: compositional renormalisation
+- In group g (regulator chromosome c), y_B → log2(TPM_B/(1 − share_c) + 1), where TPM = 2^y − 1 and
+  share_c = Σ_{expression genes on chr c} TPM / Σ_all TPM per line. "All" means every column of the
+  expression matrix, which is protein-coding only.
+- It is applied to the targets, to the cis model (G1, s_A, I3's σ̃_yA), to the co-expression term and to B6
+  (`--variant B6+i5_comp`). The guard norms are per group.
+- RINT, if active, is applied after renormalisation.
+- For leave-one-arm-out, c is the chromosome of the arm. The transform is undefined for focal (single
+  group) and raises an error there.
+- Tested against statsmodels on renormalised y.
+
+### I4 `i4_r090`: A3 with ρ = 0.90
+- SIM attribution, seeds 1–3: the planted gene is ranked first in **91.7%** of segments (chance 19.3%), the
+  same as at ρ = 0.95.
+- This does not discriminate between the two values: SIM segments are well separated, giving 142 segments
+  at both ρ.
+
+### I3 `i3_ivshrink`: shrunk IV effect
+- β̂_IV = r_AB·σ̃_B/(r_cis,A·σ̃_yA), where:
+  - r_AB = t/√(df + t²);
+  - σ̃_B = √(RSS(ỹ_B | W̃_B)/n) after D_g and W_B;
+  - σ̃_yA = ‖ỹ_A‖/√n after D_g;
+  - r_cis is the G1 partial correlation.
+- β̃ = β̂_IV·max(0, 1 − 4/t²); S = β̃·w_G1·α.
+- Regulators with r_cis ≤ 0 or without expression have no instrument and get β = 0. Under the incumbent
+  they are zeroed by G1 anyway.
+- SIM check: for planted pairs (y_B += γ·y_A) with |t| > 8, the median β̃/γ is within 0.8–1.2.
+
+### I6 `i6_linrep`: lineage-half replication
+- The split is `results/split/lineage_halves.tsv`, written by `scripts/make_lineage_halves.py` with
+  `covariates.lineage_halves`:
+  - levels are taken in decreasing n, ties in a seeded order (SeedSequence(20261027));
+  - each level goes to the half with the smaller current total; an exact tie is decided by a seeded coin.
+- S2 result: half 1 has 17 levels and 723 lines (it includes Bowel, i.e. HCT116); half 2 has 15 levels and
+  713 lines. The file must be committed before any I6 evaluation (not committed by me).
+- M1 is fitted in each half:
+  - Z is the full-sample Z restricted to the half, with constant or duplicated columns dropped;
+  - arms and the deletion indicator (≥ 3 lines) are recomputed within the half.
+- t_rep = sign(t₁)·min(|t₁|, |t₂|)·1[sign t₁ = sign t₂]. Where one half gives NaN, t_rep = 0.
+- S = t_rep·w_G1·α, with α and G1 from the full sample. For SIM the split is recomputed with the same rule.
+
+### I1 `i1_fuse_g1`, `i1_fuse_g2`: context fusion
+- S = sign(t_AB)·ρ_P·ρ_T^γ.
+- ρ_P is the average-rank percentile (rank/N, ties averaged) of |S_inc| among **all finite trans pairs** of
+  the 12,141 × 18,276 matrix. That population includes the zeros; ρ_P is then set to 0 where S_inc = 0.
+- ρ_T(B) is the average-rank percentile of DepMap HCT116 (ACH-000971, the `context` parameter) log2(TPM+1)
+  among all 18,276 measured targets.
+- Same-chromosome entries get ρ_P = 0 (the harness masks them). NaN stays NaN. s_cis is unchanged.
+
+### I2 `i2_regctx`: regulator-context weight
+- S ← S·ρ_R(A), with ρ_R the average-rank percentile of HCT116 log2(TPM+1) among the tool regulators that
+  have an expression column. CN-only regulators get 0.
+- It applies on top of whatever precedes it in the composition.
+
+### C2 controls (`controls_D6`: `C2_g1`, `C2_g2`)
+- NC1 index 0 t, with G1 kept (τ = 100, w = 0), α = 1 (no A3), and the I1 fusion with γ = 1 or 2.
+- Score files are in `data/results/scores/C2_g1` and `C2_g2`. C1 is harness-side.
+
+### D6 smoke runs on S2 (shape/runtime only; outputs deleted; nothing evaluated)
+All runs are composed on `g1_t100_w0+a3_r095_s2_w0` and include the in-process NC1 pass for calls. Times are
+compute seconds; footprint is `/usr/bin/time -l` peak, in GB.
+
+| variant | compute s | footprint GB | notes |
+|---|---:|---:|---|
+| i5_comp | 77 | 7.3 | t* = 3.045, 9.72 M calls; 5,435 pass G1 (5,403 without I5) |
+| i4_r090 | 70 | 7.5 | |
+| i3_ivshrink | 79 | 7.3 | 8.3% non-zero scores |
+| i6_linrep | 103 | 8.4 | halves: n 723 / 713, Z 42 / 39 columns; sign agreement 59% |
+| i1_fuse_g1, i1_fuse_g2 | ≈ 85* | 8.4 | |
+| i2_regctx | 67 | 7.3 | 426 regulators with ρ_R = 0 (the CN-only ones) |
+| C2_g1, C2_g2 (kept) | 42 | – | |
+
+\*The I1 smoke run took 270 s with the first percentile implementation (`searchsorted`). It was replaced by a
+single argsort average-rank, which takes 15 s, agrees to 3e-8 and is tested against `scipy.stats.rankdata`.
+
+Non-D6 outputs are unchanged by the D6 code: the incumbent regenerated with it is bit-identical to the
+coordinator's `g1_t100_w0__a3_r095_s2_w0` (t, score, cis_t, s_cis).

@@ -81,3 +81,18 @@ sensitivity:         # not tuned; reported on TRAIN and in the final run (§5.5)
   - {id: hidden_factors, implemented: false}
   - {id: paralog_exclusion, implemented: false, note: "evaluation-side filter"}
   - {id: cn_outlier_exclusion, implemented: false}
+
+# Post-hoc tier (PI decision D6, reviews/ideas/M5a_ideas.md §2). Added AFTER the M5a TRAIN results; label-free,
+# DepMap-internal; composed on the incumbent, e.g. --variant g1_t100_w0+a3_r095_s2_w0+i5_comp.
+posthoc_D6:
+  - {id: i5_comp, kind: model, params: {comp_renorm: true}, desc: "I5 LOCO compositional TPM renormalisation of y (targets, cis, B6)"}
+  - {id: i4_r090, kind: model, params: {a3_rho: 0.90}, desc: "I4 A3 segmentation rho 0.90"}
+  - {id: i3_ivshrink, kind: model, params: {score_base: iv_shrink}, desc: "I3 shrunk IV effect r_AB sd_B/(r_cis sd_yA) * max(0, 1-4/t^2)"}
+  - {id: i6_linrep, kind: model, params: {score_base: t_rep}, desc: "I6 lineage-half replicated t (results/split/lineage_halves.tsv)"}
+  - {id: i1_fuse_g1, kind: model, params: {fuse_gamma: 1.0}, desc: "I1 S = sign(t) rho_P rho_T^1 (HCT116 target-expression percentile)"}
+  - {id: i1_fuse_g2, kind: model, params: {fuse_gamma: 2.0}, desc: "I1 S = sign(t) rho_P rho_T^2"}
+  - {id: i2_regctx, kind: model, params: {regctx: true}, desc: "I2 S <- S * rho_R(A) (HCT116 regulator-expression percentile; CN-only 0)"}
+
+controls_D6:         # evaluation-only controls for I1 (C1 is harness-side)
+  - {id: C2_g1, kind: model, params: {nc1_index: 0, g1_tau: 100, g1_w: 0.0, a3_rho: null, fuse_gamma: 1.0}, desc: "C2: I1 fusion (gamma 1) on the NC1 index-0 t, G1 kept, alpha = 1"}
+  - {id: C2_g2, kind: model, params: {nc1_index: 0, g1_tau: 100, g1_w: 0.0, a3_rho: null, fuse_gamma: 2.0}, desc: "C2: I1 fusion (gamma 2) on the NC1 index-0 t, G1 kept, alpha = 1"}

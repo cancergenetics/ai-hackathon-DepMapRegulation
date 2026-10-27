@@ -40,7 +40,7 @@ MEM_LIMIT_GB = 20.0
 def load_variants(path: Path) -> tuple[dict, dict]:
     v = yaml.safe_load(path.read_text())
     table = {}
-    for sec in ("variants", "baselines", "controls", "sensitivity"):
+    for sec in ("variants", "baselines", "controls", "sensitivity", "posthoc_D6", "controls_D6"):
         for e in v.get(sec, []) or []:
             table[e["id"]] = e
     return v["defaults"], table
@@ -139,7 +139,7 @@ def main(argv=None):
             real_h = dcalls.abs_t_hist(out["t"], trans)
             null_h = np.zeros_like(real_h)
             pn = Params.from_dict({**p.to_dict(), "g1_tau": None, "g2_threshold": None, "a3_rho": None,
-                                   "target_std": False})
+                                   "target_std": False, "score_base": "t", "fuse_gamma": None, "regctx": False})
             for k in range(a.nc1_perms):
                 pn.nc1_index = k
                 null_h += dcalls.abs_t_hist(run(ds, pn, log=lambda *x, **y: None)["t"], trans)
@@ -158,7 +158,7 @@ def main(argv=None):
     arrays = {"regulators": np.asarray(ds.regulators, dtype=str), "targets": np.asarray(ds.targets, dtype=str),
               "t": np.asarray(out["t"], np.float32), "score": np.asarray(out["score"], np.float32),
               "s_cis": np.asarray(out["s_cis"], np.int8), "cis_t": np.asarray(out["cis_t"], np.float32)}
-    for extra in ("alpha", "t_gain"):
+    for extra in ("alpha", "t_gain", "pair_score", "target_weight"):
         if extra in out:
             arrays[extra] = np.asarray(out[extra], np.float32)
     if "call" in out:

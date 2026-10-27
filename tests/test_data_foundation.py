@@ -18,6 +18,9 @@ import pyarrow.parquet as pq
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
+# After the TEST seal (DESIGN §6) the raw PIE DE tables and full caches live outside the tree.
+_SEALED = not (ROOT / "data/external/pie_x_atlas_orion/de/hct116.parquet").exists()
+requires_unsealed = pytest.mark.skipif(_SEALED, reason="raw PIE DE tables sealed (DESIGN §6)")
 PROC = ROOT / "data" / "processed"
 pytestmark = pytest.mark.skipif(not (PROC / "gene_annotation.tsv").exists(), reason="processed data absent")
 sys.path.insert(0, str(ROOT / "scripts" / "data"))
@@ -87,6 +90,7 @@ def test_known_copy_number_events():
     assert prof["cn_vs_absolute_24Q4"]["corr_ploidy_vs_median_abs_over_rel"] > 0.9
 
 
+@requires_unsealed
 def test_benchmark_on_target_and_bh():
     b = json.loads((PROC / "benchmark_profile.json").read_text())
     for cell, r in b["per_cell"].items():
@@ -97,6 +101,7 @@ def test_benchmark_on_target_and_bh():
             assert chk["max_abs_diff_within_target_BH"] < 1e-9, (cell, tg)
 
 
+@requires_unsealed
 def test_loose_subset_complete_for_padj_0_1():
     for cell in ["hct116", "hek293t"]:
         n_loose = pl.scan_parquet(PROC / "pie" / f"loose_{cell}.parquet").filter(pl.col("p_adj") < 0.05).select(pl.len()).collect().item()

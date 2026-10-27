@@ -27,6 +27,7 @@ selected.yaml (run ids refer to data/results/scores/<run_id>/):
   sensitivity: [M1_best_S1, ...]
   subsets:                                                   # optional; subset in depmaptr.benchmark.SUBSETS
     - {name: NC2, run: M1_best_noG2, subset: nc2}
+  c1: [M1_best]                                              # optional; D6 C1 controls (default: [selected])
   lines: [hct116, hek293t]                                   # optional; default both
   n_perm: 1000                                               # optional
 """
@@ -46,6 +47,7 @@ import pandas as pd
 import yaml
 
 from depmaptr import benchmark as bm
+from depmaptr import controls
 
 ROOT = bm.ROOT
 SELECTED = ROOT / "results" / "final" / "selected.yaml"
@@ -120,7 +122,7 @@ def check_guards(ctx: Ctx, sel: dict, lines: list) -> None:
     for s in sel.get("subsets") or []:
         if s.get("subset", str(s["name"]).lower()) not in bm.SUBSETS:
             refuse(f"unknown subset in selected.yaml: {s}")
-    for r in all_runs(sel) + [s["run"] for s in sel.get("subsets") or []]:
+    for r in all_runs(sel) + [s["run"] for s in sel.get("subsets") or []] + list(sel.get("c1") or []):
         bm.resolve_run_dir(r)                                   # fail before the LOCK is written
 
 
@@ -157,7 +159,9 @@ def run_all(ctx: Ctx, sel: dict, lines: list, token, summary: dict) -> None:
             summary["results"].append({"run": run, "line": line, "split": out["split"],
                                        "primary_or": out["metrics"]["primary_or"],
                                        "perm_p": out["metrics"]["perm_regulator"]["perm_p"],
-                                       "jackknife_ci95_log_or": out["metrics"]["jackknife_log_or"].get("ci95")})
+                                       "jackknife_ci95_log_or": out["metrics"]["jackknife_log_or"].get("ci95"),
+                                       controls.D6_CMH_LABEL: out["metrics"].get(
+                                           "cmh_regulator_x_context_exprdecile_D6", {}).get("cmh_or")})
         regs = bm.load_bench(line, "TEST", token=token).regs
         subs = [dict(s, subset=s.get("subset", str(s["name"]).lower())) for s in sel.get("subsets") or []]
         subs.append({"name": "no_split_sibling", "run": sel["selected"], "subset": "no_split_sibling"})
@@ -170,6 +174,11 @@ def run_all(ctx: Ctx, sel: dict, lines: list, token, summary: dict) -> None:
                                        "perm_p": out["metrics"]["perm_regulator"]["perm_p"]})
         for other in runs[1:]:
             summary["comparisons"].append(bm.compare(sel["selected"], other, line, "TEST", _token=token))
+        for run in sel.get("c1") or [sel["selected"]]:               # D6 matched control C1
+            out = controls.evaluate_c1(run, line, "TEST", n_perm=n_perm, _token=token)
+            summary["results"].append({"run": out["run_id"], "control": "C1", "line": line,
+                                       "primary_or": out["metrics"]["primary_or"]})
+            summary.setdefault("c1_comparisons", []).append(controls.compare_c1(run, line, "TEST", _token=token))
     if {"hct116", "hek293t"} <= set(lines):
         out = bm.evaluate_pc2("TEST", ROOT, n_perm=n_perm, _token=token)
         summary["results"].append({"run": "PC2", "line": "hct116", "primary_or": out["metrics"]["primary_or"],

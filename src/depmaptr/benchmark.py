@@ -1044,7 +1044,7 @@ def build_evaluation(sc: dict, bench: Bench, reg_subset=None, seed: int = SEED):
 
 
 def compute_metrics(ev: Evaluation, *, n_perm: int = N_PERM, n_boot: int = N_BOOT, call_block=None,
-                    full: bool = True) -> dict:
+                    full: bool = True, line: Optional[str] = None) -> dict:
     m: dict = {"n_regulators": ev.nr, "n_targets": ev.nt, "n_pairs": ev.N, "n_arms": ev.G,
                "n_target_bins": ev.H}
     pl = ev.pos_lin("pos_primary")
@@ -1076,6 +1076,10 @@ def compute_metrics(ev: Evaluation, *, n_perm: int = N_PERM, n_boot: int = N_BOO
                              "n_boot": n_boot}
     m["cmh_regulator_x_exprdecile"] = ev.cmh(sel, pl, "regulator")
     m["cmh_ownclass_x_exprdecile"] = ev.cmh(sel, pl, "own_class")
+    if line is not None:                     # D6 diagnostic (added; the frozen CMH above is unchanged)
+        from depmaptr.controls import CONTEXT_COL, d6_cmh
+        if CONTEXT_COL.get(line) in ev.tgts.columns:
+            m["cmh_regulator_x_context_exprdecile_D6"] = d6_cmh(ev, sel, pl, line)
     m["auroc"] = ev.auroc_per_regulator(pl)
     m["top10_regulator_share"] = ev.top10_share(sel)
     m["hub_excluded"] = ev.hub_excluded()
@@ -1128,7 +1132,7 @@ def evaluate(run, line: str = PRIMARY_LINE, split: str = "TRAIN", *, variant: Op
         sc["call"] = np.asarray(call_mask, bool)
     ev, miss = build_evaluation(sc, bench, reg_subset)
     call_block = align_scores(sc, ev.regs["regulator"], ev.tgts["target"], "call")[0] if "call" in sc else None
-    m = compute_metrics(ev, n_perm=n_perm, n_boot=n_boot, call_block=call_block, full=full)
+    m = compute_metrics(ev, n_perm=n_perm, n_boot=n_boot, call_block=call_block, full=full, line=line)
     m.update(miss)
     wall = time.time() - t0
     meta = sc["meta"]
@@ -1153,6 +1157,7 @@ def evaluate(run, line: str = PRIMARY_LINE, split: str = "TRAIN", *, variant: Op
     if full:
         summ.update(perm_p=m["perm_regulator"]["perm_p"], perm_degree_p=m["perm_degree"]["perm_p"],
                     cmh_or=m["cmh_regulator_x_exprdecile"]["cmh_or"],
+                    cmh_d6=m.get("cmh_regulator_x_context_exprdecile_D6", {}).get("cmh_or"),
                     sign_concordant_or=m["sign"]["sign_concordant_or"],
                     concordance=m["sign"].get("concordance"), c0=m["sign"].get("c0"),
                     jk_ci95=m["jackknife_log_or"].get("ci95"))

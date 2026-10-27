@@ -229,3 +229,24 @@ class DesignBuilder:
             names = [f"arm[{a}]" for a in use]
         D = np.column_stack([np.ones(n), self.Z, B, blk])
         return D, ["intercept"] + [f"Z{i}" for i in range(self.Z.shape[1])] + ["burden_frac", "burden_mean"] + names
+
+
+def lineage_halves(panel: pd.DataFrame, seed: int = 20261027) -> pd.Series:
+    """I6 (D6): split the Z lineage levels into halves 1/2 by seeded greedy balance on n.
+
+    Levels are taken in decreasing n (ties in a seeded random order) and each goes to the half with the
+    smaller current total (exact ties: seeded coin). Returns a Series lineage_level -> half."""
+    vc = lineage_levels(panel).value_counts()
+    rng = np.random.default_rng(np.random.SeedSequence(seed))
+    key = rng.random(len(vc))
+    order = sorted(range(len(vc)), key=lambda i: (-int(vc.iloc[i]), key[i]))
+    tot = {1: 0, 2: 0}
+    out = {}
+    for i in order:
+        if tot[1] == tot[2]:
+            h = int(rng.integers(1, 3))
+        else:
+            h = 1 if tot[1] < tot[2] else 2
+        out[vc.index[i]] = h
+        tot[h] += int(vc.iloc[i])
+    return pd.Series(out, name="half")

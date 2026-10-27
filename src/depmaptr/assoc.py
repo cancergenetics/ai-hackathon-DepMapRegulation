@@ -170,3 +170,21 @@ def lineage_permutation(strata: np.ndarray, rng: np.random.Generator) -> np.ndar
         idx = np.flatnonzero(strata == s)
         perm[idx] = rng.permutation(idx)
     return perm
+
+
+def resid_ss(Y: np.ndarray, W=(), pivot_tol: float = PIVOT_TOL) -> np.ndarray:
+    """Per column j: residual sum of squares of Y[:, j] after regressing on the W_k[:, j] (all residualised on D).
+    All-zero (inactive) W columns are skipped, as in pair_partial."""
+    cols = list(W) + [Y]
+    k = len(cols)
+    G = {(i, j): np.einsum("ij,ij->j", cols[i], cols[j]) for i in range(k) for j in range(i, k)}
+    for p in range(k - 1):
+        base = np.einsum("ij,ij->j", cols[p], cols[p])
+        d = G[(p, p)]
+        ok = (base > 0) & (d > pivot_tol * base)
+        inv = np.where(ok, 1.0 / np.where(ok, d, 1.0), 0.0)
+        for i in range(p + 1, k):
+            f = G[(p, i)] * inv
+            for j in range(i, k):
+                G[(i, j)] = G[(i, j)] - f * G[(p, j)]
+    return np.maximum(G[(k - 1, k - 1)], 0.0)

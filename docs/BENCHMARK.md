@@ -383,3 +383,53 @@ The leakage is therefore modest except on X.
   whose sibling is TEST or absent: 7p, 7q, 14q and 22q (721 HCT116 TEST regulators). 21q is excluded because its sibling 21p is TRAIN, although 21p carries only
   1 regulator.
 - REPORT.md should state the limitation and show this sensitivity analysis.
+
+## 10. D6 matched controls and diagnostics (added after the freeze; no frozen metric changed)
+
+Code: `src/depmaptr/controls.py`, `scripts/evaluate.py --c1 / --compare-c1 / --final-candidate`.
+`scripts/final_eval.py` also runs C1 and reports the D6 CMH.
+
+**C1 (pair shuffle)**
+- **What is shuffled.** Each regulator's score row is permuted across targets within 50 bins of DepMap
+  context-expression percentile:
+  - the context is HCT116 (ACH-000971) on the HCT116 line, and HEK293 on the HEK293T line;
+  - percentiles are taken over **all score-file targets** (all DepMap measured genes), not the PIE
+    universe;
+  - same-chromosome entries are permuted only among themselves.
+- **Seed.** The order comes from seeded pair-hash keys: `SeedSequence(20261027).spawn(8)[4]` seeds
+  blake2b/splitmix64. The result does not depend on row order or on which regulators are evaluated.
+- **Exact mode.** If `scores.npz` has `pair_score` [R,T] and `target_weight` [T] (INTERFACES, optional;
+  `score = pair_score · target_weight`), C1 shuffles `pair_score` and recomputes the fused score. This is
+  exact for the I1/I2 fusion.
+- **Approximate mode.** Otherwise C1 shuffles `score` directly. Results report `c1_mode` and carry a
+  `c1_warning`.
+  - **Known bias:** on HCT116 TRAIN (smoke test, debug log), B4e is a pure target-expression score, yet its
+    OR goes from 7.09 to 4.08 under C1 (Δlog OR +0.55, jackknife CI 0.40 to 0.71). This happens because
+    the top 2 % expression bin still has a steep detectability gradient, so the approximation overstates
+    pair-specific gain for target-weighted scores.
+  - **Fused runs must supply `pair_score` and `target_weight`.**
+  - Smoke test of the incumbent (`g1_t100_w0__a3_r095_s2_w0`, approximate mode, which is exact for a
+    score with no target factor): OR 5.00 vs 4.95 under C1, Δlog OR +0.01 (CI −0.22 to 0.24).
+- **Pair-specific gain** (`compare_c1`, logged as kind `control:C1`):
+  - OR(run) − OR(C1) and Δlog OR;
+  - a paired delete-one-arm jackknife with t_{G−1};
+  - a paired two-way bootstrap of Δlog OR (shared weights);
+  - top-K is re-selected for each score.
+- `evaluate_c1` runs the full metrics of the C1 score (`run_id` `<run>_C1`).
+
+**D6 diagnostic CMH**
+- Key `cmh_regulator_x_context_exprdecile_D6`, label "CMH_OR(reg x HCT116 expr) [D6 diagnostic]".
+- Strata are regulator × deciles of DepMap context expression among the line's universe targets.
+- The frozen regulator × S2-mean-expression CMH is unchanged.
+- It reproduces the review's diag2 (B4e 3.38).
+
+**Permutation counts.** `evaluate.py` already defaulted to `--n-perm 1000`; the 200s in the tree came
+from explicit flags. `--final-candidate` enforces n_perm and n_boot ≥ 1000 and adds `--compare-c1`.
+
+**Frozen-file change.** `benchmark.py`, `evaluate.py` and `final_eval.py` were edited additively. The new
+`controls.py` is not yet frozen. These need a decision note, then:
+
+    .venv/bin/python scripts/benchmark/record_frozen_change.py --note "D6 controls" \
+        src/depmaptr/benchmark.py src/depmaptr/controls.py scripts/evaluate.py scripts/final_eval.py
+
+Until then, `tests/test_frozen.py` fails, and `final_eval.py` refuses, as intended.

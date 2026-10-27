@@ -80,7 +80,10 @@ def test_seal_and_final_eval_workflow(toy_project):
     assert r.returncode == 0, r.stderr
     assert lock(root, mock=True)["status"] == "COMPLETED"
     summ = json.loads((root / "results" / "final_mock" / "summary.json").read_text())
-    assert {x["run"] for x in summ["results"]} == {"good", "random", "PC2"}
+    assert {x["run"] for x in summ["results"]} == {"good", "random", "PC2", "good_C1"}
+    assert len(summ["c1_comparisons"]) == 2 and all(c["split"] == "PSEUDO_TEST" for c in summ["c1_comparisons"])
+    from depmaptr.controls import D6_CMH_LABEL
+    assert all(x[D6_CMH_LABEL] is not None for x in summ["results"] if x["run"] == "good" and "subset" not in x)
     assert {x.get("subset") for x in summ["results"]} >= {"NC2", "no_split_sibling"}
     assert all(x["split"] == "PSEUDO_TEST" for x in summ["results"] if "split" in x)
     for q in (root / "data" / "interim" / "mock_sealed").rglob("*_TEST.*"):
@@ -167,3 +170,22 @@ def test_crash_after_lock_consumes_the_run(toy_project):
     assert run(["git", "cat-file", "-e", "HEAD:results/final/LOCK"], root, sealed).returncode == 0
     r = final_eval(root, sealed)
     assert r.returncode != 0 and "LOCK" in r.stderr
+
+
+def test_record_frozen_change(toy_project):
+    root, sealed = toy_project
+    assert run(["bash", "scripts/benchmark/seal_test.sh"], root, sealed).returncode == 0
+    tf = root / "data" / "processed" / "bench" / "universe_targets_hct116.tsv"
+    tf.write_bytes(tf.read_bytes() + b"\n")
+    script = [sys.executable, str(REPO / "scripts" / "benchmark" / "record_frozen_change.py")]
+    rel = "data/processed/bench/universe_targets_hct116.tsv"
+    r = run(script + ["--note", "D9 test", rel], root, sealed)
+    assert r.returncode != 0 and "not found in RESEARCH_TREE" in r.stderr     # needs a decision note
+    (root / "RESEARCH_TREE.md").write_text("- D9: test change\n")
+    before = bm.read_frozen(root / "results" / "FROZEN.sha256")[1]
+    r = run(script + ["--note", "D9 test", rel], root, sealed)
+    assert r.returncode == 0, r.stderr
+    assert bm.frozen_drift(root / "results" / "FROZEN.sha256", root) == []
+    assert bm.read_frozen(root / "results" / "FROZEN.sha256")[1] == before          # sealed block untouched
+    r = run(script + ["--note", "D9", "data/processed/bench/positives_hct116_TEST.parquet"], root, sealed)
+    assert r.returncode != 0

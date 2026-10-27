@@ -34,6 +34,17 @@ be built in parallel. Changes need a PI decision note.
   - `s_cis`: int8[R], s_A ∈ {−1, +1} (DESIGN §1).
   - `cis_t`: float32[R].
   - Same-chromosome entries may hold any value; the harness masks them.
+  - **Optional fields** (D6; the harness uses them if present):
+    - `call`: bool[R,T], the tool's call set (BH(z′) ≤ 0.05, or the MVP rule), used for the call-set OR.
+      If it is absent, the OR is skipped with a note.
+    - `pair_score`: float32[R,T], the signed *pre-fusion* pair component of `score` (I1: sign(t)·ρ_P,
+      including any per-regulator factor such as I2's ρ_R).
+    - `target_weight`: float32[T], the target-only fusion factor (I1: ρ_T^γ).
+
+    These two must satisfy `score == pair_score * target_weight[None, :]`. If both are present, the C1
+    control (depmaptr.controls) shuffles `pair_score` within bins and recomputes the fused score. If
+    either is missing, it shuffles `score` directly, which is an approximation when `target_weight` varies
+    within a C1 bin.
 - `meta.json`: run_id, variant id, params, git hash, input checksums, n_samples, wall time, threads,
   peak RSS.
 
