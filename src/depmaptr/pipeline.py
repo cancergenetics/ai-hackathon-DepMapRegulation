@@ -14,7 +14,7 @@ import pandas as pd
 from . import attribution, gates
 from .assoc import Residualiser, centred_norm, chunked_pair_partial, diag_partial, lineage_permutation
 from .calibrate import lambda_gc
-from .covariates import DesignBuilder, arm_cn, build_Z, lineage_levels
+from .covariates import DesignBuilder, arm_cn, build_Z, lineage_levels, sex_centre, sex_groups
 from .io import CHROMS, HOMDEL_MIN_LINES, HOMDEL_RELCN, Dataset, cn_transform, rint
 
 ROOT_SEED = 20261027
@@ -166,6 +166,11 @@ def group_t(prep: Prepared, gv: dict, keys, perm=None):
     x = prep.x_all[:, [prep.cn_idx[k] for k in keys]]
     xg = None
     if p.dosage == "hinge":
+        # hinge at copy-neutral: for X regulators that is the sex-group median (male X sits at log2 ~ -1)
+        isx = prep.ds.genes.loc[list(keys), "chrom"].astype(str).to_numpy() == "X"
+        if isx.any():
+            x = x.copy()
+            x[:, isx] = sex_centre(x[:, isx], sex_groups(prep.ds.panel))
         xl, xg = np.minimum(x, 0.0), np.maximum(x, 0.0)
         U, V, u_raw = res(xl), [res(xg)], centred_norm(xl)
     else:
@@ -177,7 +182,8 @@ def group_t(prep: Prepared, gv: dict, keys, perm=None):
     return t, df, (U, V, xg)
 
 
-def run(ds: Dataset, p: Params, log=print) -> dict:
+def run(ds: Dataset, p: Params, log=print, chroms=None) -> dict:
+    """chroms: optional subset of regulator chromosomes to compute (tests); other rows stay NaN."""
     t0 = time.time()
     prep = prepare(ds, p)
     regs = np.asarray(ds.regulators)
@@ -187,6 +193,8 @@ def run(ds: Dataset, p: Params, log=print) -> dict:
     a3 = p.a3_rho is not None
     row_keys = np.asarray(ds.cn_keys) if a3 else regs      # A3 needs t for ALL CN genes in a segment
     by_chrom = _rows_by_chrom(ds, row_keys)
+    if chroms is not None:
+        by_chrom = {c: v for c, v in by_chrom.items() if c in set(chroms)}
     perm = nc1_permutation(prep, p.nc1_index) if p.nc1_index is not None else None
 
     t_out = np.full((R, T), np.nan, np.float32)
@@ -237,6 +245,10 @@ def run(ds: Dataset, p: Params, log=print) -> dict:
                         z = np.arctanh(np.clip(rco, -1 + 1e-15, 1 - 1e-15)) * np.sqrt(dfco - 1)
                     zco_c[sel[has_e]] = np.nan_to_num(z, nan=0.0)
                     dfco_c[sel[has_e]] = dfco
+        if dfco_c is not None:
+            # CN-only genes (no expression column) have no co-expression evidence: z_co = 0, with the df the
+            # co-expression model would have (one more regressor, x_g). Never NaN (PI decision D5).
+            dfco_c = np.where(np.isfinite(dfco_c), dfco_c, df_c - 1)
         if a3:
             Dl, _ = loco_builder.design(c)
             xres = Residualiser(Dl)(prep.x_all[:, [prep.cn_idx[k] for k in keys]])
@@ -264,7 +276,14 @@ def run(ds: Dataset, p: Params, log=print) -> dict:
             lam[c] = lambda_gc(tt.ravel()[idx], dd.ravel()[idx])
         log(f"  chr{c}: {keep.sum()} regulators ({m} rows), {time.time() - tc0:.1f}s, lambda_GC={lam.get(c, np.nan):.3f}")
 
+    # A = B entries are NaN in every run (they are finite under NC1 otherwise)
+    tpos = {k: j for j, k in enumerate(ds.targets)}
+    same = np.array([(i, tpos[k]) for i, k in enumerate(regs) if k in tpos], dtype=np.int64).reshape(-1, 2)
+    if len(same):
+        t_out[same[:, 0], same[:, 1]] = np.nan
     score, extras = compose_score(ds, p, t_out, cis_out, alpha_out)
+    new_nan = np.isnan(score) & ~np.isnan(t_out)
+    assert not new_nan.any(), f"score has {int(new_nan.sum())} NaNs where t is finite"
     diag = dict(prep.diag)
     diag.update({"groups": cache.log, "lambda_gc_by_chrom": lam, "n_segments_by_chrom": n_segments,
                  "wall_engine_s": time.time() - t0, "nc1_index": p.nc1_index, **extras})
@@ -293,7 +312,8 @@ def target_standardise(ds: Dataset, t: np.ndarray) -> np.ndarray:
 
 
 def compose_score(ds: Dataset, p: Params, t: np.ndarray, cis: np.ndarray, alpha: np.ndarray | None):
-    """S_AB = t_AB * w_G1(A) * w_G2(A) * alpha_{A|B} (DESIGN §5.6)."""
+    """S_AB = t_AB * w_G1(A) * w_G2(A) * alpha_{A|B} (DESIGN §5.6 as amended by PI decision D5: w_G2 is always
+    applied as a multiplier, including under A3 where it also enters the prior pi_g)."""
     extras = {}
     base = target_standardise(ds, t) if p.target_std else t.copy()
     w = np.ones(len(ds.regulators))
@@ -305,8 +325,8 @@ def compose_score(ds: Dataset, p: Params, t: np.ndarray, cis: np.ndarray, alpha:
         ctx = ds.context_expr[p.context]
         expressed = gates.context_expressed(ds.regulators, ctx, p.g2_threshold)
         extras["n_g2_expressed"] = int(expressed.sum())
-        if alpha is None:          # with A3, w_G2 enters only through pi
-            w = w * np.where(expressed, 1.0, p.g2_w)
+        # PI decision D5: G2 is ALWAYS a multiplier (also under A3, where it additionally enters pi)
+        w = w * np.where(expressed, 1.0, p.g2_w)
     score = base * w[:, None].astype(np.float32)
     if alpha is not None:
         score = score * alpha

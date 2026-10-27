@@ -15,7 +15,8 @@ This file lists the implementation choices where DESIGN leaves room. Anything no
 ```
 `--variant a+b` starts from `defaults` in `results/variants.yaml` and applies the `params` of a, then b.
 Outputs follow docs/INTERFACES.md (`scores.npz`, `meta.json`) plus `manifest.json` (DESIGN §8.7).
-Extra npz keys: `alpha` (A3 attribution weights) and `t_gain` (hinge gain-slope t).
+Extra npz keys: `alpha` (A3 attribution weights), `t_gain` (hinge gain-slope t) and `call` (bool, MVP call
+set, §7b; model runs only). A = B entries of `t` and `score` are NaN in every model run, NC1 included.
 Regulators and targets are ordered by (chromosome 1–22, X; arm p < q; start).
 
 ## 2. Data and transforms (io.py)
@@ -40,7 +41,7 @@ Regulators and targets are ordered by (chromosome 1–22, X; arm p < q; start).
 - **Lineage:** for Lymphoid, Myeloid, CNS/Brain, Esophagus/Stomach, Soft Tissue, Bone, each primary
   disease with ≥ 15 lines becomes `Lineage::Disease`; the rest of the lineage stays as the parent level
   **even if < 15** (Myeloid 13, Bone 12, CNS/Brain 10 on S2). Other lineages with < 15 lines and missing
-  lineage → `other` (47 lines). 31 levels on S2, reference = largest (Lung).
+  lineage → `other` (47 lines). **32 levels** on S2 (31 dummies + the reference, the largest level, Lung).
 - **Ploidy, WGD:** missing → median within the final lineage level (global median if none observed) +
   missingness indicator. `wgd_missing` is identical to `ploidy_missing` and is dropped as a duplicate.
 - **MSI:** MSIScore > 20 (asserted equal to the panel's `msi_high`), missing → 0 + `msi_missing`.
@@ -100,20 +101,29 @@ Regulators and targets are ordered by (chromosome 1–22, X; arm p < q; start).
     only regulator rows are written out.
   - z_gB = t_gB (NaN → 0), with the pair's df in λ.
   - z_co,gB = atanh(r)·√(df − 1), with r the engine's partial correlation of y_g with y_B given (x_g, W_B, D)
-    and that model's df. Genes without expression get z_co = 0.
+    and that model's df. **CN-only genes (no expression column) get z_co = 0 with df_co = df − 1** (the df the
+    co-expression model would have), so they contribute no co-expression evidence and never produce NaN
+    (PI decision D5; before D5 they had df_co = NaN, which made α NaN for every gene of their segment).
   - π_g ∝ exp(t_cis,g / s)·w_G2(g) in log space (w_G2 only if G2 is active). If all π are 0, π is uniform.
+  - `run` asserts that the final score has no NaN where t is finite.
 - **Target standardisation:** per target, z-score of t across regulators on other chromosomes (NaN
   excluded, ddof = 1). Same-chromosome entries are transformed with the same mean/SD but are masked by
   the harness anyway.
-- S = t′ · w_G1 · w_G2 · α (w_G2 omitted when A3 is active, where it enters through π). `t` in the
-  score file is always the raw reduced-form t (the loss-slope t for the hinge).
+- **S = t′ · w_G1 · w_G2 · α, always** (PI decision D5, amending DESIGN §5.6): w_G2 is applied as a multiplier
+  for every regulator, including singleton segments and segments where all π are 0, and under A3 it
+  additionally enters π. `t` in the score file is always the raw reduced-form t (the loss-slope t for the
+  hinge).
+- **Hinge:** x⁻ = min(x, 0), x⁺ = max(x, 0) at copy-neutral; for X regulators x is first sex-centred
+  (median within sex group), because male X is at log2 ≈ −1 (review m-1). The linear part is unchanged
+  because sex is in Z.
 
 ## 7. NC1 and baselines
 
-- **NC1:** one within-lineage-level permutation per pass (strata = the 31 Z lineage levels), applied to
+- **NC1:** one within-lineage-level permutation per pass (strata = the 32 Z lineage levels), applied to
   the residualised regulator matrix (and V) of every group; Ỹ and W̃_B fixed. Seed: spawn index k of
   `SeedSequence(20261027)`.
-- **B0:** uniform floats from `default_rng(SeedSequence(seed))`, seed default 20261027.
+- **B0:** uniform floats from `default_rng(SeedSequence(seed))`, seed default 20261027; the seed used is
+  always written to meta.json `seed`.
 - **B1:** Pearson t (df = n − 2) of x_A vs y_B. s_cis from the naive cis t.
 - **B2:** Pearson t of y_A vs y_B; CN-only regulators NaN; s_cis = +1 everywhere (an mRNA statistic:
   lowering A predicts −sign(r)). cis_t holds the M1 cis t for reference only.
@@ -124,57 +134,84 @@ Regulators and targets are ordered by (chromosome 1–22, X; arm p < q; start).
   covariate (< 20 genes) are NaN.
 - For B0, B3–B6 s_cis comes from the M1 cis t (target-agnostic baselines carry no sign information).
 
+## 7b. MVP call set (DESIGN §12)
+
+For model runs (not NC1, not baselines) `run_model.py` also runs `--nc1-perms` (default 1) NC1 passes of
+the **same variant** in-process (indices 0..k−1; gates, A3 and target standardisation are switched off in
+those passes, since they do not change t). Over trans pairs only, t* is the smallest |t| threshold
+(1e-3 grid) with (#NC1 ≥ t* / n_perm) / (#real ≥ t*) ≤ 0.05, and `call = trans & |t| ≥ t*`
+(`calls.py`). meta.json `calls` records t*, n_calls, the FDR estimate at t*, n_perm and the NC1 parameters.
+Because the NC1 passes are always computed for the variant itself, the "fall back to M1's NC1" case never
+arises. The call set is on t, not on the gated score.
+
 ## 8. Simulation (simulate.py; tests/test_sim.py)
 
-600 lines, 6 autosomes × 2 arms × 60 genes + X (2 × 25), segments of 3–8 genes, 6 lineages, sex.
-Planted: 12 focal regulators (one negative-cis) × 25 targets each through A's mRNA; weak-cis co-segment
-neighbours; 1q/3p arm co-selection with a 3p arm-level driver of 20 targets; lineage L1 with 2q gains and
-an expression programme on 40 genes; homozygous deletions in 4p. Tested on 3 seeds: AUROC > 0.98;
-1q → driver-target false positives under B1 (> 10% at |t| > 3) but not M1 (< 2%); lineage programme FPs
-removed; sign rule correct incl. the negative-cis regulator; A3 ranks the planted gene first ~90% vs ~18%
-chance; λ_GC within 0.9–1.12 under the null and 0.85–1.12 for NC1; focal removes arm-level LOCO signal.
+600 lines; 6 autosomes × 2 arms × 60 genes + X (2 × 25); segments of 3–8 genes; 6 lineages; sex.
+Planted: 12 focal regulators (one negative-cis, one on X) × 25 targets each, acting through A's mRNA, with
+weak-cis co-segment neighbours. Confounders:
+- 1q/3p co-selection in both directions with equal magnitude (so |arm|-based burden cannot absorb it), with
+  a 3p arm-level driver of 20 targets;
+- lineage L1 with 2q gains and an expression programme on 40 genes;
+- a male-up autosomal programme (raw X CN tracks sex);
+- homozygous deletions in 4p (expression collapses) co-occurring with amplification of a 5q partner segment;
+- 6% CN-only genes, including a neighbour in half of the planted segments.
 
-## 9. Real-data run (S2, M1 + baselines, 2026-10-27)
+Focal losses are −0.9, so the relCN < 0.25 indicator marks only true homozygous deletions.
 
-n = 1,436; R = 12,141 regulators (426 CN-only); T = 18,276 targets; 221.9 M pairs (209.9 M trans).
-Engine wall time: M1 25 s (one process, Accelerate BLAS; the whole process including loading, sha256 of
-the inputs and writing the 1.8 GB npz takes 55 s). Baselines take 2–13 s of compute (~32–43 s end to end).
-Peak RSS is ~5.5 GB for the baselines and ~11 GB for M1/NC1.
+**Each confounder test has an ablation that must fail,** checked on seeds 1–3 in the suite, using monkeypatches
+in `tests/test_sim.py::_ablate`:
 
-Calibration (2 M random entries; per-chromosome λ in meta.json):
+| test | passes with | fails without |
+|---|---|---|
+| 1q → driver targets: FP < 2%; B1 > 10% | LOCO arm block | arm block removed: > 10% |
+| 2q → lineage programme: FP < 2% | lineage in Z | lineage removed: > 30% |
+| X regulators → sex programme: FP < 2% | sex in Z | sex removed: > 30% |
+| 5q partner → deleted targets: FP < 5% | deletion indicator in W_B | indicator removed: > 30% |
+| knockdown sign of the negative-cis regulator | s_A rule | s = +1: < 5% concordant |
 
-| run | λ_GC | share with \|t\| > 5 |
-|---|---:|---:|
-| M1 | 2.10 | 0.27% |
-| NC1 (index 0) | 0.96 (per-chromosome median 0.91) | 0.001% |
-| B1 (naive) | 4.75 | 5.6% |
-| B6 (arm only) | 2.50 | 0.57% |
+Also tested:
+- planted AUROC > 0.98, with B0 at chance;
+- the planted X regulator's targets are recovered;
+- A3 ranks the planted gene first in ≈ 90% of segments (chance ≈ 18%);
+- A3 with w_co = 0.5 plus G2 adds no NaN, and gives 0 for every non-expressed regulator;
+- the hinge on X matches statsmodels with sex-centred hinge regressors;
+- λ_GC is 0.9–1.12 under the null and 0.85–1.12 for NC1;
+- focal removes the arm-level LOCO signal.
 
-The NC1 value slightly below 1 is expected for residual permutation: a permuted residual vector has
+Not simulated or tested: burden, TP53 and MSI confounding.
+
+## 9. Real-data runs
+
+All runs made before PI decision D5 were deleted. Only M1, NC1 and B0–B6 were regenerated with the fixed
+code, on 2026-10-27. Tuning runs are driven by the PI through the harness.
+
+Data: S2, n = 1,436; R = 12,141 regulators (426 CN-only); T = 18,276 targets; 221.9 M pairs, of which 209.9 M
+are trans. Everything runs in a single process on Accelerate BLAS. In the table, "footprint" is the
+`/usr/bin/time -l` peak memory footprint. macOS `ru_maxrss` (stored in meta.json) overstates it: 13.3 GB
+for M1, 11.3 GB for NC1 and 5.4–6.6 GB for the baselines.
+
+| run | compute s | end-to-end s | footprint GB | λ_GC (2 M entries) | NaN scores |
+|---|---:|---:|---:|---:|---:|
+| M1 (+ 1 in-process NC1 pass for calls) | 51.6 | 82 | 6.4 | 2.10 | 11,716 |
+| NC1 (index 0) | 27.5 | 57 | 4.9 | 0.96 | 11,713 (A = B) |
+| B0 | 2.7 | 32 | 3.0 | – | 0 |
+| B1 | 4.1 | 34 | 3.1 | 4.75 | 0 |
+| B2 | 4.8 | 34 | 3.0 | 16.7 | 7,822,128 (whole rows: 426 CN-only + 2 regulators with constant expression in S2) |
+| B3 / B4 / B4e / B5 | 2.4–2.9 | 31–32 | 3.0–3.9 | – | 0 |
+| B6 | 12.2 | 42 | 3.2 | 2.50 | 18,276 (1 regulator on an arm without an arm covariate) |
+
+- M1 NaN = the 11,713 A = B pairs plus 3 guarded same-chromosome pairs.
+- The B1 and B2 A = B entries are finite or infinite; they are same-chromosome entries, which the harness masks.
+- M1 call set (§7b; 1 NC1 pass): t* = 3.016, with 10,673,076 trans pairs called (5.1% of trans pairs) at an
+  estimated FDR of 0.0499.
+
+**Calibration.** NC1 is slightly below 1, as residual permutation predicts: a permuted residual vector has
 E[r²] ≈ 1/(n − 1), while t uses df = n − rank(D) − k_B − 1 ≈ 1,335, so E[t²] ≈ 1,335/1,435 ≈ 0.93.
-M1's λ ≈ 2 is not an artefact of the engine: NC1 is calibrated, and on SIM the null gives λ ≈ 1. It reflects
-genuine trans association structure that the covariates do not absorb, i.e. real effects plus
-residual confounding. The empirical-null step of DESIGN §5.2 (Efron z′) is meant to handle this, and it
-is not implemented here (it is deferrable per §12).
 
-### Variant runtimes on S2 (scored only; nothing was evaluated against the benchmark)
+M1's λ ≈ 2 is not an engine artefact:
+- NC1 is calibrated, and λ ≈ 1 on the SIM null;
+- the independent review (reviews/code/model_review.md) attributes most of the inflation to A's own-arm
+  dosage, the DESIGN §1 LOCO caveat. In its check λ was 1.23 for focal and 2.49 for B6, and M1 rows correlated
+  r ≈ 0.85 with B6 rows.
 
-| variant | engine s | end-to-end s | ru_maxrss GB | median per-chrom λ_GC |
-|---|---:|---:|---:|---:|
-| M1 (LOCO) | 25 | 55 | 11.3 | 1.96 |
-| focal | 19 | 48 | 10.8 | 1.20 |
-| loao | 34 | 64 | 10.6 | 1.90 |
-| cnpcs20 | 29 | 58 | 11.6 | 2.00 |
-| hinge | 61 | 92 | 11.8 | 1.45 (loss slope) |
-| rint | 28 | 57 | 11.7 | 2.22 |
-| floor5 | 25 | 55 | 11.4 | 1.94 |
-| tstd | 28 | 57 | 11.7 | — |
-| g1_t30_w0+g2_thr1_w0 | 26 | 55 | 11.4 | — (7,457 pass G1; 7,080 expressed in HCT116) |
-| a3_r095_s2_w05+g2_thr1_w0 | 85 | 114 | 13.4 | — (5,126 segments at ρ = 0.95) |
-| S1 (n = 999) | 20 | 50 | 10.5 | 1.63 |
-| NC1 | 26 | 56 | 11.4 | 0.91 |
-
-Every design was full rank with cond(D) ≤ 37. macOS `ru_maxrss` overstates the working set (the
-`/usr/bin/time -l` peak footprint for M1 was 4.9 GB). In S1, 2 targets are constant among the 999 lines
-and are NaN (guard). The focal variant's much lower λ is consistent with LOCO t being dominated by
-arm-level dosage shared along A's arm (DESIGN §1 caveat).
+The Efron empirical null (DESIGN §5.2) is not implemented; it is deferrable per §12.

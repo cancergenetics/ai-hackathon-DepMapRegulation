@@ -43,26 +43,125 @@ def test_planted_recovery_auroc(sim):
     assert abs(roc_auc_score(pos[ev], b0["score"][ev]) - 0.5) < 0.1
 
 
-def test_cross_chromosome_arm_confounding(sim):
-    """1q is co-selected with 3p, whose dosage drives `driver_targets`: B1 reports 1q -> driver-target
-    false positives; M1 (LOCO arms) does not."""
-    ds, tr, m1, b1 = sim
-    R, T, _ = _index(ds)
-    m = (ds.genes.loc[R, "arm_id"].to_numpy() == tr["coselect"][0])[:, None] & T.isin(tr["driver_targets"])[None, :]
-    fp_b1 = np.mean(np.abs(b1["t"][m]) > 3)
-    fp_m1 = np.mean(np.abs(m1["t"][m]) > 3)
-    assert fp_b1 > 0.1 and fp_m1 < 0.02, (fp_b1, fp_m1)   # nominal rate at |t| > 3 is 0.0027
-    # and the true LOCO effect of the driver arm is found by M1
-    md = (ds.genes.loc[R, "arm_id"].to_numpy() == tr["driver_arm"])[:, None] & T.isin(tr["driver_targets"])[None, :]
-    assert np.mean(np.abs(m1["t"][md]) > 3) > 0.5
+# ----------------------------------------------------------------------------- ablation helpers
+def _ablate(monkeypatch, what: str):
+    """Remove one adjustment from the model (for negative-control 'the test must fail' checks)."""
+    import depmaptr.pipeline as pl
+    from depmaptr.covariates import DesignBuilder
+    if what == "arms":
+        orig = DesignBuilder.design
+
+        def design(self, g):
+            D, names = orig(self, g)
+            keep = [i for i, nm in enumerate(names) if not nm.startswith("arm[")]
+            return D[:, keep], [names[i] for i in keep]
+        monkeypatch.setattr(DesignBuilder, "design", design)
+    elif what in ("lineage", "sex"):
+        orig_z = pl.build_Z
+
+        def build_Z(panel):
+            Z, log = orig_z(panel)
+            Z = Z[[c for c in Z.columns if not c.startswith(what + "[")]]
+            return Z, {**log, "columns": list(Z.columns)}
+        monkeypatch.setattr(pl, "build_Z", build_Z)
+    elif what == "homdel":
+        monkeypatch.setattr(pl, "HOMDEL_MIN_LINES", 10 ** 9)
+    else:
+        raise ValueError(what)
 
 
-def test_lineage_confounding_removed(sim):
+def _fp(t, rows, cols, thr=3.0):
+    return float(np.mean(np.abs(t[np.ix_(rows, cols)]) > thr))     # nominal rate at |t| > 3 is 0.0027
+
+
+def test_cross_chromosome_arm_confounding(sim, monkeypatch):
+    """1q and 3p move together (both directions, equal magnitude) and 3p dosage drives `driver_targets`:
+    B1 and M1-without-arm-block report 1q -> driver-target false positives; M1 does not."""
     ds, tr, m1, b1 = sim
     R, T, _ = _index(ds)
-    m = (ds.genes.loc[R, "arm_id"].to_numpy() == tr["lineage_arm"])[:, None] & T.isin(tr["lineage_programme"])[None, :]
-    assert np.mean(np.abs(b1["t"][m]) > 3) > 0.3
-    assert np.mean(np.abs(m1["t"][m]) > 3) < 0.02
+    rows = ds.genes.loc[R, "arm_id"].to_numpy() == tr["coselect"][0]
+    cols = T.isin(tr["driver_targets"])
+    assert _fp(m1["t"], rows, cols) < 0.02
+    assert _fp(b1["t"], rows, cols) > 0.1
+    _ablate(monkeypatch, "arms")
+    assert _fp(run(ds, Params(), log=quiet)["t"], rows, cols) > 0.1          # the adjustment is what works
+    # the true LOCO effect of the driver arm is found by M1
+    md = ds.genes.loc[R, "arm_id"].to_numpy() == tr["driver_arm"]
+    assert _fp(m1["t"], md, cols) > 0.5
+
+
+def test_lineage_confounding_removed(sim, monkeypatch):
+    ds, tr, m1, b1 = sim
+    R, T, _ = _index(ds)
+    rows = ds.genes.loc[R, "arm_id"].to_numpy() == tr["lineage_arm"]
+    cols = T.isin(tr["lineage_programme"])
+    assert _fp(b1["t"], rows, cols) > 0.3 and _fp(m1["t"], rows, cols) < 0.02
+    _ablate(monkeypatch, "lineage")
+    assert _fp(run(ds, Params(), log=quiet)["t"], rows, cols) > 0.3
+
+
+def test_sex_confounding_removed(sim, monkeypatch):
+    """Raw X CN tracks sex and an autosomal programme is sex-dependent: X regulators must not hit it."""
+    ds, tr, m1, b1 = sim
+    R, T, _ = _index(ds)
+    rows = (ds.genes.loc[R, "chrom"].to_numpy() == "X") & ~R.isin([tr["x_planted_regulator"]])
+    cols = T.isin(tr["sex_programme"])
+    assert _fp(m1["t"], rows, cols) < 0.02
+    _ablate(monkeypatch, "sex")
+    assert _fp(run(ds, Params(), log=quiet)["t"], rows, cols) > 0.3
+    # the planted X regulator's targets are recovered by M1
+    pl = tr["planted"]
+    xr = tr["x_planted_regulator"]
+    tt = m1["t"][R.get_loc(xr), T.get_indexer(pl.target[pl.regulator == xr])]
+    assert np.mean(np.abs(tt) > 5) > 0.8
+
+
+def test_homdel_indicator(sim, monkeypatch):
+    """Deleted targets collapse (non-linear in x_B); a partner segment is amplified in the deleted lines.
+    With the deletion indicator in W_B there are no partner -> deleted-target false positives; without it there are."""
+    ds, tr, m1, b1 = sim
+    R, T, _ = _index(ds)
+    rows = R.isin(tr["homdel_partner_genes"])
+    cols = T.isin(tr["homdel_genes"])
+    assert rows.sum() >= 3 and cols.sum() >= 5
+    assert _fp(m1["t"], rows, cols) < 0.05
+    _ablate(monkeypatch, "homdel")
+    assert _fp(run(ds, Params(), log=quiet)["t"], rows, cols) > 0.3
+
+
+def test_cn_only_genes_and_a3_without_nan(sim):
+    """CN-only genes (no expression column): t_cis = 0, s = +1, and A3 with w_co > 0 (+G2) adds no NaN
+    (PI decision D5); G2 is a multiplier for every regulator, including singletons."""
+    ds, tr, m1, _ = sim
+    R, T, _ = _index(ds)
+    cn_only = R.isin(tr["cn_only"])
+    assert cn_only.sum() > 10
+    assert (m1["cis_t"][cn_only] == 0).all() and (m1["s_cis"][cn_only] == 1).all()
+    o = run(ds, Params(a3_rho=0.95, a3_wco=0.5, g2_threshold=3.0, g2_w=0.0), log=quiet)
+    assert (np.isnan(o["score"]) == np.isnan(o["t"])).all()
+    expressed = ds.context_expr["HCT116"].reindex(list(R)).to_numpy() >= 3.0
+    assert (~expressed).sum() > 50
+    assert (np.nan_to_num(o["score"][~expressed]) == 0).all()
+    np.testing.assert_allclose(o["score"][expressed], (o["t"] * o["alpha"])[expressed], rtol=1e-5, equal_nan=True)
+
+
+def test_hinge_x_uses_sex_centred_cn():
+    """Hinge for X regulators splits at the sex-group median (copy-neutral), checked against statsmodels."""
+    import statsmodels.api as sm
+    from depmaptr.covariates import sex_centre, sex_groups
+    from depmaptr.pipeline import GroupCache, group_t, prepare
+    ds, tr = simulate(seed=6)
+    prep = prepare(ds, Params(dosage="hinge"))
+    xr = [k for k in ds.regulators if ds.genes.loc[k, "chrom"] == "X"][:3]
+    gv = GroupCache(prep).get("X")
+    t, df, _ = group_t(prep, gv, xr)
+    D, _ = prep.builder.design("X")
+    xs = sex_centre(prep.x_all[:, [prep.cn_idx[k] for k in xr]], sex_groups(ds.panel))
+    for i in range(3):
+        for j in [0, 100, 300]:
+            cols = [D, np.maximum(xs[:, i], 0), prep.XT[:, j]] + ([prep.DEL[:, j]] if prep.DEL[:, j].any() else [])
+            f = sm.OLS(prep.YT[:, j], np.column_stack(cols + [np.minimum(xs[:, i], 0)])).fit()
+            assert abs(f.tvalues[-1] - t[i, j]) < 1e-8 * max(1, abs(f.tvalues[-1]))
 
 
 def test_negative_cis_sign_rule(sim):

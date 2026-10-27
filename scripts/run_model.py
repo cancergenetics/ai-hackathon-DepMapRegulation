@@ -31,7 +31,8 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from depmaptr import io as dio  # noqa: E402
 from depmaptr.baselines import run_baseline  # noqa: E402
-from depmaptr.pipeline import Params, run  # noqa: E402
+from depmaptr import calls as dcalls  # noqa: E402
+from depmaptr.pipeline import ROOT_SEED, Params, run  # noqa: E402
 
 MEM_LIMIT_GB = 20.0
 
@@ -89,6 +90,9 @@ def main(argv=None):
     ap.add_argument("--variants-file", default=str(ROOT / "results" / "variants.yaml"))
     ap.add_argument("--max-wall", type=int, default=3600, help="wall-clock limit in seconds (DESIGN §8.10)")
     ap.add_argument("--chunk", type=int, default=512)
+    ap.add_argument("--nc1-perms", type=int, default=1,
+                    help="model runs: NC1 passes (spawn indices 0..k-1) of the same variant for the call set")
+    ap.add_argument("--no-calls", action="store_true", help="skip the call set (no in-process NC1)")
     a = ap.parse_args(argv)
 
     def _timeout(*_):
@@ -119,10 +123,34 @@ def main(argv=None):
     print(f"[run_model] {a.variant}: n={n} R={R} T={T}; est. peak {est_gb:.1f} GB", flush=True)
     assert est_gb < MEM_LIMIT_GB, f"estimated memory {est_gb:.1f} GB >= {MEM_LIMIT_GB} GB"
 
+    call_meta = None
     if kind == "baseline":
-        out = run_baseline(ds, baseline, p, seed=a.seed)
+        seed_used = (ROOT_SEED if a.seed is None else a.seed) if baseline == "B0" else None
+        out = run_baseline(ds, baseline, p, seed=seed_used)
     else:
+        seed_used = None
         out = run(ds, p)
+        if p.nc1_index is None and not a.no_calls:
+            # MVP call set (DESIGN §12) against NC1 passes of the SAME variant. Gates, A3 and target
+            # standardisation do not change t, so they are switched off in the null passes.
+            gc = ds.genes
+            trans = dcalls.trans_mask(gc.loc[ds.regulators, "chrom"].astype(str).to_numpy(),
+                                      gc.loc[ds.targets, "chrom"].astype(str).to_numpy())
+            real_h = dcalls.abs_t_hist(out["t"], trans)
+            null_h = np.zeros_like(real_h)
+            pn = Params.from_dict({**p.to_dict(), "g1_tau": None, "g2_threshold": None, "a3_rho": None,
+                                   "target_std": False})
+            for k in range(a.nc1_perms):
+                pn.nc1_index = k
+                null_h += dcalls.abs_t_hist(run(ds, pn, log=lambda *x, **y: None)["t"], trans)
+            ts = dcalls.t_star(real_h, null_h, a.nc1_perms)
+            out["call"] = dcalls.call_matrix(out["t"], trans, ts["t_star"])
+            ts["n_calls"] = int(out["call"].sum())
+            call_meta = {**ts, "scope": "trans pairs", "nc1_source": "in-process NC1 passes of this variant",
+                         "nc1_indices": list(range(a.nc1_perms)), "nc1_params": pn.to_dict() | {"nc1_index": "0..k-1"},
+                         "fdr": dcalls.FDR, "bin_width": dcalls.BIN}
+            del trans
+            print(f"[run_model] call set: t* = {ts['t_star']}, {ts['n_calls']} trans pairs", flush=True)
     wall = time.time() - t0
 
     od = Path(a.out)
@@ -133,6 +161,8 @@ def main(argv=None):
     for extra in ("alpha", "t_gain"):
         if extra in out:
             arrays[extra] = np.asarray(out[extra], np.float32)
+    if "call" in out:
+        arrays["call"] = np.asarray(out["call"], bool)
     assert arrays["t"].shape == arrays["score"].shape == (R, T)
     assert arrays["s_cis"].shape == arrays["cis_t"].shape == (R,)
     np.savez(od / "scores.npz", **arrays)
@@ -145,7 +175,7 @@ def main(argv=None):
     n_nan = int(np.isnan(arrays["score"]).sum())
     meta = {
         "run_id": od.name, "variant": a.variant, "kind": kind, "params": p.to_dict(),
-        "seed": a.seed if baseline == "B0" else None, "nc1_index": p.nc1_index,
+        "seed": seed_used, "nc1_index": p.nc1_index, "calls": call_meta,
         "git": git_hash(), "data": "SIM" if a.sim is not None else "real", "sim_seed": a.sim,
         "input_checksums": ds.input_checksums, "sample_set": ds.sample_set,
         "n_samples": int(n), "n_regulators": int(R), "n_targets": int(T), "n_pairs": int(R * T),

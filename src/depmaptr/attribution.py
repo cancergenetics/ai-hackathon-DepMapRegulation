@@ -8,7 +8,10 @@
    ABF(z) = sqrt(1 - lam) exp(lam z^2 / 2), lam = sigma0^2 / (sigma0^2 + 1/df), sigma0 = 0.05;
    pi_g ∝ exp(t_cis,g / s) * w_G2(g); if sum(pi) = 0 within a segment, pi is uniform.
    Singleton segments get alpha = 1. Computed in log space.
-3. z_co,gB = atanh(r) sqrt(df - 1), r = partial corr(y_g, y_B | x_g, D, W_B) (computed in pipeline).
+3. z_co,gB = atanh(r) sqrt(df - 1), r = partial corr(y_g, y_B | x_g, D, W_B) (computed in pipeline);
+   CN-only genes have z_co = 0 (no co-expression evidence; PI decision D5).
+4. The final score is S = t * w_G1 * w_G2 * alpha: w_G2 is applied as a multiplier for every regulator
+   (incl. singletons) AND enters pi_g (PI decision D5, amending DESIGN §5.6).
 """
 from __future__ import annotations
 
@@ -57,10 +60,12 @@ def segment_alpha(labels: np.ndarray, t: np.ndarray, df: np.ndarray, t_cis: np.n
     t_cis: m; w_g2: m (None -> 1); zco, df_co: m x T (only used when w_co > 0).
     """
     m, T = t.shape
+    assert np.isfinite(df).all(), "segment_alpha: non-finite df"
     z = np.nan_to_num(t, nan=0.0)
     ll = log_abf(z, df, sigma0)
     if w_co > 0:
         assert zco is not None and df_co is not None
+        assert np.isfinite(zco).all() and np.isfinite(df_co).all(), "segment_alpha: non-finite z_co/df_co"
         ll = ll + w_co * log_abf(np.nan_to_num(zco, nan=0.0), df_co, sigma0)
     with np.errstate(divide="ignore"):
         lp = np.nan_to_num(np.asarray(t_cis, np.float64), nan=0.0) / s

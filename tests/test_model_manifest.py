@@ -31,13 +31,24 @@ def _check_npz(path: Path, R=None, T=None):
     return z
 
 
-@pytest.mark.parametrize("variant", ["M1", "B5", "a3_r095_s2_w0+g2_thr1_w0", "NC1"])
+@pytest.mark.parametrize("variant", ["M1", "B0", "B5", "a3_r095_s2_w0+g2_thr1_w0", "NC1"])
 def test_run_model_sim(tmp_path, variant):
     out = tmp_path / variant.replace("+", "_")
     subprocess.run([sys.executable, str(ROOT / "scripts" / "run_model.py"), "--variant", variant, "--sim", "1",
                     "--out", str(out)], check=True, capture_output=True)
     z = _check_npz(out / "scores.npz")
     meta = json.loads((out / "meta.json").read_text())
+    if variant in ("M1", "a3_r095_s2_w0+g2_thr1_w0"):
+        assert "call" in z.files and z["call"].dtype == bool and z["call"].shape == z["t"].shape
+        assert meta["calls"]["n_calls"] == int(z["call"].sum())
+        rch = np.array([r.split("(")[0][1:-5] for r in z["regulators"]])
+        tch = np.array([r.split("(")[0][1:-5] for r in z["targets"]])
+        assert not z["call"][rch[:, None] == tch[None, :]].any()           # trans only
+        assert np.all(np.abs(z["t"][z["call"]]) >= meta["calls"]["t_star"])
+    else:
+        assert "call" not in z.files
+    if variant == "B0":
+        assert meta["seed"] == 20261027
     assert META_KEYS <= set(meta) and meta["variant"] == variant and meta["data"] == "SIM"
     man = json.loads((out / "manifest.json").read_text())
     assert man["n_regulators"] == len(z["regulators"]) and man["n_targets"] == len(z["targets"])
@@ -57,14 +68,32 @@ def test_variants_yaml():
         Params.from_dict({**v["defaults"], **e["params"]})
 
 
-@pytest.mark.parametrize("run_id", ["M1", "B0", "B1", "B2", "B3", "B4", "B4e", "B5", "B6", "NC1"])
+RUN_DIRS = sorted(p.name for p in SCORES.glob("*") if (p / "scores.npz").exists()) if SCORES.exists() else []
+
+
+@pytest.mark.parametrize("run_id", RUN_DIRS or ["<none>"])
 def test_real_score_files(run_id):
+    """Every real run directory: contract, pinned ranges, and NaN share <= A=B (+ CN-only rows for B2/B6)."""
     d = SCORES / run_id
     if not (d / "scores.npz").exists():
-        pytest.skip(f"no real score file for {run_id}")
+        pytest.skip("no real score files")
     meta = json.loads((d / "meta.json").read_text())
     assert META_KEYS <= set(meta)
+    if meta.get("data") != "real":
+        pytest.skip("not a real-data run")
     assert meta["n_samples"] == 1436
     assert 11000 < meta["n_regulators"] < 13000 and 17500 < meta["n_targets"] < 18500
     z = _check_npz(d / "scores.npz", meta["n_regulators"], meta["n_targets"])
-    assert np.isfinite(z["score"]).mean() > 0.95   # B2: CN-only regulators are NaN
+    R, T = z["t"].shape
+    n_same = len(set(z["regulators"]) & set(z["targets"]))
+    allowed = n_same
+    if meta["variant"] == "B2":       # whole NaN rows: CN-only regulators + constant-expression regulators
+        nan_rows = np.isnan(z["score"]).all(1)
+        assert int(np.isnan(z["score"]).sum()) == int(nan_rows.sum()) * T
+        assert nan_rows.sum() <= meta["n_regulators_without_expression"] + 5
+        allowed = int(nan_rows.sum()) * T
+    if meta["variant"] == "B6":
+        allowed = int(np.isnan(z["score"]).any(1).sum()) * T      # regulators on arms without an arm covariate
+    assert int(np.isnan(z["score"]).sum()) <= allowed + 100, (int(np.isnan(z["score"]).sum()), allowed)
+    if meta["kind"] == "model" and meta["nc1_index"] is None:
+        assert "call" in z.files and meta["calls"]["n_calls"] == int(z["call"].sum())

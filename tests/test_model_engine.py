@@ -168,3 +168,18 @@ def test_saved_m1_scores_match_engine(real_prep):
         g = prep.builder.group_of([a])[0]
         t, _, _ = group_t(prep, GroupCache(prep).get(g), [a])
         np.testing.assert_allclose(z["t"][regs.index(a)], t[0].astype(np.float32), rtol=1e-6, atol=1e-6)
+
+
+@real
+def test_real_a3_wco_no_new_nan(real_prep):
+    """PI decision D5: A3 with w_co > 0 (+ G2) on real chromosomes with CN-only genes adds no NaN vs t."""
+    from depmaptr.pipeline import Params, run
+    ds = real_prep.ds
+    cn_only = set(ds.cn_keys) - set(ds.expr_keys)
+    ch = ds.genes.loc[list(cn_only), "chrom"].astype(str)
+    assert (ch == "21").sum() > 0 and (ch == "X").sum() > 0
+    o = run(ds, Params(a3_rho=0.95, a3_wco=0.5, g2_threshold=1.0, g2_w=0.0), log=lambda *a, **k: None,
+            chroms=["21", "X"])
+    rows = ds.genes.loc[ds.regulators, "chrom"].astype(str).isin(["21", "X"]).to_numpy()
+    assert (np.isnan(o["score"][rows]) == np.isnan(o["t"][rows])).all()
+    assert np.isfinite(o["alpha"][rows]).all()
