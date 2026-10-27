@@ -16,45 +16,68 @@ regulators held out by chromosome arm, which were sealed outside the repository 
 **Held-out (TEST) results.** HCT116 is the primary line; there are 14 held-out arms, 1,817 regulators and
 17.7 M universe pairs.
 
-| method | OR @ top 0.1% | jackknife 95% CI | regulator-label permutation p | sign concordance (c₀) | sign perm p |
-|---|---:|---|---:|---|---:|
-| **Selected CN-only tool** (M1 + G1 + A3) | **3.85** | 1.33–11.2 | 0.068 | **0.718** (0.541), n=131 | **0.012** |
-| Selected minus cis gate (M1 + A3) | 1.46 | 0.91–2.33 | 0.23 | 0.72 (0.49), n=50 | 0.006 |
-| Context layer (selected + HCT116 target-detectability fusion) | **18.4** | 10.9–30.9 | **0.015** | 0.549 (0.507) | 0.22 |
-| B5: DepMap-only hub prior (regulator cis×CN-SD × target HCT116 expression) | 22.8 | 3.3–159 | 0.043 | = c₀ (no sign) | — |
-| B2: co-expression | 6.03 | 2.7–13.4 | 0.095 | 0.843 (0.845) | 1.0 |
-| B0 random / NC1 permuted CN | 1.17 / 1.28 | — | 0.15 / 0.16 | — | — |
+| method | OR @ top 0.1% | jackknife 95% CI | regulator-label permutation p | sign-concordant OR | concordance (c₀; within-regulator null mean) | sign perm p | score time (s) |
+|---|---:|---|---:|---:|---|---:|---:|
+| **Selected CN-only tool** (M1 + G1 + A3) | **3.85** | 1.33–11.2 | 0.068 | 5.84 | **0.718** (0.541; 0.647), n=131 | **0.012** | 67.2 |
+| Selected minus cis gate (M1 + A3) | 1.46 | 0.91–2.33 | 0.23 | 1.89 | 0.72 (0.49), n=50 | 0.006 | 66.1 |
+| Context layer (selected + HCT116 target-detectability fusion) | **18.4** | 10.9–30.9 | **0.015** | 21.1 | 0.549 (0.507) | 0.22 | 82.7 |
+| B5: DepMap-only hub prior (regulator cis×CN-SD × target HCT116 expression) | 22.8 | 3.3–159 | 0.043 | 26.2 | = c₀ (no sign information) | — | 2.4 |
+| B4e: target expression in DepMap HCT116 | 7.39 | 5.55–9.83 | 0.53 | — | — | — | — |
+| B4: target expression SD | 5.73 | 4.23–7.76 | 0.53 | — | — | — | — |
+| B2: co-expression | 6.03 | 2.7–13.4 | 0.095 | 7.83 | 0.843 (0.845) | 1.0 | 4.8 |
+| B0 random | 1.17 | 0.96–1.41 | 0.15 | 1.25 | — | — | 2.7 |
+| NC1 permuted CN | 1.28 | 0.48–3.40 | 0.16 | 0.83 | — | — | 27.5 |
 
 The findings:
-1. **The CN-only tool replicates on TEST.** Its enrichment is OR 3.85, against M1 1.59 and the TRAIN incumbent
-   5.0. Its Fisher p is 2×10⁻³⁶ assuming independence, but under the conservative regulator-label
-   permutation it is borderline (p = 0.068).
-2. **The predicted direction of effects is strongly and significantly correct.** Among overlapping pairs,
-   71.8% are concordant (CN loss ↔ knockdown), against 54.1% expected under independence (within-regulator
-   permutation p = 0.012). The sign-concordant OR is 5.84. This is the clearest pair-level information the
-   tool provides.
+1. **The CN-only tool's enrichment carries over to TEST in size and direction, but it is not significant under
+   the pre-registered test.**
+   - OR 3.85 on TEST. On TRAIN, M1 reached 1.59 and the selected tool 5.0. The TEST ablation without G1
+     reaches 1.46.
+   - The jackknife CI excludes 1, and the paired gain over random scores is significant (Δlog-OR +1.19, CI
+     0.13–2.26).
+   - The pre-registered regulator-label permutation gives p = 0.068, and the degree-stratified permutation
+     p = 0.061. The paired gain over the permuted-CN control NC1 is not significant (+1.10, CI −0.66 to
+     2.85). Fisher p is 2×10⁻³⁶, but only under an independence assumption we reject.
+   - Target-detectability baselines (B4e 7.39, B4 5.73) and co-expression (B2 6.03) all score above the
+     CN-only tool on pooled OR. None of these paired differences is significant.
+2. **The predicted direction of effects is better than chance, modestly.**
+   - Among the 131 overlapping pairs, 71.8% are concordant (CN loss ↔ knockdown).
+   - The pooled independence expectation is 54.1%. The within-regulator permutation null, which keeps each
+     regulator's direction bias, has mean 64.7%; against it the excess is about 7 percentage points
+     (p = 0.012).
+   - The overlaps are concentrated in a few regulators: only 6 have ≥ 5 overlapping pairs.
+   - The result holds without HCT116, without CN-outlier lines, with hidden factors and without paralog
+     pairs. It is **not** significant in the S1 sample set (0.586 vs 0.467, p = 0.13) or in the
+     no-split-sibling subset (0.50 vs 0.48, n = 32, p = 0.48).
 3. **The cis-instrument gate (G1) is the key ingredient.** On TEST it improves log-OR by +0.97 (paired
-   jackknife 95% CI 0.30–1.64).
-4. **The tool has no within-regulator target information.**
-   - Per-regulator AUROC is 0.500 (179 regulators) and the regulator-stratified CMH OR is 0.94 (CI
-     0.77–1.15).
-   - The pair-shuffle control C1 leaves the OR unchanged (3.85 vs 3.76).
-   - DepMap CN tells us *which* regulators have trans consequences detectable by CRISPRi, and the *direction*
-     of those consequences. It does not tell us *which* targets will respond.
-5. **The context layer adds target detectability and reaches OR 18.4.** It is not significantly different
-   from the DepMap-only hub prior B5 (Δlog-OR −0.22, CI −2.29 to 1.86). It does beat the same fusion built
-   on permuted CN (C2; +0.55, CI 0.07–1.03), so the real CN evidence improves regulator allocation. After
-   removing the top 1% hub regulators and targets, it reaches 14.8 versus B5's 11.8.
+   jackknife 95% CI 0.30–1.64), consistent with TRAIN (+0.79).
+4. **The tool has no detectable information for ranking targets within a regulator.**
+   - Per-regulator AUROC is 0.500 (179 regulators), and the regulator-stratified CMH OR is 0.94 (CI
+     0.77–1.15, which bounds any lift at about 15%).
+   - The pair-shuffle control C1 gives 3.76 vs 3.85 (Δlog-OR +0.02). Its jackknife CI (−0.75 to 0.79) is
+     too wide for C1 on its own to be informative.
+   - DepMap CN tells us *which* regulators have trans consequences detectable by CRISPRi, and (modestly) in
+     which *direction*. It does not tell us *which* of their targets respond.
+5. **The context layer adds target detectability and reaches OR 18.4.**
+   - It is not significantly different from the DepMap-only hub prior B5 (Δlog-OR −0.22, CI −2.29 to 1.86).
+   - It does beat the same fusion built on permuted CN (C2; +0.55, CI 0.07–1.03). So the real CN evidence
+     improves regulator allocation; this is real t plus A3, since C2 has neither.
+   - After removing the top 1% hub regulators and targets, it reaches 14.8 versus B5's 11.8 (no paired
+     test).
 6. **HEK293T (secondary) does not replicate for the CN-only tool** (TEST OR 0.49; only 6 pairs overlap). The
-   context layer reaches 5.1 there. HEK293T is not a DepMap line, and 83% of its trans hits come from
-   non-expressed (likely artefactual) perturbations (§3).
+   context layer reaches 5.1 there (perm p 0.91), below B4e (14.5) and B5 (35.9). HEK293T is not a DepMap
+   line, and 83% of its trans hits come from non-expressed (likely artefactual) perturbations
+   (docs/DATA_PROFILE.md §11).
 
-**Runtime** (10-core laptop CPU, no GPU):
-- one full tool run (12,141 regulators × 18,276 targets ≈ 2.2×10⁸ pairs, including the permutation pass
-  used for the call set): 52–91 s of compute;
-- peak footprint ≈ 6 GB (macOS `ru_maxrss` reports 13–14 GB);
-- evaluating one score file on the benchmark: 2–4 s;
-- the whole final TEST evaluation (25 runs × 2 lines, 1,000 permutations each): 4.5 min.
+**Runtime** (10-core laptop CPU, no GPU; per-method score times are in the table above):
+- One full tool run scores 12,141 regulators × 18,276 targets ≈ 2.2×10⁸ pairs, including the NC1 permutation
+  pass used for the call set. Compute time is 67 s for the selected method and 83 s for the context layer
+  (52–91 s across all model variants), plus about 30 s of data loading end to end.
+- Peak memory footprint (`/usr/bin/time -l`) is about 6.4 GB for M1 and 7.3–8.4 GB for variants built on the
+  selected method. macOS `ru_maxrss` reports 14 GB for the CN-only tool and 20 GB for the context layer.
+- Evaluating one score file on the benchmark takes 1.4–3.2 s.
+- The whole final TEST evaluation (55 evaluations of 23 runs over 2 lines, 1,000 permutations each) took
+  4.5 min.
 
 See `results/runtime_table.tsv` and the runtime section of `results/final/summary.md`.
 
@@ -65,7 +88,7 @@ See `results/runtime_table.tsv` and the runtime section of `results/final/summar
   a bot wall; DATA.md lists the evidence. We used `OmicsCNGeneWGS` (linear relative CN, ploidy-normalised)
   and `OmicsExpressionTPMLogp1HumanProteinCodingGenes`, with the default profile per model.
 - **Sample set S2:** n = 1,436 cell lines. Organoids, engineered models and duplicate patients are excluded.
-  The PureCN-complete set (S1, n ≈ 999–1,037) was rejected as primary because it drops HCT116 itself and
+  The PureCN-complete set (S1, n = 999 within S2) was rejected as primary because it drops HCT116 itself and
   45% of MSI-H lines (data audit E2).
 - **Covariates:**
   - PureCN ploidy/WGD and MSIScore are from 24Q4, the last release with them; missing values get
@@ -122,7 +145,7 @@ See `results/runtime_table.tsv` and the runtime section of `results/final/summar
     hashes committed, before any evaluation.
   - One final run: its LOCK was committed before any TEST file was read (commits 603a7f5 → e9085c7).
 
-## 3. How the method was chosen (TRAIN only; 29 of 30 budgeted configurations)
+## 3. How the method was chosen (TRAIN only; 29 of 30 budgeted configurations including M1; the 7 D8 sensitivity/ablation runs were evaluated on TRAIN for reporting only)
 
 Greedy pre-registered tiers on HCT116 TRAIN were adopted only if the log-OR gain was positive in both TRAIN
 arm-folds **and** the paired-bootstrap 90% lower bound was > 0 (§8.2). Full log: `results/tuning_log.tsv`.
@@ -162,9 +185,9 @@ All of these are in `results/final/summary.md`.
 | regulators not expressed (class iii, empirical null) | 0.23 | 1 hit |
 | NC2 (not expressed in benchmark or DepMap) | 0.12 (selected), 1.46 (ungated M1) | few hits; consistent with null |
 | no-split-sibling regulators (other arm also in TEST) | 2.61 | |
-| call set (1.19 M pairs at NC1-FDR 5%) | 1.15 | Fisher p 3×10⁻¹¹ |
+| call set (M1 \|t\| ≥ t*, NC1-FDR 5%; 1.19 M TEST-universe pairs, 10.7 M genome-wide) | 1.15 | Fisher p 3×10⁻¹¹; identical for selected, minus-G1 and context layer, because t* thresholds the M1 t |
 
-- **Leaving HCT116 itself out of DepMap changes nothing** (Δlog-OR +0.02), so the result is not driven by the
+- **Leaving HCT116 itself out of DepMap changes nothing** (Δlog-OR −0.02 vs selected, CI −0.08 to 0.05), so the result is not driven by the
   benchmark line being in the training panel.
 - **PC2, the empirical ceiling:** HEK293T Perturb-seq hits used to predict HCT116 hits for shared regulators
   give OR 181. This is the scale of agreement between two CRISPRi screens, far above anything observational.
@@ -173,17 +196,18 @@ All of these are in `results/final/summary.md`.
   - "other" 3.21 (101 hits);
   - TF and kinase have **0 hits** in the top-K. Their displayed ORs (6.7, 42.9) are Haldane-corrected
     artefacts of empty cells and are uninformative.
-  - Consistent with the brief, the CN signal is not TF-specific.
+  - The CN signal is not TF-enriched (0 TF hits, although power is low), consistent with the brief.
 
 ## 5. Interpretation
 
-DepMap copy-number variation acts as a weak, confounded, but real natural perturbation:
+DepMap copy-number variation acts as a weak and heavily confounded natural perturbation; the evidence that it is informative at all is suggestive rather than conclusive on TEST (§1):
 - **Which regulators.** Regulators whose own mRNA strongly tracks their CN are the ones whose CRISPRi
   knockdown has detectable trans consequences. Restricting to them roughly doubles to triples enrichment.
-- **Direction.** The direction of DepMap CN→expression associations predicts the direction of knockdown
-  effects (72% vs 54%).
+- **Direction (modest).** The direction of DepMap CN→expression associations tends to predict the direction
+  of knockdown effects: 72% concordant against a 65% within-regulator null. The result is not robust in every
+  sensitivity analysis.
 - **Not which targets.** Within a regulator, which targets respond in a single-cell CRISPRi screen of one line
-  is not predicted by cross-line CN associations at all. Perturb-seq power is dominated by target expression
+  is not detectably predicted by cross-line CN associations. Perturb-seq power is dominated by target expression
   depth, and DepMap trans associations are dominated by arm-level co-dosage signatures.
 - **The pooled benchmark rewards hubness and detectability.** A label-free DepMap prior (B5) reaches OR ≈ 20.
   An honest evaluation of observational trans inference must therefore report hub baselines and
@@ -198,15 +222,22 @@ DepMap copy-number variation acts as a weak, confounded, but real natural pertur
   so gains with one unstable fold were rejected; some may be real (focal, I4).
 - **HEK293T benchmark quality is low.** It is not a DepMap line, and its hits are dominated by non-expressed
   perturbations. The CN-only tool fails there on TEST, with very few overlaps.
-- **The release is unverified** (26Q3 by inference). PureCN covariates are frozen at 24Q4 and missing for 40%
-  of lines. Purity is unavailable.
+- **The release is unverified** (26Q3 by inference). PureCN covariates are frozen at 24Q4 and missing for 30% of S2 lines (437/1,436; imputed, with an indicator). Purity is unavailable.
 - **The LOCO model attributes each arm-level trans signature to every gene on the arm.** A3 attribution
   helps regulator allocation, but cannot identify the causal gene without extra information.
 - **The CMH stratification is coarse.** The frozen CMH (pan-DepMap expression deciles) does not remove
-  HCT116 detectability (B4e alone scores 3.8), so CMH was supplemented by the C1 control and the D6
+  HCT116 detectability (B4e alone scores 3.8), (B4e alone scores 3.8 on TRAIN and 4.1 on TEST), so CMH was supplemented by the C1 control and the D6
   HCT116-stratified CMH.
-- **The call set is large** (1.2 M pairs) because λ_GC ≈ 2.1 reflects genuine arm-level structure. Its
+- **The call set is large** (10.7 M trans pairs genome-wide; 1.2 M in the TEST universe) because λ_GC ≈ 2.1 reflects genuine arm-level structure. Its
   enrichment is modest (OR 1.15). For use, ranking is preferable to calling.
+
+- **The sign result is not robust in every sensitivity analysis** (S1 p = 0.13; no-split-sibling p = 0.48).
+- **The CN-only tool does not significantly beat NC1 in the paired test**, and its pooled OR is below B2, B4
+  and B4e.
+- **The no-split-sibling subset is weaker** (OR 2.61, CI 0.41–16.6, perm p 0.15). It contains regulators
+  whose chromosome's other arm is also in TEST, so it has the least arm-level leakage from TRAIN.
+- **Many secondary TEST metrics are reported without multiplicity adjustment.** Only the pre-registered
+  primary metric should be read confirmatorily.
 
 ## 7. Follow-ups and remaining ideas
 
@@ -228,12 +259,15 @@ DepMap copy-number variation acts as a weak, confounded, but real natural pertur
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r requirements.lock.txt && .venv/bin/pip install -e .
-scripts/data/run_all.sh                                   # data foundation (DepMap files in starting_data/)
-.venv/bin/python scripts/benchmark/build_benchmark.py     # benchmark tables + split (needs raw PIE DE)
+scripts/data/run_all.sh        # data foundation: needs starting_data/ + PIE DE parquet (HF abfa3da) in data/external/pie_x_atlas_orion/
+.venv/bin/python scripts/data/download_paralogs.py && .venv/bin/python scripts/data/build_regulator_classes.py
+.venv/bin/python scripts/benchmark/build_benchmark.py     # benchmark tables + split from the PIE DE tables; fresh clone only (it regenerates TEST labels, which this repo keeps sealed)
 .venv/bin/python scripts/run_model.py --variant g1_t100_w0+a3_r095_s2_w0 --out data/results/scores/g1_t100_w0__a3_r095_s2_w0
 .venv/bin/python scripts/evaluate.py g1_t100_w0__a3_r095_s2_w0 --line both   # TRAIN only
-.venv/bin/python -m pytest -q tests                       # 185 tests (SIM known-answer, OLS agreement, metrics)
+.venv/bin/python -m pytest -q tests                       # 187 tests (SIM known-answer, OLS agreement, metrics)
+.venv/bin/python scripts/runtime_table.py                 # results/runtime_table.tsv
+# other score runs: every run id in results/final/selected.yaml, via run_model.py --variant <spec with '+'>
 ```
 
 Seeds are in `config/seeds.yaml` (mirrors `results/variants.yaml`: [20261027, 1, 2, 3, 4]; streams use `SeedSequence(20261027)` spawns logged per run). The TEST run
-is locked (`results/final/LOCK`) and cannot be repeated without a logged override.
+is locked (`results/final/LOCK`), and `scripts/final_eval.py` refuses to run again while the LOCK exists.
