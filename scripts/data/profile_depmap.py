@@ -281,7 +281,64 @@ def main() -> int:
     cov["ploidy_concordance"] = {"n": len(sub), "pearson": float(np.corrcoef(sub.sig24_Ploidy, sub.cmp_ploidy)[0, 1])}
     cov["any_ploidy"] = int((m.sig24_Ploidy.notna() | m.cmp_ploidy.notna()).sum())
     cov["any_msi"] = int((m.sig24_MSIScore.notna() | m.cmp_msi_status.notna()).sum())
+    # provenance of the PureCN values (data review E1): count among models that actually HAVE ploidy
+    hp = m[m.sig24_Ploidy.notna()]
+    cov["ploidy_by_source"] = vc(hp.sig24_source)
+    cov["ploidy_model_level_datatype"] = vc(hp[hp.sig24_source == "model_level_24Q4"].sig24_model_profile_datatype)
+    cov["same_profile_without_ploidy"] = int(((m.sig24_source == "same_profile") & m.sig24_Ploidy.isna()).sum())
+    prof_all = pd.read_csv(SD / "OmicsProfiles.csv")
+    nseq = prof_all.groupby("ProfileID").SequencingID.nunique()
+    cov["cn_default_profileid_with_multiple_sequencings"] = int((m.cn_profile_id.map(nseq) > 1).sum())
     R["covariates"] = cov
+
+    # ---------------- sample annotation for S2 (cell lines only) ----------------
+    cl = m[m.model_ModelType == "Cell Line"]
+    sa = {"n_matched_cell_lines": len(cl)}
+    for c in ["model_EngineeredModel", "model_EngineeredModelDetails", "model_CulturedResistanceDrug",
+              "model_ModelTreatment", "model_ModelDerivationMaterial", "model_ModelIDAlias"]:
+        sa[c] = {"n_non_missing": int(cl[c].notna().sum()), "levels": vc(cl[c].dropna(), 20)}
+    pid = cl.model_PatientID
+    per = pid.value_counts()
+    sa["PatientID"] = {"n_missing": int(pid.isna().sum()), "n_patients": int(pid.nunique()),
+                       "patients_with_gt1_model": int((per > 1).sum()),
+                       "extra_models_beyond_one_per_patient": int((per - 1).clip(lower=0).sum()),
+                       "max_models_per_patient": int(per.max())}
+    sa["any_engineered_or_resistance_flag"] = int((cl.model_EngineeredModel.notna() | cl.model_CulturedResistanceDrug.notna()).sum())
+    sa["OncotreePrimaryDisease"] = {"n_missing": int(cl.model_OncotreePrimaryDisease.isna().sum()),
+                                    "n_levels": int(cl.model_OncotreePrimaryDisease.nunique())}
+    het = {}
+    for lin in ["Lymphoid", "Myeloid", "CNS/Brain", "Esophagus/Stomach", "Soft Tissue", "Bone"]:
+        sub = cl[cl.model_OncotreeLineage == lin].model_OncotreePrimaryDisease.value_counts()
+        het[lin] = {"n": int(sub.sum()), "levels_ge15": {k: int(v) for k, v in sub[sub >= 15].items()},
+                    "n_in_levels_lt15": int(sub[sub < 15].sum())}
+    sa["primary_disease_within_heterogeneous_lineages"] = het
+    sa["sex"] = vc(cl.model_Sex)
+    R["sample_annotation_cell_lines"] = sa
+
+    # ---------------- TP53 and RNA technical coverage (matched cell lines) ----------------
+    tp = pd.read_csv(PROC / "depmap_tp53.tsv", sep="\t").set_index("ModelID").reindex(cl.ModelID)
+    R["tp53"] = {"status": vc(tp.tp53_status), "genotyped": int(tp.genotyped_24Q4.sum()),
+                 "frac_genotyped": float(tp.genotyped_24Q4.mean()),
+                 "mutant_frac_among_genotyped": float((tp.tp53_status == "mutant").sum() / tp.genotyped_24Q4.sum()),
+                 "damaging_gt0": int((tp.tp53_damaging > 0).sum()), "hotspot_gt0": int((tp.tp53_hotspot > 0).sum()),
+                 "hotspot_only": int(((tp.tp53_hotspot > 0) & (tp.tp53_damaging == 0)).sum()),
+                 "damaging_only": int(((tp.tp53_damaging > 0) & (tp.tp53_hotspot == 0)).sum()),
+                 "wt_with_other_coding_variant": int(tp.tp53_other_coding.sum()),
+                 "cn_homdel": int((tp.tp53_cn_homdel == True).sum()),  # noqa: E712
+                 "cn_homdel_and_status_wt": int(((tp.tp53_cn_homdel == True) & (tp.tp53_status == "wt")).sum()),  # noqa: E712
+                 "genotyped_among_ploidy_covered": int(tp.genotyped_24Q4[cl.set_index("ModelID").sig24_Ploidy.notna()].sum()),
+                 "n_ploidy_covered": int(cl.sig24_Ploidy.notna().sum()),
+                 "genotyped_among_msiscore_covered": int(tp.genotyped_24Q4[cl.set_index("ModelID").sig24_MSIScore.notna()].sum())}
+    rt = pd.read_csv(PROC / "depmap_rna_technical.tsv", sep="\t").set_index("ModelID").reindex(cl.ModelID)
+    yr = rt.rna_seq_year
+    R["rna_technical"] = {
+        "Stranded": vc(rt.rna_Stranded), "SequencingPlatform_missing": int(rt.rna_SequencingPlatform.isna().sum()),
+        "SequencingPlatform_levels": vc(rt.rna_SequencingPlatform.dropna()),
+        "rna24_Product": vc(rt.rna24_Product.dropna()),
+        "SourceModelCondition": vc(rt.rna_SourceModelCondition),
+        "stranded_by_year": {str(int(k)): {str(kk): int(vv) for kk, vv in v.items()}
+                             for k, v in rt.groupby(yr).rna_Stranded.value_counts().unstack(fill_value=0).iterrows()},
+        "profile_with_multiple_sequencings": int((rt.rna_profile_n_sequencings > 1).sum())}
 
     # ---------------- derived arm-level CN ----------------
     arm = pd.read_parquet(PROC / "depmap_arm_cn_derived.parquet")
@@ -308,6 +365,24 @@ def main() -> int:
     pl_ = m.set_index("ModelID").sig24_Ploidy.reindex(W.index)
     ok = pl_.notna()
     R["arm_cn"]["max_abs_corr_arm_vs_ploidy"] = float(W[ok].corrwith(pl_[ok]).abs().max())
+    # floor sensitivity (data review E5): the floor/cap is a modelling choice; DESIGN v2 uses
+    # x = log2(clip(relCN, 2^-2, 2^3)). Compare the derived arm medians under both transforms.
+    L2 = np.log2(np.clip(X, 2 ** -2, 2 ** 3))
+    annc = a.loc[cn_cols]
+    diffs = []
+    for arm_id in W.columns:
+        idx = np.flatnonzero(((annc.chrom.astype(str) + annc.arm.astype(str)) == arm_id).to_numpy()
+                             & ~annc.is_par.to_numpy(dtype=bool))
+        d = np.nanmedian(L2[:, idx], 1) - np.nanmedian(L[:, idx], 1)
+        diffs.append((arm_id, float(np.nanmax(np.abs(d))), int(np.sum(np.abs(d) > 0.01))))
+    R["cn_transform"] = {
+        "frac_values_below_2^-5": float(np.mean(v < 2 ** -5)), "frac_values_below_2^-2": float(np.mean(v < 2 ** -2)),
+        "frac_values_above_2^3": float(np.mean(v > 2 ** 3)),
+        "max_abs_diff_arm_median_clip(2^-2,2^3)_vs_floor(2^-5)": {
+            "autosomal": max(d[1] for d in diffs if not d[0].startswith(("X", "Y"))),
+            "X": max([d[1] for d in diffs if d[0].startswith("X")] or [0.0]),
+            "n_model_arms_abs_diff_gt_0.01": sum(d[2] for d in diffs)},
+        "note": "derived arm CN (build_depmap_tables.py) and variability stats use floor 2^-5; DESIGN v2 models x = log2(clip(relCN, 2^-2, 2^3)); floor/cap is a modelling choice"}
 
     out = PROC / "depmap_profile.json"
     with open(out, "w") as fh:

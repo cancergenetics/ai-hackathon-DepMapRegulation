@@ -26,6 +26,9 @@ Mapping rules (explicit; see docs/DATA_PROFILE.md):
     match). Arm (p/q) and band come from the UCSC band containing the gene midpoint. Genes without
     a primary-assembly location fall back to the HGNC 'location' field for chromosome/arm.
   chrom_class: autosome / X / Y / MT / unplaced (scaffold or no reference-assembly location).
+  PAR genes: is_par (HGNC location lists X and Y, or coordinates in a GRCh38 PAR), par_region
+    (PAR1 / PAR2 / hgnc_location_only), par_y_copy (DepMap "_PAR_Y" CN column). In pie_gene_map.tsv,
+    depmap_cn_column is always the X/autosomal copy; the Y copy is in depmap_cn_column_par_y.
 """
 from __future__ import annotations
 
@@ -219,6 +222,17 @@ def locate(m: Mapper, cyto: pd.DataFrame, hgnc_id: str | None, ens: str | None, 
     return out
 
 
+def par_region(chrom, start, end) -> str:
+    """PAR1/PAR2 from GRCh38 coordinates; 'hgnc_location_only' when HGNC lists X and Y but the gene
+    lies outside the PARs (X-transposed / X-degenerate homolog pairs)."""
+    if chrom in ("X", "Y") and pd.notna(start):
+        for (xs, xe, ys), name in zip(PAR, ("PAR1", "PAR2")):
+            lo, hi = (xs, xe) if chrom == "X" else (ys, ys + (xe - xs))
+            if lo <= start and end <= hi:
+                return name
+    return "hgnc_location_only"
+
+
 # ----------------------------------------------------------------------------------------------
 def depmap_annotation(m: Mapper, cyto: pd.DataFrame) -> pd.DataFrame:
     cn = [c for c in pl.read_parquet_schema(ROOT / "data/interim/depmap_cn_wgs.parquet") if c not in META]
@@ -255,6 +269,8 @@ def depmap_annotation(m: Mapper, cyto: pd.DataFrame) -> pd.DataFrame:
         rec.update(locate(m, cyto, hid, ens, par_y))
         rows.append(rec)
     df = pd.DataFrame(rows)
+    df["par_y_copy"] = df.depmap_column.str.endswith("_PAR_Y")
+    df["par_region"] = [par_region(r.chrom, r.start, r.end) if r.is_par else None for r in df.itertuples()]
     dup = df.hgnc_id.notna() & df.duplicated(["hgnc_id", "chrom"], keep=False)
     df["hgnc_dup_in_depmap"] = dup
     return df
@@ -271,8 +287,15 @@ def pie_map(m: Mapper, cyto: pd.DataFrame, dep: pd.DataFrame) -> pd.DataFrame:
         roles[f"target_{cell}"] = set(t.target)
         roles[f"feature_{cell}"] = set(f.feature)
     # DepMap lookup by hgnc id (primary key) -> columns
-    dep_cn = dep[dep.in_cn & dep.hgnc_id.notna()].groupby("hgnc_id").depmap_column.agg(";".join)
-    dep_ex = dep[dep.in_expr & dep.hgnc_id.notna()].groupby("hgnc_id").depmap_column.agg(";".join)
+    # One DepMap column per HGNC id. The Y copies of PAR genes ("ENSG..._PAR_Y", CN only) are linked in a
+    # separate column so that depmap_cn_column always refers to the X/autosomal copy (data review E4).
+    keep = dep.hgnc_id.notna() & ~dep.par_y_copy
+    dep_cn = dep[dep.in_cn & keep].groupby("hgnc_id").depmap_column.agg(";".join)
+    dep_ex = dep[dep.in_expr & keep].groupby("hgnc_id").depmap_column.agg(";".join)
+    dep_cn_y = dep[dep.in_cn & dep.hgnc_id.notna() & dep.par_y_copy].groupby("hgnc_id").depmap_column.agg(";".join)
+    for name, ser in [("cn", dep_cn), ("expr", dep_ex), ("cn_par_y", dep_cn_y)]:
+        if ser.str.contains(";").any():
+            raise SystemExit(f"multiple DepMap {name} columns for one HGNC id: {ser[ser.str.contains(';')].to_dict()}")
     rows = []
     for ident in ids:
         rec = dict(pie_id=ident)
@@ -300,6 +323,7 @@ def pie_map(m: Mapper, cyto: pd.DataFrame, dep: pd.DataFrame) -> pd.DataFrame:
         rec.update(loc)
         rec["depmap_cn_column"] = dep_cn.get(hid) if hid else None
         rec["depmap_expr_column"] = dep_ex.get(hid) if hid else None
+        rec["depmap_cn_column_par_y"] = dep_cn_y.get(hid) if hid else None
         rows.append(rec)
     df = pd.DataFrame(rows)
     # one-to-one: if several PIE ids map to the same HGNC id (typically HGNC locus merges, where a
@@ -316,7 +340,7 @@ def pie_map(m: Mapper, cyto: pd.DataFrame, dep: pd.DataFrame) -> pd.DataFrame:
         for i in grp.index[1:]:
             df.loc[i, "collision_with"] = df.loc[keep, "pie_id"]
             df.loc[i, "map_note"] = (str(df.loc[i, "map_note"]) + f" collision:{df.loc[i, 'map_method']}").strip()
-            df.loc[i, ["depmap_cn_column", "depmap_expr_column"]] = None
+            df.loc[i, ["depmap_cn_column", "depmap_expr_column", "depmap_cn_column_par_y"]] = None
             df.loc[i, "map_method"] = "collision"
     return df.drop(columns="_p")
 
@@ -336,6 +360,8 @@ def summarise(dep: pd.DataFrame, pie: pd.DataFrame) -> dict:
         "n_with_coords": int(dep.start.notna().sum()),
         "n_arm_missing": int(dep.arm.isna().sum()),
         "n_par": int(dep.is_par.sum()),
+        "par_region": dep.par_region.dropna().value_counts().to_dict(),
+        "par_genes": sorted(dep[dep.is_par].depmap_column.tolist()),
         "n_hgnc_dup": int(dep.hgnc_dup_in_depmap.sum()),
         "locus_group": dep.locus_group.fillna("none").value_counts().to_dict(),
     }

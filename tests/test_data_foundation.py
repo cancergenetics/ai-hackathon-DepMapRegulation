@@ -103,3 +103,81 @@ def test_loose_subset_complete_for_padj_0_1():
         n_all = pl.scan_parquet(PROC / "pie" / f"tested_{cell}.parquet").filter(
             pl.col("mlog10_padj") > np.float32(-np.log10(0.05))).select(pl.len()).collect().item()
         assert abs(n_loose - n_all) <= max(5, 1e-4 * n_all), (cell, n_loose, n_all)  # float32 rounding at threshold
+
+
+# ---------------- DESIGN v2 data tasks (T1, T2/E4, T4) ----------------
+def test_par_flags_and_x_copy_link():
+    a = pd.read_csv(PROC / "gene_annotation.tsv", sep="\t", dtype={"chrom": str})
+    py = a[a.depmap_column.str.endswith("_PAR_Y")]
+    assert len(py) == 3 and py.is_par.all() and py.par_y_copy.all() and (py.chrom == "Y").all()
+    assert a[a.is_par].par_region.notna().all()
+    p = pd.read_csv(PROC / "pie_gene_map.tsv", sep="\t", keep_default_na=False, na_values=[""])
+    cn = p.depmap_cn_column.dropna()
+    assert not cn.str.contains(";").any() and not cn.str.endswith("_PAR_Y").any()
+    assert p.set_index("pie_id").loc["IL9R", "depmap_cn_column"] == "IL9R (3581)"
+
+
+def test_tp53_table():
+    t = pd.read_csv(PROC / "depmap_tp53.tsv", sep="\t")
+    m = pd.read_csv(PROC / "depmap_models.tsv", sep="\t", low_memory=False)
+    assert t.ModelID.is_unique and set(t.ModelID) == set(m.ModelID)
+    assert set(t.tp53_status) <= {"mutant", "wt", "unknown"}
+    g = t[t.genotyped_24Q4]
+    assert ((g.tp53_status == "mutant") == ((g.tp53_damaging > 0) | (g.tp53_hotspot > 0))).all()
+    assert (t[~t.genotyped_24Q4].tp53_status == "unknown").all()
+    st = t.merge(m[["ModelID", "model_StrippedCellLineName"]]).set_index("model_StrippedCellLineName").tp53_status
+    for line in ["HCT116", "MCF7", "A549", "U2OS"]:          # TP53 wild-type controls
+        assert st[line] == "wt", line
+    for line in ["SKBR3", "SW480", "HT29", "BT474", "T47D", "MDAMB231"]:  # TP53-mutant controls
+        assert st[line] == "mutant", line
+
+
+def test_rna_technical_table():
+    r = pd.read_csv(PROC / "depmap_rna_technical.tsv", sep="\t")
+    m = pd.read_csv(PROC / "depmap_models.tsv", sep="\t", low_memory=False)
+    assert r.ModelID.is_unique and set(r.ModelID) == set(m[m.has_rna].ModelID)
+    assert r.rna_Stranded.notna().all()
+    assert (r.set_index("ModelID").rna_seq_id == m.set_index("ModelID").rna_seq_id.reindex(r.ModelID)).all()
+
+
+def test_patient_id_present_for_cell_lines():
+    m = pd.read_csv(PROC / "depmap_models.tsv", sep="\t", low_memory=False)
+    assert m[m.matched & (m.model_ModelType == "Cell Line")].model_PatientID.notna().all()
+
+
+# ---------------- T3: frozen panel S2 and gene flags ----------------
+def test_panel_s2():
+    p = pd.read_csv(PROC / "panel_s2.tsv", sep="\t")
+    m = pd.read_csv(PROC / "depmap_models.tsv", sep="\t", low_memory=False).set_index("ModelID")
+    assert len(p) == 1436  # DESIGN v3.1 §3 (round-2 data check)
+    assert p.ModelID.is_unique and p.PatientID.is_unique
+    mm = m.loc[p.ModelID]
+    assert mm.matched.all() and (mm.model_ModelType == "Cell Line").all() and mm.model_EngineeredModel.isna().all()
+    assert "HCT116" in set(p.StrippedCellLineName)
+    assert (p.in_S1 == p.ploidy.notna()).all() and (p.ploidy_missing == p.ploidy.isna()).all()
+    assert (p.tp53_missing == (p.tp53_status == "unknown")).all() and int((~p.tp53_missing).sum()) == 1255
+    # dedup preference: if any eligible model of a patient has PureCN, the chosen one does
+    elig = m[m.matched & (m.model_ModelType == "Cell Line") & m.model_EngineeredModel.isna()]
+    has_pc = elig.groupby("model_PatientID").sig24_Ploidy.apply(lambda s: s.notna().any())
+    chosen = p.set_index("PatientID").in_S1
+    assert (chosen[has_pc[has_pc].index]).all()
+
+
+def test_frozen_flags():
+    f = pd.read_csv(PROC / "frozen_flags.tsv", sep="\t", dtype={"chrom": str}).set_index("gene_key")
+    a = pd.read_csv(PROC / "gene_annotation.tsv", sep="\t")
+    assert f.index.is_unique and set(f.index) == set(a.depmap_column)
+    assert not f[f.is_y | f.is_par | f.is_mt].variable_cn.any()
+    assert (f[f.measured].has_cn & f[f.measured].has_expr).all()
+    for g in ["ERBB2 (2064)", "MYC (4609)", "CDKN2A (1029)", "EGFR (1956)"]:  # known recurrent CN events
+        assert f.loc[g, "variable_cn"] and f.loc[g, "measured"], g
+    # recompute one autosomal and one X gene count from the matrices
+    p = pd.read_csv(PROC / "panel_s2.tsv", sep="\t")
+    xg = f[(f.cn_test == "sex_centred") & (f.n_lines_abs_log2cn_ge1 > 0)].index[0]
+    cn = pl.read_parquet(PROC / "depmap_cn_matched.parquet", columns=["ModelID", "MYC (4609)", xg]).to_pandas()
+    cn = cn[cn.ModelID.isin(p.ModelID)].set_index("ModelID")
+    L = np.log2(np.clip(cn.astype(float), 0.25, 8))
+    assert int((L["MYC (4609)"].abs() >= 1).sum()) == f.loc["MYC (4609)", "n_lines_abs_log2cn_ge1"]
+    sex = p.set_index("ModelID").sex.reindex(L.index).fillna("Unknown")
+    xc = L[xg] - L[xg].groupby(sex).transform("median")
+    assert int((xc.abs() >= 1).sum()) == f.loc[xg, "n_lines_abs_log2cn_ge1"]

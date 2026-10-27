@@ -15,6 +15,8 @@ Sources (see DATA.md for the rationale):
    last release in which PureCN ploidy / WGD / LoH / absolute CN were produced for new samples; per
    the 25Q2 release notes these features exist "only for samples released till 2024 Q4").
    Downloaded via the public figshare API, md5 verified against figshare's supplied_md5.
+   Also the 24Q4 somatic mutation calls (MAF-like table + damaging/hotspot matrices) for TP53 status:
+   26Q3 mutation files are portal-only, so 24Q4 is the latest programmatically available release.
 
 3. Sanger Cell Model Passports model list (independent MSI status + ploidy annotation), mapped to
    DepMap via Model.csv SangerModelID.
@@ -50,6 +52,10 @@ FILES_24Q4 = [
     "Model.csv",
     "OmicsAbsoluteCNSegmentsProfile.csv",
     "OmicsAbsoluteCNGene.csv",
+    # somatic mutation calls (Mutect2) for TP53 functional status (DESIGN v2 data task T1)
+    "OmicsSomaticMutationsMatrixDamaging.csv",
+    "OmicsSomaticMutationsMatrixHotspot.csv",
+    "OmicsSomaticMutations.csv",
 ]
 ABSOLUTE_FILES = {"OmicsAbsoluteCNGene.csv"}  # large (239 MB); optional
 

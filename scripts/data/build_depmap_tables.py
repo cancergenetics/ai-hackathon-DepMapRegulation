@@ -36,7 +36,9 @@ CN_FLOOR = 2 ** -5
 MODEL_COLS = ["CellLineName", "StrippedCellLineName", "DepmapModelType", "ModelType", "OncotreeLineage",
               "OncotreePrimaryDisease", "OncotreeSubtype", "OncotreeCode", "Sex", "Age", "AgeCategory",
               "PrimaryOrMetastasis", "GrowthPattern", "OnboardedMedia", "FormulationID", "SerumFreeMedia",
-              "PlateCoating", "EngineeredModel", "PediatricModelType", "RRID", "SangerModelID", "CCLEName"]
+              "PlateCoating", "EngineeredModel", "EngineeredModelDetails", "CulturedResistanceDrug", "ModelTreatment",
+              "ModelDerivationMaterial", "PatientID", "ModelIDAlias", "PediatricModelType", "RRID", "SangerModelID",
+              "CCLEName"]
 MC_COLS = ["DataSource", "CellFormat", "GrowthMedia", "FormulationID", "SerumFreeMedia", "PlateCoating"]
 SIGS = ["MSIScore", "Ploidy", "LoHFraction", "WGD", "CIN", "Aneuploidy"]
 

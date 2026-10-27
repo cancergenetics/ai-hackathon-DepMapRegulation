@@ -54,7 +54,7 @@ information for older models.
 | Source | https://plus.figshare.com/articles/dataset/DepMap_24Q4_Public/27993248 (DOI 10.25452/figshare.plus.27993248.v1) |
 | Licence | CC BY 4.0 |
 | Obtained | `scripts/data/download_depmap_extra.py` (figshare API; each file's md5 is checked against figshare `supplied_md5`) |
-| Use | Model- and profile-level Ploidy, WGD, CIN, LoHFraction, Aneuploidy (PureCN) and MSIScore (MSIsensor2); PureCN absolute CN (used only to verify the 26Q3 CN scale) |
+| Use | Model- and profile-level Ploidy, WGD, CIN, LoHFraction, Aneuploidy (PureCN) and MSIScore (MSIsensor2); PureCN absolute CN (used only to verify the 26Q3 CN scale); **somatic mutation calls (Mutect2) for TP53 status** (DESIGN v2 task T1; 26Q3 mutation files are portal-only, so 24Q4 is the latest programmatically available release) |
 
 | file | bytes | sha256 | md5 |
 |---|---:|---|---|
@@ -66,6 +66,13 @@ information for older models.
 | `data/external/depmap_24Q4/Model.csv` | 645,696 | `b7a0c1385e6cef30132b56aff61f1261d11e3f490490b355c430d32ee0dbdcfa` | `675210d17675f3517b0ce39a3c274f16` |
 | `data/external/depmap_24Q4/OmicsAbsoluteCNSegmentsProfile.csv` | 33,904,573 | `5bb6b52550c372a929f9bd8f09f13344833472ef61967814022cac37c856fced` | `e5d3a4425a3ce6d77c42ca75cd13b71b` |
 | `data/external/depmap_24Q4/OmicsAbsoluteCNGene.csv` | 238,808,692 | `5f530c797bf12bce68cccc3e763b29491c368bbbced8971733bed807a13b8c13` | `16afffb33230de2fd13e15e753e28a9b` |
+| `data/external/depmap_24Q4/OmicsSomaticMutationsMatrixDamaging.csv` | 147,655,356 | `1b33be5c3bebf30f52421384e268016afbd5e2257b75d65cfe2c09e21daba0f9` | `cb20fdbe1cf3b9b0d8ed4f53e1f399b6` |
+| `data/external/depmap_24Q4/OmicsSomaticMutationsMatrixHotspot.csv` | 4,210,723 | `6444ce819a28d4228ff7b748e309611c5830c551620d8d2c7f86052e2675e3d8` | `a5aeb1deef897ead3c955c372148d840` |
+| `data/external/depmap_24Q4/OmicsSomaticMutations.csv` | 338,945,382 | `92e86ab6a8457ef99908daf2a2c82d9529320e23cd6c6b7adc128adc1e0f41c8` | `7bdba347a1602fe96d5654a74d6e52f1` |
+
+TP53 status (`scripts/data/build_tp53.py` → `data/processed/depmap_tp53.tsv`) is defined as damaging (LikelyLoF) **or** hotspot
+TP53 mutation in the 24Q4 genotyped matrices. Models absent from the 24Q4 matrices are `unknown`. Point mutations and indels only;
+deep deletion is a separate informational column from the 26Q3 CN.
 
 Linkage to 26Q3: a signature is taken from `OmicsSignaturesProfile` when its ProfileID equals the 26Q3 default
 WGS ProfileID (`sig24_source = same_profile`), otherwise from model-level `OmicsSignatures`
@@ -131,7 +138,10 @@ https://figshare.com/articles/dataset/29472362 (`model_metadata.csv`, figshare f
 | `pie_gene_map.tsv` | `build_gene_annotation.py` | one row per PIE target/feature identifier: mapping method, HGNC, location, and the DepMap CN/expression column it links to (one-to-one) |
 | `depmap_models.tsv` | `build_depmap_tables.py` | one row per model with a default CN and/or RNA profile: profile ids, Model/ModelCondition annotations, 24Q4 signatures (with provenance), CMP MSI/ploidy |
 | `depmap_{cn,expr}_matched.parquet` | `build_depmap_tables.py` | 1,724 matched models, identical row order (sorted by ModelID) |
-| `depmap_arm_cn_derived.parquet` | `build_depmap_tables.py` | per model × arm, median/mean log2 relative CN (floor 2^-5) |
+| `depmap_arm_cn_derived.parquet` | `build_depmap_tables.py` | per model × arm, median/mean log2 relative CN (floor 2^-5; for autosomal arms this is identical to DESIGN v2's clip(2^-2, 2^3)) |
+| `depmap_tp53.tsv` | `build_tp53.py` | per model: genotyped_24Q4, tp53_damaging, tp53_hotspot (0/1/2), tp53_status (mutant/wt/unknown), protein changes, tp53_other_coding, 26Q3 TP53 relCN and deep-deletion flag, source |
+| `panel_s2.tsv`, `frozen_flags.tsv`, `panel_summary.json` | `build_panel.py` | frozen S2 panel (1,436 cell lines, raw covariates) and per-gene flags (variable_cn, measured, has_cn/expr, is_par/y/mt), DESIGN v3.1 §3 |
+| `depmap_rna_technical.tsv` | `build_rna_technical.py` | per model with a default RNA profile: Stranded, SequencingPlatform, SequencingDate/year, source, re-sequencing count, 24Q4 Product |
 | `depmap_cn_variability.tsv`, `depmap_cis_spearman.tsv`, `depmap_profile.json` | `profile_depmap.py` | per-gene CN variability statistics, cis CN–expression correlation, profile numbers |
 | `pie/tested_<cell>.parquet` | `cache_pie_de.py` | **all** tested (target, feature) pairs: uint16 codes, float32 lfc, −log10 p, −log10 p_adj |
 | `pie/loose_<cell>.parquet` | `cache_pie_de.py` | full-precision rows with p < 1e-3 or p_adj < 0.1 |

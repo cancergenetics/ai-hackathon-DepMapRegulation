@@ -52,7 +52,11 @@ Shared genes by chromosome class: 17,785 autosomal, 748 X, 13 Y, 13 MT.
 - **Chromosome classes and PAR genes:**
   - Classes: autosome / X / Y / MT / unplaced.
   - 22 pseudoautosomal (PAR) genes are flagged `is_par` and use their Ensembl X location; the 3 `_PAR_Y` CN columns are placed on Y using GRCh38 PAR offsets.
-  - **A2:** trans/cis uses Ensembl chromosomes, so PAR genes count as X. Excluding PAR genes from pairs with X/Y partners is a conservative option.
+  - **A2:** trans/cis uses Ensembl chromosomes, so PAR genes count as X. Excluding PAR genes from pairs with X/Y partners is a conservative option. DESIGN v2 excludes Y and PAR genes entirely.
+  - **PAR flags** (data review E4; `gene_annotation.tsv`):
+    - `is_par`: 22 columns. `par_region`: PAR1 15, PAR2 6, hgnc_location_only 1 (SPRY3: HGNC lists Xq28 and Yq12, but its Ens116 start of 155,612,298 is just proximal to PAR2). `par_y_copy`: the 3 `_PAR_Y` CN columns.
+    - In `pie_gene_map.tsv`, `depmap_cn_column` now always points at the X/autosomal copy (single column, tested). The Y copy is in `depmap_cn_column_par_y`.
+    - Before the fix, IL9R and WASH6P had a joined `_PAR_Y;X` link, and VAMP7 linked only to `_PAR_Y`. Now IL9R → `IL9R (3581)` and WASH6P → `WASH6P (653440)`. VAMP7's X column is expression-only, so VAMP7 has no CN link. Universe-preview counts are unchanged.
 - MT genes (13) have expression but **all-NaN CN**.
 
 ### Perturb-seq identifiers (`data/processed/pie_gene_map.tsv`)
@@ -102,7 +106,11 @@ typical genome copy number is ≈ 1:
   | CCNE1 | HCC1569 17 |
   | CDKN2A | 28.9% of lines < 0.25 |
 - **Cis CN–expression Spearman** across 18,290 shared genes: median 0.22 (IQR 0.11–0.36); 95.4% are positive and 34.8% are > 0.3. Known amplicons: CDKN2A 0.67, EGFR 0.45, MYC 0.41.
-- **A4:** for variance statistics and derived arm CN we use log2(relative CN) with a floor of 2^-5. 0.09% of values fall below the floor.
+- **A4 (data review E5):** the floor and cap are a **modelling choice**, not a property of the data.
+  - DESIGN v2 models x = log2(clip(relCN, 2^-2, 2^3)): 0.106% of values fall below 2^-2 and 0.022% above 2^3.
+  - The descriptive statistics here (variance, §6) and the derived arm CN (§7) use log2(max(relCN, 2^-5)): 0.086% fall below 2^-5.
+  - The derived arm medians are **identical** under both transforms for all autosomal arms (max |diff| = 0). They differ only for Xp in 2 model×arm cells (max 0.21).
+  - The §6 per-gene SD/threshold counts would change under the DESIGN clip; T3 recomputes the frozen flags with the DESIGN transform on panel P.
 
 ## 5. Missingness
 
@@ -169,7 +177,7 @@ The SD of log2 CN per gene has median 0.36, IQR 0.33–0.40, minimum 0.24 (exclu
 
 | covariate (source) | matched models with value | notes |
 |---|---:|---|
-| PureCN Ploidy, WGD, CIN, LoHFraction, Aneuploidy (24Q4) | 1,037 (60%) | cell lines only; **0 organoids**; 905 from the *same* WGS profile as the 26Q3 CN, the rest model-level (may be WES) |
+| PureCN Ploidy, WGD, CIN, LoHFraction, Aneuploidy (24Q4) | 1,037 (60%) | cell lines only; **0 organoids**. **687** come from the *same* WGS profile (ProfileID) as the 26Q3 CN; **350** are model-level (349 WES, 1 WGS). *Corrected per data review E1; the earlier "905" was the number of lines whose CN ProfileID exists in 24Q4 OmicsSignaturesProfile, 218 of which have MSIScore but NaN PureCN values.* |
 | MSIScore (MSIsensor2, 24Q4) | 1,311 (76%) | 83 have > 20 (DepMap's MSI threshold) |
 | CMP msi_status / ploidy (Sanger, 2021) | 610 / 618 | concordance with DepMap MSIScore > 20: 47/47 CMP-MSI have > 20; 7/563 CMP-MSS have > 20; ploidy r = 0.52 (n = 477) |
 | any ploidy / any MSI | 1,178 / 1,311 | |
@@ -177,9 +185,68 @@ The SD of log2 CN per gene has median 0.36, IQR 0.33–0.40, minimum 0.24 (exclu
 | purity | 0 | not published; assume ≈ 1 for cell lines (**A5**) |
 
 The 24Q4 ploidy distribution has median 3.06 (IQR 2.33–3.69), and the WGD rate is 72.5% among covered lines.
-**Q3:** ploidy/WGD are missing for 40% of matched models (all organoids and post-24Q4 lines).
-The options are: (a) restrict to covered models, (b) add a missingness indicator, or (c) use relative-CN-derived proxies (arm CN, CIN-like fraction of genome altered).
+- **Q3:** ploidy/WGD are missing for 40% of matched models. This covers all organoids, post-24Q4 lines, and lines where PureCN produced no solution, which includes **HCT116** (MSIScore 89.1, no PureCN; data review E2).
+- **Caveat:** in 26Q3, one ProfileID can carry several SequencingIDs (re-sequencing). 12 matched models have a default CN ProfileID like this, so for them "same profile" means the same ProfileID, not necessarily the same sequencing run.
+  The options are: (a) restrict to covered models, (b) add a missingness indicator, or (c) use relative-CN-derived proxies (arm CN, CIN-like fraction of genome altered).
 Since relative CN is already ploidy-normalised, ploidy matters mainly for expression (dosage) effects.
+
+### 9b. TP53 functional status (DESIGN v2 T1; `depmap_tp53.tsv`, `build_tp53.py`)
+
+- **Source:** DepMap 24Q4 Mutect2 calls, i.e. `OmicsSomaticMutationsMatrixDamaging` (LikelyLoF) and `...Hotspot` (Hess 2019 / OncoKB / COSMIC tier 1).
+  This is the latest programmatically available release (DATA.md §2).
+  **`tp53_status = mutant`** if damaging > 0 or hotspot > 0; `wt` if genotyped and both are 0; `unknown` if the model is absent from the 24Q4 matrices.
+- **Consistency:** the matrices agree with the 24Q4 MAF for every genotyped model (0 disagreements for LikelyLoF and for Hotspot).
+- **Coverage among 1,509 matched cell lines:**
+  - genotyped: 1,311 (86.9%), which is exactly the MSIScore-covered set; this includes all 1,037 PureCN lines and HCT116;
+  - mutant 804 (61.3% of genotyped), wt 507, unknown 198; organoids are all unknown.
+  - Of the mutants, 791 are damaging, 611 hotspot, 193 damaging-only and 13 hotspot-only.
+- **Controls:** HCT116, MCF7, A549 and U2OS are wt. SKBR3 (R175H), SW480 (R273H/P309S), HT29 (R273H), BT474 (E285K), T47D (L194F) and MDAMB231 (R280K) are mutant (all tested).
+- **Limitations:**
+  - Deep deletions are not mutations: 9 matched cell lines have TP53 relCN < 0.25 in 26Q3, and 7 of them are called `wt` (e.g. SAOS2; `tp53_cn_homdel` column). NCIH1299, an intragenic deletion, is called wt.
+  - 26 `wt` lines carry a TP53 coding variant that is neither LikelyLoF nor hotspot (`tp53_other_coding`).
+  - **Q7:** whether to fold homdel into "mutant" is a design decision; it is not done here.
+
+### 9c. RNA technical covariates (DESIGN v2 T4; `depmap_rna_technical.tsv`, `build_rna_technical.py`)
+
+The table is keyed on the default RNA **SequencingID**; ProfileID is not unique in 26Q3 OmicsProfiles.
+
+| field (1,509 matched cell lines) | coverage / levels |
+|---|---|
+| Stranded | complete: True 764, False 745. It is an **era split**: 2012–2014 all unstranded (743), 2015+ stranded (except 2 lines) |
+| SequencingPlatform | **missing for 1,403 (93%)**; the 106 present are all Tru-Seq strand-specific variants (4 strings) |
+| 24Q4 Product (by ProfileID) | 45 values (NovaSeq 6000 44, HiSeq 2500 1) |
+| SourceModelCondition | BROAD for all |
+| 24Q4 vs 26Q3 Stranded (all RNA models whose ProfileID is in 24Q4) | 3 disagreements out of 1,665 |
+| default RNA ProfileID with > 1 sequencing run | 40 |
+
+- **This doesn't fit DESIGN v2 §4:** "sequencing platform (levels ≥ 15)" is not usable. Only `Stranded` (≈ sequencing era) is a usable RNA technical covariate.
+  Platform was not replaced with another field; the decision is the PI's.
+
+### 9d. Fields for the S2 sample definition (1,509 matched cell lines; S2 itself is NOT built yet, T3)
+
+- **PatientID:**
+  - no missing values; 1,439 patients;
+  - 58 patients have > 1 model, for 70 extra models (max 4 per patient).
+  - `ModelIDAlias` is set for 55 lines.
+- **Engineered and derived lines:**
+  - `EngineeredModel` is set for 14: drug adapted 8, engineered clone 3, genetic knockout 1, knock-down 1, knock-in 1.
+  - `CulturedResistanceDrug` is set for 8 (all among the 14).
+  - `EngineeredModelDetails` is set for 6 (e.g. Reversine-induced trisomies, haploid line, CRAF, IDH1 R132H).
+  - `ModelTreatment` is set for 16 (immortalisation/transformation: SV40 5, EBV 4, ...).
+  - `ModelDerivationMaterial` is PDX for 31.
+- **OncotreePrimaryDisease:** 94 levels; 1 missing.
+- **Primary disease within the DESIGN-v2 heterogeneous lineages** (levels with ≥ 15 lines; the rest pooled):
+
+  | lineage | levels ≥ 15 | lines in levels < 15 |
+  |---|---|---:|
+  | Lymphoid (131) | Mature B-Cell Neoplasms 66, B-ALL 22, T-LBL 15 | 28 |
+  | Myeloid (59) | AML 44 | 15 |
+  | CNS/Brain (154) | Adult-Type Diffuse Glioma 122, Embryonal Tumor 22 | 10 |
+  | Esophagus/Stomach (65) | Esophagogastric Adenocarcinoma 44, ESCC 21 | 0 |
+  | Soft Tissue (79) | none | 79 |
+  | Bone (85) | Osteosarcoma 46, Ewing Sarcoma 25 | 14 |
+
+- **Sex:** Male 804, Female 629, Unknown 70, missing 6.
 
 ## 10. Benchmark: PIE X-Atlas/Orion DE tables
 
@@ -245,3 +312,42 @@ Since relative CN is already ploidy-normalised, ploidy matters mainly for expres
 5. **Ploidy/WGD/MSI are frozen at 24Q4** and missing for all organoids. Purity is not available.
 6. **"Variable CN" needs a strict definition** (§6), because aneuploidy makes nearly all genes vary.
 7. **Release not md5-verified** against the portal (bot protection); the evidence is strong but indirect.
+8. **TP53 status comes from 24Q4 calls.** 13% of matched cell lines are `unknown`, and all organoids are. Deep deletions are not included in the status (§9b).
+9. **RNA sequencing platform is 93% missing.** Only `Stranded`, which is effectively the sequencing era, is usable (§9c).
+10. **E1 correction:** PureCN provenance is 687 same-profile WGS + 350 model-level (§9). HCT116 has no PureCN values.
+
+## 12. Frozen panel S2 and gene flags (DESIGN v3.1 §3, data task T3; `build_panel.py`)
+
+The numbers below come from `data/processed/panel_summary.json`.
+
+- **S2 panel (`panel_s2.tsv`): 1,436 models.**
+  - Start from 1,509 matched cell lines and exclude 14 EngineeredModel lines, leaving 1,495.
+  - Keep one model per PatientID, which drops 59. **A10, tie-break:** prefer a model with 24Q4 PureCN, then the lowest ModelID (the earliest-registered, parental line). DepMap has no per-patient default flag, so "then the default" was operationalised this way.
+  - HCT116 and HEK293 are in S2.
+- **Covariates in S2:**
+  - in_S1 (PureCN present): 999. Ploidy/WGD missing: 437. MSIScore missing: 181; MSI-high (> 20): 76.
+  - TP53: mutant 778, wt 477, unknown 181, so 1,255 are covered (matches DESIGN).
+  - Sex: Male 774, Female 590, Unknown 66, missing 6.
+  - **Media:**
+    - `media_base` is parsed from the RNA ModelCondition FormulationID (falling back to Model.FormulationID). It has 31 levels and is missing for 29.
+    - Levels with ≥ 15 lines: RPMI 703, DMEM 217, DMEM/F12 78, MEM 76, TSM 63, IMDM 58, EMEM 52, F12 49, McCoy's 5A 24, AlphaMEM 22.
+    - Serum-free: 89 True, 1,318 False, 29 missing.
+  - Growth pattern: Adherent 1,020, Suspension 241, Mixed 95, Spheroid 72, Unknown 8.
+  - Stranded: 706 True, 730 False. Platform is missing for 1,342.
+  - Covariates are stored raw; pooling (levels ≥ 15, lineage splits) is the modelling step's job.
+- **Frozen flags (`frozen_flags.tsv`):**
+  - There are 19,998 gene keys: the DepMap column labels, the union of CN and expression.
+  - The transform is x = log2(clip(relCN, 2^-2, 2^3)) on S2.
+  - `variable_cn` means ≥ 20 S2 lines with |x| ≥ 1, or with |sex-centred x| ≥ 1 for non-PAR X genes. Sex groups are Male/Female/Unknown, with missing sex counted as Unknown. Y, PAR, MT and unplaced genes are False (`cn_test = excluded`).
+
+  | flag | count |
+  |---|---:|
+  | variable_cn, autosomal | **11,425** of 18,521 eligible (non-masked median 24 qualifying lines, IQR 14–41) |
+  | variable_cn, X (sex-centred) | **716** of 756 eligible; all 716 non-masked X genes pass |
+  | measured (CN + expression present, finite, SD > 0 in S2) | **18,290**: 17,575 autosomal, 702 X, 13 Y. 18,276 excluding Y/PAR/MT. 269 genes present in both matrices fail because their CN is masked |
+  | variable_cn ∧ measured | 11,713 |
+
+- **Concern: the X test is not discriminative.** After sex-centring, every non-masked X gene has ≥ 45 qualifying lines (median 62).
+  Whole-X events dominate: 22.7% of female lines have a line-median X log2 CN < −0.7 (likely loss of the inactive X), and male X CN is broad.
+  The result is identical without sex-centring and when excluding Unknown-sex lines (716 in each case).
+  So "variable CN" for X regulators mostly reflects chromosome-wide X dosage, not gene-specific variation. **Q8 (PI):** accept this, or require a gene-specific X test (e.g. centre on the line's own X median).

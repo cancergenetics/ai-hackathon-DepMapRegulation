@@ -12,6 +12,9 @@ $PY scripts/data/convert_depmap.py             # CSV -> parquet (data/interim)
 $PY scripts/data/cache_pie_de.py               # compact PIE caches (data/processed/pie)
 $PY scripts/data/build_gene_annotation.py      # gene_annotation.tsv, pie_gene_map.tsv
 $PY scripts/data/build_depmap_tables.py        # depmap_models.tsv, matched matrices, derived arm CN
+$PY scripts/data/build_tp53.py                 # depmap_tp53.tsv (24Q4 mutation calls)
+$PY scripts/data/build_rna_technical.py        # depmap_rna_technical.tsv
+$PY scripts/data/build_panel.py > /dev/null     # panel_s2.tsv, frozen_flags.tsv (DESIGN v3.1 T3)
 $PY scripts/data/profile_depmap.py > /dev/null # depmap_profile.json
 $PY scripts/data/profile_benchmark.py > /dev/null  # benchmark_profile.json, target summaries
 $PY scripts/data/checksum_inputs.py            # docs/data_checksums.tsv
