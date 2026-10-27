@@ -4,18 +4,24 @@ Legend: [ ] planned · [~] in progress · [x] done · [-] abandoned/negative · 
 
 ## Status summary (latest first)
 
-### 2026-10-27 — M6 done: single TEST run (LOCKed, commits 603a7f5 → e9085c7); M7 REPORT.md drafted, under verification
-**HCT116 TEST** (14 arms, 1,817 regulators):
-- **Selected CN-only tool** (M1 + G1 + A3): OR@0.1% = 3.85 (jackknife CI 1.33–11.2), regulator-label permutation p = 0.068 (Fisher p 2e-36 assuming independence).
-- **Sign concordance** 0.718 vs c0 0.541 (n = 131, within-regulator permutation p = 0.012); sign-concordant OR 5.84.
-- **G1 replicates:** Δlog-OR +0.97 vs no gate (CI 0.30–1.64).
-- **No within-regulator information:** AUROC 0.500, CMH 0.94, C1 Δ ≈ 0.
-- **Context layer** 18.4 (CI 10.9–30.9, perm p 0.015); not different from B5 (22.8; Δ −0.22, CI −2.3 to 1.9); beats C2 (+0.55, CI 0.07–1.03).
-- **Controls:** B0 1.17, NC1 1.28, class-iii null 0.23. Sensitivity analyses are stable (2.9–4.5). PC2 ceiling 181.
+### 2026-10-27 — M7 done: project closed
+REPORT.md is written and was checked number by number by a fresh agent (reviews/report/report_verification.md). It had 4 errors and 3 over-claims, all fixed. LESSONS.md is pruned after the final fresh-agent retro (reviews/retro/M7_retro.md).
 
-**HEK293T TEST:** the CN-only tool fails (0.49, 6 overlaps); context layer 5.1.
+The tool (`scripts/run_model.py`) scores ≈ 2.2×10⁸ trans pairs in about 67 s on a laptop CPU. On held-out arms its CN-only ranking gives a modest, borderline-significant enrichment for Perturb-seq pairs (OR 3.85, perm p 0.068) and a modest excess of correct effect directions (p 0.012). Its value lies in identifying regulators whose dosage has trans consequences (the cis-instrument gate), not in ranking their targets. A context-detectability layer reaches OR 18.4 but adds nothing over a DepMap-only hub prior.
 
-The overall conclusion: DepMap CN identifies which regulators have trans consequences and in which direction, but not which targets respond. Pooled benchmark enrichment is dominated by hubness and target detectability.
+Why stop here: TEST is LOCKed, so further method changes cannot be validated without a new hold-out. The remaining ideas need new data or a new benchmark: focal-event instruments, proteomics, joint multi-regulator models, and context-specific weighting. They are listed in REPORT §7.
+
+### 2026-10-27 — M6 done: single TEST run (LOCKed, commits 603a7f5 → e9085c7)
+HCT116 TEST (14 arms, 1,817 regulators). Corrected after independent verification; see reviews/report/.
+- **Selected CN-only tool** (M1 + G1 + A3): OR@0.1% = 3.85 (jackknife CI 1.33–11.2).
+  - Pre-registered regulator-label permutation p = 0.068: **not significant at 0.05**.
+  - Gain vs random is significant (Δlog-OR +1.19, CI 0.13–2.26); gain vs the NC1 permuted-CN control is not (+1.10, CI −0.66 to 2.85).
+  - Below the target-detectability baselines B4e 7.39 / B4 5.73 and co-expression B2 6.03, though none of those differences is significant.
+- **Sign concordance:** 0.718 vs a within-regulator null mean of 0.647 (pooled c0 0.541), p = 0.012, n = 131, concentrated in a few regulators. Not significant in S1 (p 0.13) or the no-split-sibling subset (p 0.48).
+- **G1 gain carries over:** Δlog-OR +0.97 vs no gate (CI 0.30–1.64).
+- **No detectable within-regulator target-ranking information:** AUROC 0.500, CMH 0.94 (CI 0.77–1.15).
+- **Context layer:** 18.4 (CI 10.9–30.9, perm p 0.015). Not different from B5 (22.8; Δ −0.22, CI −2.3 to 1.9); beats C2 (+0.55, CI 0.07–1.03).
+- **HEK293T:** the CN-only tool fails (0.49, 6 overlaps); the context layer reaches 5.1 (perm p 0.91).
 
 ### 2026-10-27 — M5 complete: tuning closed (D7)
 All 30 budgeted configurations except one were used; every adoption decision followed §8.2 on HCT116 TRAIN.
@@ -151,5 +157,6 @@ covariate availability), then DESIGN.md and up to three review rounds.
     - S1 −0.10; hidden factors +0.13 (fold-unstable);
     - ablations: minus G1 −0.91 (G1 is the key component); focal +0.04 (folds −0.53/+0.50).
   - [x] selected.yaml committed; mock final run; independent pre-final review (GO; D8a fixes)
-  - [!] one real TEST run: selected OR 3.85 (perm p 0.068), sign concordance 0.718 vs 0.541 (p 0.012); context layer 18.4 ≈ B5 22.8; HEK293T fails for CN-only
-- [~] M7 REPORT.md (drafted; independent number verification running)
+  - [!] one real TEST run: selected OR 3.85 (perm p 0.068, n.s.); sign concordance 0.718 vs within-regulator null 0.647 (p 0.012, not robust in S1); context layer 18.4 ≈ B5 22.8; HEK293T fails for CN-only
+- [x] M7 REPORT.md (verified by a fresh agent; 4 errors and 3 over-claims fixed)
+  - [x] final retro + LESSONS pruned
