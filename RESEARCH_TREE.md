@@ -45,6 +45,7 @@ Next: parallel literature review (LITERATURE.md) and data profiling (DATA.md, re
 covariate availability), then DESIGN.md and up to three review rounds.
 
 ## Decision notes
+- D4 (2026-10-27, before any model result): PIE `Ueffect` is a signed rank-biserial effect in [−1, 1] whose sign matches LFC in 99.99% of positives. The v3.1 sensitivity rule |Ueffect − 0.5| ≥ 0.1 assumed a [0, 1] U scale and kept 98.6% of positives, so it was meaningless. It was translated to the equivalent |Ueffect| ≥ 0.2, which keeps 47% of HCT116 TRAIN positives. Sensitivity set only; the primary label is unchanged.
 - D3 (2026-10-27): Sequencing platform dropped from Z (93% missing in S2); `Stranded` kept, though it mostly tracks sequencing era. The X variable-CN rule is kept as frozen, even though all 716 X genes pass after sex-centring (whole-X/Xi loss is common). Changing a frozen flag post hoc would be ad hoc, and G1 handles X regulators whose CN doesn't move their expression.
 - D2 (2026-10-27): DESIGN v3.1 frozen. Primary = pooled top-0.1% OR on HCT116 TEST, with significance from regulator-label permutation. Tuning objective = pooled OR on TRAIN with a CMH guard. G2 tuning on pooled OR is kept (see §13, round 2).
 - D1 (2026-10-27): HCT116 is the primary benchmark line; HEK293T is secondary (non-DepMap line, artefact-dominated hits). Decided from data profiling, before any model results.

@@ -221,7 +221,7 @@ Dropped:
   level among non-expressed targets. HEK293T is secondary: not a DepMap model, and 83% of its trans hits
   come from non-expressed targets.
 - **Positive (direction-agnostic):** a trans pair with PIE `p_adj < 0.05` (BH within target, as released).
-  - Sensitivity sets: |Ueffect − 0.5| ≥ 0.1 & p_adj < 0.05; p_adj < 0.01.
+  - Sensitivity sets: |Ueffect| ≥ 0.2 & p_adj < 0.05 (PIE Ueffect is rank-biserial in [−1, 1]; the v3.1 text "|Ueffect − 0.5| ≥ 0.1" assumed a [0, 1] scale — D4); p_adj < 0.01.
   - LFC magnitude is never used, because of the pseudocount artefact.
 - **Sign:**
   - The benchmark sign is sign(LFC).

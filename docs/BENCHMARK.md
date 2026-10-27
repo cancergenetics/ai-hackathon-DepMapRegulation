@@ -1,0 +1,299 @@
+# Benchmark harness (DESIGN v3.1 §6–§8)
+
+Code: `src/depmaptr/benchmark.py` (library), `scripts/benchmark/build_benchmark.py` (tables and split),
+`scripts/evaluate.py` (TRAIN evaluation CLI), `scripts/final_eval.py` (the single TEST run, plus `--mock`),
+`scripts/benchmark/seal_test.sh` (run by the PI only), and `scripts/benchmark/calibrate_b0.py`.
+Tests: `tests/test_benchmark.py` (toy known answers), `tests/test_final_eval.py` (seal → final_eval
+workflow on a throwaway toy git repo), `tests/test_benchmark_real.py` (real-data invariants), and
+`tests/test_frozen.py` (hash drift, active once `results/FROZEN.sha256` exists).
+
+The benchmark labels are used only inside the evaluation functions. Nothing in this module produces or
+modifies a score.
+
+## 1. Tables (built 2026-10-27 from frozen_flags.tsv and panel_s2.tsv by the data agent)
+
+| | HCT116 (primary) | HEK293T |
+|---|---:|---:|
+| PIE perturbations (`target`) | 8,987 | 4,297 |
+| − unmapped to a DepMap key (incl. 38 symbol collisions, map-wide) | 61 | 56 |
+| − Y / PAR / MT / unplaced | 16 | 12 |
+| − not frozen variable-CN | 3,287 | 1,541 |
+| **universe regulators** | **5,623** (360 on X; 3 CN-only) | **2,688** (180 on X; 3 CN-only) |
+| consistently tested features (control mean ≥ 0.05) | 11,100 | 12,247 |
+| − unmapped | 728 | 1,072 |
+| − Y / PAR / MT | 24 | 24 |
+| − not frozen `measured` | 139 | 151 |
+| **universe targets** | **10,209** (572 × 5 Mb bins) | **11,000** (584 bins) |
+| universe pairs (trans, A ≠ B) | 54,357,451 | 27,984,730 |
+| primary positives (p_adj < 0.05) | 115,601 | 52,510 |
+| median on-target LFC (own feature tested) | −27.5 | −26.7 |
+
+Every consistently tested feature is tested for every perturbation (asserted at build time), so every
+universe pair is a tested pair.
+
+## 2. Held-out split (arm level; seed 20261027)
+
+There are 42 arm units: all arms of chr1–22 and X that hold ≥ 1 universe regulator in either line,
+including 2p (2 HCT116 regulators) and 21p (1).
+
+**TEST arms (14):** 17q, 7q, 14q, 6q, 3p, Xp, 7p, 22q, 19p, 4q, 5p, 12q, 18p, 21q.
+
+The 28 TRAIN arms alternate folds 1/2 in sorted order (`results/split/train_folds.tsv`).
+`results/split/arm_units.tsv` lists every unit with its order, triplet, split and fold.
+`results/split/regulator_split.tsv` gives the gene → arm → split → fold mapping, with line membership.
+
+| line | split | arms | regulators | pairs | K at 0.1 % | pos. p_adj<0.05 | pos. Ueffect | pos. p<0.01 | % LFC<0 | own class i / ii / iii |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| HCT116 | TRAIN | 28 | 3,806 | 36,664,698 | 36,665 | 81,258 | 80,247 | 42,581 | 58.9 | 1,388 / 171 / 2,247 |
+| HCT116 | TEST | 14 | 1,817 (32 %) | 17,692,753 | 17,693 | 34,343 | 33,904 | 18,391 | 65.3 | 723 / 64 / 1,030 |
+| HEK293T | TRAIN | 28 | 1,890 | 19,611,225 | 19,611 | 40,343 | 40,259 | 14,131 | 44.5 | 147 / 38 / 1,705 |
+| HEK293T | TEST | 14 | 798 (30 %) | 8,373,505 | 8,374 | 12,167 | 12,140 | 3,460 | 50.6 | 72 / 9 / 717 |
+
+TRAIN folds:
+- HCT116: fold 1 has 14 arms, 1,989 regulators and 42,454 positives; fold 2 has 14 arms, 1,817 regulators and 38,804 positives.
+- HEK293T: fold 1 has 1,006 regulators and 20,881 positives; fold 2 has 884 regulators and 19,462 positives.
+
+2,039 regulators are in both lines' universes.
+
+## 3. Exact definitions
+
+- **Gene key:** the DepMap column label. A PIE id maps to the `depmap_cn_column`, else to the
+  `depmap_expr_column` of `pie_gene_map.tsv`. The mapping is asserted 1:1.
+- **Regulators of a line:** PIE `target` in that line's DE table, mapped, `variable_cn` (frozen flags),
+  chromosome 1–22 or X, not PAR/Y/MT.
+- **Targets of a line:** PIE `feature` with control mean ≥ 0.05 in that line (`features_<line>.tsv`
+  `ref_mean`), mapped, `measured`, chromosome 1–22 or X, not PAR/Y/MT.
+- **Universe:** regulators × targets minus same-chromosome pairs, which also removes A = B.
+- **Positives:** universe pairs with PIE `p_adj < 0.05`, built from `loose_<line>.parquet`, which holds
+  every row with p_adj < 0.1 at full precision. Each positive carries these flags:
+  - `pos_primary`: p_adj < 0.05;
+  - `pos_ueffect`: additionally |Ueffect − 0.5| ≥ 0.1. **See open issue 1**;
+  - `pos_p01`: p_adj < 0.01;
+  - `lfc_sign` = sign(LFC). Only the sign is stored; the magnitude is never used.
+- **Own-gene class** (from the PIE row whose feature is the perturbed gene itself, same PIE id):
+  - (i) tested and p_adj < 0.05 and LFC < 0;
+  - (ii) tested otherwise;
+  - (iii) not tested.
+
+  Tested status comes from `tested_<line>.parquet`, and p_adj from `loose`. A tested own row absent from
+  `loose` has p_adj ≥ 0.1, so it is class (ii).
+- **CN-variability tercile:** terciles, among the line's universe regulators, of the frozen flag statistic
+  `n_lines_abs_log2cn_ge1`. This is the number of S2 lines with |log2 relCN| ≥ 1, sex-centred for X: the
+  statistic that defines `variable_cn`. HCT116 cut points are 20–28, 29–50 and 51–785.
+- **Benchmark-degree decile** (evaluation only): the number of primary positives per regulator, in deciles
+  computed **within split**.
+- **Quantile bins** (terciles and deciles): bin = ⌊n·(average rank − ½)/N⌋ + 1. Tied values always share a
+  bin. About 52 % of TRAIN regulators have degree 0, so the degree "deciles" collapse to 5 occupied levels
+  (3, 7, 8, 9, 10). This is harmless for stratification.
+- **Target strata:**
+  - the 5 Mb bin is `chrom:⌊gene midpoint / 5e6⌋`;
+  - the expression decile is the decile of the mean log2(TPM+1) over panel S2, among the line's universe
+    targets.
+  - The table also carries DepMap expression in HCT116 (ACH-000971) and HEK293 (ACH-001085), for B4e/NC2.
+  - Regulators carry `expr_context`, their DepMap expression in the line's context model (label-free; for
+    G2/NC2).
+- **Split:**
+  - The arm units are sorted by the number of HCT116 universe regulators, **descending**, with ties in
+    genomic order.
+  - Consecutive triplets are drawn with `np.random.default_rng(20261027).integers(3)`, one draw per
+    triplet in order. The drawn position is TEST.
+  - A final partial group (none here: 42 = 14 × 3) would get a TEST arm only if the draw is smaller than
+    its size.
+- **Score handling:**
+  - Universe genes absent from a score file get NaN, which counts as the minimum score.
+  - Ranking uses |score|, with NaN at the minimum.
+  - Same-chromosome entries are masked whatever value they hold.
+  - Ties at the top-K boundary are broken by a seeded hash: blake2b of `seed|gene key` per gene, combined
+    by splitmix64. The result does not depend on row order.
+  - K = round(frac × universe pairs of the evaluated split and line).
+
+## 4. Metrics (all per line × split; `Evaluation` / `compute_metrics`)
+
+**Pooled overlap**
+- Pooled 2×2 at K ∈ {0.1 %, 0.01 %, 1 %}: sample OR ad/bc, plus the Fisher p (one-sided "greater" and
+  two-sided). The Fisher p is labelled "assumes independence".
+- When a cell is 0, every OR in this module uses the Haldane +0.5 correction.
+
+**Regulator-label permutation** (1,000 permutations)
+- Label rows are reassigned among the split's regulators within strata of own class × CN tercile.
+- Replicate k uses the pairs trans to both A and π(A). The observed OR of that replicate uses the same
+  pairs, and the top-K selection stays fixed.
+- p = (1 + #{OR_null ≥ OR_obs}) / (n + 1).
+- Also reported: the median null OR and OR / median null OR.
+- The secondary permutation uses strata of own class × degree decile.
+- The computation is O(R) per replicate, using M = Sel·Posᵀ (R×R) and per-regulator × target-chromosome
+  counts. It matches a dense brute force exactly (test).
+
+**Jackknife and bootstrap**
+- Delete-one-arm jackknife of log OR, with targets fixed, top-K fixed and t_{G−1} critical values. G = 28
+  (TRAIN) or 14 (TEST).
+- The two-way bootstrap is a sensitivity analysis: multinomial weights on regulator arms × target 5 Mb
+  bins, applied to the per-(arm × bin) 2×2 counts. It reports a percentile CI.
+
+**CMH**
+- Mantel–Haenszel OR with strata regulator × target-expression decile, and own class × expression decile.
+- Also reported: the Robins–Breslow–Greenland SE and the CMH χ² p (no continuity correction).
+- Both match statsmodels `StratifiedTable`.
+
+**Other secondary metrics**
+- Per-regulator AUROC: the Mann–Whitney AUC of |score| with average ranks (NaN at the minimum) over the
+  regulator's trans targets. The mean is over regulators with ≥ 10 positives.
+- Share of top-K pairs from the 10 regulators with the most top-K pairs.
+- Hub-excluded sensitivity:
+  - drop the top 1 % of regulators and of targets by degree within the evaluated split (hash tie-break);
+  - **re-rank top-K within the reduced universe**.
+- Results for the own-class (i) and (iii) sub-universes (top-K re-ranked within each).
+- Call-set OR, from a boolean `call` array in `scores.npz` or the `call_mask` argument.
+
+**Sign metrics** (primary positives; top 0.1 %)
+- Predicted knockdown sign = −sign(score) · s_cis. It is 0 when the score is NaN or 0, and 0 never counts
+  as concordant.
+- Sign-concordant OR: positives are the pairs that are benchmark-positive and concordant.
+- Among the overlaps (top-K ∩ positives):
+  - the concordance rate;
+  - c₀ = q·u + (1−q)(1−u), where q is the fraction predicted down and u the fraction with LFC < 0;
+  - the 2×2 sign OR (pred down/up × LFC down/up);
+  - the within-regulator sign permutation p (LFC signs shuffled within each regulator's overlaps);
+  - regulator-weighted concordance (regulators with ≥ 5 overlaps).
+- A unit test covers a regulator with s_cis = −1.
+
+**Runtime.** `evaluate()` logs its own wall time, and copies the score run's wall time and threads from
+`meta.json`. A full HCT116 TRAIN evaluation (1,000 permutations and 1,000 bootstraps) takes about 4 s.
+
+**Paired comparison** (`compare()`, `evaluate.py --compare`):
+- Δlog OR per TRAIN fold;
+- the paired arm jackknife;
+- the paired two-way bootstrap, with shared weights: the Δlog OR 90 % lower bound and the Δlog CMH OR
+  90 % upper bound;
+- `adopt_rule_8_2` = both fold gains > 0, the LB > 0 and the CMH UB > 0.
+
+**Fold ORs.** The fold ORs use the full-TRAIN top-K selection restricted to each fold's regulators. This
+is the same "threshold fixed at its full-split value" convention as the resampling replicates.
+
+**Seeds.** Seeds come from `numpy.random.SeedSequence(20261027).spawn(8)` at these spawn indices:
+- 0: regulator permutation;
+- 1: degree permutation;
+- 2: sign permutation;
+- 3: bootstrap.
+
+The B0 calibration uses spawn indices 100+. The tie-break hash uses seed 20261027, and the split uses
+`default_rng(20261027)`.
+
+## 5. Guards, tuning log, sealing
+
+**`evaluate()` and `compare()`**
+- They raise `SealedSplitError` for any split other than TRAIN, unless they are given the token that only
+  `final_eval_token()` returns. That function requires the running program to be `scripts/final_eval.py`.
+- `read_positives()` also refuses any file whose name contains TEST.
+
+**Tuning log.** Every call appends a row to `results/tuning_log.tsv` with:
+- run id, variant, kind, line and split;
+- the params hash (meta params plus evaluation parameters);
+- the git hash with a dirty flag;
+- data checksums (sha256 of the bench tables used and of `scores.npz`);
+- the seed and spawn map, n_perm and n_boot;
+- the headline metrics as JSON;
+- the wall time.
+
+Full metrics go to `results/eval/<run>/<line>_<split>.json`.
+
+**TEST-only label columns.** `own_class` and `degree_decile` of TEST regulators are not in the open
+`universe_regulators_<line>.tsv`, where they are empty. They are in `regulator_labels_<line>_TEST.tsv`,
+which is sealed with the TEST positives (implementation choice; see open issue 4).
+
+**`seal_test.sh`** (the PI runs it; it has only been exercised on a toy copy in the tests):
+1. It appends the sha256 of the frozen files and of every file it seals to `results/FROZEN.sha256`. The
+   frozen files are the split files, `benchmark.py`, `build_benchmark.py`, the flags and panel, the
+   universe tables, the TRAIN positives, the manifest and `variants.yaml`.
+2. It moves these to `~/DepMapTR_sealed/<same relative path>` and runs `chmod a-rw` on them:
+   - the TEST positives and regulator-label files;
+   - `data/external/pie_x_atlas_orion/de/*.parquet`;
+   - everything in `data/processed/pie/` except the label-free `vocab_*.tsv` and `features_<line>.tsv`.
+     That is: `tested_*`, `loose_*`, `targets_*`, `target_summary_*`.
+3. It refuses to run twice.
+
+After sealing, `build_benchmark.py` cannot be rerun, by design.
+
+**`final_eval.py`**
+- It refuses:
+  - if `results/final/LOCK` exists in the tree or in HEAD;
+  - if `results/final/selected.yaml` is missing, untracked or modified;
+  - if a sealed file's sha256 differs from `FROZEN.sha256`;
+  - if more than 3 ablations are listed.
+- Otherwise it:
+  1. sets read access (u+r) on the TEST label files only;
+  2. evaluates every listed run (both lines), the subsets (e.g. NC2) and the paired comparisons of the
+     selected method against each other run;
+  3. removes read access again;
+  4. writes and commits `results/final/LOCK`.
+- `--mock` relabels the TRAIN fold-2 arms as PSEUDO_TEST and runs the same code path from TRAIN labels.
+  It writes to `results/final_mock/` and creates no LOCK and no commit.
+
+## 6. Calibration on the real TRAIN universe under B0 (200 seeds, `calibrate_b0.py`)
+
+| | HCT116 | HEK293T |
+|---|---|---|
+| regulator permutation p: mean / P(p ≤ .05) / KS p | 0.498 / 0.045 / 0.66 | 0.495 / 0.030 / 0.82 |
+| degree-decile permutation p | 0.499 / 0.025 / 0.996 | 0.492 / 0.040 / 0.50 |
+| Fisher p (one-sided) | 0.513 / 0.055 / 0.32 | 0.520 / 0.025 / 0.09 |
+| CMH p | 0.494 / 0.055 / 0.81 | 0.506 / 0.025 / 0.74 |
+| sign permutation p | 0.663 / 0.000 (conservative) | 0.691 / 0.005 (conservative) |
+| jackknife 95 % CI coverage of log OR = 0 | 0.92 | 0.97 |
+| two-way bootstrap 95 % CI coverage | 1.00 (conservative) | 1.00 (conservative) |
+| median OR | 0.997 | 0.991 |
+
+**Permutation tests.** The regulator-label permutation tests are calibrated, as DESIGN §6 requires.
+
+**Toy-size limits.** On toys with only 4 chromosomes and tiny counts, the regulator permutation is
+conservative (P(p ≤ .05) ≈ 0.01). Each replicate then drops a large share of the pairs, which adds noise
+to the observed OR. The unit tests therefore use 23 chromosomes.
+
+**Sign permutation.** Under B0 most regulators have about one overlap, so the within-regulator shuffle
+cannot move. The test is valid but has little power in that regime.
+
+**Jackknife coverage.** At 92 % for HCT116 (binomial SE about 2 %), it is slightly below nominal.
+
+**NC1.** Calibration on NC1 is still needed (DESIGN §6). Run `calibrate_b0.py`-style loops on NC1 score
+files once they exist.
+
+## 7. Minor implementation choices (not in DESIGN; recorded here)
+
+1. Arm sort is descending by HCT116 count, with ties in genomic order; the RNG draws one integer per
+   triplet.
+2. Quantile bins use average ranks, and ties share a bin.
+3. The degree decile is computed within split.
+4. The CN tercile uses the frozen `n_lines_abs_log2cn_ge1`.
+5. The 5 Mb bin uses the gene midpoint. Seven DepMap genes have no coordinates, only an HGNC band (e.g.
+   PAXX). They get their UCSC hg38 band extent.
+6. If any 2×2 cell is 0, ORs use the Haldane correction.
+7. K = round(frac·N).
+8. AUROC uses average ranks.
+9. Hub exclusion and the class (i)/(iii) sub-universes re-rank the top-K; folds keep the full-split
+   selection.
+10. The 2×2 sign table excludes pairs with a predicted or LFC sign of 0.
+11. Interface naming: DESIGN §6 mentions `bench_train.parquet` / `bench_test.parquet`, while
+    INTERFACES.md specifies `positives_<line>_<split>.parquet`. The INTERFACES names are used.
+12. The context-model assertion uses `StrippedCellLineName` (HCT116 / HEK293), because Model.csv spells
+    `HEK-293`.
+
+## 8. Open issues for the PI
+
+1. **Ueffect scale mismatch (design does not fit the data).** PIE `Ueffect` is signed in [−1, 1] and
+   centred at 0:
+   - quantiles are −0.99 / −0.16 / 0.05 / 0.14 / 0.97;
+   - its sign agrees with LFC in 99.99 % of hits.
+
+   It is not an AUC centred at 0.5. The DESIGN criterion |Ueffect − 0.5| ≥ 0.1 therefore keeps 98.6 %
+   (HCT116) and 99.8 % (HEK293T) of the primary positives, so the sensitivity set is degenerate.
+   - `pos_ueffect` implements the DESIGN text literally.
+   - A plausible intended rule is |Ueffect| ≥ 0.2, if Ueffect = 2·AUC − 1. Under that reading,
+     |Ueffect| ≥ 0.1 keeps 85.5 % / 74.5 %.
+   - Raw `ueffect` is stored for every positive, so a redefinition needs no rebuild. It does need a
+     decision note.
+2. **NC1 calibration of the permutation test** has not been run (needs NC1 score files).
+3. **Two-way bootstrap and jackknife.** The bootstrap is conservative (100 % coverage), and the
+   jackknife is about 92 % on HCT116. This matters for the §8.2 adoption rule, which uses the paired
+   bootstrap LB: the rule will be strict.
+4. **TEST label columns.** `own_class` and `degree_decile` for TEST regulators are split into a sealed
+   file instead of being kept in `universe_regulators_<line>.tsv` (INTERFACES lists them in one table).
+   This was done so that no label-derived TEST information stays in the tree.

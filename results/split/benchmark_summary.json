@@ -1,0 +1,162 @@
+{
+ "n_arm_units": 42,
+ "arms_by_split": {
+  "TRAIN": 28,
+  "TEST": 14
+ },
+ "test_arms": [
+  "17q",
+  "7q",
+  "14q",
+  "6q",
+  "3p",
+  "Xp",
+  "7p",
+  "22q",
+  "19p",
+  "4q",
+  "5p",
+  "12q",
+  "18p",
+  "21q"
+ ],
+ "lines": {
+  "hct116": {
+   "regulators": 5623,
+   "targets": 10209,
+   "pairs": 54357451,
+   "splits": {
+    "TRAIN": {
+     "arms": 28,
+     "regulators": 3806,
+     "pairs": 36664698,
+     "n_pos_primary": 81258,
+     "n_pos_ueffect": 38342,
+     "n_pos_p01": 42581,
+     "frac_lfc_down": 0.5889020158015211,
+     "own_class": {
+      "iii": 2247,
+      "i": 1388,
+      "ii": 171
+     },
+     "regulators_with_ge1_positive": 1806,
+     "fold1": {
+      "arms": 14,
+      "regulators": 1989,
+      "positives": 42454
+     },
+     "fold2": {
+      "arms": 14,
+      "regulators": 1817,
+      "positives": 38804
+     }
+    },
+    "TEST": {
+     "arms": 14,
+     "regulators": 1817,
+     "pairs": 17692753,
+     "n_pos_primary": 34343,
+     "n_pos_ueffect": 14748,
+     "n_pos_p01": 18391,
+     "frac_lfc_down": 0.6534082636927467,
+     "own_class": {
+      "iii": 1030,
+      "i": 723,
+      "ii": 64
+     },
+     "regulators_with_ge1_positive": 892
+    }
+   },
+   "target_bins": 572,
+   "excluded": {
+    "regulators": {
+     "pie_targets": 8987,
+     "unmapped": 61,
+     "mapped_not_in_flags": 0,
+     "excluded_Y_PAR_MT_unplaced": 16,
+     "not_variable_cn": 3287,
+     "universe_regulators": 5623
+    },
+    "targets": {
+     "consistent_features": 11100,
+     "unmapped": 728,
+     "mapped_not_in_flags": 0,
+     "excluded_Y_PAR_MT_unplaced": 24,
+     "not_measured": 139,
+     "universe_targets": 10209
+    }
+   },
+   "median_on_target_lfc": -27.515132904052734,
+   "n_cn_only_regulators": 3
+  },
+  "hek293t": {
+   "regulators": 2688,
+   "targets": 11000,
+   "pairs": 27984730,
+   "splits": {
+    "TRAIN": {
+     "arms": 28,
+     "regulators": 1890,
+     "pairs": 19611225,
+     "n_pos_primary": 40343,
+     "n_pos_ueffect": 6232,
+     "n_pos_p01": 14131,
+     "frac_lfc_down": 0.44530649679002554,
+     "own_class": {
+      "iii": 1705,
+      "i": 147,
+      "ii": 38
+     },
+     "regulators_with_ge1_positive": 763,
+     "fold1": {
+      "arms": 14,
+      "regulators": 1006,
+      "positives": 20881
+     },
+     "fold2": {
+      "arms": 14,
+      "regulators": 884,
+      "positives": 19462
+     }
+    },
+    "TEST": {
+     "arms": 14,
+     "regulators": 798,
+     "pairs": 8373505,
+     "n_pos_primary": 12167,
+     "n_pos_ueffect": 3586,
+     "n_pos_p01": 3460,
+     "frac_lfc_down": 0.5058765513273609,
+     "own_class": {
+      "iii": 717,
+      "i": 72,
+      "ii": 9
+     },
+     "regulators_with_ge1_positive": 329
+    }
+   },
+   "target_bins": 584,
+   "excluded": {
+    "regulators": {
+     "pie_targets": 4297,
+     "unmapped": 56,
+     "mapped_not_in_flags": 0,
+     "excluded_Y_PAR_MT_unplaced": 12,
+     "not_variable_cn": 1541,
+     "universe_regulators": 2688
+    },
+    "targets": {
+     "consistent_features": 12247,
+     "unmapped": 1072,
+     "mapped_not_in_flags": 0,
+     "excluded_Y_PAR_MT_unplaced": 24,
+     "not_measured": 151,
+     "universe_targets": 11000
+    }
+   },
+   "median_on_target_lfc": -26.742977142333984,
+   "n_cn_only_regulators": 3
+  }
+ },
+ "shared_regulators": 2039
+}
