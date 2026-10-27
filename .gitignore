@@ -1,0 +1,11 @@
+.venv/
+data/
+starting_data/
+*.parquet
+*.npy
+*.h5
+*.feather
+__pycache__/
+.DS_Store
+.pytest_cache/
+scratch/
