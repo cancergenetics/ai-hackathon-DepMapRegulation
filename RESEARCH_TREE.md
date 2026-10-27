@@ -56,6 +56,18 @@ Next: parallel literature review (LITERATURE.md) and data profiling (DATA.md, re
 covariate availability), then DESIGN.md and up to three review rounds.
 
 ## Decision notes
+- D6 (2026-10-27, after the M5a TRAIN results): a post-hoc tier using the last 7 configurations of the 30 cap, following reviews/ideas/M5a_ideas.md. All seven are label-free and DepMap-internal; they were added after seeing TRAIN results and are reported as such.
+  - Order (greedy on the incumbent):
+    1. I5 LOCO compositional TPM renormalisation;
+    2. I4 A3 ρ=0.90;
+    3. I3 shrunk IV effect score;
+    4. I6 lineage-half replication;
+    5. I1 context-detectability fusion S = sign(t)·ρ_P·ρ_T^γ, γ∈{1,2} (ρ_T = target percentile of DepMap HCT116 expression among all measured genes);
+    6. I2 graded regulator-context prior.
+  - I1 and I2 must also clear the evaluation-only controls C1 (within-regulator shuffle in 50 HCT116-expression bins) and C2 (fusion applied to NC1). "Pair-specific gain" = OR(fused) − OR(C1).
+  - Two selections are reported: CN-only (the estimand output) and context-fused (the tool's HCT116 layer).
+  - TEST ablations re-specified, because G2 was never adopted: selected minus context layer (= CN-only selection); minus G1; other arm handling.
+  - A secondary CMH stratified by HCT116-expression decile is added as a diagnostic. The frozen CMH stays unchanged and is reported, with the note that its pan-DepMap strata do not remove HCT116 detectability (B4e scores CMH 3.8).
 - D5 (2026-10-27, before any evaluation): code review found two problems in A3 attribution. (a) CN-only genes produced NaN co-expression evidence that spread across whole segments; they now get z_co = 0. (b) G2 was lost for singletons under A3. The final score is now always S = t·w_G1·w_G2·α, with π_g ∝ exp(t_cis/s)·w_G2(g) inside A3 (a design fix of §5.6). The SIM is extended so that each confounder test fails when its adjustment is removed. All pre-fix score runs are deleted.
 - D4 (2026-10-27, before any model result): PIE `Ueffect` is a signed rank-biserial effect in [−1, 1] whose sign matches LFC in 99.99% of positives. The v3.1 sensitivity rule |Ueffect − 0.5| ≥ 0.1 assumed a [0, 1] U scale and kept 98.6% of positives, so it was meaningless. It was translated to the equivalent |Ueffect| ≥ 0.2, which keeps 47% of HCT116 TRAIN positives. Sensitivity set only; the primary label is unchanged.
 - D3 (2026-10-27): Sequencing platform dropped from Z (93% missing in S2); `Stranded` kept, though it mostly tracks sequencing era. The X variable-CN rule is kept as frozen, even though all 716 X genes pass after sex-centring (whole-X/Xi loss is common). Changing a frozen flag post hoc would be ad hoc, and G1 handles X regulators whose CN doesn't move their expression.
