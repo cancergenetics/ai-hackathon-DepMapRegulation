@@ -580,6 +580,9 @@ def load_scores(run_dir) -> dict:
            "s_cis": np.asarray(z["s_cis"]).astype(np.int8)}
     if "call" in z.files:
         out["call"] = z["call"].astype(bool)
+    for opt in ("pair_score", "target_weight"):     # optional D6 fields used by the exact C1 control
+        if opt in z.files:
+            out[opt] = z[opt]
     if not set(np.unique(out["s_cis"])) <= {-1, 1}:
         raise ValueError("s_cis must be in {-1, +1}")
     if out["score"].shape != (len(out["regulators"]), len(out["targets"])):

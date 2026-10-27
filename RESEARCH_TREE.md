@@ -4,6 +4,15 @@ Legend: [ ] planned · [~] in progress · [x] done · [-] abandoned/negative · 
 
 ## Status summary (latest first)
 
+### 2026-10-27 — M5 complete: tuning closed (D7)
+All 30 budgeted configurations except one were used; every adoption decision followed §8.2 on HCT116 TRAIN.
+- **Selected (CN-only):** LOCO reduced form + G1 cis gate (F ≥ 100) + SuSiE L=1 co-segment attribution. TRAIN OR@0.1% = 5.0 vs M1 1.59, perm p ≤ 0.005. Sign concordance 0.561 vs c0 0.483 (within-regulator sign permutation p ≤ 0.005).
+- **D6 post-hoc tier, not adopted:** I5 compositional correction (+0.05), I4 coarser segments (+0.21, unstable), I3 IV-shrink (+0.18; ΔCMH +0.42), I6 lineage replication (+0.04).
+- **[!] Key finding:** the CN pair evidence has essentially no *within-regulator* target information against Perturb-seq (within-regulator AUROC ≈ 0.51; exact C1 Δ ≈ 0). Its value is (i) choosing regulators with real trans effects (G1, and C2 13.9 vs 24.1) and (ii) the *direction* of effects (significant sign concordance).
+- The HCT116 context layer (I1 γ=2) reaches TRAIN OR 24.1. Its whole gain over CN-only is target detectability; it is not significantly better than the DepMap-only hub baseline B5 (19.7).
+
+Next: sensitivity analyses (S1, leave-HCT116-out, CN-outlier, TP53-chr17, paralog exclusion, regulator classes), selected.yaml, mock final run, independent review, one real TEST run, then REPORT.md.
+
 ### 2026-10-27 — M5a: pre-registered tiers complete (23 of 30 configurations used)
 Greedy tuning on HCT116 TRAIN adopted G1 (cis instrument gate, F ≥ 100) and A3 (SuSiE L=1 co-segment attribution, ρ=0.95, s=2, no co-expression). The incumbent `g1_t100_w0__a3_r095_s2_w0`:
 - HCT116 TRAIN: OR@0.1% = 5.0 (M1 1.59), regulator-label permutation p = 0.005, degree-stratified permutation p = 0.055, CMH 1.09.
@@ -56,6 +65,12 @@ Next: parallel literature review (LITERATURE.md) and data profiling (DATA.md, re
 covariate availability), then DESIGN.md and up to three review rounds.
 
 ## Decision notes
+- D7 (2026-10-27): **tuning closed (29 of 30 configurations).** I1 context fusion (γ=2) passes §8.2 (Δlog-OR +1.57; TRAIN OR 24.1), but by the letter of D6 it fails C1. Exact C1 gives OR 24.5, so Δlog-OR(pair) = −0.02 (CI −0.09 to 0.06): the gain is all regulator allocation + target detectability. C2 (fusion on NC1 t) gives 13.9, so real CN evidence does improve regulator allocation. Against B5: Δlog-OR +0.20 (folds 0.04/0.41, lb90 < 0), not significant.
+  - **Selected method = CN-only incumbent `g1_t100_w0__a3_r095_s2_w0`.**
+  - The context-fused `…__i1_fuse_g2` is a pre-named reported variant ("HCT116 context layer") in the final run.
+  - I2 is not run: a per-regulator weight cannot clear a within-regulator control by construction (the D6 rule was mis-specified for it).
+  - Final-run ablations: selected minus G1 (M1+A3), selected plus context layer (I1 γ=2), selected with focal arm handling.
+- D6a (2026-10-27): bug fix. `benchmark.load_scores` did not read the optional `pair_score` / `target_weight` fields, so C1 silently ran in its biased approximate mode. The loader now reads them; no metric changed. Frozen hash re-recorded.
 - D6 (2026-10-27, after the M5a TRAIN results): a post-hoc tier using the last 7 configurations of the 30 cap, following reviews/ideas/M5a_ideas.md. All seven are label-free and DepMap-internal; they were added after seeing TRAIN results and are reported as such.
   - Order (greedy on the incumbent):
     1. I5 LOCO compositional TPM renormalisation;
@@ -101,7 +116,7 @@ covariate availability), then DESIGN.md and up to three review rounds.
   - [!] M1 pooled OR@0.1% = 1.59 (permutation p 0.25; CMH 1.10). Hub baselines dominate: B5 (reg cis×CN SD × target HCT116 expression) 19.7, B4e (target HCT116 expression) 7.1, B2 (co-expression) 5.8. Controls OK: B0 0.98, NC1 0.75, B6 (arm-only) 0.97.
   - [!] M1 has direction information: concordance 0.581 vs independence c0 0.476.
   - [x] B4e CMH = 3.8: the expression-decile strata do not fully remove target detectability, so CMH is not a pure pair-specific measure.
-- [~] M5 Method development (tuning on train regulators only; greedy tiers, DESIGN §5.5, results/tuning/)
+- [x] M5 Method development (tuning on train regulators only; greedy tiers, DESIGN §5.5, results/tuning/)
   - [-] Tier 1 arm handling (focal, loao, cnpcs20): none adopted. Focal Δlog-OR +0.68, but fold1 −0.09 / fold2 +1.52, jk lb90 −0.62, so the gain is unstable. LOCO retained.
   - [!] Tier 2 G1 instrument gate: all adopted under §8.2. τ=100 is best: Δlog-OR +0.79 (folds 0.65/1.12, jk lb90 +0.61), ΔCMH −0.05. Adopted g1_t100_w0 (w=0.5 identical to 2 d.p.). The gain is monotone in τ up to the grid maximum.
   - [-] Tier 3 G2 context gate on top of G1: not adopted (Δlog-OR +0.05, lb90 ≈ 0). Regulators that pass a strong cis gate are already expressed. Incumbent g1_t100_w0: OR 3.50 (jk CI 2.5–4.8), perm p 0.03, CMH 1.04, concordance 0.578 vs c0 0.487.
@@ -110,6 +125,10 @@ covariate availability), then DESIGN.md and up to three review rounds.
   - [-] Tier 5 target standardisation: Δ −0.03, not adopted
   - [-] Tier 6 hinge (loss slope): Δ −0.11, not adopted
   - [-] Tier 7 floor 2^-5 (Δ −0.01), RINT (Δ −0.16): not adopted
-  - [!] Incumbent after pre-registered tiers: g1_t100_w0__a3_r095_s2_w0, HCT116 TRAIN OR 5.0 (perm p 0.005), sign concordance significant; still well below B5 (19.7)
+  - [x] Incumbent after pre-registered tiers: g1_t100_w0__a3_r095_s2_w0, HCT116 TRAIN OR 5.0 (perm p 0.005), sign concordance significant; still well below B5 (19.7)
+  - [-] D6 I5/I4/I3/I6 not adopted; [!] I1 passes §8.2 but fails C1 (no pair-specific gain) → reported as the context layer, not selected (D7)
 - [ ] M6 Final held-out evaluation
+  - [ ] sensitivity analyses implemented
+  - [ ] selected.yaml committed; mock final run; independent review
+  - [ ] one real TEST run
 - [ ] M7 REPORT.md

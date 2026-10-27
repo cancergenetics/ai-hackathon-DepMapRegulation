@@ -4,7 +4,7 @@
 97bad526c60c4c5bbe8123e451ea4bbd57c9b6d25cb1855497b11e37f971c786  results/split/regulator_split.tsv
 3d982afa44bac37604c88f99e0450f2b0a97afce0c1af6ba533269cbd0c2b88b  results/split/train_folds.tsv
 e880e44baaacbb0e4a161266ac068f52309d92c4fabcdc44a8e39afc45c3e836  results/split/arm_units.tsv
-982c1af681762e5e46ecc727fa76b5791bc36e32ceba19715fbc129837a25877  src/depmaptr/benchmark.py
+253bed0c27413a555eea9f27f14af3feeb504b7aa41e794a35643ad0d8ccef62  src/depmaptr/benchmark.py
 81ff271aa6596b9da643ea10b558c6d19e00a530fd8ae4cc9b5a3cedf6112ece  scripts/benchmark/build_benchmark.py
 268bbba90110ae68ae6af9345e9f231f1f01d2fe9217450e514729dd690ceba9  scripts/final_eval.py
 b3388f8a7dbdcc81d2044752f65198a0833c56c5c5fba0c9a1af00ece3a12aec  scripts/evaluate.py
@@ -24,6 +24,7 @@ a3f8e4c0d93c6083276501d406ea3d7c67915506edb0814508cf7762eff417a1  data/processed
 6267bf1ea61189c1e881de4688cf137f887aa346b4cf0d13c020dce7317cb813  results/variants.yaml
 ee2f20af5079f9509ff70a3967a17843f2e0b364d0cde2a56beb1a6d6ecbfa5f  src/depmaptr/controls.py
 # re-recorded 2026-10-27T21:48:09Z (D6): src/depmaptr/benchmark.py src/depmaptr/controls.py scripts/evaluate.py scripts/final_eval.py results/variants.yaml
+# re-recorded 2026-10-27T22:01:22Z (D6a): src/depmaptr/benchmark.py
 # sealed 2026-10-27T20:05:42Z -> /Users/colmclaude/DepMapTR_sealed (path relative to the sealed root)
 e389192e633f4d9e03f7abbf431f6d8db3a85a9f3236aa6d9e1971349159de0b  data/processed/bench/positives_hct116_TEST.parquet
 38d8c496aae59d188c6e289a9afef09c8a7005165b56d32c836978d6b78e6f22  data/processed/bench/positives_hek293t_TEST.parquet
