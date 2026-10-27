@@ -1,0 +1,49 @@
+# results/final/selected.yaml — the PI's final selection for the ONE TEST run (D7, D8, D8a; 2026-10-27).
+# Run ids refer to data/results/scores/<run_id>/.
+selected: g1_t100_w0__a3_r095_s2_w0          # CN-only incumbent: M1 + G1 (tau=100, w=0) + A3 (rho=0.95, s=2, w_co=0)
+
+ablations:                                   # DESIGN §8.4, D7 (<= 3)
+  - a3_r095_s2_w0                            # selected minus G1 (M1 + A3)
+  - g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2    # selected plus the context layer (I1, gamma=2)
+  - focal__g1_t100_w0__a3_r095_s2_w0         # selected with the other arm handling (LOCO -> focal)
+
+reported: []                                 # the context layer is already listed as an ablation
+
+labels:
+  g1_t100_w0__a3_r095_s2_w0: "selected (CN-only: M1 + G1 + A3)"
+  a3_r095_s2_w0: "ablation: selected minus G1"
+  g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2: "context layer (selected + I1 γ=2)"
+  focal__g1_t100_w0__a3_r095_s2_w0: "ablation: focal arm handling"
+  C2_g2: "C2: context fusion applied to NC1"
+  NC1: "NC1: residual-permutation null"
+
+baselines: [B0, B1, B2, B3, B4, B4e, B5, B6]
+
+controls: [NC1, C2_g2, PC2, NC2]             # NC1 and C2_g2 are score runs; PC2 and NC2 are built in
+nc2_run: g1_t100_w0__a3_r095_s2_w0           # NC2 is evaluated without G2; the selected method has no G2
+c1:                                          # D6 C1 pair-shuffle control (exact mode when pair_score is present)
+  - g1_t100_w0__a3_r095_s2_w0
+  - g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2
+
+sensitivity:                                 # DESIGN §5.5 sensitivity analyses of the selected method (D8)
+  - g1_t100_w0__a3_r095_s2_w0__S1
+  - g1_t100_w0__a3_r095_s2_w0__noHCT116
+  - g1_t100_w0__a3_r095_s2_w0__hidden_factors
+  - g1_t100_w0__a3_r095_s2_w0__cn_outlier_exclusion
+  - g1_t100_w0__a3_r095_s2_w0__tp53_chr17_drop
+
+subsets:                                     # strings apply to subset_runs; no_split_sibling is automatic
+  - paralog_exclusion
+  - class_i
+  - class_iii                                # DESIGN §6 reports classes (i) and (iii) (D8a, review m2)
+  - hub_excluded
+  - {name: NC2_M1, run: M1, subset: nc2}     # NC2 on ungated M1 (no G1, no G2): informative null (D8a, m1)
+subset_runs: [g1_t100_w0__a3_r095_s2_w0]
+
+comparisons:                                 # D8a/M3: paired comparisons beyond selected-vs-each
+  - [g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2, B5]
+  - [g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2, C2_g2]
+  - [g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2, g1_t100_w0__a3_r095_s2_w0]
+
+lines: [hct116, hek293t]
+n_perm: 1000
