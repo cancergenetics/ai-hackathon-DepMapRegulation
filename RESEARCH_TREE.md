@@ -65,6 +65,10 @@ Next: parallel literature review (LITERATURE.md) and data profiling (DATA.md, re
 covariate availability), then DESIGN.md and up to three review rounds.
 
 ## Decision notes
+- D8 (2026-10-27): implement the remaining pre-listed sensitivity analyses (DESIGN §5.5, §13). These are not tuned; each is run once on TRAIN for reporting and once in the final run.
+  - Model side: regulator-conditional hidden factors, CN-outlier exclusion, TP53 dropped for chr17 regulators.
+  - Evaluation side: paralog-pair exclusion, regulator-class stratification (HGNC gene groups), runtime table.
+  - Changes to frozen files are re-hashed under D8.
 - D7 (2026-10-27): **tuning closed (29 of 30 configurations).** I1 context fusion (γ=2) passes §8.2 (Δlog-OR +1.57; TRAIN OR 24.1), but by the letter of D6 it fails C1. Exact C1 gives OR 24.5, so Δlog-OR(pair) = −0.02 (CI −0.09 to 0.06): the gain is all regulator allocation + target detectability. C2 (fusion on NC1 t) gives 13.9, so real CN evidence does improve regulator allocation. Against B5: Δlog-OR +0.20 (folds 0.04/0.41, lb90 < 0), not significant.
   - **Selected method = CN-only incumbent `g1_t100_w0__a3_r095_s2_w0`.**
   - The context-fused `…__i1_fuse_g2` is a pre-named reported variant ("HCT116 context layer") in the final run.
