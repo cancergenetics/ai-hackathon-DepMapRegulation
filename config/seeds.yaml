@@ -1,0 +1,4 @@
+# Fixed seed list (DESIGN §8.9). Canonical copy also in results/variants.yaml (`seeds`).
+# The split uses 20261027 only; permutation/bootstrap/NC1 streams use numpy SeedSequence(20261027).spawn(n),
+# with spawn indices logged in each evaluation JSON / meta.json.
+seeds: [20261027, 1, 2, 3, 4]
