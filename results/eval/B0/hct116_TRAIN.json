@@ -1,0 +1,113 @@
+{
+ "run_id": "B0",
+ "variant": "B0",
+ "line": "hct116",
+ "split": "TRAIN",
+ "metrics": {
+  "n_regulators": 3806,
+  "n_targets": 10209,
+  "n_pairs": 36664698,
+  "n_arms": 28,
+  "n_target_bins": 572,
+  "n_positives": {
+   "pos_primary": 81258,
+   "pos_ueffect": 38342,
+   "pos_p01": 42581
+  },
+  "top0.001": {
+   "a": 80,
+   "b": 36585,
+   "c": 81178,
+   "d": 36546855,
+   "or": 0.9844611688621013,
+   "log_or": -0.015660824177428447,
+   "fisher_p_greater": 0.5704911945051963,
+   "fisher_p_two_sided": 0.9556658921103754,
+   "K": 36665
+  },
+  "top0.0001": {
+   "a": 7,
+   "b": 3659,
+   "c": 81251,
+   "d": 36579781,
+   "or": 0.8612872472090733,
+   "log_or": -0.14932720974144928,
+   "fisher_p_greater": 0.7019162042662241,
+   "fisher_p_two_sided": 0.8603888332244229,
+   "K": 3666
+  },
+  "top0.01": {
+   "a": 830,
+   "b": 365817,
+   "c": 80428,
+   "d": 36217623,
+   "or": 1.021708209523762,
+   "log_or": 0.02147594174373237,
+   "fisher_p_greater": 0.2739515900289836,
+   "fisher_p_two_sided": 0.5367445570176954,
+   "K": 366647
+  },
+  "primary_or": 0.9844611688621013,
+  "sensitivity_positives": {
+   "pos_ueffect": {
+    "a": 36,
+    "b": 36629,
+    "c": 38306,
+    "d": 36589727,
+    "or": 0.9387929150331465,
+    "log_or": -0.0631603618667813
+   },
+   "pos_p01": {
+    "a": 43,
+    "b": 36622,
+    "c": 42538,
+    "d": 36585495,
+    "or": 1.0098532459551552,
+    "log_or": 0.009805019261450347
+   }
+  },
+  "folds_log_or": {
+   "fold1": -0.08752027154931784,
+   "fold2": 0.0578582595307682
+  },
+  "jackknife_log_or": {
+   "G": 28,
+   "estimate": -0.015660824177428447,
+   "se": 0.08659165263144844,
+   "ci95": [
+    -0.19333221951909457,
+    0.16201057116423767
+   ],
+   "lb90_one_sided": -0.16315138560055856,
+   "t_crit": 2.0518305164802833
+  },
+  "callset": {
+   "skipped": "no boolean `call` array in scores.npz (optional key; DESIGN \u00a76 call-set OR)"
+  },
+  "n_regulators_missing_in_scores": 0,
+  "n_targets_missing_in_scores": 0
+ },
+ "wall_s": 1.8622119426727295,
+ "score_wall_s": 2.73,
+ "threads": {
+  "cpu_count": 10,
+  "blas": []
+ },
+ "seed": 20261027,
+ "spawn": {
+  "perm_regulator": 0,
+  "perm_degree": 1,
+  "perm_sign": 2,
+  "bootstrap": 3
+ },
+ "params_hash": "7662ee8450e51686",
+ "git_hash": "57f2de34dd7850e09e122efd02545d1d1793f41e",
+ "data_checksums": {
+  "data/processed/bench/universe_regulators_hct116.tsv": "f7cc40ef8685e1e85a0035e1bd818c77ca61d8a23e3d73b62c7df19d3ced82a6",
+  "data/processed/bench/universe_targets_hct116.tsv": "99f3e9019f6682dfe90f281f6a74972ebfd7d25d1f31d2c213e0ed0acf140573",
+  "data/processed/bench/positives_hct116_TRAIN.parquet": "842274e873a694087ad48d02a223a543d9ff172c3a53c810a671cad32fcc74ee",
+  "/Users/colmclaude/ClaudeExperiments/DepMapTR/data/results/scores/B0/scores.npz": "16566bcbf2c7b9679d3c7e86a2eaa4fb3eb0a1f5679767db26aec80b8577c625"
+ },
+ "subset": null,
+ "debug": false
+}

@@ -68,13 +68,16 @@ covariate availability), then DESIGN.md and up to three review rounds.
   - [x] Review round 1 (7 reviewers → reviews/round1/) → v2
   - [x] Review round 2 (5 reviewers) → v3
   - [x] Review round 3 (fresh external PI) → v3.1 FROZEN
-- [~] M3 Benchmark harness + held-out split (frozen before tuning)
+- [x] M3 Benchmark harness + held-out split (frozen before tuning)
   - [~] T1–T4 data tasks (TP53, RNA tech, S2 panel, frozen flags)
   - [~] benchmark.py, split, metrics, seal/final scripts
   - [~] model engine (assoc/covariates/gates/attribution/SIM), baselines
-  - [ ] independent review of harness + engine
-  - [ ] freeze hashes + seal TEST
-- [ ] M4 Baseline models
+  - [x] independent review of harness (no blockers) + engine (1 blocker fixed, D5)
+  - [x] freeze hashes + seal TEST (2026-10-27; ~/DepMapTR_sealed, results/FROZEN.sha256)
+- [~] M4 Baseline models (HCT116 TRAIN, results/m4/)
+  - [!] M1 pooled OR@0.1% = 1.59 (permutation p 0.25; CMH 1.10). Hub baselines dominate: B5 (reg cis×CN SD × target HCT116 expression) 19.7, B4e (target HCT116 expression) 7.1, B2 (co-expression) 5.8. Controls OK: B0 0.98, NC1 0.75, B6 (arm-only) 0.97.
+  - [!] M1 has direction information: concordance 0.581 vs independence c0 0.476.
+  - [x] B4e CMH = 3.8: the expression-decile strata do not fully remove target detectability, so CMH is not a pure pair-specific measure.
 - [ ] M5 Method development (tuning on train regulators only)
 - [ ] M6 Final held-out evaluation
 - [ ] M7 REPORT.md
