@@ -27,7 +27,7 @@ HCT116 TEST (14 arms, 1,817 regulators). Corrected after independent verificatio
 All 30 budgeted configurations except one were used; every adoption decision followed §8.2 on HCT116 TRAIN.
 - **Selected (CN-only):** LOCO reduced form + G1 cis gate (F ≥ 100) + SuSiE L=1 co-segment attribution. TRAIN OR@0.1% = 5.0 vs M1 1.59, perm p ≤ 0.005. Sign concordance 0.561 vs c0 0.483 (within-regulator sign permutation p ≤ 0.005).
 - **D6 post-hoc tier, not adopted:** I5 compositional correction (+0.05), I4 coarser segments (+0.21, unstable), I3 IV-shrink (+0.18; ΔCMH +0.42), I6 lineage replication (+0.04).
-- **[!] Key finding:** the CN pair evidence has essentially no *within-regulator* target information against Perturb-seq (within-regulator AUROC ≈ 0.51; exact C1 Δ ≈ 0). Its value is (i) choosing regulators with real trans effects (G1, and C2 13.9 vs 24.1) and (ii) the *direction* of effects (significant sign concordance).
+- **[!] Key finding:** the CN pair evidence has essentially no *within-regulator* target information against Perturb-seq (within-regulator AUROC ≈ 0.51; exact C1 Δ ≈ 0). Its value is (i) choosing regulators with real trans effects (G1, and C2 13.9 vs 24.1) and (ii) the *direction* of effects (significant sign concordance) [D9: later shown not established; the sign test is miscalibrated].
 - The HCT116 context layer (I1 γ=2) reaches TRAIN OR 24.1. Its whole gain over CN-only is target detectability; it is not significantly better than the DepMap-only hub baseline B5 (19.7).
 
 Next: sensitivity analyses (S1, leave-HCT116-out, CN-outlier, TP53-chr17, paralog exclusion, regulator classes), selected.yaml, mock final run, independent review, one real TEST run, then REPORT.md.
