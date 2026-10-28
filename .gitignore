@@ -10,3 +10,5 @@ __pycache__/
 .pytest_cache/
 scratch/
 *.egg-info/
+*.npz
+*.csv
