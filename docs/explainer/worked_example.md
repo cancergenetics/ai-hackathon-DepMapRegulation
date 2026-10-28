@@ -222,8 +222,9 @@ This one gene reproduces the project's main finding in miniature:
 - **Ranking its targets helps only a little.** The top-ranked targets are hits only modestly more often than its
   other targets (odds ratio 1.36). Across all TEST regulators, within-regulator ranking showed no detectable
   information (AUROC 0.500, CMH 0.94).
-- **Direction is right more often than not** (64 % here). On TEST, pooled concordance was 72 % against a 65 %
-  within-regulator null (p = 0.012).
+- **Direction is right in 64 % of cases here, but whether that beats chance is not established.** On TEST, pooled
+  concordance was 72 % against a 65 % within-regulator null (p = 0.012), but a permuted-CN negative control passes
+  the same test (p = 0.001; correction D9), so the test is miscalibrated.
 
 ## Step 7 (optional) — The context layer
 

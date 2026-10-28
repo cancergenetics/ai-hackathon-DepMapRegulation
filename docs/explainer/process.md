@@ -103,10 +103,10 @@ not counted above.
   No design reviewer could have seen these (LESSONS #3, #7).
 - **The strict adoption rule.**
   - It rejected the unstable focal (+0.68) and I4 (+0.21) gains.
-  - Neither looked better on TEST: focal 4.50 vs 3.85, n.s.
+  - Focal was not better on TEST (4.50 vs 3.85, n.s.); I4 was never run on TEST.
   - The G1 gain it did adopt replicated on TEST: +0.97, CI 0.30–1.64.
 - **The ideas scientist and the C1/C2 controls.** They turned "we are far below B5" into a precise statement: CN
-  helps choose regulators and directions, not targets. They also stopped a +1.57 pooled gain from being reported as
+  may help choose regulators, not targets (a direction claim made at the time was withdrawn under D9). They also stopped a +1.57 pooled gain from being reported as
   CN knowledge.
 - **The one-shot TEST protocol.** It followed the sequence seal (`57f2de3`), selection commit (`62e67b9`), LOCK
   (`603a7f5`), run (`e9085c7`), with a mock dry run first. The pre-final review found 3 real fixes in about 13 min

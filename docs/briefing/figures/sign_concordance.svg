@@ -427,7 +427,7 @@ z
    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="440.64" y="56.718" transform="rotate(-0 440.64 56.718)">pooled independence expectation (c0)</text>
   </g>
   <g id="text_34">
-   <text style="font-size: 7.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #898781" x="14.4" y="322.92" transform="rotate(-0 14.4 322.92)">Targets respond in correlated modules, which the within-regulator sign permutation ignores; its calibration was never checked on negative controls (REPORT.md §1, finding 2).</text>
+   <text style="font-size: 7.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #898781" x="14.4" y="322.92" transform="rotate(-0 14.4 322.92)">Untested explanation: targets respond in correlated modules, which the sign permutation ignores; it was never calibrated on negative controls (REPORT.md §1, finding 2).</text>
   </g>
  </g>
  <defs>

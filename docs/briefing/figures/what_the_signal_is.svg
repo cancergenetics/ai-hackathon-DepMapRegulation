@@ -254,7 +254,7 @@ L 434.955695 279.936
     <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="357.259926" y="250.02973" transform="rotate(-0 357.259926 250.02973)">10.6  (-42%)</text>
    </g>
    <g id="text_23">
-    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="158.4" y="59.12" transform="rotate(-0 158.4 59.12)">a  Shuffle the targets: OR barely moves. Remove the CN evidence: OR falls</text>
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="158.4" y="59.12" transform="rotate(-0 158.4 59.12)">a  Shuffle the targets: OR barely moves. Permute CN: OR falls (CN-only: n.s.)</text>
    </g>
    <g id="tt0000"><title>CN-only selected tool — real scores: TEST OR 3.85 (jackknife 95% CI 1.33–11.15)</title>
     <defs>
@@ -538,11 +538,11 @@ z
    </g>
   </g>
   <g id="text_42">
-   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="11.88" y="24.192" transform="rotate(-0 11.88 24.192)">The signal is which regulators, not which targets (HCT116 TEST)</text>
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="11.88" y="24.192" transform="rotate(-0 11.88 24.192)">What signal there is: which regulators, not which targets (HCT116 TEST)</text>
   </g>
   <g id="text_43">
-   <text style="font-size: 7.5px; font-family: 'Arial', 'DejaVu Sans'; fill: #898781" transform="translate(11.88 331.243341)">C1 keeps each regulator's scores but shuffles them among its targets (within expression bins); NC1/C2 permute CN, which scrambles which regulators score high.</text>
-   <text style="font-size: 7.5px; font-family: 'Arial', 'DejaVu Sans'; fill: #898781" transform="translate(11.88 339.3792)">Regulator-stratified CMH OR for the CN-only tool = 0.94 (95% CI 0.77–1.15).</text>
+   <text style="font-size: 7.5px; font-family: 'Arial', 'DejaVu Sans'; fill: #898781" transform="translate(11.88 331.243341)">C1 shuffles each regulator's scores among its targets (within expression bins); NC1/C2 permute CN. CMH OR (CN-only) = 0.94 (95% CI 0.77–1.15).</text>
+   <text style="font-size: 7.5px; font-family: 'Arial', 'DejaVu Sans'; fill: #898781" transform="translate(11.88 339.3792)">Real vs permuted CN, paired Δlog-OR: CN-only +1.10 (CI −0.66 to 2.85, not significant); context layer +0.55 (CI 0.07–1.03).</text>
   </g>
  </g>
  <defs>

@@ -12,17 +12,18 @@
 ## Top three in each category
 
 **Scientific**
-1. **Which regulators, not which targets.** Cross-line copy-number associations show *which* regulators have trans
-   effects that CRISPRi can detect: those whose own mRNA strongly tracks their CN. They show nothing detectable about
-   *which* of a regulator's targets respond.
+1. **Which regulators, not which targets.** Cross-line copy-number associations suggest *which* regulators have trans
+   effects that CRISPRi can detect: those whose own mRNA strongly tracks their CN (G1 gain +0.97, CI 0.30–1.64; the
+   overall TEST enrichment was not significant, p = 0.068). They show nothing detectable about *which* of a
+   regulator's targets respond.
 2. **A DepMap trans row is mostly its chromosome arm's signature**, not something specific to the gene.
 3. **In a single-line Perturb-seq screen, regulator hubness and target expression depth largely decide which pairs
-   count as hits.** A label-free DepMap prior outscores every CN-based ranking.
+   count as hits.** A label-free DepMap prior numerically outscores every CN-based ranking.
 
 **Methodological**
 1. **Split pooled enrichment into its parts.** On a hub-dominated perturbation benchmark, separate regulator
    allocation, target detectability and pair-specific evidence, using label-free hub priors and within-regulator
-   controls. A large pooled gain can contain zero pair knowledge.
+   controls. A large pooled gain can contain no detectable pair knowledge.
 2. **Tune on a metric that measures the claim.** Greedy tuning on pooled OR adopts only allocation gains and rejects
    pair-specific ones.
 3. **Give every control and metric a known-answer test before its first real use.** A bugged control nearly
@@ -66,12 +67,13 @@
    - A *population* instrument is not a *context* instrument. MYCN passes G1 through neuroblastoma amplicons, yet is
      unexpressed in HCT116; it took 1,701 top-K slots for 1 hit.
    - Arose at: TP2, TP7.
-6. **CN-predicted direction agrees modestly with knockdown direction. The evidence is weak.** **[not shown
-   robustly]**
+6. **Whether CN-predicted direction agrees with knockdown direction is not established** (correction D9: the
+   test failed its negative control).
    - Evidence: TEST concordance 0.718 against a within-regulator null of 0.647, p = 0.012, n = 131. Only 6
      regulators have ≥ 5 overlaps.
    - Not significant in the S1 sample set (p 0.13) or in the no-split-sibling subset (p 0.48).
-   - The C2 negative control also "passes" this test (0.585 vs 0.514, p = 0.001); see Methodological #8.
+   - The C2 negative control also "passes" this test (0.585 vs within-regulator null 0.532, pooled c₀ 0.514,
+     p = 0.001); see Methodological #8. So p = 0.012 is not evidence of correct direction.
    - Arose at: TP8.
 7. **LOCO t-statistics have a negative skew that grows with target expression. Part of it is a TPM compositional
    artefact; the rest is an own-chromosome aneuploidy response.**
@@ -133,9 +135,9 @@
 8. **A within-regulator sign-permutation null treats targets as exchangeable, so it may be anti-conservative when
    predicted signs are correlated across targets.** **[not shown: an observation, not tested]**
    - Evidence: the C2 control (context fusion on permuted CN, so its signs should carry no information) scored
-     concordance 0.585 against c₀ 0.514, sign p = 0.001 on HCT116 TEST (n = 354). The NC1 and C1 controls did not
+     concordance 0.585 against a within-regulator null of 0.532 (c₀ 0.514), sign p = 0.001 on HCT116 TEST (n = 354). The NC1 and C1 controls did not
      (p 0.52, 1.0).
-   - REPORT.md does not discuss this.
+   - REPORT.md did not discuss this at first; it was corrected under D9 (28 Oct).
    - Arose at: TP8.
 9. **With near-collinear candidates (r ≥ 0.95), single-effect fine-mapping is decided by the prior, not the data.**
    - Evidence: in A3, σ₀ = 0.05 and df ≈ 1,335 give log ABF ≈ 0.385 z², a near-hard argmax.

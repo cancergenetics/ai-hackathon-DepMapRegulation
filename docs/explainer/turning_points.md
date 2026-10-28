@@ -279,7 +279,8 @@ means a human. Literature tags such as [F1] and [T1] are the reference keys used
 - **Evidence (HCT116 TEST: 14 arms, 1,817 regulators, 17.7 M pairs):**
   - **Selected tool:** OR 3.85 (jackknife CI 1.33–11.2). Regulator-label permutation p = 0.068, which is **not
     significant**. Gain over NC1 +1.10 (CI −0.66 to 2.85).
-  - **G1 ablation:** 1.46 → 3.85, Δlog-OR +0.97 (CI 0.30–1.64). This replicates TRAIN +0.79.
+  - **G1 ablation:** 1.46 → 3.85, Δlog-OR +0.97 (CI 0.30–1.64). This replicates TRAIN (+0.91 for the same removal
+    contrast; +0.79 when G1 was added to M1).
   - **Within regulator:** AUROC 0.500, CMH 0.94 (CI 0.77–1.15), C1 3.76.
   - **Sign:** 0.718 against a within-regulator null mean of 0.647, p = 0.012, n = 131. It is not significant in S1
     (p 0.13) or in the no-split-sibling subset (p 0.48).
@@ -288,8 +289,10 @@ means a human. Literature tags such as [F1] and [T1] are the reference keys used
   - **Report verification:** a fresh verifier checked about 120 numbers and found 4 errors and 3 over-claims, all
     fixed.
 - **Outcome:**
-  - The final claims are narrowed to: CN identifies **which regulators** have detectable trans consequences (via G1),
-    and modestly their **direction**; it does not identify **which targets** respond.
+  - The final claims are narrowed to: CN may help identify **which regulators** have detectable trans consequences
+    (resting mainly on the replicated G1 gain); it showed no detectable information about **which targets** respond.
+    A "modest" direction claim made at the time was withdrawn under D9 (28 Oct): the C2 control passes the same
+    sign test (p = 0.001), so direction is not established.
   - Precision is limited by 14 arms.
 - **Produced:** E (one-shot protocol and reporting rules) and the evidential status of S2 and S4.
 

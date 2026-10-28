@@ -728,8 +728,8 @@ def fig_sign_concordance():
         fig.lines.append(plt.Line2D([xx], [0.835], marker=mk, ms=6.5, mfc=SURFACE if hol else c,
                                     mec=c if hol else SURFACE, mew=1.5, transform=fig.transFigure))
         fig.text(xx + 0.012, 0.835, lab, fontsize=8, color=INK2, va="center")
-    fig.text(0.02, 0.025, "Targets respond in correlated modules, which the within-regulator sign permutation ignores; "
-             "its calibration was never checked on negative controls (REPORT.md §1, finding 2).",
+    fig.text(0.02, 0.025, "Untested explanation: targets respond in correlated modules, which the sign permutation ignores; "
+             "it was never calibrated on negative controls (REPORT.md §1, finding 2).",
              fontsize=7.5, color=MUTED)
     sg = final_json("g1_t100_w0__a3_r095_s2_w0")["sign"]
     c2 = final_json("C2_g2")["sign"]
@@ -784,7 +784,7 @@ def fig_what_the_signal_is():
     style_axis(a, "x")
     a.spines["left"].set_visible(False)
     a.set_xlabel("TEST odds ratio, top 0.1% (log scale; bars = jackknife 95% CI)")
-    a.set_title("a  Shuffle the targets: OR barely moves. Remove the CN evidence: OR falls", fontsize=9.5)
+    a.set_title("a  Shuffle the targets: OR barely moves. Permute CN: OR falls (CN-only: n.s.)", fontsize=9.5)
 
     # (b) per-regulator AUROC
     rows = [("g1_t100_w0__a3_r095_s2_w0", "CN-only: real", BLUE),
@@ -813,16 +813,19 @@ def fig_what_the_signal_is():
     b.text(0.507, 3.1, "the context layer's 0.65 comes from target\nexpression and survives the shuffle",
            fontsize=7.6, color=INK2, va="center", bbox=dict(fc=SURFACE, ec="none", pad=1.5))
     cmh = final_json("g1_t100_w0__a3_r095_s2_w0")["cmh_regulator_x_exprdecile"]
-    fig.text(0.015, 0.93, "The signal is which regulators, not which targets (HCT116 TEST)", fontsize=10.5,
+    fig.text(0.015, 0.93, "What signal there is: which regulators, not which targets (HCT116 TEST)", fontsize=10.5,
              fontweight="bold", color=INK)
-    fig.text(0.015, 0.018, f"C1 keeps each regulator's scores but shuffles them among its targets (within expression "
-             f"bins); NC1/C2 permute CN, which scrambles which regulators score high.\nRegulator-stratified CMH OR for "
-             f"the CN-only tool = {cmh['cmh_or']:.2f} (95% CI {cmh['cmh_ci95'][0]:.2f}–{cmh['cmh_ci95'][1]:.2f}).",
+    # paired Δlog-OR values from results/final/summary.md ("paired" table)
+    fig.text(0.015, 0.018, f"C1 shuffles each regulator's scores among its targets (within expression bins); NC1/C2 "
+             f"permute CN. CMH OR (CN-only) = {cmh['cmh_or']:.2f} (95% CI {cmh['cmh_ci95'][0]:.2f}–"
+             f"{cmh['cmh_ci95'][1]:.2f}).\nReal vs permuted CN, paired Δlog-OR: CN-only +1.10 (CI −0.66 to 2.85, "
+             f"not significant); context layer +0.55 (CI 0.07–1.03).",
              fontsize=7.5, color=MUTED)
-    save(fig, "what_the_signal_is", "The signal is which regulators, not which targets",
+    save(fig, "what_the_signal_is", "What signal there is concerns which regulators, not which targets",
          "Shuffling scores among each regulator's targets leaves the TEST odds ratio almost unchanged (3.85 → 3.76; "
          "context layer 18.4 → 17.3) and per-regulator AUROC at 0.50, whereas permuting copy number, which changes "
-         "which regulators score high, drops it (1.28; context fusion 10.6).",
+         "which regulators score high, lowers it (1.28; context fusion 10.6). For the CN-only tool that drop is not "
+         "significant (paired Δlog-OR +1.10, CI −0.66 to 2.85); for the context layer it is (+0.55, CI 0.07–1.03).",
          ["results/final/g1_t100_w0__a3_r095_s2_w0/hct116_TEST.json",
           "results/final/g1_t100_w0__a3_r095_s2_w0_C1/hct116_TEST.json",
           "results/final/g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2/hct116_TEST.json",
