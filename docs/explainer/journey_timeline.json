@@ -1,0 +1,162 @@
+[
+  {
+    "id": "TP1",
+    "title": "Reduced-form LOCO model; no expression factors",
+    "timestamp": "2026-10-27T18:21:46+00:00",
+    "commit": "499dc16",
+    "commits": [
+      "499dc16",
+      "a17f5bd",
+      "6d755e0"
+    ],
+    "method_steps": [
+      "S1"
+    ],
+    "credit": [
+      "literature: Fehrmann 2015 [F1], Kang 2008 [K1], Dahl 2019 [D2], Taylor 2018 [T1], Shukla 2020 [S4], Davoli 2013 [D3]",
+      "reviewer agents: domain R1 #1-3, statistics R1 #2"
+    ],
+    "one_line": "Literature on dosage-driven expression covariance and co-selected arms led to a CN->expression reduced form adjusted for the arm CN of all other chromosomes, with expression PCs deliberately excluded."
+  },
+  {
+    "id": "TP2",
+    "title": "HCT116 primary; benchmark is hub-dominated",
+    "timestamp": "2026-10-27T18:32:08+00:00",
+    "commit": "aacc223",
+    "commits": [
+      "aacc223",
+      "909a6b7"
+    ],
+    "method_steps": [
+      "E"
+    ],
+    "credit": [
+      "data agent (DATA_PROFILE.md)"
+    ],
+    "one_line": "Data profiling showed that 83% of HEK293T trans hits come from non-expressed perturbations and that 10% of perturbations give >90% of hits, so HCT116 became primary and hub controls became mandatory."
+  },
+  {
+    "id": "TP3",
+    "title": "Review rebuilds evaluation: arm hold-out, dependence-aware stats, hub baselines, sealed TEST",
+    "timestamp": "2026-10-27T18:45:30+00:00",
+    "commit": "6d755e0",
+    "commits": [
+      "6d755e0",
+      "9f7d21a",
+      "a6ccaeb",
+      "57fbe32",
+      "57f2de3"
+    ],
+    "method_steps": [
+      "E",
+      "S1"
+    ],
+    "credit": [
+      "reviewer agents: AI-failure #1,#2,#4; external PI #2,#6,#11; statistics #5,#9; prior work #2,#3,#4; data #2,#4",
+      "literature (partial): Warmerdam 2026 degree-preserving null [W1], Taylor 2018 [T1]"
+    ],
+    "one_line": "Seven reviewer agents replaced 5 Mb bins with a chromosome-arm hold-out, Fisher p with regulator-label permutation and an arm jackknife, and added the B4e/B5 hub baselines, the S2 sample set and a physical TEST seal."
+  },
+  {
+    "id": "TP4",
+    "title": "Cis gate, SuSiE-L1 attribution and knockdown sign specified",
+    "timestamp": "2026-10-27T18:55:32+00:00",
+    "commit": "a6ccaeb",
+    "commits": [
+      "6d755e0",
+      "9f7d21a",
+      "a6ccaeb"
+    ],
+    "method_steps": [
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "credit": [
+      "literature: Goh 2013 MR framing [G2], Burgess & Thompson 2011 [B2], Warmerdam 2026 [W1], SuSiE [W4]",
+      "reviewer agents: closed-form Wakefield ABF with L=1 (algorithms #9, not in LITERATURE.md), statistics #6/#8, domain R2 #1, round-3 #1/#3"
+    ],
+    "one_line": "The PI's instrument and attribution sketches became a first-stage-F gate, a closed-form SuSiE L=1 posterior with a cis-strength prior, and a shrunk cis sign for predicting knockdown direction."
+  },
+  {
+    "id": "TP5",
+    "title": "First TRAIN numbers: hub prior beats CN model 12-fold",
+    "timestamp": "2026-10-27T20:08:28+00:00",
+    "commit": "f2deb85",
+    "commits": [
+      "f2deb85"
+    ],
+    "method_steps": [
+      "E"
+    ],
+    "credit": [
+      "PI (baselines specified by reviewer agents in TP3)"
+    ],
+    "one_line": "M1 reached OR 1.59 (perm p 0.25) while the label-free DepMap hub prior B5 reached 19.7, showing that pooled enrichment on this benchmark is mostly hubness and detectability."
+  },
+  {
+    "id": "TP6",
+    "title": "Cis-instrument gate is the one large, stable gain",
+    "timestamp": "2026-10-27T20:21:41+00:00",
+    "commit": "6288007",
+    "commits": [
+      "6288007",
+      "c968b1d",
+      "48143dc"
+    ],
+    "method_steps": [
+      "S2",
+      "S3",
+      "S1"
+    ],
+    "credit": [
+      "PI (pre-registered greedy tiers, strict adoption rule from external PI R2 #1)"
+    ],
+    "one_line": "Under a strict two-fold adoption rule, G1 (F >= 100) gave +0.79 log-OR and A3 gave +0.36. Arm alternatives, G2, transforms and the hinge all failed, leaving TRAIN OR 5.0."
+  },
+  {
+    "id": "TP7",
+    "title": "No within-regulator target information; context layer split off",
+    "timestamp": "2026-10-27T22:02:32+00:00",
+    "commit": "d439c58",
+    "commits": [
+      "d4bdd91",
+      "704aac0",
+      "f209390",
+      "d439c58"
+    ],
+    "method_steps": [
+      "S5",
+      "E"
+    ],
+    "credit": [
+      "ideas-scientist agent (diagnosis, I1-I6, C1/C2 controls)",
+      "prior-work reviewer R1 #5 had proposed the target-expression prior earlier"
+    ],
+    "one_line": "Within-regulator AUROC was 0.507. The detectability fusion gained +1.57 log-OR but failed the exact pair-shuffle control, so it ships as a separate HCT116 context layer and the selected method stays CN-only."
+  },
+  {
+    "id": "TP8",
+    "title": "One sealed TEST run; gate replicates, headline not significant",
+    "timestamp": "2026-10-27T23:12:47+00:00",
+    "commit": "e9085c7",
+    "commits": [
+      "7b4dba9",
+      "5d92561",
+      "62e67b9",
+      "603a7f5",
+      "e9085c7",
+      "b0827fd",
+      "c27a904"
+    ],
+    "method_steps": [
+      "E",
+      "S4"
+    ],
+    "credit": [
+      "pre-final reviewer agent (3 fixes)",
+      "report-verifier agent (4 errors, 3 over-claims)"
+    ],
+    "one_line": "On 14 held-out arms the CN-only tool reached OR 3.85 (perm p 0.068, n.s.). The G1 gain replicated (+0.97, CI 0.30-1.64) and the claims were narrowed to: which regulators, modest direction, not which targets."
+  }
+]

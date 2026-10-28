@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="792pt" height="309.6pt" viewBox="0 0 792 309.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 309.6 
+L 792 309.6 
+L 792 0 
+L 0 0 
+z
+" style="fill: #fcfcfb"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 51.48 256.968 
+L 383.808789 256.968 
+L 383.808789 43.344 
+L 51.48 43.344 
+z
+" style="fill: #fcfcfb"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 204.121585 256.968 
+L 204.121585 43.344 
+" clip-path="url(#p075fe412ae)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 293.965187 256.968 
+L 293.965187 43.344 
+" clip-path="url(#p075fe412ae)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_3">
+      <defs>
+       <path id="mcfd5ffcfde" d="M 0 0 
+L 0 3 
+" style="stroke: #898781; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="114.277983" y="256.968" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="114.277983" y="269.910031" transform="rotate(-0 114.277983 269.910031)">0.1%</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="204.121585" y="256.968" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="204.121585" y="269.910031" transform="rotate(-0 204.121585 269.910031)">1%</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="293.965187" y="256.968" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="293.965187" y="269.910031" transform="rotate(-0 293.965187 269.910031)">10%</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="383.808789" y="256.968" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="383.808789" y="269.910031" transform="rotate(-0 383.808789 269.910031)">100%</text>
+     </g>
+    </g>
+    <g id="text_5">
+     <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="217.644395" y="282.2505" transform="rotate(-0 217.644395 282.2505)">top share of perturbations, ranked by number of trans hits (log scale)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_7">
+      <path d="M 51.48 256.968 
+L 383.808789 256.968 
+" clip-path="url(#p075fe412ae)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_8">
+      <defs>
+       <path id="mb8a21706f9" d="M 0 0 
+L -3 0 
+" style="stroke: #898781; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#mb8a21706f9" x="51.48" y="256.968" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="44.98" y="260.189016" transform="rotate(-0 44.98 260.189016)">0%</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_9">
+      <path d="M 51.48 215.080941 
+L 383.808789 215.080941 
+" clip-path="url(#p075fe412ae)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#mb8a21706f9" x="51.48" y="215.080941" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="44.98" y="218.301957" transform="rotate(-0 44.98 218.301957)">20%</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_11">
+      <path d="M 51.48 173.193882 
+L 383.808789 173.193882 
+" clip-path="url(#p075fe412ae)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#mb8a21706f9" x="51.48" y="173.193882" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="44.98" y="176.414898" transform="rotate(-0 44.98 176.414898)">40%</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_13">
+      <path d="M 51.48 131.306824 
+L 383.808789 131.306824 
+" clip-path="url(#p075fe412ae)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#mb8a21706f9" x="51.48" y="131.306824" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="44.98" y="134.527839" transform="rotate(-0 44.98 134.527839)">60%</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_15">
+      <path d="M 51.48 89.419765 
+L 383.808789 89.419765 
+" clip-path="url(#p075fe412ae)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#mb8a21706f9" x="51.48" y="89.419765" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="44.98" y="92.64078" transform="rotate(-0 44.98 92.64078)">80%</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_17">
+      <path d="M 51.48 47.532706 
+L 383.808789 47.532706 
+" clip-path="url(#p075fe412ae)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_18">
+      <g>
+       <use xlink:href="#mb8a21706f9" x="51.48" y="47.532706" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="44.98" y="50.753722" transform="rotate(-0 44.98 50.753722)">100%</text>
+     </g>
+    </g>
+    <g id="text_12">
+     <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="16.17375" y="150.156" transform="rotate(-90 16.17375 150.156)">share of all trans hits captured</text>
+    </g>
+   </g>
+   <g id="line2d_19">
+    <path d="M 51.48 256.926113 
+L 116.609763 256.745667 
+L 150.009641 256.44469 
+L 173.389556 256.015229 
+L 190.089495 255.506273 
+L 203.449446 254.909416 
+L 215.139404 254.190314 
+L 225.159367 253.377045 
+L 235.179331 252.325663 
+L 243.5293 251.217897 
+L 250.209276 250.144193 
+L 256.889252 248.869997 
+L 263.569227 247.357874 
+L 270.249203 245.563396 
+L 275.259185 244.000878 
+L 280.269166 242.224284 
+L 285.279148 240.204283 
+L 290.28913 237.907526 
+L 295.299112 235.296097 
+L 300.309093 232.326881 
+L 303.649081 230.124694 
+L 306.989069 227.725697 
+L 310.329057 225.1123 
+L 313.669045 222.265342 
+L 317.009032 219.163951 
+L 320.34902 215.785388 
+L 323.689008 212.104881 
+L 327.028996 208.095445 
+L 330.368984 203.727684 
+L 333.708972 198.969575 
+L 337.048959 193.786231 
+L 340.388947 188.13965 
+L 343.728935 181.988432 
+L 347.068923 175.287476 
+L 350.408911 167.987654 
+L 353.748899 160.035443 
+L 357.088886 151.37254 
+L 360.428874 141.935429 
+L 363.768862 131.65492 
+L 367.10885 120.455638 
+L 370.448838 108.255471 
+L 373.788826 94.96497 
+L 377.128813 80.486692 
+L 380.468801 64.714483 
+L 383.808789 47.532706 
+L 383.808789 47.532706 
+" clip-path="url(#p075fe412ae)" style="fill: none; stroke: #c3c2b7; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_20">
+    <path d="M 67.300673 58.004471 
+L 94.346292 58.004471 
+" clip-path="url(#p075fe412ae)" style="fill: none; stroke: #2a78d6; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_21">
+    <path d="M 67.300673 89.419765 
+L 94.346292 89.419765 
+" clip-path="url(#p075fe412ae)" style="fill: none; stroke: #eb6834; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 51.48 256.968 
+L 51.48 43.344 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 51.48 256.968 
+L 383.808789 256.968 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #898781" x="260.116546" y="252.360424" transform="rotate(-0 260.116546 252.360424)">equal share</text>
+   </g>
+   <g id="tt0000"><title>HCT116 TRAIN: 3,806 perturbations, 81,258 trans hits; top 1% → 57%, top 10% → 96%; 53% have no hit</title>
+    <path d="M 62.126576 251.078615 
+L 89.172196 245.668628 
+L 104.992869 240.3205 
+L 116.217815 234.982681 
+L 124.924559 230.000545 
+L 132.038488 225.412752 
+L 138.053228 221.368794 
+L 143.263434 217.337723 
+L 151.970179 209.950862 
+L 155.689046 206.522904 
+L 159.084107 203.097525 
+L 162.20726 199.687609 
+L 167.790852 192.952833 
+L 172.67454 186.377857 
+L 180.919521 174.524342 
+L 184.46911 169.096314 
+L 189.252879 161.472331 
+L 206.061417 135.96369 
+L 219.190086 114.638189 
+L 226.187714 103.581094 
+L 234.543465 90.204329 
+L 237.266797 86.232538 
+L 240.625306 81.817432 
+L 245.176312 76.608484 
+L 247.604919 74.3816 
+L 249.572659 72.806802 
+L 253.523436 70.03093 
+L 255.495914 68.904601 
+L 260.637364 66.211206 
+L 264.748382 64.347738 
+L 269.247648 62.53324 
+L 274.481991 60.685236 
+L 279.544118 59.169718 
+L 285.833415 57.638736 
+L 292.757472 56.195386 
+L 305.154235 53.886025 
+L 319.43123 51.605016 
+L 330.267261 50.146201 
+L 340.45766 48.958014 
+L 350.287805 48.032724 
+L 356.017965 47.532706 
+L 383.808789 47.532706 
+L 383.808789 47.532706 
+" clip-path="url(#p075fe412ae)" style="fill: none; stroke: #2a78d6; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="tt0001"><title>HEK293T TRAIN: 1,890 perturbations, 40,343 trans hits; top 1% → 52%, top 10% → 97%; 60% have no hit</title>
+    <path d="M 89.439659 238.3881 
+L 116.485278 224.470046 
+L 132.305951 214.487049 
+L 143.530897 206.430048 
+L 152.237642 200.491125 
+L 159.35157 194.598924 
+L 165.366311 188.794977 
+L 170.576516 183.437487 
+L 175.172243 178.427818 
+L 183.002129 169.311779 
+L 192.41193 160.647388 
+L 195.103934 158.010174 
+L 199.987622 152.772085 
+L 204.327488 147.637824 
+L 208.232603 142.877341 
+L 216.565961 131.975472 
+L 222.149553 124.198805 
+L 231.373107 110.701252 
+L 236.196348 103.500827 
+L 242.081244 94.940264 
+L 250.474584 83.436196 
+L 257.901917 74.455132 
+L 259.432253 72.851 
+L 262.323841 70.141106 
+L 265.446994 67.394874 
+L 269.126863 64.534431 
+L 271.400433 63.060083 
+L 276.885741 59.924497 
+L 281.124479 57.899865 
+L 283.624745 56.965419 
+L 287.950446 55.652003 
+L 291.84409 54.670835 
+L 296.56073 53.653327 
+L 304.879226 52.194553 
+L 312.381403 51.052452 
+L 330.087398 49.017437 
+L 341.250946 48.197201 
+L 350.409766 47.532706 
+L 383.808789 47.532706 
+L 383.808789 47.532706 
+" clip-path="url(#p075fe412ae)" style="fill: none; stroke: #eb6834; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(208.543509 199.961162)">top 1% of perturbations:</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(208.543509 208.539662)">57% (HCT116), 52% (HEK293T)</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(208.543509 217.094912)">of all trans hits</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(298.387111 95.243515)">top 10%:</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(298.387111 103.705015)">96% / 97%</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="100.361033" y="60.15015" transform="rotate(-0 100.361033 60.15015)">HCT116</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="100.361033" y="72.546588" transform="rotate(-0 100.361033 72.546588)">3,806 perturbations, 81,258 hits</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="100.361033" y="91.565444" transform="rotate(-0 100.361033 91.565444)">HEK293T</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="100.361033" y="103.961882" transform="rotate(-0 100.361033 103.961882)">1,890 perturbations, 40,343 hits</text>
+   </g>
+   <g id="text_20">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="51.48" y="33.344" transform="rotate(-0 51.48 33.344)">a  A few perturbations carry almost all trans hits</text>
+   </g>
+   <g id="tt0002"><title>HCT116: top 1% of perturbations → 57% of hits</title>
+    <defs>
+     <path id="mc407efcebc" d="M 0 3.25 
+C 0.86191 3.25 1.688635 2.907559 2.298097 2.298097 
+C 2.907559 1.688635 3.25 0.86191 3.25 0 
+C 3.25 -0.86191 2.907559 -1.688635 2.298097 -2.298097 
+C 1.688635 -2.907559 0.86191 -3.25 0 -3.25 
+C -0.86191 -3.25 -1.688635 -2.907559 -2.298097 -2.298097 
+C -2.907559 -1.688635 -3.25 -0.86191 -3.25 0 
+C -3.25 0.86191 -2.907559 1.688635 -2.298097 2.298097 
+C -1.688635 2.907559 -0.86191 3.25 0 3.25 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.4"/>
+    </defs>
+    <g clip-path="url(#p075fe412ae)">
+     <use xlink:href="#mc407efcebc" x="204.121585" y="137.543644" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0003"><title>HEK293T: top 1% of perturbations → 52% of hits</title>
+    <defs>
+     <path id="ma435aa94b4" d="M 0 3.25 
+C 0.86191 3.25 1.688635 2.907559 2.298097 2.298097 
+C 2.907559 1.688635 3.25 0.86191 3.25 0 
+C 3.25 -0.86191 2.907559 -1.688635 2.298097 -2.298097 
+C 1.688635 -2.907559 0.86191 -3.25 0 -3.25 
+C -0.86191 -3.25 -1.688635 -2.907559 -2.298097 -2.298097 
+C -2.907559 -1.688635 -3.25 -0.86191 -3.25 0 
+C -3.25 0.86191 -2.907559 1.688635 -2.298097 2.298097 
+C -1.688635 2.907559 -0.86191 3.25 0 3.25 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.4"/>
+    </defs>
+    <g clip-path="url(#p075fe412ae)">
+     <use xlink:href="#ma435aa94b4" x="204.121585" y="147.637824" style="fill: #eb6834; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0004"><title>HCT116: top 10% of perturbations → 96% of hits</title>
+    <g clip-path="url(#p075fe412ae)">
+     <use xlink:href="#mc407efcebc" x="293.965187" y="55.947954" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0005"><title>HEK293T: top 10% of perturbations → 97% of hits</title>
+    <g clip-path="url(#p075fe412ae)">
+     <use xlink:href="#ma435aa94b4" x="293.965187" y="54.188038" style="fill: #eb6834; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_5">
+    <path d="M 483.218444 256.968 
+L 772.2 256.968 
+L 772.2 43.344 
+L 483.218444 43.344 
+z
+" style="fill: #fcfcfb"/>
+   </g>
+   <g id="line2d_22">
+    <path d="M 512.1166 256.968 
+L 512.1166 79.66008 
+" clip-path="url(#ped9b17c32c)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_23">
+    <path d="M 541.014755 256.968 
+L 541.014755 79.66008 
+" clip-path="url(#ped9b17c32c)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_24">
+    <path d="M 569.912911 256.968 
+L 569.912911 79.66008 
+" clip-path="url(#ped9b17c32c)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_25">
+    <path d="M 598.811067 256.968 
+L 598.811067 79.66008 
+" clip-path="url(#ped9b17c32c)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_26">
+    <path d="M 627.709222 256.968 
+L 627.709222 79.66008 
+" clip-path="url(#ped9b17c32c)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_27">
+    <path d="M 656.607378 256.968 
+L 656.607378 79.66008 
+" clip-path="url(#ped9b17c32c)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_5">
+     <g id="line2d_28">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="483.218444" y="256.968" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_21">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="483.218444" y="269.910031" transform="rotate(-0 483.218444 269.910031)">0</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_29">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="512.1166" y="256.968" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_22">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="512.1166" y="269.910031" transform="rotate(-0 512.1166 269.910031)">10</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_30">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="541.014755" y="256.968" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_23">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="541.014755" y="269.910031" transform="rotate(-0 541.014755 269.910031)">20</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_31">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="569.912911" y="256.968" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_24">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="569.912911" y="269.910031" transform="rotate(-0 569.912911 269.910031)">30</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_32">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="598.811067" y="256.968" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_25">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="598.811067" y="269.910031" transform="rotate(-0 598.811067 269.910031)">40</text>
+     </g>
+    </g>
+    <g id="xtick_10">
+     <g id="line2d_33">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="627.709222" y="256.968" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_26">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="627.709222" y="269.910031" transform="rotate(-0 627.709222 269.910031)">50</text>
+     </g>
+    </g>
+    <g id="xtick_11">
+     <g id="line2d_34">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="656.607378" y="256.968" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_27">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="656.607378" y="269.910031" transform="rotate(-0 656.607378 269.910031)">60</text>
+     </g>
+    </g>
+    <g id="text_28">
+     <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="627.709222" y="282.2505" transform="rotate(-0 627.709222 282.2505)">mean significant trans hits per perturbation</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_7">
+     <g id="line2d_35"/>
+     <g id="text_29">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(446.871257 110.572654)">HCT116</text>
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(378.152038 120.223466)">3,838 of 8,987 expressed</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_36"/>
+     <g id="text_30">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(440.700632 201.476483)">HEK293T</text>
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(385.657194 211.127296)">436 of 4,297 expressed</text>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_37">
+    <path d="M 499.11243 111.521872 
+L 630.599038 111.521872 
+" clip-path="url(#ped9b17c32c)" style="fill: none; stroke: #c3c2b7; stroke-width: 2"/>
+   </g>
+   <g id="line2d_38">
+    <path d="M 538.12494 202.425702 
+L 582.628099 202.425702 
+" clip-path="url(#ped9b17c32c)" style="fill: none; stroke: #c3c2b7; stroke-width: 2"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 483.218444 256.968 
+L 656.607378 256.968 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_31">
+    <text style="font-size: 8.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="630.599038" y="96.068221" transform="rotate(-0 630.599038 96.068221)">51</text>
+   </g>
+   <g id="text_32">
+    <text style="font-size: 8.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="499.11243" y="96.068221" transform="rotate(-0 499.11243 96.068221)">5.5</text>
+   </g>
+   <g id="text_33">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(662.387009 111.118824)">12.7% of all trans hits come</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(662.387009 119.697324)">from non-expressed perturbations</text>
+   </g>
+   <g id="text_34">
+    <text style="font-size: 8.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="582.628099" y="186.972051" transform="rotate(-0 582.628099 186.972051)">34.4</text>
+   </g>
+   <g id="text_35">
+    <text style="font-size: 8.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="538.12494" y="186.972051" transform="rotate(-0 538.12494 186.972051)">19</text>
+   </g>
+   <g id="text_36">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(662.387009 202.022654)">83.0% of all trans hits come</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(662.387009 210.601154)">from non-expressed perturbations</text>
+   </g>
+   <g id="text_37">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="496.511596" y="60.818901" transform="rotate(-0 496.511596 60.818901)">perturbed gene expressed in the line</text>
+   </g>
+   <g id="text_38">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="496.511596" y="77.23034" transform="rotate(-0 496.511596 77.23034)">not expressed (knockdown cannot act; expected ≈ null)</text>
+   </g>
+   <g id="text_39">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="483.218444" y="33.344" transform="rotate(-0 483.218444 33.344)">b  Non-expressed perturbed genes still produce hits</text>
+   </g>
+   <g id="tt0006"><title>HCT116: perturbed gene expressed (3,838 of 8,987): mean 51.0 trans hits</title>
+    <defs>
+     <path id="ma2516d33ac" d="M 0 4.25 
+C 1.127113 4.25 2.208214 3.802193 3.005204 3.005204 
+C 3.802193 2.208214 4.25 1.127113 4.25 0 
+C 4.25 -1.127113 3.802193 -2.208214 3.005204 -3.005204 
+C 2.208214 -3.802193 1.127113 -4.25 0 -4.25 
+C -1.127113 -4.25 -2.208214 -3.802193 -3.005204 -3.005204 
+C -3.802193 -2.208214 -4.25 -1.127113 -4.25 0 
+C -4.25 1.127113 -3.802193 2.208214 -3.005204 3.005204 
+C -2.208214 3.802193 -1.127113 4.25 0 4.25 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.4"/>
+    </defs>
+    <g clip-path="url(#ped9b17c32c)">
+     <use xlink:href="#ma2516d33ac" x="630.599038" y="111.521872" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0007"><title>HCT116: perturbed gene not expressed: mean 5.5 trans hits; 12.7% of all trans hits</title>
+    <defs>
+     <path id="ma42dde0f57" d="M 0 4.25 
+C 1.127113 4.25 2.208214 3.802193 3.005204 3.005204 
+C 3.802193 2.208214 4.25 1.127113 4.25 0 
+C 4.25 -1.127113 3.802193 -2.208214 3.005204 -3.005204 
+C 2.208214 -3.802193 1.127113 -4.25 0 -4.25 
+C -1.127113 -4.25 -2.208214 -3.802193 -3.005204 -3.005204 
+C -3.802193 -2.208214 -4.25 -1.127113 -4.25 0 
+C -4.25 1.127113 -3.802193 2.208214 -3.005204 3.005204 
+C -2.208214 3.802193 -1.127113 4.25 0 4.25 
+z
+" style="stroke: #2a78d6; stroke-width: 1.6"/>
+    </defs>
+    <g clip-path="url(#ped9b17c32c)">
+     <use xlink:href="#ma42dde0f57" x="499.11243" y="111.521872" style="fill: #fcfcfb; stroke: #2a78d6; stroke-width: 1.6"/>
+    </g>
+   </g>
+   <g id="tt0008"><title>HEK293T: perturbed gene expressed (436 of 4,297): mean 34.4 trans hits</title>
+    <defs>
+     <path id="m4a448d7119" d="M 0 4.25 
+C 1.127113 4.25 2.208214 3.802193 3.005204 3.005204 
+C 3.802193 2.208214 4.25 1.127113 4.25 0 
+C 4.25 -1.127113 3.802193 -2.208214 3.005204 -3.005204 
+C 2.208214 -3.802193 1.127113 -4.25 0 -4.25 
+C -1.127113 -4.25 -2.208214 -3.802193 -3.005204 -3.005204 
+C -3.802193 -2.208214 -4.25 -1.127113 -4.25 0 
+C -4.25 1.127113 -3.802193 2.208214 -3.005204 3.005204 
+C -2.208214 3.802193 -1.127113 4.25 0 4.25 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.4"/>
+    </defs>
+    <g clip-path="url(#ped9b17c32c)">
+     <use xlink:href="#m4a448d7119" x="582.628099" y="202.425702" style="fill: #eb6834; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0009"><title>HEK293T: perturbed gene not expressed: mean 19.0 trans hits; 83.0% of all trans hits</title>
+    <defs>
+     <path id="m0340b32671" d="M 0 4.25 
+C 1.127113 4.25 2.208214 3.802193 3.005204 3.005204 
+C 3.802193 2.208214 4.25 1.127113 4.25 0 
+C 4.25 -1.127113 3.802193 -2.208214 3.005204 -3.005204 
+C 2.208214 -3.802193 1.127113 -4.25 0 -4.25 
+C -1.127113 -4.25 -2.208214 -3.802193 -3.005204 -3.005204 
+C -3.802193 -2.208214 -4.25 -1.127113 -4.25 0 
+C -4.25 1.127113 -3.802193 2.208214 -3.005204 3.005204 
+C -2.208214 3.802193 -1.127113 4.25 0 4.25 
+z
+" style="stroke: #eb6834; stroke-width: 1.6"/>
+    </defs>
+    <g clip-path="url(#ped9b17c32c)">
+     <use xlink:href="#m0340b32671" x="538.12494" y="202.425702" style="fill: #fcfcfb; stroke: #eb6834; stroke-width: 1.6"/>
+    </g>
+   </g>
+   <g id="line2d_39">
+    <defs>
+     <path id="mb79ac31d95" d="M 0 3.5 
+C 0.928211 3.5 1.81853 3.131218 2.474874 2.474874 
+C 3.131218 1.81853 3.5 0.928211 3.5 0 
+C 3.5 -0.928211 3.131218 -1.81853 2.474874 -2.474874 
+C 1.81853 -3.131218 0.928211 -3.5 0 -3.5 
+C -0.928211 -3.5 -1.81853 -3.131218 -2.474874 -2.474874 
+C -3.131218 -1.81853 -3.5 -0.928211 -3.5 0 
+C -3.5 0.928211 -3.131218 1.81853 -2.474874 2.474874 
+C -1.81853 3.131218 -0.928211 3.5 0 3.5 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.4"/>
+    </defs>
+    <g clip-path="url(#ped9b17c32c)">
+     <use xlink:href="#mb79ac31d95" x="488.998075" y="58.797651" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="line2d_40">
+    <defs>
+     <path id="mf1f937fda9" d="M 0 3.5 
+C 0.928211 3.5 1.81853 3.131218 2.474874 2.474874 
+C 3.131218 1.81853 3.5 0.928211 3.5 0 
+C 3.5 -0.928211 3.131218 -1.81853 2.474874 -2.474874 
+C 1.81853 -3.131218 0.928211 -3.5 0 -3.5 
+C -0.928211 -3.5 -1.81853 -3.131218 -2.474874 -2.474874 
+C -3.131218 -1.81853 -3.5 -0.928211 -3.5 0 
+C -3.5 0.928211 -3.131218 1.81853 -2.474874 2.474874 
+C -1.81853 3.131218 -0.928211 3.5 0 3.5 
+z
+" style="stroke: #52514e; stroke-width: 1.6"/>
+    </defs>
+    <g clip-path="url(#ped9b17c32c)">
+     <use xlink:href="#mf1f937fda9" x="488.998075" y="75.16034" style="fill: #fcfcfb; stroke: #52514e; stroke-width: 1.6"/>
+    </g>
+   </g>
+  </g>
+  <g id="text_40">
+   <text style="font-size: 7.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #898781" x="51.48" y="301.86" transform="rotate(-0 51.48 301.86)">(a) TRAIN regulators in the evaluation universe; 53% (HCT116) and 60% (HEK293T) have no hit at all.  (b) All perturbations in the full DE tables (docs/DATA_PROFILE.md §10).</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p075fe412ae">
+   <rect x="51.48" y="43.344" width="332.328789" height="213.624"/>
+  </clipPath>
+  <clipPath id="ped9b17c32c">
+   <rect x="483.218444" y="43.344" width="288.981556" height="213.624"/>
+  </clipPath>
+ </defs>
+</svg>

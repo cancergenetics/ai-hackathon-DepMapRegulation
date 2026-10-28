@@ -1,0 +1,126 @@
+{
+ "generated_by": "scripts/figures/make_figures.py",
+ "theme": "light",
+ "palette": {
+  "categorical": [
+   "#2a78d6",
+   "#eb6834",
+   "#1baf7a"
+  ],
+  "ink": "#0b0b0b",
+  "secondary_ink": "#52514e",
+  "muted": "#898781",
+  "grid": "#e1e0d9",
+  "surface": "#fcfcfb"
+ },
+ "figures": [
+  {
+   "id": "pipeline",
+   "svg": "pipeline.svg",
+   "png": "pipeline.png",
+   "title": "The final method",
+   "caption": "The selected CN-only tool: covariate-adjusted trans association with leave-own-chromosome-out arm adjustment, a cis-instrument gate and co-segment attribution, with an optional context layer; both outputs are evaluated against held-out CRISPRi Perturb-seq.",
+   "sources": [
+    "REPORT.md §1–2",
+    "docs/MODEL.md",
+    "results/final/selected.yaml"
+   ]
+  },
+  {
+   "id": "benchmark_structure",
+   "svg": "benchmark_structure.svg",
+   "png": "benchmark_structure.png",
+   "title": "Why the benchmark is hard",
+   "caption": "Perturb-seq trans hits are concentrated in a few perturbations (top 10% carry 96% of HCT116 and 97% of HEK293T TRAIN hits), and in HEK293T most hits come from perturbations whose gene is not even expressed, so HCT116 is the primary line.",
+   "sources": [
+    "data/processed/bench/positives_hct116_TRAIN.parquet",
+    "data/processed/bench/positives_hek293t_TRAIN.parquet",
+    "data/processed/bench/universe_regulators_hct116.tsv (TRAIN rows)",
+    "data/processed/bench/universe_regulators_hek293t.tsv (TRAIN rows)",
+    "docs/DATA_PROFILE.md §10–11"
+   ]
+  },
+  {
+   "id": "split",
+   "svg": "split.svg",
+   "png": "split.png",
+   "title": "Held-out design",
+   "caption": "Regulators were split by whole chromosome arm: 28 TRAIN arms (3,806 HCT116 regulators) for all tuning and 14 TEST arms (1,817 regulators) whose Perturb-seq labels were sealed until the single final run.",
+   "sources": [
+    "results/split/arm_units.tsv",
+    "data/external/annotation/cytoBand.hg38.txt.gz"
+   ]
+  },
+  {
+   "id": "tuning_path",
+   "svg": "tuning_path.svg",
+   "png": "tuning_path.png",
+   "title": "How the method was chosen",
+   "caption": "On HCT116 TRAIN, the cis-instrument gate (G1) and co-segment attribution (A3) raised the top-0.1% odds ratio from 1.59 to 5.00; every other candidate was rejected, and the context layer (24.1) was reported but not selected because a within-regulator pair shuffle kept its gain.",
+   "sources": [
+    "results/tuning_log.tsv",
+    "results/m4/tier1_compare.txt",
+    "results/tuning/tier2_G1_compare.json",
+    "results/tuning/tier3_G2_compare.json",
+    "results/tuning/tier4_A3_compare.json",
+    "results/tuning/tier5_tstd_compare.json",
+    "results/tuning/tier6_hinge_compare.json",
+    "results/tuning/tier7_transforms_compare.json",
+    "results/tuning/d6_1_I5_compare.json",
+    "results/tuning/d6_2_I4_compare.json",
+    "results/tuning/d6_3_I3_I6_compare.json",
+    "results/tuning/d6_4_I1_compare.json",
+    "results/tuning/d6_I1_c1.json"
+   ]
+  },
+  {
+   "id": "test_results",
+   "svg": "test_results.svg",
+   "png": "test_results.png",
+   "title": "Held-out TEST results",
+   "caption": "On HCT116 TEST the selected CN-only tool reaches OR 3.85 (jackknife CI 1.33–11.2; pre-registered permutation p = 0.068), numerically below the target-detectability, co-expression and hub baselines (no paired difference significant), and it does not replicate in HEK293T.",
+   "sources": [
+    "results/final/summary.tsv (metric_set = pooled)"
+   ]
+  },
+  {
+   "id": "sign_concordance",
+   "svg": "sign_concordance.svg",
+   "png": "sign_concordance.png",
+   "title": "Direction of predicted effects: not established",
+   "caption": "The selected tool's sign concordance (71.8% vs a within-regulator null of 64.7%, p = 0.012, n = 131) looks better than chance, but the permuted-CN control C2 passes the same test (58.5% vs 53.2%, p = 0.001, n = 354), so the test is miscalibrated and the direction result is not established; it is also not significant in S1 or no-split-sibling regulators.",
+   "sources": [
+    "results/final/g1_t100_w0__a3_r095_s2_w0/hct116_TEST.json",
+    "results/final/g1_t100_w0__a3_r095_s2_w0__S1/hct116_TEST.json",
+    "results/final/g1_t100_w0__a3_r095_s2_w0/hct116_TEST_no_split_sibling.json",
+    "results/final/C2_g2/hct116_TEST.json",
+    "results/final/NC1/hct116_TEST.json"
+   ]
+  },
+  {
+   "id": "what_the_signal_is",
+   "svg": "what_the_signal_is.svg",
+   "png": "what_the_signal_is.png",
+   "title": "The signal is which regulators, not which targets",
+   "caption": "Shuffling scores among each regulator's targets leaves the TEST odds ratio almost unchanged (3.85 → 3.76; context layer 18.4 → 17.3) and per-regulator AUROC at 0.50, whereas permuting copy number, which changes which regulators score high, drops it (1.28; context fusion 10.6).",
+   "sources": [
+    "results/final/g1_t100_w0__a3_r095_s2_w0/hct116_TEST.json",
+    "results/final/g1_t100_w0__a3_r095_s2_w0_C1/hct116_TEST.json",
+    "results/final/g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2/hct116_TEST.json",
+    "results/final/g1_t100_w0__a3_r095_s2_w0__i1_fuse_g2_C1/hct116_TEST.json",
+    "results/final/NC1/hct116_TEST.json",
+    "results/final/C2_g2/hct116_TEST.json"
+   ]
+  },
+  {
+   "id": "journey",
+   "svg": "journey.svg",
+   "png": "journey.png",
+   "title": "Project journey",
+   "caption": "The whole project ran in about 5.4 hours of commits on 27 Oct 2026: design frozen after three review rounds, TEST labels sealed before any evaluation, two tuning steps adopted on TRAIN, a context layer rejected by its control, then one locked TEST run and an independent report check.",
+   "sources": [
+    "git log --date=iso"
+   ]
+  }
+ ]
+}

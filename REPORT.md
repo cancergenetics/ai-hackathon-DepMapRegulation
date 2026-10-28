@@ -52,7 +52,7 @@ The findings:
    - The sign result is therefore **not established**. It is also not robust in S1 (p = 0.13) or the
      no-split-sibling subset (p = 0.48), and the overlaps come from a few regulators (6 with ≥ 5 pairs).
 3. **The cis-instrument gate (G1) is the key ingredient.** On TEST it improves log-OR by +0.97 (paired
-   jackknife 95% CI 0.30–1.64), consistent with TRAIN (+0.79).
+   jackknife 95% CI 0.30–1.64), consistent with the matching TRAIN ablation (+0.91; the tier-2 adoption gain was +0.79).
 4. **The tool has no detectable information for ranking targets within a regulator.**
    - Per-regulator AUROC is 0.500 (179 regulators), and the regulator-stratified CMH OR is 0.94 (CI
      0.77–1.15, which bounds any lift at about 15%).
@@ -74,7 +74,7 @@ The findings:
 **Runtime** (10-core laptop CPU, no GPU; per-method score times are in the table above):
 - One full tool run scores 12,141 regulators × 18,276 targets ≈ 2.2×10⁸ pairs, including the NC1 permutation
   pass used for the call set. Compute time is 67 s for the selected method and 83 s for the context layer
-  (52–91 s across all model variants), plus about 30 s of data loading end to end.
+  (27–151 s across all model and control runs), wall-clock including data loading (about 1 s).
 - Peak memory footprint (`/usr/bin/time -l`) is about 6.4 GB for M1 and 7.3–8.4 GB for variants built on the
   selected method. macOS `ru_maxrss` reports 14 GB for the CN-only tool and 20 GB for the context layer.
 - Evaluating one score file on the benchmark takes 1.4–3.2 s.
@@ -195,6 +195,7 @@ All of these are in `results/final/summary.md`.
   give OR 181. This is the scale of agreement between two CRISPRi screens, far above anything observational.
 - **Regulator classes** (HGNC groups, rules fixed before results):
   - RBP OR 3.56 (30 hits; Fisher p 1×10⁻⁸);
+  - ribosomal: 0 hits among 631 top-K pairs (16 regulators);
   - "other" 3.21 (101 hits);
   - TF and kinase have **0 hits** in the top-K. Their displayed ORs (6.7, 42.9) are Haldane-corrected
     artefacts of empty cells and are uninformative.
@@ -228,7 +229,7 @@ DepMap copy-number variation acts as a weak and heavily confounded natural pertu
 - **The LOCO model attributes each arm-level trans signature to every gene on the arm.** A3 attribution
   helps regulator allocation, but cannot identify the causal gene without extra information.
 - **The CMH stratification is coarse.** The frozen CMH (pan-DepMap expression deciles) does not remove
-  HCT116 detectability (B4e alone scores 3.8), (B4e alone scores 3.8 on TRAIN and 4.1 on TEST), so CMH was supplemented by the C1 control and the D6
+  HCT116 detectability (B4e alone scores 3.8 on TRAIN and 4.1 on TEST), so CMH was supplemented by the C1 control and the D6
   HCT116-stratified CMH.
 - **The call set is large** (10.7 M trans pairs genome-wide; 1.2 M in the TEST universe) because λ_GC ≈ 2.1 reflects genuine arm-level structure. Its
   enrichment is modest (OR 1.15). For use, ranking is preferable to calling.

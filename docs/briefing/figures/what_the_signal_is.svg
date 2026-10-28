@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="792pt" height="345.6pt" viewBox="0 0 792 345.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 345.6 
+L 792 345.6 
+L 792 0 
+L 0 0 
+z
+" style="fill: #fcfcfb"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 158.4 279.936 
+L 434.955695 279.936 
+L 434.955695 69.12 
+L 158.4 69.12 
+z
+" style="fill: #fcfcfb"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 170.716127 279.936 
+L 170.716127 69.12 
+" clip-path="url(#p9712c3672b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="mcfd5ffcfde" d="M 0 0 
+L 0 3 
+" style="stroke: #898781; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="170.716127" y="279.936" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="170.716127" y="292.878031" transform="rotate(-0 170.716127 292.878031)">0.5</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 208.973511 279.936 
+L 208.973511 69.12 
+" clip-path="url(#p9712c3672b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="208.973511" y="279.936" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="208.973511" y="292.878031" transform="rotate(-0 208.973511 292.878031)">1</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 247.230895 279.936 
+L 247.230895 69.12 
+" clip-path="url(#p9712c3672b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="247.230895" y="279.936" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="247.230895" y="292.878031" transform="rotate(-0 247.230895 292.878031)">2</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 297.804407 279.936 
+L 297.804407 69.12 
+" clip-path="url(#p9712c3672b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="297.804407" y="279.936" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="297.804407" y="292.878031" transform="rotate(-0 297.804407 292.878031)">5</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 336.061791 279.936 
+L 336.061791 69.12 
+" clip-path="url(#p9712c3672b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="336.061791" y="279.936" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="336.061791" y="292.878031" transform="rotate(-0 336.061791 292.878031)">10</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_11">
+      <path d="M 374.319175 279.936 
+L 374.319175 69.12 
+" clip-path="url(#p9712c3672b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="374.319175" y="279.936" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="374.319175" y="292.878031" transform="rotate(-0 374.319175 292.878031)">20</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_13">
+      <path d="M 424.892686 279.936 
+L 424.892686 69.12 
+" clip-path="url(#p9712c3672b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="424.892686" y="279.936" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="424.892686" y="292.878031" transform="rotate(-0 424.892686 292.878031)">50</text>
+     </g>
+    </g>
+    <g id="text_8">
+     <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="296.677847" y="305.2185" transform="rotate(-0 296.677847 305.2185)">TEST odds ratio, top 0.1% (log scale; bars = jackknife 95% CI)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_15"/>
+     <g id="text_9">
+      <text style="font-size: 8.2px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #0b0b0b" x="154.9" y="105.34144" transform="rotate(-0 154.9 105.34144)">real scores</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_16"/>
+     <g id="text_10">
+      <text style="font-size: 8.2px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #0b0b0b" x="154.9" y="130.048251" transform="rotate(-0 154.9 130.048251)">targets shuffled within each regulator (C1)</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_17"/>
+     <g id="text_11">
+      <text style="font-size: 8.2px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #0b0b0b" x="154.9" y="154.705093" transform="rotate(-0 154.9 154.705093)">CN permuted (NC1)</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_18"/>
+     <g id="text_12">
+      <text style="font-size: 8.2px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #0b0b0b" x="154.9" y="201.503124" transform="rotate(-0 154.9 201.503124)">real scores</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_19"/>
+     <g id="text_13">
+      <text style="font-size: 8.2px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #0b0b0b" x="154.9" y="226.209935" transform="rotate(-0 154.9 226.209935)">targets shuffled within each regulator (C1)</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_20"/>
+     <g id="text_14">
+      <text style="font-size: 8.2px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #0b0b0b" x="154.9" y="250.866777" transform="rotate(-0 154.9 250.866777)">CN permuted, same fusion (C2)</text>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_21">
+    <path d="M 208.973511 279.936 
+L 208.973511 69.12 
+" clip-path="url(#p9712c3672b)" style="fill: none; stroke: #52514e; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_22">
+    <path d="M 224.571314 102.406737 
+L 342.078735 102.406737 
+" clip-path="url(#p9712c3672b)" style="fill: none; stroke: #2a78d6; stroke-width: 1.3"/>
+   </g>
+   <g id="line2d_23">
+    <path d="M 248.194475 127.063579 
+L 315.869668 127.063579 
+" clip-path="url(#p9712c3672b)" style="fill: none; stroke: #1baf7a; stroke-width: 1.3"/>
+   </g>
+   <g id="line2d_24">
+    <path d="M 168.944462 151.720421 
+L 276.445604 151.720421 
+" clip-path="url(#p9712c3672b)" style="fill: none; stroke: #eb6834; stroke-width: 1.3"/>
+   </g>
+   <g id="line2d_25">
+    <path d="M 340.988663 198.568421 
+L 398.349824 198.568421 
+" clip-path="url(#p9712c3672b)" style="fill: none; stroke: #2a78d6; stroke-width: 1.3"/>
+   </g>
+   <g id="line2d_26">
+    <path d="M 339.225565 223.225263 
+L 393.353681 223.225263 
+" clip-path="url(#p9712c3672b)" style="fill: none; stroke: #1baf7a; stroke-width: 1.3"/>
+   </g>
+   <g id="line2d_27">
+    <path d="M 327.51524 247.882105 
+L 351.004892 247.882105 
+" clip-path="url(#p9712c3672b)" style="fill: none; stroke: #eb6834; stroke-width: 1.3"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 158.4 279.936 
+L 434.955695 279.936 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #0b0b0b" x="152.868886" y="86.242855" transform="rotate(-0 152.868886 86.242855)">CN-only selected tool</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="348.333769" y="104.558252" transform="rotate(-0 348.333769 104.558252)">3.85</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="322.124702" y="129.211204" transform="rotate(-0 322.124702 129.211204)">3.76  (-2%)</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="282.700638" y="153.868046" transform="rotate(-0 282.700638 153.868046)">1.28  (-67%)</text>
+   </g>
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #0b0b0b" x="152.868886" y="182.404539" transform="rotate(-0 152.868886 182.404539)">Context layer</text>
+   </g>
+   <g id="text_20">
+    <text style="font-weight: 700; font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="404.604858" y="200.719937" transform="rotate(-0 404.604858 200.719937)">18.4</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="399.608715" y="225.372888" transform="rotate(-0 399.608715 225.372888)">17.3  (-6%)</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="357.259926" y="250.02973" transform="rotate(-0 357.259926 250.02973)">10.6  (-42%)</text>
+   </g>
+   <g id="text_23">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="158.4" y="59.12" transform="rotate(-0 158.4 59.12)">a  Shuffle the targets: OR barely moves. Remove the CN evidence: OR falls</text>
+   </g>
+   <g id="tt0000"><title>CN-only selected tool — real scores: TEST OR 3.85 (jackknife 95% CI 1.33–11.15)</title>
+    <defs>
+     <path id="m7bd28ec988" d="M 0 3.75 
+C 0.994512 3.75 1.948425 3.354876 2.65165 2.65165 
+C 3.354876 1.948425 3.75 0.994512 3.75 0 
+C 3.75 -0.994512 3.354876 -1.948425 2.65165 -2.65165 
+C 1.948425 -3.354876 0.994512 -3.75 0 -3.75 
+C -0.994512 -3.75 -1.948425 -3.354876 -2.65165 -2.65165 
+C -3.354876 -1.948425 -3.75 -0.994512 -3.75 0 
+C -3.75 0.994512 -3.354876 1.948425 -2.65165 2.65165 
+C -1.948425 3.354876 -0.994512 3.75 0 3.75 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.4"/>
+    </defs>
+    <g clip-path="url(#p9712c3672b)">
+     <use xlink:href="#m7bd28ec988" x="283.325024" y="102.406737" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0001"><title>CN-only selected tool — targets shuffled within each regulator (C1): TEST OR 3.76 (jackknife 95% CI 2.04–6.94)</title>
+    <defs>
+     <path id="m537a8b6b76" d="M 0 3.75 
+C 0.994512 3.75 1.948425 3.354876 2.65165 2.65165 
+C 3.354876 1.948425 3.75 0.994512 3.75 0 
+C 3.75 -0.994512 3.354876 -1.948425 2.65165 -2.65165 
+C 1.948425 -3.354876 0.994512 -3.75 0 -3.75 
+C -0.994512 -3.75 -1.948425 -3.354876 -2.65165 -2.65165 
+C -3.354876 -1.948425 -3.75 -0.994512 -3.75 0 
+C -3.75 0.994512 -3.354876 1.948425 -2.65165 2.65165 
+C -1.948425 3.354876 -0.994512 3.75 0 3.75 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.4"/>
+    </defs>
+    <g clip-path="url(#p9712c3672b)">
+     <use xlink:href="#m537a8b6b76" x="282.032071" y="127.063579" style="fill: #1baf7a; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0002"><title>CN-only selected tool — CN permuted (NC1): TEST OR 1.28 (jackknife 95% CI 0.48–3.40)</title>
+    <defs>
+     <path id="m619c804641" d="M 0 3.75 
+C 0.994512 3.75 1.948425 3.354876 2.65165 2.65165 
+C 3.354876 1.948425 3.75 0.994512 3.75 0 
+C 3.75 -0.994512 3.354876 -1.948425 2.65165 -2.65165 
+C 1.948425 -3.354876 0.994512 -3.75 0 -3.75 
+C -0.994512 -3.75 -1.948425 -3.354876 -2.65165 -2.65165 
+C -3.354876 -1.948425 -3.75 -0.994512 -3.75 0 
+C -3.75 0.994512 -3.354876 1.948425 -2.65165 2.65165 
+C -1.948425 3.354876 -0.994512 3.75 0 3.75 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.4"/>
+    </defs>
+    <g clip-path="url(#p9712c3672b)">
+     <use xlink:href="#m619c804641" x="222.695033" y="151.720421" style="fill: #eb6834; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0003"><title>Context layer — real scores: TEST OR 18.38 (jackknife 95% CI 10.93–30.91)</title>
+    <g clip-path="url(#p9712c3672b)">
+     <use xlink:href="#m7bd28ec988" x="369.669244" y="198.568421" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0004"><title>Context layer — targets shuffled within each regulator (C1): TEST OR 17.29 (jackknife 95% CI 10.59–28.24)</title>
+    <g clip-path="url(#p9712c3672b)">
+     <use xlink:href="#m537a8b6b76" x="366.289623" y="223.225263" style="fill: #1baf7a; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0005"><title>Context layer — CN permuted, same fusion (C2): TEST OR 10.60 (jackknife 95% CI 8.57–13.11)</title>
+    <g clip-path="url(#p9712c3672b)">
+     <use xlink:href="#m619c804641" x="339.260066" y="247.882105" style="fill: #eb6834; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_4">
+    <path d="M 567.34393 279.936 
+L 772.2 279.936 
+L 772.2 69.12 
+L 567.34393 69.12 
+z
+" style="fill: #fcfcfb"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_8">
+     <g id="line2d_28">
+      <path d="M 567.34393 279.936 
+L 567.34393 69.12 
+" clip-path="url(#p5024d4b97b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_29">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="567.34393" y="279.936" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_24">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="567.34393" y="292.878031" transform="rotate(-0 567.34393 292.878031)">0.45</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_30">
+      <path d="M 605.280239 279.936 
+L 605.280239 69.12 
+" clip-path="url(#p5024d4b97b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_31">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="605.280239" y="279.936" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_25">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="605.280239" y="292.878031" transform="rotate(-0 605.280239 292.878031)">0.50</text>
+     </g>
+    </g>
+    <g id="xtick_10">
+     <g id="line2d_32">
+      <path d="M 643.216548 279.936 
+L 643.216548 69.12 
+" clip-path="url(#p5024d4b97b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_33">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="643.216548" y="279.936" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_26">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="643.216548" y="292.878031" transform="rotate(-0 643.216548 292.878031)">0.55</text>
+     </g>
+    </g>
+    <g id="xtick_11">
+     <g id="line2d_34">
+      <path d="M 681.152858 279.936 
+L 681.152858 69.12 
+" clip-path="url(#p5024d4b97b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_35">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="681.152858" y="279.936" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_27">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="681.152858" y="292.878031" transform="rotate(-0 681.152858 292.878031)">0.60</text>
+     </g>
+    </g>
+    <g id="xtick_12">
+     <g id="line2d_36">
+      <path d="M 719.089167 279.936 
+L 719.089167 69.12 
+" clip-path="url(#p5024d4b97b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_37">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="719.089167" y="279.936" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_28">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="719.089167" y="292.878031" transform="rotate(-0 719.089167 292.878031)">0.65</text>
+     </g>
+    </g>
+    <g id="xtick_13">
+     <g id="line2d_38">
+      <path d="M 757.025476 279.936 
+L 757.025476 69.12 
+" clip-path="url(#p5024d4b97b)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_39">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="757.025476" y="279.936" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_29">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="757.025476" y="292.878031" transform="rotate(-0 757.025476 292.878031)">0.70</text>
+     </g>
+    </g>
+    <g id="text_30">
+     <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="669.771965" y="305.224125" transform="rotate(-0 669.771965 305.224125)">mean per-regulator AUROC (179 regulators)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_7">
+     <g id="line2d_40"/>
+     <g id="text_31">
+      <text style="font-size: 8.2px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #0b0b0b" x="563.84393" y="108.592056" transform="rotate(-0 563.84393 108.592056)">CN-only: real</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_41"/>
+     <g id="text_32">
+      <text style="font-size: 8.2px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #0b0b0b" x="563.84393" y="149.133595" transform="rotate(-0 563.84393 149.133595)">CN-only: C1 shuffle</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_42"/>
+     <g id="text_33">
+      <text style="font-size: 8.2px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #0b0b0b" x="563.84393" y="213.950088" transform="rotate(-0 563.84393 213.950088)">context layer: real</text>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_43"/>
+     <g id="text_34">
+      <text style="font-size: 8.2px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #0b0b0b" x="563.84393" y="254.541595" transform="rotate(-0 563.84393 254.541595)">context layer: C1 shuffle</text>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_44">
+    <path d="M 605.280239 105.607385 
+L 605.451405 105.607385 
+" clip-path="url(#p5024d4b97b)" style="fill: none; stroke: #e1e0d9; stroke-width: 2"/>
+   </g>
+   <g id="line2d_45">
+    <path d="M 605.280239 146.148923 
+L 602.654667 146.148923 
+" clip-path="url(#p5024d4b97b)" style="fill: none; stroke: #e1e0d9; stroke-width: 2"/>
+   </g>
+   <g id="line2d_46">
+    <path d="M 605.280239 211.015385 
+L 716.431357 211.015385 
+" clip-path="url(#p5024d4b97b)" style="fill: none; stroke: #e1e0d9; stroke-width: 2"/>
+   </g>
+   <g id="line2d_47">
+    <path d="M 605.280239 251.556923 
+L 715.721956 251.556923 
+" clip-path="url(#p5024d4b97b)" style="fill: none; stroke: #e1e0d9; stroke-width: 2"/>
+   </g>
+   <g id="line2d_48">
+    <path d="M 605.280239 279.936 
+L 605.280239 69.12 
+" clip-path="url(#p5024d4b97b)" style="fill: none; stroke: #52514e; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 567.34393 279.936 
+L 772.2 279.936 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_35">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="614.556119" y="107.753064" transform="rotate(-0 614.556119 107.753064)">0.500</text>
+   </g>
+   <g id="text_36">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="611.759382" y="148.294603" transform="rotate(-0 611.759382 148.294603)">0.497</text>
+   </g>
+   <g id="text_37">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="725.536072" y="213.161064" transform="rotate(-0 725.536072 213.161064)">0.646</text>
+   </g>
+   <g id="text_38">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="724.826671" y="253.702603" transform="rotate(-0 724.826671 253.702603)">0.646</text>
+   </g>
+   <g id="text_39">
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="607.556418" y="81.282462" transform="rotate(-0 607.556418 81.282462)">chance</text>
+   </g>
+   <g id="text_40">
+    <g id="patch_6">
+     <path d="M 609.071322 240.447004 
+L 753.37276 240.447004 
+L 753.37276 222.036241 
+L 609.071322 222.036241 
+z
+" style="fill: #fcfcfb"/>
+    </g>
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(610.591322 229.177866)">the context layer's 0.65 comes from target</text>
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(610.591322 237.416504)">expression and survives the shuffle</text>
+   </g>
+   <g id="text_41">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="567.34393" y="59.12" transform="rotate(-0 567.34393 59.12)">b  Within a regulator, CN ranks targets at chance</text>
+   </g>
+   <g id="tt0006"><title>CN-only: real: mean per-regulator AUROC 0.500 over 179 regulators</title>
+    <g clip-path="url(#p5024d4b97b)">
+     <use xlink:href="#m7bd28ec988" x="605.451405" y="105.607385" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0007"><title>CN-only: C1 shuffle: mean per-regulator AUROC 0.497 over 179 regulators</title>
+    <g clip-path="url(#p5024d4b97b)">
+     <use xlink:href="#m537a8b6b76" x="602.654667" y="146.148923" style="fill: #1baf7a; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0008"><title>context layer: real: mean per-regulator AUROC 0.646 over 179 regulators</title>
+    <g clip-path="url(#p5024d4b97b)">
+     <use xlink:href="#m7bd28ec988" x="716.431357" y="211.015385" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0009"><title>context layer: C1 shuffle: mean per-regulator AUROC 0.646 over 179 regulators</title>
+    <g clip-path="url(#p5024d4b97b)">
+     <use xlink:href="#m537a8b6b76" x="715.721956" y="251.556923" style="fill: #1baf7a; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+  </g>
+  <g id="text_42">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="11.88" y="24.192" transform="rotate(-0 11.88 24.192)">The signal is which regulators, not which targets (HCT116 TEST)</text>
+  </g>
+  <g id="text_43">
+   <text style="font-size: 7.5px; font-family: 'Arial', 'DejaVu Sans'; fill: #898781" transform="translate(11.88 331.243341)">C1 keeps each regulator's scores but shuffles them among its targets (within expression bins); NC1/C2 permute CN, which scrambles which regulators score high.</text>
+   <text style="font-size: 7.5px; font-family: 'Arial', 'DejaVu Sans'; fill: #898781" transform="translate(11.88 339.3792)">Regulator-stratified CMH OR for the CN-only tool = 0.94 (95% CI 0.77–1.15).</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p9712c3672b">
+   <rect x="158.4" y="69.12" width="276.555695" height="210.816"/>
+  </clipPath>
+  <clipPath id="p5024d4b97b">
+   <rect x="567.34393" y="69.12" width="204.85607" height="210.816"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="792pt" height="331.2pt" viewBox="0 0 792 331.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 331.2 
+L 792 331.2 
+L 792 0 
+L 0 0 
+z
+" style="fill: #fcfcfb"/>
+  </g>
+  <g id="axes_1">
+   <g id="tt0000"><title>1p: TRAIN · 310 HCT116 / 154 HEK293T regulators</title>
+    <path d="M 39.681231 192.643407 
+L 53.328 192.643407 
+L 53.328 99.553866 
+L 39.681231 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0001"><title>1q: TRAIN · 431 HCT116 / 228 HEK293T regulators</title>
+    <path d="M 39.681231 288.047067 
+L 53.328 288.047067 
+L 53.328 193.324827 
+L 39.681231 193.324827 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0002"><title>2p: TRAIN · 2 HCT116 / 2 HEK293T regulators</title>
+    <path d="M 72.173538 170.307974 
+L 85.820308 170.307974 
+L 85.820308 99.553866 
+L 72.173538 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0003"><title>2q: TRAIN · 34 HCT116 / 16 HEK293T regulators</title>
+    <path d="M 72.173538 282.926655 
+L 85.820308 282.926655 
+L 85.820308 170.989394 
+L 72.173538 170.989394 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0004"><title>3p: TEST · 152 HCT116 / 66 HEK293T regulators</title>
+    <path d="M 104.665846 168.036574 
+L 118.312615 168.036574 
+L 118.312615 99.553866 
+L 104.665846 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #eb6834"/>
+   </g>
+   <g id="tt0005"><title>3q: TRAIN · 108 HCT116 / 51 HEK293T regulators</title>
+    <path d="M 104.665846 249.69004 
+L 118.312615 249.69004 
+L 118.312615 168.717994 
+L 104.665846 168.717994 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0006"><title>4p: TRAIN · 66 HCT116 / 33 HEK293T regulators</title>
+    <path d="M 137.158154 137.069822 
+L 150.804923 137.069822 
+L 150.804923 99.553866 
+L 137.158154 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0007"><title>4q: TEST · 72 HCT116 / 31 HEK293T regulators</title>
+    <path d="M 137.158154 243.571643 
+L 150.804923 243.571643 
+L 150.804923 137.751242 
+L 137.158154 137.751242 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #eb6834"/>
+   </g>
+   <g id="tt0008"><title>5p: TEST · 61 HCT116 / 29 HEK293T regulators</title>
+    <path d="M 169.650462 136.161262 
+L 183.297231 136.161262 
+L 183.297231 99.553866 
+L 169.650462 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #eb6834"/>
+   </g>
+   <g id="tt0009"><title>5q: TRAIN · 44 HCT116 / 22 HEK293T regulators</title>
+    <path d="M 169.650462 237.00253 
+L 183.297231 237.00253 
+L 183.297231 136.842682 
+L 169.650462 136.842682 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0010"><title>6p: TRAIN · 224 HCT116 / 104 HEK293T regulators</title>
+    <path d="M 202.142769 144.489728 
+L 215.789538 144.489728 
+L 215.789538 99.553866 
+L 202.142769 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0011"><title>6q: TEST · 163 HCT116 / 54 HEK293T regulators</title>
+    <path d="M 202.142769 228.876763 
+L 215.789538 228.876763 
+L 215.789538 145.171148 
+L 202.142769 145.171148 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #eb6834"/>
+   </g>
+   <g id="tt0012"><title>7p: TEST · 121 HCT116 / 48 HEK293T regulators</title>
+    <path d="M 234.635077 144.716868 
+L 248.281846 144.716868 
+L 248.281846 99.553866 
+L 234.635077 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #eb6834"/>
+   </g>
+   <g id="tt0013"><title>7q: TEST · 260 HCT116 / 117 HEK293T regulators</title>
+    <path d="M 234.635077 220.200011 
+L 248.281846 220.200011 
+L 248.281846 145.398288 
+L 234.635077 145.398288 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #eb6834"/>
+   </g>
+   <g id="tt0014"><title>8p: TRAIN · 104 HCT116 / 51 HEK293T regulators</title>
+    <path d="M 267.127385 133.435582 
+L 280.774154 133.435582 
+L 280.774154 99.553866 
+L 267.127385 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0015"><title>8q: TRAIN · 191 HCT116 / 82 HEK293T regulators</title>
+    <path d="M 267.127385 209.443163 
+L 280.774154 209.443163 
+L 280.774154 134.117002 
+L 267.127385 134.117002 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0016"><title>9p: TRAIN · 74 HCT116 / 36 HEK293T regulators</title>
+    <path d="M 299.619692 131.769888 
+L 313.266462 131.769888 
+L 313.266462 99.553866 
+L 299.619692 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0017"><title>9q: TRAIN · 49 HCT116 / 23 HEK293T regulators</title>
+    <path d="M 299.619692 204.337117 
+L 313.266462 204.337117 
+L 313.266462 132.451308 
+L 299.619692 132.451308 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0018"><title>10p: TRAIN · 65 HCT116 / 27 HEK293T regulators</title>
+    <path d="M 332.112 129.347062 
+L 345.758769 129.347062 
+L 345.758769 99.553866 
+L 332.112 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0019"><title>10q: TRAIN · 157 HCT116 / 74 HEK293T regulators</title>
+    <path d="M 332.112 200.856352 
+L 345.758769 200.856352 
+L 345.758769 130.028482 
+L 332.112 130.028482 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0020"><title>11p: TRAIN · 106 HCT116 / 73 HEK293T regulators</title>
+    <path d="M 364.604308 139.644075 
+L 378.251077 139.644075 
+L 378.251077 99.553866 
+L 364.604308 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0021"><title>11q: TRAIN · 318 HCT116 / 174 HEK293T regulators</title>
+    <path d="M 364.604308 201.832448 
+L 378.251077 201.832448 
+L 378.251077 140.325495 
+L 364.604308 140.325495 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0022"><title>12p: TRAIN · 139 HCT116 / 76 HEK293T regulators</title>
+    <path d="M 397.096615 126.091389 
+L 410.743385 126.091389 
+L 410.743385 99.553866 
+L 397.096615 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0023"><title>12q: TEST · 48 HCT116 / 19 HEK293T regulators</title>
+    <path d="M 397.096615 200.461042 
+L 410.743385 200.461042 
+L 410.743385 126.772809 
+L 397.096615 126.772809 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #eb6834"/>
+   </g>
+   <g id="tt0024"><title>13p: no regulators in the universe (acrocentric p arm)</title>
+    <path d="M 429.588923 112.614416 
+L 443.235692 112.614416 
+L 443.235692 99.553866 
+L 429.588923 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #f0efec"/>
+   </g>
+   <g id="tt0025"><title>13q: TRAIN · 134 HCT116 / 51 HEK293T regulators</title>
+    <path d="M 429.588923 186.142909 
+L 443.235692 186.142909 
+L 443.235692 113.295836 
+L 429.588923 113.295836 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0026"><title>14p: no regulators in the universe (acrocentric p arm)</title>
+    <path d="M 462.081231 112.235849 
+L 475.728 112.235849 
+L 475.728 99.553866 
+L 462.081231 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #f0efec"/>
+   </g>
+   <g id="tt0027"><title>14q: TEST · 234 HCT116 / 99 HEK293T regulators</title>
+    <path d="M 462.081231 180.600231 
+L 475.728 180.600231 
+L 475.728 112.917269 
+L 462.081231 112.917269 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #eb6834"/>
+   </g>
+   <g id="tt0028"><title>15p: no regulators in the universe (acrocentric p arm)</title>
+    <path d="M 494.573538 113.598689 
+L 508.220308 113.598689 
+L 508.220308 99.553866 
+L 494.573538 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #f0efec"/>
+   </g>
+   <g id="tt0029"><title>15q: TRAIN · 40 HCT116 / 16 HEK293T regulators</title>
+    <path d="M 494.573538 176.774793 
+L 508.220308 176.774793 
+L 508.220308 114.280109 
+L 494.573538 114.280109 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0030"><title>16p: TRAIN · 22 HCT116 / 13 HEK293T regulators</title>
+    <path d="M 527.065846 127.075662 
+L 540.712615 127.075662 
+L 540.712615 99.553866 
+L 527.065846 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0031"><title>16q: TRAIN · 116 HCT116 / 52 HEK293T regulators</title>
+    <path d="M 527.065846 167.952037 
+L 540.712615 167.952037 
+L 540.712615 127.757082 
+L 527.065846 127.757082 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0032"><title>17p: TRAIN · 132 HCT116 / 56 HEK293T regulators</title>
+    <path d="M 559.558154 118.217202 
+L 573.204923 118.217202 
+L 573.204923 99.553866 
+L 559.558154 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0033"><title>17q: TEST · 329 HCT116 / 149 HEK293T regulators</title>
+    <path d="M 559.558154 162.590848 
+L 573.204923 162.590848 
+L 573.204923 118.898622 
+L 559.558154 118.898622 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #eb6834"/>
+   </g>
+   <g id="tt0034"><title>18p: TEST · 28 HCT116 / 8 HEK293T regulators</title>
+    <path d="M 592.050462 113.220122 
+L 605.697231 113.220122 
+L 605.697231 99.553866 
+L 592.050462 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #eb6834"/>
+   </g>
+   <g id="tt0035"><title>18q: TRAIN · 90 HCT116 / 37 HEK293T regulators</title>
+    <path d="M 592.050462 160.407158 
+L 605.697231 160.407158 
+L 605.697231 113.901542 
+L 592.050462 113.901542 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0036"><title>19p: TEST · 89 HCT116 / 44 HEK293T regulators</title>
+    <path d="M 624.542769 119.050049 
+L 638.189538 119.050049 
+L 638.189538 99.553866 
+L 624.542769 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #eb6834"/>
+   </g>
+   <g id="tt0037"><title>19q: TRAIN · 367 HCT116 / 181 HEK293T regulators</title>
+    <path d="M 624.542769 143.935216 
+L 638.189538 143.935216 
+L 638.189538 119.731469 
+L 624.542769 119.731469 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0038"><title>20p: TRAIN · 92 HCT116 / 55 HEK293T regulators</title>
+    <path d="M 657.035077 120.488602 
+L 670.681846 120.488602 
+L 670.681846 99.553866 
+L 657.035077 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0039"><title>20q: TRAIN · 165 HCT116 / 88 HEK293T regulators</title>
+    <path d="M 657.035077 148.346692 
+L 670.681846 148.346692 
+L 670.681846 121.170022 
+L 657.035077 121.170022 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0040"><title>21p: TRAIN · 1 HCT116 / 1 HEK293T regulators</title>
+    <path d="M 689.527385 108.298756 
+L 703.174154 108.298756 
+L 703.174154 99.553866 
+L 689.527385 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="tt0041"><title>21q: TEST · 19 HCT116 / 13 HEK293T regulators</title>
+    <path d="M 689.527385 134.91955 
+L 703.174154 134.91955 
+L 703.174154 108.980176 
+L 689.527385 108.980176 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #eb6834"/>
+   </g>
+   <g id="tt0042"><title>22p: no regulators in the universe (acrocentric p arm)</title>
+    <path d="M 722.019692 110.570156 
+L 735.666462 110.570156 
+L 735.666462 99.553866 
+L 722.019692 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #f0efec"/>
+   </g>
+   <g id="tt0043"><title>22q: TEST · 106 HCT116 / 55 HEK293T regulators</title>
+    <path d="M 722.019692 138.030221 
+L 735.666462 138.030221 
+L 735.666462 111.251576 
+L 722.019692 111.251576 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #eb6834"/>
+   </g>
+   <g id="tt0044"><title>Xp: TEST · 135 HCT116 / 66 HEK293T regulators</title>
+    <path d="M 754.512 145.398288 
+L 768.158769 145.398288 
+L 768.158769 99.553866 
+L 754.512 99.553866 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #eb6834"/>
+   </g>
+   <g id="tt0045"><title>Xq: TRAIN · 225 HCT116 / 114 HEK293T regulators</title>
+    <path d="M 754.512 217.697626 
+L 768.158769 217.697626 
+L 768.158769 146.079708 
+L 754.512 146.079708 
+z
+" clip-path="url(#p239c7e9d52)" style="fill: #2a78d6"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="46.504615" y="95.134083" transform="rotate(-0 46.504615 95.134083)">310</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="46.504615" y="296.086069" transform="rotate(-0 46.504615 296.086069)">431</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="46.504615" y="72.035239" transform="rotate(-0 46.504615 72.035239)">1</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="78.996923" y="95.134083" transform="rotate(-0 78.996923 95.134083)">2</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="78.996923" y="290.965657" transform="rotate(-0 78.996923 290.965657)">34</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="78.996923" y="72.035239" transform="rotate(-0 78.996923 72.035239)">2</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="111.489231" y="95.134083" transform="rotate(-0 111.489231 95.134083)">152</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="111.489231" y="257.729042" transform="rotate(-0 111.489231 257.729042)">108</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="111.489231" y="72.035239" transform="rotate(-0 111.489231 72.035239)">3</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="143.981538" y="95.134083" transform="rotate(-0 143.981538 95.134083)">66</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="143.981538" y="251.610645" transform="rotate(-0 143.981538 251.610645)">72</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="143.981538" y="72.035239" transform="rotate(-0 143.981538 72.035239)">4</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="176.473846" y="95.134083" transform="rotate(-0 176.473846 95.134083)">61</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="176.473846" y="245.041532" transform="rotate(-0 176.473846 245.041532)">44</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="176.473846" y="72.035239" transform="rotate(-0 176.473846 72.035239)">5</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="208.966154" y="95.134083" transform="rotate(-0 208.966154 95.134083)">224</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="208.966154" y="236.915765" transform="rotate(-0 208.966154 236.915765)">163</text>
+   </g>
+   <g id="text_18">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="208.966154" y="72.035239" transform="rotate(-0 208.966154 72.035239)">6</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="241.458462" y="95.134083" transform="rotate(-0 241.458462 95.134083)">121</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="241.458462" y="228.239013" transform="rotate(-0 241.458462 228.239013)">260</text>
+   </g>
+   <g id="text_21">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="241.458462" y="72.035239" transform="rotate(-0 241.458462 72.035239)">7</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="273.950769" y="95.134083" transform="rotate(-0 273.950769 95.134083)">104</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="273.950769" y="217.482165" transform="rotate(-0 273.950769 217.482165)">191</text>
+   </g>
+   <g id="text_24">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="273.950769" y="72.035239" transform="rotate(-0 273.950769 72.035239)">8</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="306.443077" y="95.134083" transform="rotate(-0 306.443077 95.134083)">74</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="306.443077" y="212.376119" transform="rotate(-0 306.443077 212.376119)">49</text>
+   </g>
+   <g id="text_27">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="306.443077" y="72.035239" transform="rotate(-0 306.443077 72.035239)">9</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="338.935385" y="95.134083" transform="rotate(-0 338.935385 95.134083)">65</text>
+   </g>
+   <g id="text_29">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="338.935385" y="208.895354" transform="rotate(-0 338.935385 208.895354)">157</text>
+   </g>
+   <g id="text_30">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="338.935385" y="72.035239" transform="rotate(-0 338.935385 72.035239)">10</text>
+   </g>
+   <g id="text_31">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="371.427692" y="95.134083" transform="rotate(-0 371.427692 95.134083)">106</text>
+   </g>
+   <g id="text_32">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="371.427692" y="209.87145" transform="rotate(-0 371.427692 209.87145)">318</text>
+   </g>
+   <g id="text_33">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="371.427692" y="72.035239" transform="rotate(-0 371.427692 72.035239)">11</text>
+   </g>
+   <g id="text_34">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="403.92" y="95.134083" transform="rotate(-0 403.92 95.134083)">139</text>
+   </g>
+   <g id="text_35">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="403.92" y="208.500044" transform="rotate(-0 403.92 208.500044)">48</text>
+   </g>
+   <g id="text_36">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="403.92" y="72.035239" transform="rotate(-0 403.92 72.035239)">12</text>
+   </g>
+   <g id="text_37">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="436.412308" y="194.181911" transform="rotate(-0 436.412308 194.181911)">134</text>
+   </g>
+   <g id="text_38">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="436.412308" y="72.035239" transform="rotate(-0 436.412308 72.035239)">13</text>
+   </g>
+   <g id="text_39">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="468.904615" y="188.639233" transform="rotate(-0 468.904615 188.639233)">234</text>
+   </g>
+   <g id="text_40">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="468.904615" y="72.035239" transform="rotate(-0 468.904615 72.035239)">14</text>
+   </g>
+   <g id="text_41">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="501.396923" y="184.813795" transform="rotate(-0 501.396923 184.813795)">40</text>
+   </g>
+   <g id="text_42">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="501.396923" y="72.035239" transform="rotate(-0 501.396923 72.035239)">15</text>
+   </g>
+   <g id="text_43">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="533.889231" y="95.134083" transform="rotate(-0 533.889231 95.134083)">22</text>
+   </g>
+   <g id="text_44">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="533.889231" y="175.991039" transform="rotate(-0 533.889231 175.991039)">116</text>
+   </g>
+   <g id="text_45">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="533.889231" y="72.035239" transform="rotate(-0 533.889231 72.035239)">16</text>
+   </g>
+   <g id="text_46">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="566.381538" y="95.134083" transform="rotate(-0 566.381538 95.134083)">132</text>
+   </g>
+   <g id="text_47">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="566.381538" y="170.62985" transform="rotate(-0 566.381538 170.62985)">329</text>
+   </g>
+   <g id="text_48">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="566.381538" y="72.035239" transform="rotate(-0 566.381538 72.035239)">17</text>
+   </g>
+   <g id="text_49">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="598.873846" y="95.134083" transform="rotate(-0 598.873846 95.134083)">28</text>
+   </g>
+   <g id="text_50">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="598.873846" y="168.44616" transform="rotate(-0 598.873846 168.44616)">90</text>
+   </g>
+   <g id="text_51">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="598.873846" y="72.035239" transform="rotate(-0 598.873846 72.035239)">18</text>
+   </g>
+   <g id="text_52">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="631.366154" y="95.134083" transform="rotate(-0 631.366154 95.134083)">89</text>
+   </g>
+   <g id="text_53">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="631.366154" y="151.974218" transform="rotate(-0 631.366154 151.974218)">367</text>
+   </g>
+   <g id="text_54">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="631.366154" y="72.035239" transform="rotate(-0 631.366154 72.035239)">19</text>
+   </g>
+   <g id="text_55">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="663.858462" y="95.134083" transform="rotate(-0 663.858462 95.134083)">92</text>
+   </g>
+   <g id="text_56">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="663.858462" y="156.385694" transform="rotate(-0 663.858462 156.385694)">165</text>
+   </g>
+   <g id="text_57">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="663.858462" y="72.035239" transform="rotate(-0 663.858462 72.035239)">20</text>
+   </g>
+   <g id="text_58">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="696.350769" y="95.134083" transform="rotate(-0 696.350769 95.134083)">1</text>
+   </g>
+   <g id="text_59">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="696.350769" y="142.958552" transform="rotate(-0 696.350769 142.958552)">19</text>
+   </g>
+   <g id="text_60">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="696.350769" y="72.035239" transform="rotate(-0 696.350769 72.035239)">21</text>
+   </g>
+   <g id="text_61">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="728.843077" y="146.069223" transform="rotate(-0 728.843077 146.069223)">106</text>
+   </g>
+   <g id="text_62">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="728.843077" y="72.035239" transform="rotate(-0 728.843077 72.035239)">22</text>
+   </g>
+   <g id="text_63">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="761.335385" y="95.134083" transform="rotate(-0 761.335385 95.134083)">135</text>
+   </g>
+   <g id="text_64">
+    <text style="font-size: 7px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="761.335385" y="225.736628" transform="rotate(-0 761.335385 225.736628)">225</text>
+   </g>
+   <g id="text_65">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="761.335385" y="72.035239" transform="rotate(-0 761.335385 72.035239)">X</text>
+   </g>
+  </g>
+  <g id="patch_2">
+   <path d="M 475.2 269.928 
+L 486.288 269.928 
+L 486.288 259.992 
+L 475.2 259.992 
+z
+" style="fill: #2a78d6"/>
+  </g>
+  <g id="patch_3">
+   <path d="M 475.2 289.8 
+L 486.288 289.8 
+L 486.288 279.864 
+L 475.2 279.864 
+z
+" style="fill: #eb6834"/>
+  </g>
+  <g id="text_66">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="23.76" y="19.872" transform="rotate(-0 23.76 19.872)">Held-out design: whole chromosome arms</text>
+  </g>
+  <g id="text_67">
+   <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="23.76" y="38.088" transform="rotate(-0 23.76 38.088)">numbers = regulators (perturbed genes) per arm in the HCT116 evaluation universe; p arm above the gap, q arm below; gray = acrocentric p arms with no regulators</text>
+  </g>
+  <g id="text_68">
+   <text style="font-size: 8.8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="491.04" y="267.237" transform="rotate(-0 491.04 267.237)">TRAIN: 28 arms, 3,806 regulators (all tuning)</text>
+  </g>
+  <g id="text_69">
+   <text style="font-size: 8.8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="491.04" y="287.109" transform="rotate(-0 491.04 287.109)">TEST: 14 arms, 1,817 regulators (sealed, used once)</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p239c7e9d52">
+   <rect x="23.76" y="66.24" width="760.32" height="238.464"/>
+  </clipPath>
+ </defs>
+</svg>

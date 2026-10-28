@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="720pt" height="331.2pt" viewBox="0 0 720 331.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 331.2 
+L 720 331.2 
+L 720 0 
+L 0 0 
+z
+" style="fill: #fcfcfb"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 194.4 274.896 
+L 576 274.896 
+L 576 79.488 
+L 194.4 79.488 
+z
+" style="fill: #fcfcfb"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 194.4 274.896 
+L 194.4 79.488 
+" clip-path="url(#p659eb85dbe)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="mcfd5ffcfde" d="M 0 0 
+L 0 3 
+" style="stroke: #898781; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="194.4" y="274.896" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="194.4" y="287.838031" transform="rotate(-0 194.4 287.838031)">30%</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 270.72 274.896 
+L 270.72 79.488 
+" clip-path="url(#p659eb85dbe)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="270.72" y="274.896" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="270.72" y="287.838031" transform="rotate(-0 270.72 287.838031)">40%</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 347.04 274.896 
+L 347.04 79.488 
+" clip-path="url(#p659eb85dbe)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="347.04" y="274.896" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="347.04" y="287.838031" transform="rotate(-0 347.04 287.838031)">50%</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 423.36 274.896 
+L 423.36 79.488 
+" clip-path="url(#p659eb85dbe)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="423.36" y="274.896" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="423.36" y="287.838031" transform="rotate(-0 423.36 287.838031)">60%</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 499.68 274.896 
+L 499.68 79.488 
+" clip-path="url(#p659eb85dbe)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="499.68" y="274.896" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="499.68" y="287.838031" transform="rotate(-0 499.68 287.838031)">70%</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_11">
+      <path d="M 576 274.896 
+L 576 79.488 
+" clip-path="url(#p659eb85dbe)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="576" y="274.896" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="576" y="287.838031" transform="rotate(-0 576 287.838031)">80%</text>
+     </g>
+    </g>
+    <g id="text_7">
+     <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="385.2" y="300.1785" transform="rotate(-0 385.2 300.1785)">pairs whose predicted knockdown direction matches Perturb-seq (sign concordance)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2"/>
+   <g id="line2d_13">
+    <path d="M 459.189618 116.3984 
+L 513.079695 116.3984 
+" clip-path="url(#p659eb85dbe)" style="fill: none; stroke: #2a78d6; stroke-width: 2"/>
+   </g>
+   <g id="line2d_14">
+    <path d="M 379.423366 166.336 
+L 412.833103 166.336 
+" clip-path="url(#p659eb85dbe)" style="fill: none; stroke: #c3c2b7; stroke-width: 2"/>
+   </g>
+   <g id="line2d_15">
+    <path d="M 321.282 188.048 
+L 347.04 188.048 
+" clip-path="url(#p659eb85dbe)" style="fill: none; stroke: #c3c2b7; stroke-width: 2"/>
+   </g>
+   <g id="line2d_16">
+    <path d="M 371.32442 237.9856 
+L 411.717966 237.9856 
+" clip-path="url(#p659eb85dbe)" style="fill: none; stroke: #eb6834; stroke-width: 2"/>
+   </g>
+   <g id="line2d_17">
+    <path d="M 226.211564 259.6976 
+L 242.967273 259.6976 
+" clip-path="url(#p659eb85dbe)" style="fill: none; stroke: #c3c2b7; stroke-width: 2"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 194.4 274.896 
+L 576 274.896 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 8.8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="57.024" y="96.967525" transform="rotate(-0 57.024 96.967525)">Method</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #0b0b0b" x="186.768" y="118.62365" transform="rotate(-0 186.768 118.62365)">Selected CN-only tool</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="583.632" y="118.466525" transform="rotate(-0 583.632 118.466525)">n = 131</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="621.792" y="118.484025" transform="rotate(-0 621.792 118.484025)">p = 0.012</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 8.8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="57.024" y="146.901" transform="rotate(-0 57.024 146.901)">Sensitivity</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #0b0b0b" x="186.768" y="168.56125" transform="rotate(-0 186.768 168.56125)">S1 sample set (999 lines)</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="583.632" y="168.404125" transform="rotate(-0 583.632 168.404125)">n = 116</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="621.792" y="168.416" transform="rotate(-0 621.792 168.416)">p = 0.133</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #0b0b0b" x="186.768" y="190.220844" transform="rotate(-0 186.768 190.220844)">no-split-sibling regulators</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="583.632" y="190.116125" transform="rotate(-0 583.632 190.116125)">n = 32</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="621.792" y="190.128" transform="rotate(-0 621.792 190.128)">p = 0.481</text>
+   </g>
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 8.8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="57.024" y="218.5506" transform="rotate(-0 57.024 218.5506)">Negative controls (permuted CN)</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #0b0b0b" x="186.768" y="240.261241" transform="rotate(-0 186.768 240.261241)">C2: context fusion on permuted CN</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="583.632" y="240.053725" transform="rotate(-0 583.632 240.053725)">n = 354</text>
+   </g>
+   <g id="text_22">
+    <text style="font-weight: 700; font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="621.792" y="240.071225" transform="rotate(-0 621.792 240.071225)">p = 0.001</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="419.349966" y="240.002022" transform="rotate(-0 419.349966 240.002022)">a null control 'passes'</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #0b0b0b" x="186.768" y="261.973241" transform="rotate(-0 186.768 261.973241)">NC1: permuted CN</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="583.632" y="261.765725" transform="rotate(-0 583.632 261.765725)">n = 44</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="621.792" y="261.7776" transform="rotate(-0 621.792 261.7776)">p = 0.517</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #898781" x="583.632" y="84.709519" transform="rotate(-0 583.632 84.709519)">overlaps</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #898781" x="621.792" y="84.664987" transform="rotate(-0 621.792 84.664987)">sign perm.</text>
+   </g>
+   <g id="tt0000"><title>Selected CN-only tool: pooled independence expectation c0 = 54.1%</title>
+    <defs>
+     <path id="m8e20948acc" d="M -3.25 3.25 
+L 3.25 3.25 
+L 3.25 -3.25 
+L -3.25 -3.25 
+z
+" style="stroke: #898781; stroke-width: 1.6; stroke-linejoin: miter"/>
+    </defs>
+    <g clip-path="url(#p659eb85dbe)">
+     <use xlink:href="#m8e20948acc" x="378.237762" y="116.3984" style="fill: #fcfcfb; stroke: #898781; stroke-width: 1.6; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="tt0001"><title>Selected CN-only tool: within-regulator permutation null mean 64.7%</title>
+    <defs>
+     <path id="m4226cbbd7d" d="M -0 4.949747 
+L 4.949747 0 
+L 0 -4.949747 
+L -4.949747 -0 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.4; stroke-linejoin: miter"/>
+    </defs>
+    <g clip-path="url(#p659eb85dbe)">
+     <use xlink:href="#m4226cbbd7d" x="459.189618" y="116.3984" style="fill: #898781; stroke: #fcfcfb; stroke-width: 1.4; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="tt0002"><title>Selected CN-only tool: observed concordance 71.8% (n = 131 overlapping pairs; sign permutation p = 0.012)</title>
+    <defs>
+     <path id="ma2516d33ac" d="M 0 4.25 
+C 1.127113 4.25 2.208214 3.802193 3.005204 3.005204 
+C 3.802193 2.208214 4.25 1.127113 4.25 0 
+C 4.25 -1.127113 3.802193 -2.208214 3.005204 -3.005204 
+C 2.208214 -3.802193 1.127113 -4.25 0 -4.25 
+C -1.127113 -4.25 -2.208214 -3.802193 -3.005204 -3.005204 
+C -3.802193 -2.208214 -4.25 -1.127113 -4.25 0 
+C -4.25 1.127113 -3.802193 2.208214 -3.005204 3.005204 
+C -2.208214 3.802193 -1.127113 4.25 0 4.25 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.4"/>
+    </defs>
+    <g clip-path="url(#p659eb85dbe)">
+     <use xlink:href="#ma2516d33ac" x="513.079695" y="116.3984" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0003"><title>S1 sample set (999 lines): pooled independence expectation c0 = 46.7%</title>
+    <g clip-path="url(#p659eb85dbe)">
+     <use xlink:href="#m8e20948acc" x="321.516813" y="166.336" style="fill: #fcfcfb; stroke: #898781; stroke-width: 1.6; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="tt0004"><title>S1 sample set (999 lines): within-regulator permutation null mean 54.2%</title>
+    <g clip-path="url(#p659eb85dbe)">
+     <use xlink:href="#m4226cbbd7d" x="379.423366" y="166.336" style="fill: #898781; stroke: #fcfcfb; stroke-width: 1.4; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="tt0005"><title>S1 sample set (999 lines): observed concordance 58.6% (n = 116 overlapping pairs; sign permutation p = 0.133)</title>
+    <defs>
+     <path id="mb79ac31d95" d="M 0 3.5 
+C 0.928211 3.5 1.81853 3.131218 2.474874 2.474874 
+C 3.131218 1.81853 3.5 0.928211 3.5 0 
+C 3.5 -0.928211 3.131218 -1.81853 2.474874 -2.474874 
+C 1.81853 -3.131218 0.928211 -3.5 0 -3.5 
+C -0.928211 -3.5 -1.81853 -3.131218 -2.474874 -2.474874 
+C -3.131218 -1.81853 -3.5 -0.928211 -3.5 0 
+C -3.5 0.928211 -3.131218 1.81853 -2.474874 2.474874 
+C -1.81853 3.131218 -0.928211 3.5 0 3.5 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.4"/>
+    </defs>
+    <g clip-path="url(#p659eb85dbe)">
+     <use xlink:href="#mb79ac31d95" x="412.833103" y="166.336" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0006"><title>no-split-sibling regulators: pooled independence expectation c0 = 47.7%</title>
+    <g clip-path="url(#p659eb85dbe)">
+     <use xlink:href="#m8e20948acc" x="329.1525" y="188.048" style="fill: #fcfcfb; stroke: #898781; stroke-width: 1.6; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="tt0007"><title>no-split-sibling regulators: within-regulator permutation null mean 46.6%</title>
+    <g clip-path="url(#p659eb85dbe)">
+     <use xlink:href="#m4226cbbd7d" x="321.282" y="188.048" style="fill: #898781; stroke: #fcfcfb; stroke-width: 1.4; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="tt0008"><title>no-split-sibling regulators: observed concordance 50.0% (n = 32 overlapping pairs; sign permutation p = 0.481)</title>
+    <g clip-path="url(#p659eb85dbe)">
+     <use xlink:href="#mb79ac31d95" x="347.04" y="188.048" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0009"><title>C2: context fusion on permuted CN: pooled independence expectation c0 = 51.4%</title>
+    <g clip-path="url(#p659eb85dbe)">
+     <use xlink:href="#m8e20948acc" x="357.636955" y="237.9856" style="fill: #fcfcfb; stroke: #898781; stroke-width: 1.6; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="tt0010"><title>C2: context fusion on permuted CN: within-regulator permutation null mean 53.2%</title>
+    <g clip-path="url(#p659eb85dbe)">
+     <use xlink:href="#m4226cbbd7d" x="371.32442" y="237.9856" style="fill: #898781; stroke: #fcfcfb; stroke-width: 1.4; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="tt0011"><title>C2: context fusion on permuted CN: observed concordance 58.5% (n = 354 overlapping pairs; sign permutation p = 0.001)</title>
+    <defs>
+     <path id="m4a448d7119" d="M 0 4.25 
+C 1.127113 4.25 2.208214 3.802193 3.005204 3.005204 
+C 3.802193 2.208214 4.25 1.127113 4.25 0 
+C 4.25 -1.127113 3.802193 -2.208214 3.005204 -3.005204 
+C 2.208214 -3.802193 1.127113 -4.25 0 -4.25 
+C -1.127113 -4.25 -2.208214 -3.802193 -3.005204 -3.005204 
+C -3.802193 -2.208214 -4.25 -1.127113 -4.25 0 
+C -4.25 1.127113 -3.802193 2.208214 -3.005204 3.005204 
+C -2.208214 3.802193 -1.127113 4.25 0 4.25 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.4"/>
+    </defs>
+    <g clip-path="url(#p659eb85dbe)">
+     <use xlink:href="#m4a448d7119" x="411.717966" y="237.9856" style="fill: #eb6834; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0012"><title>NC1: permuted CN: pooled independence expectation c0 = 41.7%</title>
+    <g clip-path="url(#p659eb85dbe)">
+     <use xlink:href="#m8e20948acc" x="283.96562" y="259.6976" style="fill: #fcfcfb; stroke: #898781; stroke-width: 1.6; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="tt0013"><title>NC1: permuted CN: within-regulator permutation null mean 34.2%</title>
+    <g clip-path="url(#p659eb85dbe)">
+     <use xlink:href="#m4226cbbd7d" x="226.211564" y="259.6976" style="fill: #898781; stroke: #fcfcfb; stroke-width: 1.4; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="tt0014"><title>NC1: permuted CN: observed concordance 36.4% (n = 44 overlapping pairs; sign permutation p = 0.517)</title>
+    <g clip-path="url(#p659eb85dbe)">
+     <use xlink:href="#mb79ac31d95" x="242.967273" y="259.6976" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+  </g>
+  <g id="line2d_18">
+   <path d="M 194.4 54.648 
+" style="fill: none; stroke: #1f77b4; stroke-width: 1.5; stroke-linecap: round"/>
+   <defs>
+    <path id="m2ca8345119" d="M 0 3.25 
+C 0.86191 3.25 1.688635 2.907559 2.298097 2.298097 
+C 2.907559 1.688635 3.25 0.86191 3.25 0 
+C 3.25 -0.86191 2.907559 -1.688635 2.298097 -2.298097 
+C 1.688635 -2.907559 0.86191 -3.25 0 -3.25 
+C -0.86191 -3.25 -1.688635 -2.907559 -2.298097 -2.298097 
+C -2.907559 -1.688635 -3.25 -0.86191 -3.25 0 
+C -3.25 0.86191 -2.907559 1.688635 -2.298097 2.298097 
+C -1.688635 2.907559 -0.86191 3.25 0 3.25 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.5"/>
+   </defs>
+   <g>
+    <use xlink:href="#m2ca8345119" x="194.4" y="54.648" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.5"/>
+   </g>
+  </g>
+  <g id="line2d_19">
+   <path d="M 273.6 54.648 
+" style="fill: none; stroke: #1f77b4; stroke-width: 1.5; stroke-linecap: round"/>
+   <defs>
+    <path id="m4a83984409" d="M -0 4.596194 
+L 4.596194 0 
+L 0 -4.596194 
+L -4.596194 -0 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </defs>
+   <g>
+    <use xlink:href="#m4a83984409" x="273.6" y="54.648" style="fill: #898781; stroke: #fcfcfb; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+  </g>
+  <g id="line2d_20">
+   <path d="M 432 54.648 
+" style="fill: none; stroke: #1f77b4; stroke-width: 1.5; stroke-linecap: round"/>
+   <defs>
+    <path id="mc595313811" d="M -3.25 3.25 
+L 3.25 3.25 
+L 3.25 -3.25 
+L -3.25 -3.25 
+z
+" style="stroke: #898781; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </defs>
+   <g>
+    <use xlink:href="#mc595313811" x="432" y="54.648" style="fill: #fcfcfb; stroke: #898781; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+  </g>
+  <g id="text_29">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="14.4" y="19.872" transform="rotate(-0 14.4 19.872)">A permuted-CN control passes the same sign test, so the direction result is not established</text>
+  </g>
+  <g id="text_30">
+   <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="14.4" y="34.776" transform="rotate(-0 14.4 34.776)">HCT116 TEST; top-0.1% pairs that are Perturb-seq hits. The within-regulator permutation test is anti-conservative (D9).</text>
+  </g>
+  <g id="text_31">
+   <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="203.04" y="56.716125" transform="rotate(-0 203.04 56.716125)">observed</text>
+  </g>
+  <g id="text_32">
+   <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="282.24" y="56.66925" transform="rotate(-0 282.24 56.66925)">within-regulator null mean</text>
+  </g>
+  <g id="text_33">
+   <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="440.64" y="56.718" transform="rotate(-0 440.64 56.718)">pooled independence expectation (c0)</text>
+  </g>
+  <g id="text_34">
+   <text style="font-size: 7.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #898781" x="14.4" y="322.92" transform="rotate(-0 14.4 322.92)">Targets respond in correlated modules, which the within-regulator sign permutation ignores; its calibration was never checked on negative controls (REPORT.md §1, finding 2).</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p659eb85dbe">
+   <rect x="194.4" y="79.488" width="381.6" height="195.408"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="792pt" height="288pt" viewBox="0 0 792 288" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 288 
+L 792 288 
+L 792 0 
+L 0 0 
+z
+" style="fill: #fcfcfb"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 23.76 244.8 
+L 768.24 244.8 
+L 768.24 34.56 
+L 23.76 34.56 
+z
+" style="fill: #fcfcfb"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 55.212471 125.18069 
+L 736.787529 125.18069 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #c3c2b7; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 55.212471 219.426207 
+L 165.226227 219.426207 
+L 165.226227 213.626483 
+L 55.212471 213.626483 
+z
+" clip-path="url(#p57cd9525ee)" style="fill: #b7d3f6"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 179.694364 219.426207 
+L 312.84316 219.426207 
+L 312.84316 213.626483 
+L 179.694364 213.626483 
+z
+" clip-path="url(#p57cd9525ee)" style="fill: #b7d3f6"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 318.155133 219.426207 
+L 557.333705 219.426207 
+L 557.333705 213.626483 
+L 318.155133 213.626483 
+z
+" clip-path="url(#p57cd9525ee)" style="fill: #b7d3f6"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 558.486962 219.426207 
+L 736.787529 219.426207 
+L 736.787529 213.626483 
+L 558.486962 213.626483 
+z
+" clip-path="url(#p57cd9525ee)" style="fill: #b7d3f6"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 55.212471 125.18069 
+L 55.212471 100.531862 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 116.160372 125.18069 
+L 116.160372 144.029793 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 165.226227 125.18069 
+L 165.226227 100.531862 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 254.166827 125.18069 
+L 254.166827 144.029793 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_6">
+    <path d="M 312.84316 125.18069 
+L 312.84316 71.533241 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_7">
+    <path d="M 318.155133 125.18069 
+L 318.155133 173.028414 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_8">
+    <path d="M 345.868255 125.18069 
+L 345.868255 100.531862 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_9">
+    <path d="M 379.417558 125.18069 
+L 379.417558 144.029793 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_10">
+    <path d="M 557.333705 125.18069 
+L 557.333705 100.531862 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_11">
+    <path d="M 704.636113 125.18069 
+L 704.636113 144.029793 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_12">
+    <path d="M 734.341225 125.18069 
+L 734.341225 100.531862 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_13">
+      <defs>
+       <path id="mcfd5ffcfde" d="M 0 0 
+L 0 3 
+" style="stroke: #898781; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="55.212471" y="244.8" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="55.212471" y="257.742031" transform="rotate(-0 55.212471 257.742031)">+0 h</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="181.022357" y="244.8" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="181.022357" y="257.742031" transform="rotate(-0 181.022357 257.742031)">+1 h</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_15">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="306.832243" y="244.8" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="306.832243" y="257.742031" transform="rotate(-0 306.832243 257.742031)">+2 h</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="432.642129" y="244.8" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="432.642129" y="257.742031" transform="rotate(-0 432.642129 257.742031)">+3 h</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_17">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="558.452015" y="244.8" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="558.452015" y="257.742031" transform="rotate(-0 558.452015 257.742031)">+4 h</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_18">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="684.261901" y="244.8" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="684.261901" y="257.742031" transform="rotate(-0 684.261901 257.742031)">+5 h</text>
+     </g>
+    </g>
+    <g id="text_7">
+     <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="396" y="270.0825" transform="rotate(-0 396 270.0825)">hours since project start (2026-10-27 18:03 UTC); ticks on the line = commits</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2"/>
+   <g id="tt0000"><title>23:28 c27a904: M7: project closed — tree corrected (no over-claims), final LESSONS, final retro</title>
+    <path d="M 736.787529 130.255448 
+L 736.787529 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0001"><title>23:26 b0827fd: M7: REPORT.md corrected after independent verification (4 errors, 3 over-claims, imprecisions)</title>
+    <path d="M 734.341225 130.255448 
+L 734.341225 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0002"><title>23:16 dfabc0f: Research tree: M6 results</title>
+    <path d="M 712.149759 130.255448 
+L 712.149759 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0003"><title>23:16 4537646: M7: REPORT.md draft; config/seeds.yaml</title>
+    <path d="M 711.695446 130.255448 
+L 711.695446 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0004"><title>23:12 e9085c7: final_eval: TEST evaluation COMPLETED; results/final/LOCK</title>
+    <path d="M 704.636113 130.255448 
+L 704.636113 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0005"><title>23:08 603a7f5: final_eval: LOCK (STARTED) before reading any TEST file</title>
+    <path d="M 695.130477 130.255448 
+L 695.130477 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0006"><title>23:08 62e67b9: M6: commit final selection (selected.yaml) before the single TEST run</title>
+    <path d="M 694.885847 130.255448 
+L 694.885847 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0007"><title>23:07 5d92561: D8a fixes: sealed-file preflight before LOCK, CMH bootstrap NaN fix, context-layer comparisons, class_iii + NC2(M1); mock re-run</title>
+    <path d="M 694.571322 130.255448 
+L 694.571322 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0008"><title>22:54 7b4dba9: D8a: pre-final review and required fixes</title>
+    <path d="M 665.390418 130.255448 
+L 665.390418 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0009"><title>22:41 2febf06: TRAIN sensitivity/ablation comparisons</title>
+    <path d="M 639.145078 130.255448 
+L 639.145078 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0010"><title>22:40 f8cf589: D8: sensitivity analyses (hidden factors, CN-outlier, TP53-chr17, paralog exclusion, regulator classes), final_eval tables, selected.DRAFT.yaml, mock final run, runtime table</title>
+    <path d="M 637.083194 130.255448 
+L 637.083194 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0011"><title>22:03 2b4242c: D8: implement remaining sensitivity analyses</title>
+    <path d="M 558.486962 130.255448 
+L 558.486962 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0012"><title>22:02 d439c58: M5 closed (D6a loader fix, D7 selection: CN-only G1+A3; context layer reported separately)</title>
+    <path d="M 557.333705 130.255448 
+L 557.333705 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0013"><title>21:48 f209390: D6: post-hoc variants I1-I6, controls C1/C2, D6 CMH diagnostic; frozen hashes re-recorded under D6; lineage halves committed before any I6 evaluation; pair_score/target_weight in fused score files</title>
+    <path d="M 527.279121 130.255448 
+L 527.279121 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0014"><title>21:02 704aac0: D6: post-hoc label-free tier (I1-I6) + controls C1/C2; ideas review</title>
+    <path d="M 431.279189 130.255448 
+L 431.279189 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0015"><title>20:47 d4bdd91: M5a: LESSONS pruned/updated after fresh-agent retro</title>
+    <path d="M 400.945027 130.255448 
+L 400.945027 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0016"><title>20:47 48143dc: M5a: pre-registered tiers complete; incumbent G1+A3 (TRAIN OR 5.0)</title>
+    <path d="M 399.162721 130.255448 
+L 399.162721 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0017"><title>20:37 c968b1d: M5: tiers 3-4 (G2 not adopted; A3 r095 s2 w0 adopted)</title>
+    <path d="M 379.417558 130.255448 
+L 379.417558 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0018"><title>20:21 6288007: M5: tiers 1-2 (arm handling: none adopted; G1 tau=100 adopted)</title>
+    <path d="M 345.868255 130.255448 
+L 345.868255 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0019"><title>20:08 f2deb85: M4: MVP TRAIN evaluation of M1, baselines, controls</title>
+    <path d="M 318.155133 130.255448 
+L 318.155133 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0020"><title>20:05 57f2de3: M3: FREEZE + SEAL — TEST labels and raw DE moved to ~/DepMapTR_sealed (unreadable); frozen hashes committed</title>
+    <path d="M 312.84316 130.255448 
+L 312.84316 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0021"><title>20:04 1ed1efa: M3: model fixes after review (D5: A3 NaN fix, G2 always multiplicative, SIM ablations, call set via NC1, hinge X)</title>
+    <path d="M 308.85918 130.255448 
+L 308.85918 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0022"><title>19:56 dfe403c: M3: harness fixes after review (LOCK-first final_eval, sealed mock path, drift check, call-set, PC2/NC2, tuning-log hardening, split CN leakage diagnostic)</title>
+    <path d="M 292.084529 130.255448 
+L 292.084529 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0023"><title>19:48 4332c12: Model code review + D5 decision</title>
+    <path d="M 275.309877 130.255448 
+L 275.309877 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0024"><title>19:44 9210143: Independent harness review (no blockers; 2 procedural majors being fixed)</title>
+    <path d="M 267.93602 130.255448 
+L 267.93602 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0025"><title>19:37 1a4a211: M3: model engine (FWL LOCO, covariates, gates, attribution, SIM, baselines, NC1) by model agent</title>
+    <path d="M 254.166827 130.255448 
+L 254.166827 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0026"><title>19:29 57fbe32: M3: benchmark harness, arm-level split, metrics, seal/final scripts (harness agent); D4 Ueffect rule</title>
+    <path d="M 237.357229 130.255448 
+L 237.357229 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0027"><title>19:02 21933da: data checksums update (TP53/24Q4 files)</title>
+    <path d="M 179.8691 130.255448 
+L 179.8691 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0028"><title>19:02 74e9e6c: M3: data tasks T1-T4 (TP53 24Q4, RNA technical, S2 panel n=1436, frozen flags); D3</title>
+    <path d="M 179.694364 130.255448 
+L 179.694364 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0029"><title>18:56 318e00e: Research tree: M2 frozen, M3 started</title>
+    <path d="M 167.288112 130.255448 
+L 167.288112 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0030"><title>18:55 a6ccaeb: M2 done: round-3 review, DESIGN.md v3.1 frozen; docs/INTERFACES.md</title>
+    <path d="M 165.226227 130.255448 
+L 165.226227 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0031"><title>18:51 57a3621: LESSONS: review-process rules</title>
+    <path d="M 156.279747 130.255448 
+L 156.279747 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0032"><title>18:51 9f7d21a: M2: round-2 reviews (5) and DESIGN.md v3</title>
+    <path d="M 155.930275 130.255448 
+L 155.930275 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0033"><title>18:46 fe86b94: LITERATURE.md: round-1 corrections (ERBB2 17q, CausalBench, unverified flags, Warmerdam caveat)</title>
+    <path d="M 146.319797 130.255448 
+L 146.319797 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0034"><title>18:45 6d755e0: M2: round-1 reviews (7) and DESIGN.md v2 with dispositions</title>
+    <path d="M 144.188019 130.255448 
+L 144.188019 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0035"><title>18:34 909a6b7: Research tree: M1 done, M2 round 1 started</title>
+    <path d="M 120.493823 130.255448 
+L 120.493823 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0036"><title>18:33 a17f5bd: M2: DESIGN.md v1 (PI draft)</title>
+    <path d="M 118.396992 130.255448 
+L 118.396992 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0037"><title>18:32 aacc223: M1: data foundation (DATA.md, DATA_PROFILE.md, scripts/data, tests) by data agent</title>
+    <path d="M 116.160372 130.255448 
+L 116.160372 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0038"><title>18:21 499dc16: M1: LITERATURE.md (literature agent, 59 verified refs)</title>
+    <path d="M 94.423219 130.255448 
+L 94.423219 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="tt0039"><title>18:03 e31c6f7: M0: project setup, PROMPT.md, research tree, lessons, gitignore, locked requirements</title>
+    <path d="M 55.212471 130.255448 
+L 55.212471 120.105931 
+" clip-path="url(#p57cd9525ee)" style="fill: none; stroke: #898781; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 23.76 244.8 
+L 768.24 244.8 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="110.219349" y="230.084059" transform="rotate(-0 110.219349 230.084059)">plan + design</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="246.268762" y="230.084059" transform="rotate(-0 246.268762 230.084059)">build</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="437.744419" y="230.084059" transform="rotate(-0 437.744419 230.084059)">tune on TRAIN</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="647.637245" y="230.179122" transform="rotate(-0 647.637245 230.179122)">final run + report</text>
+   </g>
+   <g id="text_12">
+    <g id="patch_8">
+     <path d="M 45.204706 98.1 
+L 65.220237 98.1 
+L 65.220237 90.030656 
+L 45.204706 90.030656 
+z
+" style="fill: #fcfcfb"/>
+    </g>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="55.212471" y="96.08175" transform="rotate(-0 55.212471 96.08175)">setup</text>
+   </g>
+   <g id="text_13">
+    <g id="patch_9">
+     <path d="M 88.485606 162.895036 
+L 143.835137 162.895036 
+L 143.835137 146.461655 
+L 88.485606 146.461655 
+z
+" style="fill: #fcfcfb"/>
+    </g>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(88.953606 152.512749)">literature + data</text>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(105.538966 160.876786)">profile</text>
+   </g>
+   <g id="text_14">
+    <g id="patch_10">
+     <path d="M 132.458305 98.1 
+L 197.994149 98.1 
+L 197.994149 81.502819 
+L 132.458305 81.502819 
+z
+" style="fill: #fcfcfb"/>
+    </g>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(132.926305 87.740381)">design frozen after</text>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(137.697712 96.08175)">3 review rounds</text>
+   </g>
+   <g id="text_15">
+    <g id="patch_11">
+     <path d="M 224.758999 162.780961 
+L 283.574655 162.780961 
+L 283.574655 146.461655 
+L 224.758999 146.461655 
+z
+" style="fill: #fcfcfb"/>
+    </g>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(225.226999 152.512749)">harness + model</text>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(247.012765 160.762711)">built</text>
+   </g>
+   <g id="text_16">
+    <g id="patch_12">
+     <path d="M 291.203644 69.101379 
+L 334.482676 69.101379 
+L 334.482676 52.782073 
+L 291.203644 52.782073 
+z
+" style="fill: #fcfcfb"/>
+    </g>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(291.671644 58.833167)">TEST labels</text>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(301.351566 67.083129)">sealed</text>
+   </g>
+   <g id="text_17">
+    <g id="patch_13">
+     <path d="M 286.047164 191.970926 
+L 350.263102 191.970926 
+L 350.263102 175.36887 
+L 286.047164 175.36887 
+z
+" style="fill: #fcfcfb"/>
+    </g>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(286.515164 181.611307)">M1 weak (OR 1.6)</text>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(289.105008 189.952676)">vs hub baselines</text>
+   </g>
+   <g id="text_18">
+    <g id="patch_14">
+     <path d="M 322.202568 98.1 
+L 369.533943 98.1 
+L 369.533943 81.388744 
+L 322.202568 81.388744 
+z
+" style="fill: #fcfcfb"/>
+    </g>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(326.142786 87.5349)">G1 cis gate</text>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(322.670568 95.990344)">adopted (3.5)</text>
+   </g>
+   <g id="text_19">
+    <g id="patch_15">
+     <path d="M 355.751871 162.986443 
+L 403.083246 162.986443 
+L 403.083246 146.553061 
+L 355.751871 146.553061 
+z
+" style="fill: #fcfcfb"/>
+    </g>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(356.438027 152.512749)">A3 attribution</text>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(356.219871 160.876786)">adopted (5.0)</text>
+   </g>
+   <g id="text_20">
+    <g id="patch_16">
+     <path d="M 524.783939 98.1 
+L 589.883471 98.1 
+L 589.883471 81.666619 
+L 524.783939 81.666619 
+z
+" style="fill: #fcfcfb"/>
+    </g>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(525.251939 87.717712)">context fusion fails</text>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(525.322627 96.08175)">pair-shuffle control</text>
+   </g>
+   <g id="text_21">
+    <g id="patch_17">
+     <path d="M 676.345269 163.178761 
+L 732.926957 163.178761 
+L 732.926957 146.461655 
+L 676.345269 146.461655 
+z
+" style="fill: #fcfcfb"/>
+    </g>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(676.813269 152.607811)">single TEST run</text>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(687.081238 161.069105)">(LOCKed)</text>
+   </g>
+   <g id="text_22">
+    <g id="patch_18">
+     <path d="M 708.519569 98.1 
+L 760.162881 98.1 
+L 760.162881 81.571556 
+L 708.519569 81.571556 
+z
+" style="fill: #fcfcfb"/>
+    </g>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(710.499428 87.626306)">report verified</text>
+    <text style="font-size: 7.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(708.987569 95.990344)">(4 errors fixed)</text>
+   </g>
+   <g id="tt0040"><title>2026-10-27 18:03 UTC · e31c6f7: M0: project setup, PROMPT.md, research tree, lessons, gitignore, locked requirements</title>
+    <defs>
+     <path id="m7bd28ec988" d="M 0 3.75 
+C 0.994512 3.75 1.948425 3.354876 2.65165 2.65165 
+C 3.354876 1.948425 3.75 0.994512 3.75 0 
+C 3.75 -0.994512 3.354876 -1.948425 2.65165 -2.65165 
+C 1.948425 -3.354876 0.994512 -3.75 0 -3.75 
+C -0.994512 -3.75 -1.948425 -3.354876 -2.65165 -2.65165 
+C -3.354876 -1.948425 -3.75 -0.994512 -3.75 0 
+C -3.75 0.994512 -3.354876 1.948425 -2.65165 2.65165 
+C -1.948425 3.354876 -0.994512 3.75 0 3.75 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.4"/>
+    </defs>
+    <g clip-path="url(#p57cd9525ee)">
+     <use xlink:href="#m7bd28ec988" x="55.212471" y="125.18069" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0041"><title>2026-10-27 18:32 UTC · aacc223: M1: data foundation (DATA.md, DATA_PROFILE.md, scripts/data, tests) by data agent</title>
+    <g clip-path="url(#p57cd9525ee)">
+     <use xlink:href="#m7bd28ec988" x="116.160372" y="125.18069" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0042"><title>2026-10-27 18:55 UTC · a6ccaeb: M2 done: round-3 review, DESIGN.md v3.1 frozen; docs/INTERFACES.md</title>
+    <g clip-path="url(#p57cd9525ee)">
+     <use xlink:href="#m7bd28ec988" x="165.226227" y="125.18069" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0043"><title>2026-10-27 19:37 UTC · 1a4a211: M3: model engine (FWL LOCO, covariates, gates, attribution, SIM, baselines, NC1) by model agent</title>
+    <g clip-path="url(#p57cd9525ee)">
+     <use xlink:href="#m7bd28ec988" x="254.166827" y="125.18069" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0044"><title>2026-10-27 20:05 UTC · 57f2de3: M3: FREEZE + SEAL — TEST labels and raw DE moved to ~/DepMapTR_sealed (unreadable); frozen hashes committed</title>
+    <defs>
+     <path id="m619c804641" d="M 0 3.75 
+C 0.994512 3.75 1.948425 3.354876 2.65165 2.65165 
+C 3.354876 1.948425 3.75 0.994512 3.75 0 
+C 3.75 -0.994512 3.354876 -1.948425 2.65165 -2.65165 
+C 1.948425 -3.354876 0.994512 -3.75 0 -3.75 
+C -0.994512 -3.75 -1.948425 -3.354876 -2.65165 -2.65165 
+C -3.354876 -1.948425 -3.75 -0.994512 -3.75 0 
+C -3.75 0.994512 -3.354876 1.948425 -2.65165 2.65165 
+C -1.948425 3.354876 -0.994512 3.75 0 3.75 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.4"/>
+    </defs>
+    <g clip-path="url(#p57cd9525ee)">
+     <use xlink:href="#m619c804641" x="312.84316" y="125.18069" style="fill: #eb6834; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0045"><title>2026-10-27 20:08 UTC · f2deb85: M4: MVP TRAIN evaluation of M1, baselines, controls</title>
+    <g clip-path="url(#p57cd9525ee)">
+     <use xlink:href="#m7bd28ec988" x="318.155133" y="125.18069" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0046"><title>2026-10-27 20:21 UTC · 6288007: M5: tiers 1-2 (arm handling: none adopted; G1 tau=100 adopted)</title>
+    <g clip-path="url(#p57cd9525ee)">
+     <use xlink:href="#m7bd28ec988" x="345.868255" y="125.18069" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0047"><title>2026-10-27 20:37 UTC · c968b1d: M5: tiers 3-4 (G2 not adopted; A3 r095 s2 w0 adopted)</title>
+    <g clip-path="url(#p57cd9525ee)">
+     <use xlink:href="#m7bd28ec988" x="379.417558" y="125.18069" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0048"><title>2026-10-27 22:02 UTC · d439c58: M5 closed (D6a loader fix, D7 selection: CN-only G1+A3; context layer reported separately)</title>
+    <g clip-path="url(#p57cd9525ee)">
+     <use xlink:href="#m7bd28ec988" x="557.333705" y="125.18069" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0049"><title>2026-10-27 23:12 UTC · e9085c7: final_eval: TEST evaluation COMPLETED; results/final/LOCK</title>
+    <g clip-path="url(#p57cd9525ee)">
+     <use xlink:href="#m619c804641" x="704.636113" y="125.18069" style="fill: #eb6834; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0050"><title>2026-10-27 23:26 UTC · b0827fd: M7: REPORT.md corrected after independent verification (4 errors, 3 over-claims, imprecisions)</title>
+    <g clip-path="url(#p57cd9525ee)">
+     <use xlink:href="#m7bd28ec988" x="734.341225" y="125.18069" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+  </g>
+  <g id="line2d_19">
+   <path d="M 491.04 18.72 
+" style="fill: none; stroke: #1f77b4; stroke-width: 1.5; stroke-linecap: round"/>
+   <defs>
+    <path id="m8eae019630" d="M 0 3.25 
+C 0.86191 3.25 1.688635 2.907559 2.298097 2.298097 
+C 2.907559 1.688635 3.25 0.86191 3.25 0 
+C 3.25 -0.86191 2.907559 -1.688635 2.298097 -2.298097 
+C 1.688635 -2.907559 0.86191 -3.25 0 -3.25 
+C -0.86191 -3.25 -1.688635 -2.907559 -2.298097 -2.298097 
+C -2.907559 -1.688635 -3.25 -0.86191 -3.25 0 
+C -3.25 0.86191 -2.907559 1.688635 -2.298097 2.298097 
+C -1.688635 2.907559 -0.86191 3.25 0 3.25 
+z
+" style="stroke: #fcfcfb"/>
+   </defs>
+   <g>
+    <use xlink:href="#m8eae019630" x="491.04" y="18.72" style="fill: #2a78d6; stroke: #fcfcfb"/>
+   </g>
+  </g>
+  <g id="line2d_20">
+   <path d="M 578.16 18.72 
+" style="fill: none; stroke: #1f77b4; stroke-width: 1.5; stroke-linecap: round"/>
+   <defs>
+    <path id="mda147e50e1" d="M 0 3.25 
+C 0.86191 3.25 1.688635 2.907559 2.298097 2.298097 
+C 2.907559 1.688635 3.25 0.86191 3.25 0 
+C 3.25 -0.86191 2.907559 -1.688635 2.298097 -2.298097 
+C 1.688635 -2.907559 0.86191 -3.25 0 -3.25 
+C -0.86191 -3.25 -1.688635 -2.907559 -2.298097 -2.298097 
+C -2.907559 -1.688635 -3.25 -0.86191 -3.25 0 
+C -3.25 0.86191 -2.907559 1.688635 -2.298097 2.298097 
+C -1.688635 2.907559 -0.86191 3.25 0 3.25 
+z
+" style="stroke: #fcfcfb"/>
+   </defs>
+   <g>
+    <use xlink:href="#mda147e50e1" x="578.16" y="18.72" style="fill: #eb6834; stroke: #fcfcfb"/>
+   </g>
+  </g>
+  <g id="text_23">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="23.76" y="20.16" transform="rotate(-0 23.76 20.16)">Project journey, placed by git commit time</text>
+  </g>
+  <g id="text_24">
+   <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="498.96" y="20.788125" transform="rotate(-0 498.96 20.788125)">milestone</text>
+  </g>
+  <g id="text_25">
+   <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="586.08" y="20.79" transform="rotate(-0 586.08 20.79)">TEST seal / single TEST run</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p57cd9525ee">
+   <rect x="23.76" y="34.56" width="744.48" height="210.24"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="792pt" height="388.8pt" viewBox="0 0 792 388.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 388.8 
+L 792 388.8 
+L 792 0 
+L 0 0 
+z
+" style="fill: #fcfcfb"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 143.28 88.2 
+Q 152.64 88.2 160.83381 88.2 
+" clip-path="url(#pb2e91f73c3)" style="fill: none; stroke: #898781; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 155.83381 85.2 
+L 160.83381 88.2 
+L 155.83381 91.2 
+z
+" clip-path="url(#pb2e91f73c3)" style="fill: #898781; stroke: #898781; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 312.48 88.2 
+Q 321.84 88.2 330.03381 88.2 
+" clip-path="url(#pb2e91f73c3)" style="fill: none; stroke: #898781; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 325.03381 85.2 
+L 330.03381 88.2 
+L 325.03381 91.2 
+z
+" clip-path="url(#pb2e91f73c3)" style="fill: #898781; stroke: #898781; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 478.08 88.2 
+Q 487.44 88.2 495.63381 88.2 
+" clip-path="url(#pb2e91f73c3)" style="fill: none; stroke: #898781; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 490.63381 85.2 
+L 495.63381 88.2 
+L 490.63381 91.2 
+z
+" clip-path="url(#pb2e91f73c3)" style="fill: #898781; stroke: #898781; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 643.68 88.2 
+Q 653.04 88.2 661.23381 88.2 
+" clip-path="url(#pb2e91f73c3)" style="fill: none; stroke: #898781; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 656.23381 85.2 
+L 661.23381 88.2 
+L 656.23381 91.2 
+z
+" clip-path="url(#pb2e91f73c3)" style="fill: #898781; stroke: #898781; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 738 164.16 
+Q 738 174.24 738 183.15381 
+" clip-path="url(#pb2e91f73c3)" style="fill: none; stroke: #898781; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 741 178.15381 
+L 738 183.15381 
+L 735 178.15381 
+z
+" clip-path="url(#pb2e91f73c3)" style="fill: #898781; stroke: #898781; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 738 279.36 
+Q 738 285.84 738 291.15381 
+" clip-path="url(#pb2e91f73c3)" style="fill: none; stroke: #898781; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 741 286.15381 
+L 738 291.15381 
+L 735 286.15381 
+z
+" clip-path="url(#pb2e91f73c3)" style="fill: #898781; stroke: #898781; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 673.2 164.16 
+Q 673.2 228.24 673.2 291.15381 
+" clip-path="url(#pb2e91f73c3)" style="fill: none; stroke: #898781; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 676.2 286.15381 
+L 673.2 291.15381 
+L 670.2 286.15381 
+z
+" clip-path="url(#pb2e91f73c3)" style="fill: #898781; stroke: #898781; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 19.44 162 
+L 131.76 162 
+Q 140.4 162 140.4 153.36 
+L 140.4 23.04 
+Q 140.4 14.4 131.76 14.4 
+L 19.44 14.4 
+Q 10.8 14.4 10.8 23.04 
+L 10.8 153.36 
+Q 10.8 162 19.44 162 
+z
+" clip-path="url(#pb2e91f73c3)" style="fill: #f0efec; stroke: #f0efec; stroke-linejoin: miter"/>
+   </g>
+   <g id="tt0000"><title>Step 1: Trans association</title>
+    <path d="M 174.24 162 
+L 300.96 162 
+Q 309.6 162 309.6 153.36 
+L 309.6 23.04 
+Q 309.6 14.4 300.96 14.4 
+L 174.24 14.4 
+Q 165.6 14.4 165.6 23.04 
+L 165.6 153.36 
+Q 165.6 162 174.24 162 
+z
+" clip-path="url(#pb2e91f73c3)" style="fill: #fcfcfb; stroke: #c3c2b7; stroke-linejoin: miter"/>
+   </g>
+   <g id="tt0001"><title>Step 2: Cis-instrument gate</title>
+    <path d="M 343.44 162 
+L 466.56 162 
+Q 475.2 162 475.2 153.36 
+L 475.2 23.04 
+Q 475.2 14.4 466.56 14.4 
+L 343.44 14.4 
+Q 334.8 14.4 334.8 23.04 
+L 334.8 153.36 
+Q 334.8 162 343.44 162 
+z
+" clip-path="url(#pb2e91f73c3)" style="fill: #fcfcfb; stroke: #c3c2b7; stroke-linejoin: miter"/>
+   </g>
+   <g id="tt0002"><title>Step 3: Co-segment credit</title>
+    <path d="M 509.04 162 
+L 632.16 162 
+Q 640.8 162 640.8 153.36 
+L 640.8 23.04 
+Q 640.8 14.4 632.16 14.4 
+L 509.04 14.4 
+Q 500.4 14.4 500.4 23.04 
+L 500.4 153.36 
+Q 500.4 162 509.04 162 
+z
+" clip-path="url(#pb2e91f73c3)" style="fill: #fcfcfb; stroke: #c3c2b7; stroke-linejoin: miter"/>
+   </g>
+   <g id="tt0003"><title>Output of the selected CN-only tool (M1 + G1 + A3)</title>
+    <path d="M 674.64 162 
+L 772.56 162 
+Q 781.2 162 781.2 153.36 
+L 781.2 23.04 
+Q 781.2 14.4 772.56 14.4 
+L 674.64 14.4 
+Q 666 14.4 666 23.04 
+L 666 153.36 
+Q 666 162 674.64 162 
+z
+" clip-path="url(#pb2e91f73c3)" style="fill: #cde2fb; stroke: #b7d3f6; stroke-linejoin: miter"/>
+   </g>
+   <g id="tt0004"><title>Context layer: reported variant, not the selected method (its gain survives the pair-shuffle control)</title>
+    <path d="M 703.44 277.2 
+L 772.56 277.2 
+Q 781.2 277.2 781.2 268.56 
+L 781.2 195.84 
+Q 781.2 187.2 772.56 187.2 
+L 703.44 187.2 
+Q 694.8 187.2 694.8 195.84 
+L 694.8 268.56 
+Q 694.8 277.2 703.44 277.2 
+z
+" clip-path="url(#pb2e91f73c3)" style="fill: #fcfcfb; stroke: #eb6834; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 19.44 378 
+L 772.56 378 
+Q 781.2 378 781.2 369.36 
+L 781.2 303.84 
+Q 781.2 295.2 772.56 295.2 
+L 19.44 295.2 
+Q 10.8 295.2 10.8 303.84 
+L 10.8 369.36 
+Q 10.8 378 19.44 378 
+z
+" clip-path="url(#pb2e91f73c3)" style="fill: #f0efec; stroke: #f0efec; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="20.88" y="35.957812" transform="rotate(-0 20.88 35.957812)">Inputs</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(20.88 58.105906)">DepMap 26Q3</text>
+    <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(20.88 68.125377)">1,436 cell lines</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(20.88 93.66375)">• gene copy number (WGS)</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(20.88 103.209563)">• mRNA, log2(TPM+1)</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(20.88 112.62375)">• covariates: lineage,</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(20.88 122.169563)">  ploidy/WGD, MSI, TP53,</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(20.88 131.58375)">  sex, media, RNA batch</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 9.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="200.16" y="37.0485" transform="rotate(-0 200.16 37.0485)">Trans association</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 8.4px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(175.68 62.274937)">for every pair A→B on</text>
+    <text style="font-size: 8.4px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(175.68 72.159834)">different chromosomes</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 7.9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(175.68 96.470953)">B's mRNA ~ A's CN, adjusted</text>
+    <text style="font-size: 7.9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(175.68 105.767463)">for B's own CN, arm CN of all</text>
+    <text style="font-size: 7.9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(175.68 115.101375)">other chromosomes (A's own</text>
+    <text style="font-size: 7.9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(175.68 124.527865)">chromosome left out) and</text>
+    <text style="font-size: 7.9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(175.68 133.824375)">covariates → t-statistic</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 9.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="369.36" y="37.044" transform="rotate(-0 369.36 37.044)">Cis-instrument gate</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 8.4px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(344.88 62.274937)">keep regulator A only if</text>
+    <text style="font-size: 8.4px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(344.88 72.159834)">its own mRNA follows its CN</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 7.9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(344.88 96.470953)">first-stage F ≥ 100</text>
+    <text style="font-size: 7.9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(344.88 105.897443)">(positive cis t ≥ 10); other</text>
+    <text style="font-size: 7.9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(344.88 115.225615)">regulators get weight 0</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 9.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="534.96" y="37.044" transform="rotate(-0 534.96 37.044)">Co-segment credit</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 8.4px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(510.48 62.172562)">neighbouring genes share</text>
+    <text style="font-size: 8.4px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(510.48 72.057459)">the same CN; share credit</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 7.9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(510.48 96.470953)">SuSiE L=1 posterior within</text>
+    <text style="font-size: 7.9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(510.48 105.804865)">each co-segment (r ≥ 0.95),</text>
+    <text style="font-size: 7.9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(510.48 115.231355)">prior ∝ exp(t_cis / 2)</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="676.08" y="36.079688" transform="rotate(-0 676.08 36.079688)">Output</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(676.08 57.995719)">ranked, signed trans</text>
+    <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(676.08 68.11597)">predictions</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 7.9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(676.08 93.494672)">score = t × gate × credit</text>
+    <text style="font-size: 7.9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(676.08 102.791182)">sign → predicted direction</text>
+    <text style="font-size: 7.9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(676.08 112.087692)">after knockdown</text>
+    <text style="font-size: 7.9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(676.08 121.573247)">≈2.2×10⁸ pairs in ~67 s</text>
+    <text style="font-size: 7.9px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(676.08 130.907159)">(laptop CPU)</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 8.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(703.44 205.126125)">Optional</text>
+    <text style="font-weight: 700; font-size: 8.8px; font-family: 'Arial', 'DejaVu Sans'; fill: #0b0b0b" transform="translate(703.44 214.4214)">context layer</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(703.44 237.279938)">re-rank by how</text>
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(703.44 245.951419)">detectable target B</text>
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(703.44 254.6229)">is in the context line</text>
+   </g>
+   <g id="text_18">
+    <text style="font-weight: 700; font-size: 9.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="20.88" y="313.7085" transform="rotate(-0 20.88 313.7085)">Evaluation against CRISPRi Perturb-seq</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(20.88 334.14875)">Arc Institute PIE X-Atlas/Orion DE tables; HCT116 primary, HEK293T secondary</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(20.88 343.98575)">positive pair = knocking down A changes B's mRNA (BH p_adj &lt; 0.05)</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(20.88 353.82275)">held out: regulators on 14 whole chromosome arms, labels sealed before tuning</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(370.8 334.14375)">odds ratio of hits among the top 0.1% of pairs</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(370.8 343.98075)">(regulator-label permutation p, arm-jackknife CI)</text>
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; fill: #52514e" transform="translate(370.8 353.68125)">sign concordance: predicted vs observed direction</text>
+   </g>
+   <g id="patch_11">
+    <path d="M 184.32 45.36 
+C 187.184193 45.36 189.931463 44.222044 191.956753 42.196753 
+C 193.982044 40.171463 195.12 37.424193 195.12 34.56 
+C 195.12 31.695807 193.982044 28.948537 191.956753 26.923247 
+C 189.931463 24.897956 187.184193 23.76 184.32 23.76 
+C 181.455807 23.76 178.708537 24.897956 176.683247 26.923247 
+C 174.657956 28.948537 173.52 31.695807 173.52 34.56 
+C 173.52 37.424193 174.657956 40.171463 176.683247 42.196753 
+C 178.708537 44.222044 181.455807 45.36 184.32 45.36 
+z
+" clip-path="url(#pb2e91f73c3)" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 353.52 45.36 
+C 356.384193 45.36 359.131463 44.222044 361.156753 42.196753 
+C 363.182044 40.171463 364.32 37.424193 364.32 34.56 
+C 364.32 31.695807 363.182044 28.948537 361.156753 26.923247 
+C 359.131463 24.897956 356.384193 23.76 353.52 23.76 
+C 350.655807 23.76 347.908537 24.897956 345.883247 26.923247 
+C 343.857956 28.948537 342.72 31.695807 342.72 34.56 
+C 342.72 37.424193 343.857956 40.171463 345.883247 42.196753 
+C 347.908537 44.222044 350.655807 45.36 353.52 45.36 
+z
+" clip-path="url(#pb2e91f73c3)" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 519.12 45.36 
+C 521.984193 45.36 524.731463 44.222044 526.756753 42.196753 
+C 528.782044 40.171463 529.92 37.424193 529.92 34.56 
+C 529.92 31.695807 528.782044 28.948537 526.756753 26.923247 
+C 524.731463 24.897956 521.984193 23.76 519.12 23.76 
+C 516.255807 23.76 513.508537 24.897956 511.483247 26.923247 
+C 509.457956 28.948537 508.32 31.695807 508.32 34.56 
+C 508.32 37.424193 509.457956 40.171463 511.483247 42.196753 
+C 513.508537 44.222044 516.255807 45.36 519.12 45.36 
+z
+" clip-path="url(#pb2e91f73c3)" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_21">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #ffffff" x="184.32" y="37.252969" transform="rotate(-0 184.32 37.252969)">1</text>
+   </g>
+   <g id="text_22">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #ffffff" x="353.52" y="37.252969" transform="rotate(-0 353.52 37.252969)">2</text>
+   </g>
+   <g id="text_23">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #ffffff" x="519.12" y="37.252969" transform="rotate(-0 519.12 37.252969)">3</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pb2e91f73c3">
+   <rect x="0" y="0" width="792" height="388.8"/>
+  </clipPath>
+ </defs>
+</svg>

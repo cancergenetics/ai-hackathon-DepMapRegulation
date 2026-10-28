@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="792pt" height="460.8pt" viewBox="0 0 792 460.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 460.8 
+L 792 460.8 
+L 792 0 
+L 0 0 
+z
+" style="fill: #fcfcfb"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 213.84 400.896 
+L 578.16 400.896 
+L 578.16 55.296 
+L 213.84 55.296 
+z
+" style="fill: #fcfcfb"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 223.455771 400.896 
+L 223.455771 55.296 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="mcfd5ffcfde" d="M 0 0 
+L 0 3 
+" style="stroke: #898781; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="223.455771" y="400.896" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="223.455771" y="413.838031" transform="rotate(-0 223.455771 413.838031)">0.3</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 286.954165 400.896 
+L 286.954165 55.296 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="286.954165" y="400.896" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="286.954165" y="413.838031" transform="rotate(-0 286.954165 413.838031)">1</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 344.895771 400.896 
+L 344.895771 55.296 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="344.895771" y="400.896" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="344.895771" y="413.838031" transform="rotate(-0 344.895771 413.838031)">3</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 408.394165 400.896 
+L 408.394165 55.296 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="408.394165" y="400.896" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="408.394165" y="413.838031" transform="rotate(-0 408.394165 413.838031)">10</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 466.335771 400.896 
+L 466.335771 55.296 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="466.335771" y="400.896" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="466.335771" y="413.838031" transform="rotate(-0 466.335771 413.838031)">30</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_11">
+      <path d="M 529.834165 400.896 
+L 529.834165 55.296 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="529.834165" y="400.896" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="529.834165" y="413.838031" transform="rotate(-0 529.834165 413.838031)">100</text>
+     </g>
+    </g>
+    <g id="text_7">
+     <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="396" y="426.1785" transform="rotate(-0 396 426.1785)">odds ratio of Perturb-seq hits in top 0.1% of pairs (log scale)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2"/>
+   <g id="line2d_13">
+    <path d="M 286.954165 400.896 
+L 286.954165 55.296 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #52514e; stroke-linecap: round"/>
+   </g>
+   <g id="tt0001"><title>Selected CN-only tool (M1 + G1 + A3): jackknife 95% CI 1.33–11.15</title>
+    <path d="M 301.858744 88.037053 
+L 414.143694 88.037053 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #2a78d6; stroke-width: 1.6"/>
+   </g>
+   <g id="tt0005"><title>minus cis gate G1: jackknife 95% CI 0.91–2.33</title>
+    <path d="M 282.02598 130.782316 
+L 331.644127 130.782316 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0009"><title>focal arm handling: jackknife 95% CI 1.19–17.08</title>
+    <path d="M 295.963334 148.971789 
+L 436.614308 148.971789 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0013"><title>+ context layer: jackknife 95% CI 10.93–30.91</title>
+    <path d="M 413.102069 167.161263 
+L 467.913885 167.161263 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0017"><title>B0 random: jackknife 95% CI 0.96–1.41</title>
+    <path d="M 285.030662 209.906526 
+L 305.011357 209.906526 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0021"><title>B1 naive CN–mRNA correlation: jackknife 95% CI 0.31–4.12</title>
+    <path d="M 225.71569 228.096 
+L 361.646715 228.096 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0025"><title>B2 mRNA co-expression: jackknife 95% CI 2.71–13.42</title>
+    <path d="M 339.484788 246.285474 
+L 423.90289 246.285474 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0029"><title>B4 target expression SD: jackknife 95% CI 4.23–7.76</title>
+    <path d="M 362.967036 264.474947 
+L 395.027701 264.474947 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0033"><title>B4e target expression in HCT116: jackknife 95% CI 5.55–9.83</title>
+    <path d="M 377.318413 282.664421 
+L 407.506345 282.664421 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0037"><title>B5 DepMap hub prior: jackknife 95% CI 3.27–158.85</title>
+    <path d="M 349.408051 300.853895 
+L 554.24228 300.853895 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0041"><title>B6 arm-level CN only: jackknife 95% CI 0.35–1.07</title>
+    <path d="M 231.365266 319.043368 
+L 290.537053 319.043368 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0045"><title>NC1 permuted CN: jackknife 95% CI 0.48–3.40</title>
+    <path d="M 248.704157 361.788632 
+L 351.427546 361.788632 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0049"><title>C2 context layer on permuted CN: jackknife 95% CI 8.57–13.11</title>
+    <path d="M 400.227455 379.978105 
+L 422.673139 379.978105 
+" clip-path="url(#pf553ba47d8)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 213.84 400.896 
+L 578.16 400.896 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="429.971427" y="90.070178" transform="rotate(-0 429.971427 90.070178)">pre-registered permutation p = 0.068</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="213.84" y="47.296" transform="rotate(-0 213.84 47.296)">HCT116 TEST (primary)</text>
+   </g>
+   <g id="tt0000"><title>Selected CN-only tool (M1 + G1 + A3), HCT116 TEST: OR 3.85 (jackknife 95% CI 1.33–11.15); permutation p = 0.068</title>
+    <defs>
+     <path id="m7bd28ec988" d="M 0 3.75 
+C 0.994512 3.75 1.948425 3.354876 2.65165 2.65165 
+C 3.354876 1.948425 3.75 0.994512 3.75 0 
+C 3.75 -0.994512 3.354876 -1.948425 2.65165 -2.65165 
+C 1.948425 -3.354876 0.994512 -3.75 0 -3.75 
+C -0.994512 -3.75 -1.948425 -3.354876 -2.65165 -2.65165 
+C -3.354876 -1.948425 -3.75 -0.994512 -3.75 0 
+C -3.75 0.994512 -3.354876 1.948425 -2.65165 2.65165 
+C -1.948425 3.354876 -0.994512 3.75 0 3.75 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.4"/>
+    </defs>
+    <g clip-path="url(#pf553ba47d8)">
+     <use xlink:href="#m7bd28ec988" x="358.001219" y="88.037053" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0004"><title>minus cis gate G1, HCT116 TEST: OR 1.46 (jackknife 95% CI 0.91–2.33); permutation p = 0.229</title>
+    <defs>
+     <path id="mb13a5b1729" d="M 0 3 
+C 0.795609 3 1.55874 2.683901 2.12132 2.12132 
+C 2.683901 1.55874 3 0.795609 3 0 
+C 3 -0.795609 2.683901 -1.55874 2.12132 -2.12132 
+C 1.55874 -2.683901 0.795609 -3 0 -3 
+C -0.795609 -3 -1.55874 -2.683901 -2.12132 -2.12132 
+C -2.683901 -1.55874 -3 -0.795609 -3 0 
+C -3 0.795609 -2.683901 1.55874 -2.12132 2.12132 
+C -1.55874 2.683901 -0.795609 3 0 3 
+z
+" style="stroke: #fcfcfb; stroke-width: 1.4"/>
+    </defs>
+    <g clip-path="url(#pf553ba47d8)">
+     <use xlink:href="#mb13a5b1729" x="306.835054" y="130.782316" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0008"><title>focal arm handling, HCT116 TEST: OR 4.50 (jackknife 95% CI 1.19–17.08); permutation p = 0.083</title>
+    <g clip-path="url(#pf553ba47d8)">
+     <use xlink:href="#mb13a5b1729" x="366.288821" y="148.971789" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0012"><title>+ context layer, HCT116 TEST: OR 18.38 (jackknife 95% CI 10.93–30.91); permutation p = 0.015</title>
+    <g clip-path="url(#pf553ba47d8)">
+     <use xlink:href="#mb13a5b1729" x="440.507977" y="167.161263" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0016"><title>B0 random, HCT116 TEST: OR 1.17 (jackknife 95% CI 0.96–1.41); permutation p = 0.145</title>
+    <g clip-path="url(#pf553ba47d8)">
+     <use xlink:href="#mb13a5b1729" x="295.02101" y="209.906526" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0020"><title>B1 naive CN–mRNA correlation, HCT116 TEST: OR 1.14 (jackknife 95% CI 0.31–4.12); permutation p = 0.723</title>
+    <g clip-path="url(#pf553ba47d8)">
+     <use xlink:href="#mb13a5b1729" x="293.681202" y="228.096" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0024"><title>B2 mRNA co-expression, HCT116 TEST: OR 6.03 (jackknife 95% CI 2.71–13.42); permutation p = 0.095</title>
+    <g clip-path="url(#pf553ba47d8)">
+     <use xlink:href="#mb13a5b1729" x="381.693839" y="246.285474" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0028"><title>B4 target expression SD, HCT116 TEST: OR 5.73 (jackknife 95% CI 4.23–7.76); permutation p = 0.528</title>
+    <g clip-path="url(#pf553ba47d8)">
+     <use xlink:href="#mb13a5b1729" x="378.997369" y="264.474947" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0032"><title>B4e target expression in HCT116, HCT116 TEST: OR 7.39 (jackknife 95% CI 5.55–9.83); permutation p = 0.531</title>
+    <g clip-path="url(#pf553ba47d8)">
+     <use xlink:href="#mb13a5b1729" x="392.412379" y="282.664421" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0036"><title>B5 DepMap hub prior, HCT116 TEST: OR 22.78 (jackknife 95% CI 3.27–158.85); permutation p = 0.043</title>
+    <g clip-path="url(#pf553ba47d8)">
+     <use xlink:href="#mb13a5b1729" x="451.825165" y="300.853895" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0040"><title>B6 arm-level CN only, HCT116 TEST: OR 0.61 (jackknife 95% CI 0.35–1.07); permutation p = 0.989</title>
+    <g clip-path="url(#pf553ba47d8)">
+     <use xlink:href="#mb13a5b1729" x="260.95116" y="319.043368" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0044"><title>NC1 permuted CN, HCT116 TEST: OR 1.28 (jackknife 95% CI 0.48–3.40); permutation p = 0.163</title>
+    <g clip-path="url(#pf553ba47d8)">
+     <use xlink:href="#mb13a5b1729" x="300.065852" y="361.788632" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0048"><title>C2 context layer on permuted CN, HCT116 TEST: OR 10.60 (jackknife 95% CI 8.57–13.11); permutation p = 0.148</title>
+    <g clip-path="url(#pf553ba47d8)">
+     <use xlink:href="#mb13a5b1729" x="411.450297" y="379.978105" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="583.704" y="90.188568" transform="rotate(-0 583.704 90.188568)">3.85</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="653.4" y="90.001771" transform="rotate(-0 653.4 90.001771)">1.33–11.2</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="583.704" y="132.927995" transform="rotate(-0 583.704 132.927995)">1.46</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="653.4" y="132.747035" transform="rotate(-0 653.4 132.747035)">0.91–2.33</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="583.704" y="151.117469" transform="rotate(-0 583.704 151.117469)">4.50</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="653.4" y="150.936508" transform="rotate(-0 653.4 150.936508)">1.19–17.1</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="583.704" y="169.306943" transform="rotate(-0 583.704 169.306943)">18.4</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="653.4" y="169.125982" transform="rotate(-0 653.4 169.125982)">10.9–30.9</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="583.704" y="212.052206" transform="rotate(-0 583.704 212.052206)">1.17</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="653.4" y="211.871245" transform="rotate(-0 653.4 211.871245)">0.96–1.41</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="583.704" y="230.24168" transform="rotate(-0 583.704 230.24168)">1.14</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="653.4" y="230.060719" transform="rotate(-0 653.4 230.060719)">0.31–4.12</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="583.704" y="248.431153" transform="rotate(-0 583.704 248.431153)">6.03</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="653.4" y="248.250192" transform="rotate(-0 653.4 248.250192)">2.71–13.4</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="583.704" y="266.620627" transform="rotate(-0 583.704 266.620627)">5.73</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="653.4" y="266.439666" transform="rotate(-0 653.4 266.439666)">4.23–7.76</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="583.704" y="284.810101" transform="rotate(-0 583.704 284.810101)">7.39</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="653.4" y="284.62914" transform="rotate(-0 653.4 284.62914)">5.55–9.83</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="583.704" y="302.999574" transform="rotate(-0 583.704 302.999574)">22.8</text>
+   </g>
+   <g id="text_29">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="653.4" y="302.818613" transform="rotate(-0 653.4 302.818613)">3.27–159</text>
+   </g>
+   <g id="text_30">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="583.704" y="321.189048" transform="rotate(-0 583.704 321.189048)">0.61</text>
+   </g>
+   <g id="text_31">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="653.4" y="321.008087" transform="rotate(-0 653.4 321.008087)">0.35–1.07</text>
+   </g>
+   <g id="text_32">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="583.704" y="363.934311" transform="rotate(-0 583.704 363.934311)">1.28</text>
+   </g>
+   <g id="text_33">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="653.4" y="363.75335" transform="rotate(-0 653.4 363.75335)">0.48–3.40</text>
+   </g>
+   <g id="text_34">
+    <text style="font-size: 8.3px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="583.704" y="382.123785" transform="rotate(-0 583.704 382.123785)">10.6</text>
+   </g>
+   <g id="text_35">
+    <text style="font-size: 7.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="653.4" y="381.942824" transform="rotate(-0 653.4 381.942824)">8.57–13.1</text>
+   </g>
+   <g id="text_36">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="583.704" y="58.273599" transform="rotate(-0 583.704 58.273599)">OR</text>
+   </g>
+   <g id="text_37">
+    <text style="font-size: 8px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: end; fill: #52514e" x="653.4" y="58.273599" transform="rotate(-0 653.4 58.273599)">95% CI</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="patch_4">
+    <path d="M 669.24 400.896 
+L 780.12 400.896 
+L 780.12 55.296 
+L 669.24 55.296 
+z
+" style="fill: #fcfcfb"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_7">
+     <g id="line2d_14">
+      <path d="M 671.480544 400.896 
+L 671.480544 55.296 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_15">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="671.480544" y="400.896" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_38">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="671.480544" y="413.838031" transform="rotate(-0 671.480544 413.838031)">0.01</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_16">
+      <path d="M 694.600389 400.896 
+L 694.600389 55.296 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_17">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="694.600389" y="400.896" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_39">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="694.600389" y="413.838031" transform="rotate(-0 694.600389 413.838031)">0.1</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_18">
+      <path d="M 717.720233 400.896 
+L 717.720233 55.296 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_19">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="717.720233" y="400.896" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_40">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="717.720233" y="413.838031" transform="rotate(-0 717.720233 413.838031)">1</text>
+     </g>
+    </g>
+    <g id="xtick_10">
+     <g id="line2d_20">
+      <path d="M 740.840078 400.896 
+L 740.840078 55.296 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_21">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="740.840078" y="400.896" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_41">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="740.840078" y="413.838031" transform="rotate(-0 740.840078 413.838031)">10</text>
+     </g>
+    </g>
+    <g id="xtick_11">
+     <g id="line2d_22">
+      <path d="M 763.959922 400.896 
+L 763.959922 55.296 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #e1e0d9; stroke-width: 0.8; stroke-linecap: round"/>
+     </g>
+     <g id="line2d_23">
+      <g>
+       <use xlink:href="#mcfd5ffcfde" x="763.959922" y="400.896" style="fill: #898781; stroke: #898781; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_42">
+      <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="763.959922" y="413.838031" transform="rotate(-0 763.959922 413.838031)">100</text>
+     </g>
+    </g>
+    <g id="text_43">
+     <text style="font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: middle; fill: #52514e" x="724.68" y="426.1785" transform="rotate(-0 724.68 426.1785)">odds ratio (log scale)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4"/>
+   <g id="line2d_24">
+    <path d="M 717.720233 400.896 
+L 717.720233 55.296 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #52514e; stroke-linecap: round"/>
+   </g>
+   <g id="tt0003"><title>Selected CN-only tool (M1 + G1 + A3): jackknife 95% CI 0.02–14.06</title>
+    <path d="M 676.95634 88.037053 
+L 744.260854 88.037053 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #2a78d6; stroke-width: 1.6"/>
+   </g>
+   <g id="tt0007"><title>minus cis gate G1: jackknife 95% CI 0.13–1.92</title>
+    <path d="M 696.927233 130.782316 
+L 724.289962 130.782316 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0011"><title>focal arm handling: jackknife 95% CI 0.02–0.36</title>
+    <path d="M 677.780114 148.971789 
+L 707.435346 148.971789 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0015"><title>+ context layer: jackknife 95% CI 0.88–29.11</title>
+    <path d="M 716.442426 167.161263 
+L 751.569979 167.161263 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0019"><title>B0 random: jackknife 95% CI 0.41–1.32</title>
+    <path d="M 708.876934 209.906526 
+L 720.494828 209.906526 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0023"><title>B1 naive CN–mRNA correlation: jackknife 95% CI 0.25–3.84</title>
+    <path d="M 703.929284 228.096 
+L 731.231773 228.096 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0027"><title>B2 mRNA co-expression: jackknife 95% CI 0.26–7.66</title>
+    <path d="M 704.014261 246.285474 
+L 738.161652 246.285474 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0031"><title>B4 target expression SD: jackknife 95% CI 0.44–2.20</title>
+    <path d="M 709.505917 264.474947 
+L 725.65514 264.474947 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0035"><title>B4e target expression in HCT116: jackknife 95% CI 10.16–20.74</title>
+    <path d="M 740.9978 282.664421 
+L 748.165622 282.664421 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0039"><title>B5 DepMap hub prior: jackknife 95% CI 5.28–244.25</title>
+    <path d="M 734.421272 300.853895 
+L 772.926478 300.853895 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0043"><title>B6 arm-level CN only: jackknife 95% CI 0.06–2.84</title>
+    <path d="M 689.341446 319.043368 
+L 728.210378 319.043368 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0047"><title>NC1 permuted CN: jackknife 95% CI 0.20–14.93</title>
+    <path d="M 701.573142 361.788632 
+L 744.86244 361.788632 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="tt0051"><title>C2 context layer on permuted CN: jackknife 95% CI 5.87–27.76</title>
+    <path d="M 735.49202 379.978105 
+L 751.09117 379.978105 
+" clip-path="url(#pe2c2a1dbbd)" style="fill: none; stroke: #52514e; stroke-width: 1.2"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 669.24 400.896 
+L 780.12 400.896 
+" style="fill: none; stroke: #c3c2b7; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_44">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="669.24" y="47.296" transform="rotate(-0 669.24 47.296)">HEK293T TEST</text>
+   </g>
+   <g id="tt0002"><title>Selected CN-only tool (M1 + G1 + A3), HEK293T TEST: OR 0.49 (jackknife 95% CI 0.02–14.06); permutation p = 0.878</title>
+    <g clip-path="url(#pe2c2a1dbbd)">
+     <use xlink:href="#m7bd28ec988" x="710.608597" y="88.037053" style="fill: #2a78d6; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0006"><title>minus cis gate G1, HEK293T TEST: OR 0.49 (jackknife 95% CI 0.13–1.92); permutation p = 0.782</title>
+    <g clip-path="url(#pe2c2a1dbbd)">
+     <use xlink:href="#mb13a5b1729" x="710.608597" y="130.782316" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0010"><title>focal arm handling, HEK293T TEST: OR 0.08 (jackknife 95% CI 0.02–0.36); permutation p = 0.982</title>
+    <g clip-path="url(#pe2c2a1dbbd)">
+     <use xlink:href="#mb13a5b1729" x="692.60773" y="148.971789" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0014"><title>+ context layer, HEK293T TEST: OR 5.06 (jackknife 95% CI 0.88–29.11); permutation p = 0.905</title>
+    <g clip-path="url(#pe2c2a1dbbd)">
+     <use xlink:href="#mb13a5b1729" x="734.006202" y="167.161263" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0018"><title>B0 random, HEK293T TEST: OR 0.74 (jackknife 95% CI 0.41–1.32); permutation p = 0.754</title>
+    <g clip-path="url(#pe2c2a1dbbd)">
+     <use xlink:href="#mb13a5b1729" x="714.685881" y="209.906526" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0022"><title>B1 naive CN–mRNA correlation, HEK293T TEST: OR 0.99 (jackknife 95% CI 0.25–3.84); permutation p = 0.615</title>
+    <g clip-path="url(#pe2c2a1dbbd)">
+     <use xlink:href="#mb13a5b1729" x="717.580528" y="228.096" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0026"><title>B2 mRNA co-expression, HEK293T TEST: OR 1.40 (jackknife 95% CI 0.26–7.66); permutation p = 0.267</title>
+    <g clip-path="url(#pe2c2a1dbbd)">
+     <use xlink:href="#mb13a5b1729" x="721.087956" y="246.285474" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0030"><title>B4 target expression SD, HEK293T TEST: OR 0.99 (jackknife 95% CI 0.44–2.20); permutation p = 0.965</title>
+    <g clip-path="url(#pe2c2a1dbbd)">
+     <use xlink:href="#mb13a5b1729" x="717.580528" y="264.474947" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0034"><title>B4e target expression in HCT116, HEK293T TEST: OR 14.52 (jackknife 95% CI 10.16–20.74); permutation p = 0.485</title>
+    <g clip-path="url(#pe2c2a1dbbd)">
+     <use xlink:href="#mb13a5b1729" x="744.581711" y="282.664421" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0038"><title>B5 DepMap hub prior, HEK293T TEST: OR 35.90 (jackknife 95% CI 5.28–244.25); permutation p = 0.145</title>
+    <g clip-path="url(#pe2c2a1dbbd)">
+     <use xlink:href="#mb13a5b1729" x="753.673875" y="300.853895" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0042"><title>B6 arm-level CN only, HEK293T TEST: OR 0.41 (jackknife 95% CI 0.06–2.84); permutation p = 0.784</title>
+    <g clip-path="url(#pe2c2a1dbbd)">
+     <use xlink:href="#mb13a5b1729" x="708.775912" y="319.043368" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0046"><title>NC1 permuted CN, HEK293T TEST: OR 1.73 (jackknife 95% CI 0.20–14.93); permutation p = 0.107</title>
+    <g clip-path="url(#pe2c2a1dbbd)">
+     <use xlink:href="#mb13a5b1729" x="723.217791" y="361.788632" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+   <g id="tt0050"><title>C2 context layer on permuted CN, HEK293T TEST: OR 12.77 (jackknife 95% CI 5.87–27.76); permutation p = 0.340</title>
+    <g clip-path="url(#pe2c2a1dbbd)">
+     <use xlink:href="#mb13a5b1729" x="743.291595" y="379.978105" style="fill: #52514e; stroke: #fcfcfb; stroke-width: 1.4"/>
+    </g>
+   </g>
+  </g>
+  <g id="text_45">
+   <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="11.88" y="72.180548" transform="rotate(-0 11.88 72.180548)">Method</text>
+  </g>
+  <g id="text_46">
+   <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="11.88" y="114.925811" transform="rotate(-0 11.88 114.925811)">Ablations / variants</text>
+  </g>
+  <g id="text_47">
+   <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="11.88" y="194.050021" transform="rotate(-0 11.88 194.050021)">Baselines</text>
+  </g>
+  <g id="text_48">
+   <text style="font-weight: 700; font-size: 9px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="11.88" y="345.932127" transform="rotate(-0 11.88 345.932127)">Controls</text>
+  </g>
+  <g id="text_49">
+   <text style="font-weight: 700; font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="23.76" y="90.262303" transform="rotate(-0 23.76 90.262303)">Selected CN-only tool (M1 + G1 + A3)</text>
+  </g>
+  <g id="text_50">
+   <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="23.76" y="133.007566" transform="rotate(-0 23.76 133.007566)">minus cis gate G1</text>
+  </g>
+  <g id="text_51">
+   <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="23.76" y="151.197039" transform="rotate(-0 23.76 151.197039)">focal arm handling</text>
+  </g>
+  <g id="text_52">
+   <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="23.76" y="169.334107" transform="rotate(-0 23.76 169.334107)">+ context layer</text>
+  </g>
+  <g id="text_53">
+   <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="23.76" y="212.129761" transform="rotate(-0 23.76 212.129761)">B0 random</text>
+  </g>
+  <g id="text_54">
+   <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="23.76" y="230.319234" transform="rotate(-0 23.76 230.319234)">B1 naive CN–mRNA correlation</text>
+  </g>
+  <g id="text_55">
+   <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="23.76" y="248.521474" transform="rotate(-0 23.76 248.521474)">B2 mRNA co-expression</text>
+  </g>
+  <g id="text_56">
+   <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="23.76" y="266.700197" transform="rotate(-0 23.76 266.700197)">B4 target expression SD</text>
+  </g>
+  <g id="text_57">
+   <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="23.76" y="284.889671" transform="rotate(-0 23.76 284.889671)">B4e target expression in HCT116</text>
+  </g>
+  <g id="text_58">
+   <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="23.76" y="303.077129" transform="rotate(-0 23.76 303.077129)">B5 DepMap hub prior</text>
+  </g>
+  <g id="text_59">
+   <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="23.76" y="321.268618" transform="rotate(-0 23.76 321.268618)">B6 arm-level CN only</text>
+  </g>
+  <g id="text_60">
+   <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="23.76" y="364.064272" transform="rotate(-0 23.76 364.064272)">NC1 permuted CN</text>
+  </g>
+  <g id="text_61">
+   <text style="font-size: 8.6px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="23.76" y="382.203355" transform="rotate(-0 23.76 382.203355)">C2 context layer on permuted CN</text>
+  </g>
+  <g id="text_62">
+   <text style="font-weight: 700; font-size: 10.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="11.88" y="20.736" transform="rotate(-0 11.88 20.736)">Held-out (TEST) enrichment, with arm-jackknife 95% CIs</text>
+  </g>
+  <g id="text_63">
+   <text style="font-size: 7.5px; font-family: 'Arial', 'DejaVu Sans'; text-anchor: start; fill: #898781" x="11.88" y="449.28" transform="rotate(-0 11.88 449.28)">Reference line at OR = 1 (no enrichment). B3 (cis instrument × CN SD) is omitted: 1 hit in the top 0.1%, CI unbounded. HCT116: 14 arms, 1,817 regulators, 17.7 M pairs.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pf553ba47d8">
+   <rect x="213.84" y="55.296" width="364.32" height="345.6"/>
+  </clipPath>
+  <clipPath id="pe2c2a1dbbd">
+   <rect x="669.24" y="55.296" width="110.88" height="345.6"/>
+  </clipPath>
+ </defs>
+</svg>
