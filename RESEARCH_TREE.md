@@ -17,7 +17,7 @@ HCT116 TEST (14 arms, 1,817 regulators). Corrected after independent verificatio
   - Pre-registered regulator-label permutation p = 0.068: **not significant at 0.05**.
   - Gain vs random is significant (Δlog-OR +1.19, CI 0.13–2.26); gain vs the NC1 permuted-CN control is not (+1.10, CI −0.66 to 2.85).
   - Below the target-detectability baselines B4e 7.39 / B4 5.73 and co-expression B2 6.03, though none of those differences is significant.
-- **Sign concordance:** 0.718 vs a within-regulator null mean of 0.647 (pooled c0 0.541), p = 0.012, n = 131, concentrated in a few regulators. Not significant in S1 (p 0.13) or the no-split-sibling subset (p 0.48).
+- **Sign concordance:** 0.718 vs a within-regulator null mean of 0.647 (pooled c0 0.541), p = 0.012, n = 131. **D9: not established.** The negative control C2 passes the same test (p = 0.001), so the test is miscalibrated. Also not significant in S1 (p 0.13) or no-split-sibling (p 0.48).
 - **G1 gain carries over:** Δlog-OR +0.97 vs no gate (CI 0.30–1.64).
 - **No detectable within-regulator target-ranking information:** AUROC 0.500, CMH 0.94 (CI 0.77–1.15).
 - **Context layer:** 18.4 (CI 10.9–30.9, perm p 0.015). Not different from B5 (22.8; Δ −0.22, CI −2.3 to 1.9); beats C2 (+0.55, CI 0.07–1.03).
@@ -84,6 +84,7 @@ Next: parallel literature review (LITERATURE.md) and data profiling (DATA.md, re
 covariate availability), then DESIGN.md and up to three review rounds.
 
 ## Decision notes
+- D9 (2026-10-28, found while writing the explainer; journey agent): **correction.** The within-regulator sign-concordance permutation test is anti-conservative. The negative control C2 (fusion on permuted CN) passes it on TEST (0.585 vs null mean 0.532, p = 0.001, n = 354). The selected method's sign result (p = 0.012) is therefore not established evidence. REPORT.md was corrected. The sign test had never been calibrated on negative controls, unlike the enrichment permutation test (results/benchmark_calibration). This is a lessons item.
 - D8a (2026-10-27): pre-final review (reviews/code/prefinal_review.md) gave GO conditional on three fixes. (M1) Verify sealed files exist and match their hashes before the LOCK commit. (M2) Fix the NaN CMH bootstrap bound (a bug, not a metric change). (M3) Add context-layer comparisons vs B5, C2 and selected. Also added: class_iii subset and NC2 on ungated M1.
 - D8 (2026-10-27): implement the remaining pre-listed sensitivity analyses (DESIGN §5.5, §13). These are not tuned; each is run once on TRAIN for reporting and once in the final run.
   - Model side: regulator-conditional hidden factors, CN-outlier exclusion, TP53 dropped for chr17 regulators.

@@ -40,15 +40,17 @@ The findings:
      2.85). Fisher p is 2×10⁻³⁶, but only under an independence assumption we reject.
    - Target-detectability baselines (B4e 7.39, B4 5.73) and co-expression (B2 6.03) all score above the
      CN-only tool on pooled OR. None of these paired differences is significant.
-2. **The predicted direction of effects is better than chance, modestly.**
-   - Among the 131 overlapping pairs, 71.8% are concordant (CN loss ↔ knockdown).
-   - The pooled independence expectation is 54.1%. The within-regulator permutation null, which keeps each
-     regulator's direction bias, has mean 64.7%; against it the excess is about 7 percentage points
-     (p = 0.012).
-   - The overlaps are concentrated in a few regulators: only 6 have ≥ 5 overlapping pairs.
-   - The result holds without HCT116, without CN-outlier lines, with hidden factors and without paralog
-     pairs. It is **not** significant in the S1 sample set (0.586 vs 0.467, p = 0.13) or in the
-     no-split-sibling subset (0.50 vs 0.48, n = 32, p = 0.48).
+2. **The predicted direction of effects looks better than chance, but the test is not trustworthy** (correction
+   D9, 2026-10-28).
+   - Among the 131 overlapping pairs, 71.8% are concordant (CN loss ↔ knockdown). The pooled independence
+     expectation is 54.1%, and the within-regulator permutation null mean is 64.7% (p = 0.012).
+   - **However, a negative control also passes the same test.** C2 builds the same scores from permuted CN:
+     it gives 58.5% vs a null mean of 53.2%, p = 0.001, n = 354.
+   - The within-regulator sign permutation ignores the fact that targets respond in correlated modules, so it
+     is anti-conservative. Its calibration was never checked on negative controls (only the
+     enrichment-permutation test was; DESIGN §6).
+   - The sign result is therefore **not established**. It is also not robust in S1 (p = 0.13) or the
+     no-split-sibling subset (p = 0.48), and the overlaps come from a few regulators (6 with ≥ 5 pairs).
 3. **The cis-instrument gate (G1) is the key ingredient.** On TEST it improves log-OR by +0.97 (paired
    jackknife 95% CI 0.30–1.64), consistent with TRAIN (+0.79).
 4. **The tool has no detectable information for ranking targets within a regulator.**
@@ -56,8 +58,8 @@ The findings:
      0.77–1.15, which bounds any lift at about 15%).
    - The pair-shuffle control C1 gives 3.76 vs 3.85 (Δlog-OR +0.02). Its jackknife CI (−0.75 to 0.79) is
      too wide for C1 on its own to be informative.
-   - DepMap CN tells us *which* regulators have trans consequences detectable by CRISPRi, and (modestly) in
-     which *direction*. It does not tell us *which* of their targets respond.
+   - DepMap CN tells us (weakly) *which* regulators have trans consequences detectable by CRISPRi. It does not
+     tell us *which* of their targets respond, and the evidence on the *direction* is not established (finding 2).
 5. **The context layer adds target detectability and reaches OR 18.4.**
    - It is not significantly different from the DepMap-only hub prior B5 (Δlog-OR −0.22, CI −2.29 to 1.86).
    - It does beat the same fusion built on permuted CN (C2; +0.55, CI 0.07–1.03). So the real CN evidence
@@ -203,9 +205,9 @@ All of these are in `results/final/summary.md`.
 DepMap copy-number variation acts as a weak and heavily confounded natural perturbation; the evidence that it is informative at all is suggestive rather than conclusive on TEST (§1):
 - **Which regulators.** Regulators whose own mRNA strongly tracks their CN are the ones whose CRISPRi
   knockdown has detectable trans consequences. Restricting to them roughly doubles to triples enrichment.
-- **Direction (modest).** The direction of DepMap CN→expression associations tends to predict the direction
-  of knockdown effects: 72% concordant against a 65% within-regulator null. The result is not robust in every
-  sensitivity analysis.
+- **Direction (not established).** 72% of overlapping pairs are concordant, against a 65% within-regulator
+  null. But a permuted-CN negative control passes the same test, so the test is miscalibrated and this is not
+  evidence (D9).
 - **Not which targets.** Within a regulator, which targets respond in a single-cell CRISPRi screen of one line
   is not detectably predicted by cross-line CN associations. Perturb-seq power is dominated by target expression
   depth, and DepMap trans associations are dominated by arm-level co-dosage signatures.
@@ -231,7 +233,10 @@ DepMap copy-number variation acts as a weak and heavily confounded natural pertu
 - **The call set is large** (10.7 M trans pairs genome-wide; 1.2 M in the TEST universe) because λ_GC ≈ 2.1 reflects genuine arm-level structure. Its
   enrichment is modest (OR 1.15). For use, ranking is preferable to calling.
 
-- **The sign result is not robust in every sensitivity analysis** (S1 p = 0.13; no-split-sibling p = 0.48).
+- **The sign-concordance test is miscalibrated.** The permuted-CN control C2 passes it (p = 0.001), so the
+  selected method's p = 0.012 is not evidence of correct directions. It is also not robust (S1 p = 0.13;
+  no-split-sibling p = 0.48). A calibrated test would need to preserve target-module structure, for example
+  by permuting regulators rather than target signs.
 - **The CN-only tool does not significantly beat NC1 in the paired test**, and its pooled OR is below B2, B4
   and B4e.
 - **The no-split-sibling subset is weaker** (OR 2.61, CI 0.41–16.6, perm p 0.15). It contains regulators
